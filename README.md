@@ -1,0 +1,1 @@
+oc-tailwind-shopaholic-theme
