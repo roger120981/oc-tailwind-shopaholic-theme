@@ -1,7 +1,8 @@
 # US-04: Find Product Item(s)
-### As a User I can search for Product Items so that I can find the appropriate Product Item faster.
 
-#### **Acceptance criteria:**
+As a User I can search for Product Items so that I can find the appropriate Product Item faster.
+
+## **Acceptance criteria:**
 
 <table>
     <tr>
@@ -13,7 +14,7 @@
         <td>I can search for any combination of symbols, typed into the Search Form.</td>
     <tr>
         <td>3.</td>
-        <td>I can see autosuggestions for my Search Quiry. </td>
+        <td>I can see autosuggestions for my Search Quiry.</td>
     </tr>
         <td>4.</td>
         <td>I can click on this sussgestions so that I can see the Search Result faster.</td>
@@ -27,11 +28,11 @@
     </tr>
     <tr>
         <td>7.</td>
-        <td>I can open found “Product Description” page of any founded Product Card for more details.</td>
+        <td>I can open found "Product Description" page of any founded Product Card for more details.</td>
     </tr>
 </table>
 
-#### **Alternative scenario:**
+## **Alternative scenario:**
 
 <table>
      <tr>
@@ -39,7 +40,7 @@
     </tr>
     <tr>
         <td>6A.</td>
-        <td>I can see the following message: “No results found for "ХХХ".”.</td>
+        <td>I can see the following message: "No results found for "ХХХ".".</td>
      </tr>
      <tr>
         <td>7A.</td>
@@ -54,6 +55,6 @@
      </tr>
      <tr>
         <td>6B</td>
-        <td>See pp.5 of the Main Scenario.</td>
+        <td>See pp. 5 of the Main Scenario.</td>
     </tr> 
 </table>

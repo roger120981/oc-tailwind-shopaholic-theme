@@ -1,7 +1,8 @@
 # US-05:  Add a Product Item to the Wish List
-### As a User I can add a Product Item to the Wish List so that I can have all the Product Items I want to buy in one place.
 
-#### **Acceptance criteria:**
+As a User I can add a Product Item to the Wish List so that I can have all the Product Items I want to buy in one place.
+
+## **Acceptance criteria:**
 
 <table>
     <tr>
@@ -27,7 +28,7 @@
 
 </table>
 
-#### **Alternative scenario:**
+## **Alternative scenario:**
 
 <table>
     <tr>

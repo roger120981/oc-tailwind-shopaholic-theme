@@ -1,8 +1,8 @@
 # US-07: Log in
 
-### As a User I can Log in to the System so that I can easily buy a Product Item.
+As a User I can Log in to the System so that I can easily buy a Product Item.
 
-#### **Acceptance criteria:**
+## **Acceptance criteria:**
 
 <table>
     <tr>
@@ -44,7 +44,7 @@
     </tr>
 </table>
 
-#### **Alternative scenarios:**
+## **Alternative scenarios:**
 
 <table>
     <tr>
