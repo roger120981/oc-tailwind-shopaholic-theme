@@ -25,6 +25,7 @@
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1"
   },
   "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.2.0",
     "cross-env": "^7.0.2"
   }
 }
