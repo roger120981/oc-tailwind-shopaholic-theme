@@ -4,9 +4,9 @@ let postCssPlugins = [
     require('tailwindcss'),
 ];
 
-mix.setPublicPath('./');
+mix.setPublicPath('./assets/');
 
-mix.setResourceRoot('/themes/lovata-tailwind-shopaholic');
+mix.setResourceRoot('/themes/lovata-tailwind-shopaholic/');
 
 mix.js('assets/src/js/app.js', 'assets/dist/js');
 

@@ -1,0 +1,24 @@
+<nav class="overflow-auto xl:overflow-hidden scrollbar-x-none" role="navigation">
+    <ul class="flex flex-nowrap xl:flex-wrap text-gray-600" aria-label="breadcrumbs" itemscope itemtype="http://schema.org/BreadcrumbList">
+        <li class="" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a class="underline" href="{{ 'index'|page }}" itemprop="item">
+                <span itemprop="name">Home</span>
+            </a>
+            <meta itemprop="position" content="1" />
+        </li>
+        {% for key in 1..12 %}
+            <li class="pl-3 inline-flex before:separator whitespace-nowrap" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+                {% if loop.last %}
+                <span class="ml-3" itemtype="http://schema.org/Thing" itemprop="item">
+                    <span itemprop="name">Page Titlte</span>
+                </span>
+                {% else %}
+                <a class="underline hover:text-blue-700 focus:text-blue-800 active:text-blue-900 ml-3" href="#" itemtype="http://schema.org/Thing" itemprop="item">
+                    <span itemprop="name">Page</span>
+                </a>
+                {% endif %}
+                <meta itemprop="position" content="{{ key + 2 }}" />
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
