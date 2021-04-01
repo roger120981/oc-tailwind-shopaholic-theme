@@ -1,3 +1,4 @@
+const plugin = require('tailwindcss/plugin')
 
 module.exports = {
   corePlugins: {
@@ -17,5 +18,14 @@ module.exports = {
   variants: {},
   plugins: [
     require('@tailwindcss/typography'),
+    require('tailwindcss-pseudo-elements'),
+    plugin(function ({ addUtilities }) {
+      const newUtilities = {
+        '.separator': {
+          content: 'url(/themes/lovata-tailwind-shopaholic/assets/images/separator.svg)',
+        }
+      }
+      addUtilities(newUtilities, ['before'])
+    }),
   ],
 }
