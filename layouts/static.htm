@@ -7,12 +7,22 @@ function onInit()
 }
 ?>
 ==
+
+{% spaceless %}
 <!DOCTYPE html>
-<html lang="{{ activeLocale ? activeLocale : 'en' }}">
+<html lang="{{ activeLocale ? activeLocale : 'en' }}" class="h-full">
     <head>
-        {% partial 'common/head/head' %}
+        {% partial 'head/head' %}
     </head>
-    <body itemscope itemtype="http://schema.org/WebPage">
-    {% page %}
+    <body class="h-full bg-white" itemscope itemtype="http://schema.org/WebPage">
+        <div class="min-h-full grid grid-cols-full grid-rows-auto-fr-auto">
+            {% partial 'header/header' %}
+            <main>
+                {% partial 'breadcrumbs/breadcrumbs' %}
+                {% page %}
+            </main>
+            {% partial 'footer/footer' %}
+        </div>
     </body>
 </html>
+{% endspaceless %}
