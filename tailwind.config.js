@@ -12,6 +12,9 @@ module.exports = {
         },
       gridTemplateRows: {
         'auto-fr-auto': 'auto 1fr auto',
+      },
+      outline: {
+        blue: ['1px dashed #1E40AF', '1px'],
       }
     }
   },
@@ -21,7 +24,8 @@ module.exports = {
       ringWidth: ['focus-visible'],
       ringColor: ['hover', 'active', 'focus', 'focus-visible'],
       ringOffsetWidth: ['responsive', 'focus-visible', 'focus'],
-      textColor: ['disabled'],
+      textColor: ['active', 'focus-visible'],
+      outline: ['focus-visible'],
     }
   },
   plugins: [
