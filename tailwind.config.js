@@ -18,6 +18,7 @@ module.exports = {
   variants: {},
   plugins: [
     require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
     require('tailwindcss-pseudo-elements'),
     plugin(function ({ addUtilities }) {
       const newUtilities = {
@@ -28,4 +29,9 @@ module.exports = {
       addUtilities(newUtilities, ['before'])
     }),
   ],
+  variants: {
+    extend: {
+      backgroundColor: ['group-focus'],
+    }
+  },
 }
