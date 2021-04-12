@@ -1,0 +1,18 @@
+{#
+    TODO:
+    Input values: sAdvancedListType, sButtonName
+    Example for categories:
+    {% partial 'advanced-list/advanced-list'
+        sAdvancedListType=sAdvancedListTypeCategory
+        iTake=6
+        sButtonName='Show all'
+    %}
+    Example for account:
+    {% partial 'advanced-list/advanced-list'
+        sAdvancedListType=sAdvancedListTypeAccount
+        iTake=6
+    %}
+#}
+<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-4 _advanced-list">
+    {% partial 'advanced-list/advanced-list-ajax' sAdvancedListType=sAdvancedListType iTake=iTake sButtonName=sButtonName %}
+</ul>

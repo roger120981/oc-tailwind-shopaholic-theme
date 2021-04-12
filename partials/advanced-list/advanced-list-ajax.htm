@@ -1,0 +1,35 @@
+[CategoryList]
+==
+{% set sAdvancedListType = sAdvancedListType|default(input('advanced_list_type')) %}
+{% if sAdvancedListType == sAdvancedListTypeCategory %}
+    {% set arCategoryList = CategoryList.make().tree().take(iTake) %}
+    {% for obCategory in arCategoryList if obCategory.product_count > 0 %}
+        {% partial 'advanced-list/advanced-item'
+            sName=obCategory.name
+            sUrl=obCategory.getPageUrl('product-list')
+            sImagePath=obCategory.icon.path
+        %}
+    {% endfor %}
+{% elseif sAdvancedListType == sAdvancedListTypeAccount %}
+    {% set arList = [
+        {'name': 'My orders', 'url': '#', 'icon_path': 'assets/images/temp_img/1.svg'|theme},
+        {'name': 'My details', '#': '#', 'icon_path': 'assets/images/temp_img/1.svg'|theme},
+        {'name': 'Wish list', 'url': '#', 'icon_path': 'assets/images/temp_img/1.svg'|theme},
+        {'name': 'Change password', 'url': '#', 'icon_path': 'assets/images/temp_img/1.svg'|theme},
+        {'name': 'Need help?', 'url': '#', 'icon_path': 'assets/images/temp_img/1.svg'|theme},
+        {'name': 'Sign out', 'url': '#', 'icon_path': 'assets/images/temp_img/1.svg'|theme}
+    ] %}
+    {% if iTake is not empty %}
+        {% set arList = arList|slice(0, iTake) %}
+    {% endif %}
+    {% for arItem in arList %}
+        {% partial 'advanced-list/advanced-item'
+            sName=arItem.name
+            sUrl=arItem.url
+            sImagePath=arItem.icon_path
+        %}
+    {% endfor %}
+{% endif %}
+{% if sButtonName is not empty %}
+    <button class="_advanced-list-button-show-all" data-advanced-list-type="{{ sAdvancedListType }}">{{ sButtonName }}</button>
+{% endif %}

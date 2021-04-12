@@ -3,3 +3,5 @@ import '../../../../../modules/system/assets/js/framework.extras';
 
 /* * Top Info Block * */
 import '/partials/top-info-block/top-info-block';
+/* * Advanced list * */
+import '/partials/advanced-list/advanced-list';
