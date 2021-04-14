@@ -11,7 +11,7 @@ module.exports = {
         'full': '100%',
         'social': 'repeat(auto-fill, 40px)',
         'payments': 'repeat(auto-fit, 56px)',
-        },
+      },
       gridTemplateRows: {
         'auto-fr-auto': 'auto 1fr auto',
       },
@@ -48,4 +48,9 @@ module.exports = {
       addUtilities(newUtilities, ['before'])
     }),
   ],
+  variants: {
+    extend: {
+      backgroundColor: ['group-focus'],
+    }
+  },
 }
