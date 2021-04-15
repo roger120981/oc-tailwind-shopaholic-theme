@@ -3,7 +3,11 @@ const plugin = require('tailwindcss/plugin')
 module.exports = {
   corePlugins: {
   },
-  purge: [],
+  purge: [
+    './layouts/**/*.htm',
+    './pages/**/*.htm',
+    './partials/**/*.htm',
+  ],
   darkMode: false,
   theme: {
     extend: {
@@ -11,7 +15,7 @@ module.exports = {
         'full': '100%',
         'social': 'repeat(auto-fill, 40px)',
         'payments': 'repeat(auto-fit, 56px)',
-        },
+      },
       gridTemplateRows: {
         'auto-fr-auto': 'auto 1fr auto',
       },
@@ -25,17 +29,19 @@ module.exports = {
   },
   variants: {
     extend: {
-      margin: ['first'],
-      textColor: ['active', 'focus-visible'],
+      margin: ['first', "last"],
+      textColor: ['active', 'focus-visible', 'visited'],
       outline: ['focus-visible'],
       backgroundColor: ['group-focus', 'active', 'focus-visible', 'disabled'],
       ringWidth: ['focus-visible'],
       ringColor: ['hover', 'active', 'focus', 'focus-visible'],
-      ringOffsetWidth: ['responsive', 'focus-visible', 'focus']
+      ringOffsetWidth: ['responsive', 'focus-visible', 'focus'],
+      opacity: ['hover', 'focus']
     }
   },
   plugins: [
     require('@tailwindcss/typography'),
+    require('tailwindcss-scroll-snap'),
     require('@tailwindcss/aspect-ratio'),
     require('tailwindcss-pseudo-elements'),
     plugin(function ({ addUtilities }) {
@@ -46,10 +52,5 @@ module.exports = {
       }
       addUtilities(newUtilities, ['before'])
     }),
-  ],
-  variants: {
-    extend: {
-      backgroundColor: ['group-focus'],
-    }
-  },
+  ]
 }
