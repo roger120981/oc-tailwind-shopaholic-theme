@@ -46,6 +46,7 @@ module.exports = {
     }
   },
   plugins: [
+    require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
     require('tailwindcss-scroll-snap'),
     require('@tailwindcss/aspect-ratio'),
