@@ -11,3 +11,4 @@ import '/partials/product-list-small/product-list-small';
 /* * Account * */
 import '/partials/account/sign-up';
 import '/partials/account/sign-in';
+import '/partials/account/restore-password';
