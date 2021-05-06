@@ -10,3 +10,4 @@ import '/partials/product-card/wish-list';
 import '/partials/product-list-small/product-list-small';
 /* * Account * */
 import '/partials/account/sign-up';
+import '/partials/account/sign-in';
