@@ -9,4 +9,9 @@ import '/partials/product-card/wish-list';
 /* * Product list small * */
 import '/partials/product-list-small/product-list-small';
 /* * Account * */
-import '/partials/account/reset-password';
+// TODO: To decide regarding the assets with no markup
+import '/partials/account/sign-up';
+import '/partials/account/sign-in';
+import '/partials/account/restore-password';
+/* TODO: Rename restore-password file*/
+import '/partials/account/account-change-password';
