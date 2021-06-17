@@ -59,6 +59,32 @@ tabs:
             span: full
             tab: 'Content'
 
+        pickup_points_section:
+            label: 'Pickup Points'
+            type: section
+            span: full
+            tab: 'Content'
+        pickup_points_active:
+            label: 'lovata.toolbox::lang.field.active'
+            type: switch
+            span: full
+            tab: 'Content'
+        pickup_points_list:
+            type: repeater
+            span: full
+            style: collapsed
+            tab: 'Content'
+            trigger:
+                action: show
+                field: pickup_points_active
+                condition: checked
+            form:
+                fields:
+                    point:
+                        label: 'Pickup Point Adress'
+                        type: text
+                        span: full
+
         top_info_block_section:
             label: 'Top Info Block'
             type: section
@@ -225,6 +251,62 @@ tabs:
             placeholder: '/page-link'
             span: right
             tab: 'Content'
+
+        map_section:
+            label: 'Map Section'
+            type: section
+            span: full
+            tab: 'Content'
+        map_section_active:
+            label: 'lovata.toolbox::lang.field.active'
+            type: switch
+            span: full
+            tab: 'Content'
+        map_api_key:
+            label: 'Api key'
+            type: text
+            span: left
+            required: 0
+            tab: 'Content'
+            placeholder: 'Api key'
+            trigger:
+                action: show
+                field: map_section_active
+                condition: checked
+        map_popup_title:
+            label: 'lovata.toolbox::lang.field.title'
+            type: text
+            span: right
+            required: 0
+            tab: 'Content'
+            placeholder: 'lovata.toolbox::lang.field.title'
+            trigger:
+                action: show
+                field: map_section_active
+                condition: checked
+        map_lat:
+            label: 'Lat'
+            type: text
+            span: left
+            required: 0
+            tab: 'Content'
+            placeholder: 'Lat'
+            trigger:
+                action: show
+                field: map_section_active
+                condition: checked
+        map_lng:
+            label: 'Lng'
+            type: text
+            span: right
+            required: 0
+            tab: 'Content'
+            placeholder: 'Lng'
+            trigger:
+                action: show
+                field: map_section_active
+                condition: checked
+
 
 ### Functionality
         shopaholic_bar_section:

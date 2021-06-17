@@ -24,10 +24,21 @@ module.exports = {
       },
       backgroundSize: {
         '65': '65%',
+        '300': '300px',
       },
       fontSize: {
         error: ['9rem', '1'],
       },
+      maxWidth: {
+        '850': '850px',
+        'screen': '100vw',
+      },
+      backgroundImage: {
+        'feedback': "url('/themes/lovata-tailwind-shopaholic/assets/images/union.svg')",
+      },
+      margin: {
+        '-screen-1/2': '-50vw',
+      }
     }
   },
   variants: {
