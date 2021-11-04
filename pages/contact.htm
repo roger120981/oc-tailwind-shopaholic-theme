@@ -3,8 +3,21 @@ url = "/contact"
 layout = "main"
 is_hidden = 0
 
+[genericForm]
+messages_success = "Your form was successfully submitted"
+messages_errors = "There were errors with your submission"
+reset_form = 1
+inline_errors = "disabled"
+allowed_fields[] = "name"
+allowed_fields[] = "email"
+allowed_fields[] = "message"
+sanitize_data = "disabled"
+anonymize_ip = "disabled"
+recaptcha_theme = "light"
+recaptcha_type = "image"
+recaptcha_size = "normal"
+emails_date_format = "Y-m-d"
 ==
-
 {##}
 {% partial 'breadcrumbs/breadcrumbs' %}
 <h1 class="text-lg md:text-3xl text-gray-900 font-medium uppercase mb-4 md:mb-6">Contact us</h1>
@@ -46,7 +59,9 @@ is_hidden = 0
     <div class="flex sm:container sm:mx-auto px-4">
         <div class="md:ml-auto w-full lg:max-w-screen-sm xl:max-w-850 mb-8 md:mb-12">
             <h2 class="text-lg md:text-2xl text-gray-900 font-medium mb-4 md:mb-6 uppercase">Waiting for your feedback</h2>
-            <form>
+            <form data-request="genericForm::onFormSubmit" method="POST">
+                {{ form_token() }}
+                <div id="genericForm_forms_flash"></div>
                 {% partial 'input/input'
                     sId = 'name'
                     sLabelText = 'Your name '
