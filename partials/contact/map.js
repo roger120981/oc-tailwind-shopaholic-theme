@@ -51,7 +51,7 @@ export default new class ContactMap {
         center,
         zoom: 14,
       });
-      const marker = new googleMaps.Marker({ position: center, map, icon: markerPath });
+      const marker = new googleMaps.Marker({ position: coordinates, map, icon: markerPath });
 
       $.request('onAjax', {
         update: { 'contact/popup': `.${this.mapSelector}` },
@@ -64,6 +64,9 @@ export default new class ContactMap {
             infowindow.open(map, marker);
           });
         },
+      });
+      $.getJSON("/map-style.json", function (data) {
+        map.setOptions({ styles: data });
       });
     }).catch((error) => { throw new Error(error); });
   }
