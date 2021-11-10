@@ -1,0 +1,31 @@
+<form class="_required" data-request="genericForm::onFormSubmit" method="POST">
+    {{ form_token() }}
+    <div id="genericForm_forms_flash"></div>
+    {% partial 'input/input'
+        sId = 'name'
+        sLabelText = 'Your name '
+        name = 'name'
+        required = 'required'
+        type = 'text'
+        sPartialClasses = 'relative'
+    %}
+    {% partial 'input/input'
+        sId = 'form-email'
+        sLabelText = 'E-mail'
+        name = 'email'
+        required = 'required'
+        type = 'email'
+        sPartialClasses = 'mt-7 md:mt-8 relative'
+    %}
+    {% partial 'textarea/textarea'
+        sId = 'message'
+        sLabelText = 'Your message'
+        name = 'message'
+        sPartialClasses = 'mt-7 md:mt-8 relative'
+    %}
+    {% partial 'button/button'
+        sText = 'Send'
+        sType = 'submit'
+        sPartialClasses = 'w-full md:w-auto mt-12 md:mt-10'
+    %}
+</form>

@@ -53,42 +53,24 @@ emails_date_format = "Y-m-d"
             </div>
         {% endif %}
     </div>
-    {% partial 'contact/map' %}
-</div>
-<div class="full-width lg:bg-feedback lg:bg-no-repeat lg:bg-left lg:bg-300 xl:bg-auto">
-    <div class="flex sm:container sm:mx-auto px-4">
-        <div class="md:ml-auto w-full lg:max-w-screen-sm xl:max-w-850 mb-8 md:mb-12">
+    {% set sApiKey = this.theme.map_api_key %}
+    {% set sActive = this.theme.map_section_active %}
+    {% if sActive and sApiKey is not empty %}
+        {% partial 'map/map' sApiKey = sApiKey %}
+    {% else %}
+        <div class="lg:ml-auto w-full lg:max-w-screen-sm xl:max-w-850 mt-7 md:mt-0">
             <h2 class="text-lg md:text-2xl text-gray-900 font-medium mb-4 md:mb-6 uppercase">Waiting for your feedback</h2>
-            <form class="_required" data-request="genericForm::onFormSubmit" method="POST">
-                {{ form_token() }}
-                <div id="genericForm_forms_flash"></div>
-                {% partial 'input/input'
-                    sId = 'name'
-                    sLabelText = 'Your name '
-                    name = 'name'
-                    required = 'required'
-                    type = 'text'
-                %}
-                {% partial 'input/input'
-                    sId = 'form-email'
-                    sLabelText = 'E-mail'
-                    name = 'email'
-                    required = 'required'
-                    type = 'email'
-                    sPartialClasses = 'mt-4'
-                %}
-                {% partial 'textarea/textarea'
-                    sId = 'message'
-                    sLabelText = 'Your message'
-                    name = 'message'
-                    sPartialClasses = 'mt-4'
-                %}
-                {% partial 'button/button'
-                    sText = 'Send'
-                    sType = 'submit'
-                    sPartialClasses = 'w-full md:w-auto mt-6 md:mt-10'
-                %}
-            </form>
+            {% partial 'feedback-form/feedback-form' %}
+        </div>
+    {% endif %}
+</div>
+{% if sActive and sApiKey is not empty %}
+    <div class="full-width lg:bg-feedback lg:bg-no-repeat lg:bg-left lg:bg-300 xl:bg-auto">
+        <div class="flex sm:container sm:mx-auto px-4">
+            <div class="md:ml-auto w-full lg:max-w-screen-sm xl:max-w-850 mb-8 md:mb-12">
+                <h2 class="text-lg md:text-2xl text-gray-900 font-medium mb-4 md:mb-6 uppercase">Waiting for your feedback</h2>
+                {% partial 'feedback-form/feedback-form' %}
+            </div>
         </div>
     </div>
-</div>
+{% endif %}
