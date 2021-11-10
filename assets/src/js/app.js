@@ -14,4 +14,4 @@ import '/partials/account/sign-up';
 import '/partials/account/sign-in';
 import '/partials/account/restore-password';
 import '/partials/account/account-change-password';
-import '/partials/contact/map.js';
+import '/partials/map/map.js';

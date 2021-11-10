@@ -54,7 +54,7 @@ export default new class ContactMap {
       const marker = new googleMaps.Marker({ position: coordinates, map, icon: markerPath });
 
       $.request('onAjax', {
-        update: { 'contact/popup': `.${this.mapSelector}` },
+        update: { 'map/popup': `.${this.mapSelector}` },
         success: (res) => {
           const content = res['contact/popup'];
           const infowindow = new googleMaps.InfoWindow({ content, maxWidth: this.maxWidth });
