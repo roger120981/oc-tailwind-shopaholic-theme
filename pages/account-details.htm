@@ -11,13 +11,13 @@ is_hidden = 0
     <h1 class="font-medium uppercase text-xl md:text-3xl mb-4">My details</h1>
     <span class="text-gray-600 text-sm md:text-base mb-4 inline-block">* — required fields</span>
     <form class="_required">
-        {% partial 'input/input' sLabelText = 'Your name *' type = 'text' id = 'name' name = 'name' required = 'required' %}
-        {% partial 'input/input' sLabelText = 'E-mail *' type = 'email' id = 'mail' name = 'mail' required = 'required' sPartialClasses = 'mt-4' %}
-        {% partial 'input/input' sLabelText = 'Phone number' type = 'text' id = 'phone' name = 'phone' sPartialClasses = 'mt-4' %}
-        {% partial 'input/input' sLabelText = 'Postal address' type = 'text' id = 'address' name = 'address' sPartialClasses = 'mt-4' %}
-        {% partial 'input/input' sLabelText = 'Country' type = 'text' id = 'country' name = 'country' sPartialClasses = 'mt-4' %}
-        {% partial 'input/input' sLabelText = 'Zip сode' type = 'text' id = 'zip' name = 'zip' sPartialClasses = 'mt-4' %}
+        {% partial 'input/input' sLabelText = 'Your name *' sType = 'text' sId = 'name' sName = 'name' required = 'required' %}
+        {% partial 'input/input' sLabelText = 'E-mail *' sType = 'email' sId = 'mail' sName = 'mail' required = 'required' sPartialClasses = 'mt-4' %}
+        {% partial 'input/input' sLabelText = 'Phone number' sType = 'text' sId = 'phone' sName = 'phone' sPartialClasses = 'mt-4' %}
+        {% partial 'input/input' sLabelText = 'Postal address' sType = 'text' sId = 'address' sName = 'address' sPartialClasses = 'mt-4' %}
+        {% partial 'input/input' sLabelText = 'Country' sType = 'text' sId = 'country' sName = 'country' sPartialClasses = 'mt-4' %}
+        {% partial 'input/input' sLabelText = 'Zip сode' sType = 'text' sId = 'zip' sName = 'zip' sPartialClasses = 'mt-4' %}
 
-        {% partial 'button/button' sText = 'Save changes' type = 'submit' sPartialClasses = 'w-full md:w-auto mt-8' %}
+        {% partial 'button/button' sText = 'Save changes' sType = 'submit' sPartialClasses = 'w-full md:w-auto mt-8' %}
     </form>
 </div>
