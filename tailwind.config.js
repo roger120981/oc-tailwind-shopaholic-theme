@@ -29,9 +29,15 @@ module.exports = {
       fontSize: {
         error: ['9rem', '1'],
       },
+      maxWidth: {
+        'screen': '100vw',
+      },
       padding: {
         '54': '13.5rem',
         '57': '14.25rem',
+      },
+      margin: {
+        '-screen-1/2': '-50vw',
       }
     }
   },
@@ -40,7 +46,7 @@ module.exports = {
       margin: ['first', 'last'],
       textColor: ['active', 'focus-visible', 'visited'],
       outline: ['focus-visible'],
-      backgroundColor: ['group-focus', 'active', 'focus-visible', 'disabled'],
+      backgroundColor: ['group-focus', 'active', 'focus-visible', 'disabled', 'even'],
       ringWidth: ['focus-visible'],
       ringColor: ['hover', 'active', 'focus', 'focus-visible'],
       ringOffsetWidth: ['responsive', 'focus-visible', 'focus'],
