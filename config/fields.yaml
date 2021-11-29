@@ -1,79 +1,79 @@
 tabs:
     fields:
-### Content
+        ### Content
         business_card_section:
-            label: 'Business Сard'
+            label: "Business Сard"
             type: section
             span: full
-            tab: 'Content'
+            tab: "Content"
         business_card_name:
-            label: 'Store name'
+            label: "Store name"
             type: text
             span: left
-            tab: 'Content'
+            tab: "Content"
         business_card_image:
-            label: 'Logo'
-            comment: 'Recommended resolution: 300×75px. The SVG format is supported.'
+            label: "Logo"
+            comment: "Recommended resolution: 300×75px. The SVG format is supported."
             type: mediafinder
             span: right
             mode: image
-            tab: 'Content'
+            tab: "Content"
         business_card_description:
-            label: 'Store description or tagline'
+            label: "Store description or tagline"
             type: text
             span: left
-            tab: 'Content'
+            tab: "Content"
         business_card_image_alt:
-            label: 'Alternative text'
-            comment: 'This string will have been shown in case an image has not loaded on the page.'
+            label: "Alternative text"
+            comment: "This string will have been shown in case an image has not loaded on the page."
             type: text
             span: right
-            tab: 'Content'
+            tab: "Content"
         business_card_phone:
-            label: 'Phone'
-            comment: 'This string will be rendered on the page as a clickable hyperlink.'
+            label: "Phone"
+            comment: "This string will be rendered on the page as a clickable hyperlink."
             type: text
             span: left
-            tab: 'Content'
+            tab: "Content"
         business_card_image_title:
-            label: 'Title'
-            comment: 'This string will be shown on the mouse hover on the image.'
+            label: "Title"
+            comment: "This string will be shown on the mouse hover on the image."
             type: text
             span: right
-            tab: 'Content'
+            tab: "Content"
         business_card_email:
-            label: 'E-mail'
-            comment: 'This string will be rendered on the page as a clickable hyperlink.'
+            label: "E-mail"
+            comment: "This string will be rendered on the page as a clickable hyperlink."
             type: text
             span: left
-            tab: 'Content'
+            tab: "Content"
         business_card_address:
-            label: 'Address'
+            label: "Address"
             type: text
             span: full
-            tab: 'Content'
+            tab: "Content"
         business_card_copyright:
-            label: 'Page copyright'
-            placeholder: '© 2020 Atmosphere. All rights reserved.'
+            label: "Page copyright"
+            placeholder: "© 2020 Atmosphere. All rights reserved."
             type: text
             span: full
-            tab: 'Content'
+            tab: "Content"
 
         pickup_points_section:
-            label: 'Pickup Points'
+            label: "Pickup Points"
             type: section
             span: full
-            tab: 'Content'
+            tab: "Content"
         pickup_points_active:
-            label: 'lovata.toolbox::lang.field.active'
+            label: "lovata.toolbox::lang.field.active"
             type: switch
             span: full
-            tab: 'Content'
+            tab: "Content"
         pickup_points_list:
             type: repeater
             span: full
             style: collapsed
-            tab: 'Content'
+            tab: "Content"
             trigger:
                 action: show
                 field: pickup_points_active
@@ -81,41 +81,41 @@ tabs:
             form:
                 fields:
                     point:
-                        label: 'Pickup Point Adress'
+                        label: "Pickup Point Adress"
                         type: text
                         span: full
 
         top_info_block_section:
-            label: 'Top Info Block'
+            label: "Top Info Block"
             type: section
             span: full
-            tab: 'Content'
+            tab: "Content"
         top_info_block_active:
-            label: 'lovata.toolbox::lang.field.active'
+            label: "lovata.toolbox::lang.field.active"
             type: switch
             span: full
-            tab: 'Content'
+            tab: "Content"
         top_info_block:
-            label: 'lovata.toolbox::lang.field.description'
+            label: "lovata.toolbox::lang.field.description"
             type: richeditor
             span: full
-            tab: 'Content'
+            tab: "Content"
 
         payment_methods_list_section:
-            label: 'Payment Methods'
+            label: "Payment Methods"
             type: section
             span: full
-            tab: 'Content'
+            tab: "Content"
         payment_methods_list_active:
-            label: 'lovata.toolbox::lang.field.active'
+            label: "lovata.toolbox::lang.field.active"
             type: switch
             span: full
-            tab: 'Content'
+            tab: "Content"
         payment_methods_list:
             type: repeater
             span: full
             style: collapsed
-            tab: 'Content'
+            tab: "Content"
             trigger:
                 action: show
                 field: payment_methods_list_active
@@ -123,41 +123,41 @@ tabs:
             form:
                 fields:
                     alt:
-                        label: 'Alternative text'
+                        label: "Alternative text"
                         type: text
                         span: left
-                        comment: 'This string will have been shown in case an image has not loaded on the page.'
+                        comment: "This string will have been shown in case an image has not loaded on the page."
                     image:
-                        label: 'lovata.toolbox::lang.field.image'
+                        label: "lovata.toolbox::lang.field.image"
                         type: mediafinder
                         span: right
                         mode: image
-                        comment: 'Recommended resolution: 56×36px. The SVG format is supported.'
+                        comment: "Recommended resolution: 56×36px. The SVG format is supported."
                     title:
-                        label: 'Title'
+                        label: "Title"
                         type: text
                         span: left
-                        comment: 'This string will be shown on the mouse hover on the image.'
+                        comment: "This string will be shown on the mouse hover on the image."
                     url:
-                        label: 'lovata.toolbox::lang.field.slug'
+                        label: "lovata.toolbox::lang.field.slug"
                         type: text
                         span: left
 
         social_networks_list_section:
-            label: 'Social Media'
+            label: "Social Media"
             type: section
             span: full
-            tab: 'Content'
+            tab: "Content"
         social_networks_list_active:
-            label: 'lovata.toolbox::lang.field.active'
+            label: "lovata.toolbox::lang.field.active"
             type: switch
             span: full
-            tab: 'Content'
+            tab: "Content"
         social_networks_list:
             type: repeater
             span: full
             style: collapsed
-            tab: 'Content'
+            tab: "Content"
             trigger:
                 action: show
                 field: social_networks_list_active
@@ -165,195 +165,195 @@ tabs:
             form:
                 fields:
                     alt:
-                        label: 'Alternative text'
+                        label: "Alternative text"
                         type: text
                         span: left
-                        comment: 'This string will have been shown in case an image has not loaded on the page.'
+                        comment: "This string will have been shown in case an image has not loaded on the page."
                     image:
-                        label: 'lovata.toolbox::lang.field.image'
+                        label: "lovata.toolbox::lang.field.image"
                         type: mediafinder
                         span: right
                         mode: image
-                        comment: 'Recommended resolution: 40×40px. The SVG format is supported.'
+                        comment: "Recommended resolution: 40×40px. The SVG format is supported."
                     title:
-                        label: 'Title'
+                        label: "Title"
                         type: text
                         span: left
-                        comment: 'This string will be shown on the mouse hover on the image.'
+                        comment: "This string will be shown on the mouse hover on the image."
                     url:
-                        label: 'lovata.toolbox::lang.field.slug'
+                        label: "lovata.toolbox::lang.field.slug"
                         type: text
                         span: left
-                        placeholder: 'lovata.toolbox::lang.field.slug'
+                        placeholder: "lovata.toolbox::lang.field.slug"
         page_seo_block_section:
-            label: 'Page SEO Block'
+            label: "Page SEO Block"
             type: section
             span: full
-            tab: 'Content'
+            tab: "Content"
         page_seo_block_active:
-            label: 'lovata.toolbox::lang.field.active'
+            label: "lovata.toolbox::lang.field.active"
             type: switch
             span: full
-            tab: 'Content'
+            tab: "Content"
         page_seo_block_text:
-            label: 'SEO Text'
+            label: "SEO Text"
             type: richeditor
             span: left
-            tab: 'Content'
+            tab: "Content"
             trigger:
                 action: show
                 field: page_seo_block_active
                 condition: checked
         page_seo_block_image:
-            label: 'Image'
+            label: "Image"
             type: mediafinder
             span: right
             mode: image
-            tab: 'Content'
+            tab: "Content"
             trigger:
                 action: show
                 field: page_seo_block_active
                 condition: checked
         page_seo_block_image_alt:
-            label: 'Alternative text'
-            comment: 'This string will have been shown in case an image has not loaded on the page.'
+            label: "Alternative text"
+            comment: "This string will have been shown in case an image has not loaded on the page."
             type: text
             span: right
-            tab: 'Content'
+            tab: "Content"
             trigger:
                 action: show
                 field: page_seo_block_active
                 condition: checked
         page_seo_block_image_title:
-            label: 'Title'
-            comment: 'This string will be shown on the mouse hover on the image.'
+            label: "Title"
+            comment: "This string will be shown on the mouse hover on the image."
             type: text
             span: right
-            tab: 'Content'
+            tab: "Content"
             trigger:
                 action: show
                 field: page_seo_block_active
                 condition: checked
         sign_up_section:
-            label: 'Sign Up Settings'
+            label: "Sign Up Settings"
             type: section
             span: full
-            tab: 'Content'
+            tab: "Content"
         sign_up_section_terms_link:
-            label: 'Terms & Conditions page link'
+            label: "Terms & Conditions page link"
             type: text
-            placeholder: '/page-link'
+            placeholder: "/page-link"
             span: left
-            tab: 'Content'
+            tab: "Content"
         sign_up_section_policy_link:
-            label: 'Privacy & Cookie Policy page link'
+            label: "Privacy & Cookie Policy page link"
             type: text
-            placeholder: '/page-link'
+            placeholder: "/page-link"
             span: right
-            tab: 'Content'
+            tab: "Content"
 
         map_section:
-            label: 'Map Section'
+            label: "Map Section"
             type: section
             span: full
-            tab: 'Content'
+            tab: "Content"
         map_section_active:
-            label: 'lovata.toolbox::lang.field.active'
+            label: "lovata.toolbox::lang.field.active"
             type: switch
             span: full
-            tab: 'Content'
+            tab: "Content"
         map_api_key:
-            label: 'Api key'
+            label: "Api key"
             type: text
             span: left
             required: 0
-            tab: 'Content'
-            placeholder: 'Api key'
+            tab: "Content"
+            placeholder: "Api key"
+            comment: "Add Google Map Api Key for work with map."
             trigger:
                 action: show
                 field: map_section_active
                 condition: checked
         map_popup_title:
-            label: 'lovata.toolbox::lang.field.title'
+            label: "lovata.toolbox::lang.field.title"
             type: text
             span: right
             required: 0
-            tab: 'Content'
-            placeholder: 'lovata.toolbox::lang.field.title'
+            tab: "Content"
+            placeholder: "lovata.toolbox::lang.field.title"
             trigger:
                 action: show
                 field: map_section_active
                 condition: checked
         map_lat:
-            label: 'Lat'
+            label: "Lat"
             type: text
             span: left
             required: 0
-            tab: 'Content'
-            placeholder: 'Lat'
+            tab: "Content"
+            placeholder: "Lat"
             trigger:
                 action: show
                 field: map_section_active
                 condition: checked
         map_lng:
-            label: 'Lng'
+            label: "Lng"
             type: text
             span: right
             required: 0
-            tab: 'Content'
-            placeholder: 'Lng'
+            tab: "Content"
+            placeholder: "Lng"
             trigger:
                 action: show
                 field: map_section_active
                 condition: checked
 
-
-### Functionality
+        ### Functionality
         shopaholic_bar_section:
-            label: 'Powered by Shopaholic bar'
+            label: "Powered by Shopaholic bar"
             type: section
             span: full
-            tab: 'Functionality'
+            tab: "Functionality"
         shopaholic_bar:
-            label: 'Active'
+            label: "Active"
             type: switch
             defaul: on
             span: full
-            tab: 'Functionality'
+            tab: "Functionality"
         latest_news_section:
-            label: 'Latest News block on the Index page'
+            label: "Latest News block on the Index page"
             type: section
             span: full
-            tab: 'Functionality'
+            tab: "Functionality"
         latest_news_is_active:
-            label: 'Active'
+            label: "Active"
             type: switch
             defaul: on
             span: full
-            tab: 'Functionality'
+            tab: "Functionality"
         mighty_seo_heading_section:
-            label: 'Get Static Pages Heading from the Myghty SEO plugin'
+            label: "Get Static Pages Heading from the Myghty SEO plugin"
             type: section
             span: full
-            tab: 'Functionality'
+            tab: "Functionality"
         mighty_seo_heading_is_active:
-            label: 'Active'
+            label: "Active"
             type: switch
             defaul: on
             span: full
-            tab: 'Functionality'
-### Plugins
+            tab: "Functionality"
+        ### Plugins
         plugin_check:
-            tab: 'Plugins'
+            tab: "Plugins"
             span: left
             type: partial
             path: ~/themes/lovata-tailwind-shopaholic/config/_plugin_check.htm
         has_wish_list:
-            label: 'Wish List for Shopaholic'
+            label: "Wish List for Shopaholic"
             type: switch
             span: left
             required: 0
-            tab: 'Plugins'
+            tab: "Plugins"
             comment: 'Requires to install <strong><a href="https://octobercms.com/plugin/lovata-wishlistshopaholic">Wish List for Shopaholic</a></strong>'
             commentHtml: true
             # trigger:
@@ -361,11 +361,11 @@ tabs:
             #     field: check_wish_list
             #     condition: checked
         has_lables:
-            label: 'Labels for Shopaholic'
+            label: "Labels for Shopaholic"
             type: switch
             span: left
             required: 0
-            tab: 'Plugins'
+            tab: "Plugins"
             comment: 'Requires to install <strong><a href="https://octobercms.com/plugin/lovata-labelsshopaholic">Labels for Shopaholic</a></strong>'
             commentHtml: true
             # trigger:
@@ -373,11 +373,11 @@ tabs:
             #     field: check_labels
             #     condition: checked
         has_popularity:
-            label: 'Popularity for Shopaholic'
+            label: "Popularity for Shopaholic"
             type: switch
             span: left
             required: 0
-            tab: 'Plugins'
+            tab: "Plugins"
             comment: 'Requires to install <strong><a href="https://octobercms.com/plugin/lovata-popularityshopaholic">Popularity for Shopaholic</a></strong>'
             commentHtml: true
             # trigger:
@@ -385,11 +385,11 @@ tabs:
             #     field: check_popularity
             #     condition: checked
         has_viewed_products:
-            label: 'Viewed Products for Shopaholic'
+            label: "Viewed Products for Shopaholic"
             type: switch
             span: left
             required: 0
-            tab: 'Plugins'
+            tab: "Plugins"
             comment: 'Requires to install <strong><a href="https://octobercms.com/plugin/lovata-viewedproductsshopaholic">Viewed Products for Shopaholic</a></strong>'
             commentHtml: true
             # trigger:
@@ -397,11 +397,11 @@ tabs:
             #     field: check_viewed_products
             #     condition: checked
         has_related_products:
-            label: 'Related product for Shopaholic'
+            label: "Related product for Shopaholic"
             type: switch
             span: left
             required: 0
-            tab: 'Plugins'
+            tab: "Plugins"
             comment: 'Requires to install <strong><a href="https://octobercms.com/plugin/lovata-relatedproductsshopaholic">Related product for Shopaholic</a></strong>'
             commentHtml: true
             # trigger:
@@ -409,11 +409,11 @@ tabs:
             #     field: check_related_products
             #     condition: checked
         has_buddies:
-            label: 'Buddies'
+            label: "Buddies"
             type: switch
             span: left
             required: 0
-            tab: 'Plugins'
+            tab: "Plugins"
             comment: 'Requires to install <strong><a href="https://octobercms.com/plugin/lovata-buddies">Buddies</a></strong>'
             commentHtml: true
             # trigger:
@@ -421,11 +421,11 @@ tabs:
             #     field: check_buddies
             #     condition: checked
         has_faq:
-            label: 'FAQ'
+            label: "FAQ"
             type: switch
             span: left
             required: 0
-            tab: 'Plugins'
+            tab: "Plugins"
             comment: 'Requires to install <strong><a href="https://octobercms.com/plugin/andreishilov-faq">FAQ</a></strong>'
             commentHtml: true
             # trigger:

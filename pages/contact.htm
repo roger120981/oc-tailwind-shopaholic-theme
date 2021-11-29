@@ -4,6 +4,8 @@ layout = "main"
 is_hidden = 0
 
 [genericForm]
+rules[name] = "required"
+rules[email] = "required"
 messages_success = "Your form was successfully submitted"
 messages_errors = "There were errors with your submission"
 reset_form = 1
@@ -55,7 +57,7 @@ emails_date_format = "Y-m-d"
     </div>
     {% set sApiKey = this.theme.map_api_key %}
     {% set sActive = this.theme.map_section_active %}
-    {% if sActive and sApiKey is not empty %}
+    {% if sActive is not empty %}
         {% partial 'map/map' sApiKey = sApiKey %}
     {% else %}
         <div class="lg:ml-auto w-full lg:max-w-screen-sm xl:max-w-850 mt-7 md:mt-0">
@@ -64,7 +66,7 @@ emails_date_format = "Y-m-d"
         </div>
     {% endif %}
 </div>
-{% if sActive and sApiKey is not empty %}
+{% if sActive is not empty %}
     <div class="full-width lg:bg-feedback lg:bg-no-repeat lg:bg-left lg:bg-300 xl:bg-auto">
         <div class="flex sm:container sm:mx-auto px-4">
             <div class="md:ml-auto w-full lg:max-w-screen-sm xl:max-w-850 mb-8 md:mb-12">
