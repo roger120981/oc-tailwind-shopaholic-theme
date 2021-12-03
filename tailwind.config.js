@@ -37,8 +37,8 @@ module.exports = {
   },
   variants: {
     extend: {
-      margin: ['first', 'last'],
-      textColor: ['active', 'focus-visible', 'visited'],
+      margin: ['first', "last"],
+      textColor: ['active', 'focus-visible', 'visited', 'disabled'],
       outline: ['focus-visible'],
       backgroundColor: ['group-focus', 'active', 'focus-visible', 'disabled'],
       ringWidth: ['focus-visible'],
@@ -48,7 +48,8 @@ module.exports = {
       fill: ['hover', 'group-hover', 'group-focus', 'focus'],
       stroke: ['hover', 'group-hover', 'group-focus', 'focus'],
       width: ['hover'],
-      borderWidth: ['first', 'last']
+      borderWidth: ['first', 'last'],
+      borderColor: ['focus-visible']
     }
   },
   plugins: [
