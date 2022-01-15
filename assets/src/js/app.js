@@ -15,3 +15,4 @@ import '/partials/account/sign-in';
 import '/partials/account/restore-password';
 /* TODO: Rename restore-password file*/
 import '/partials/account/account-change-password';
+import '/partials/account/reset-password.js';
