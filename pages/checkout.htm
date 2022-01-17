@@ -12,7 +12,7 @@ is_hidden = 0
     <section class="max-w-xl">
         <h2 class="text-sm md:text-base font-medium text-gray-900 mb-2">Do you have a coupon?</h2>
         <div class="flex flex-col md:flex-row items-center">
-            {% partial 'input/input' placeholder = 'Coupon code' sPartialClasses = 'w-full md:w-1/2' %}
+            {% partial 'input/input' sPlaceholder = 'Coupon code' sPartialClasses = 'w-full md:w-1/2' %}
             {% partial 'button/button' bHost = true sText = 'Apply coupon' sPartialClasses = 'w-full md:w-1/2 mt-2 md:mt-0 md:ml-2' %}
         </div>
     </section>
@@ -28,12 +28,12 @@ is_hidden = 0
     <section class="sm:max-w-xs mt-6 md:mt-8">
         <h2 class="font-medium uppercase text-lg md:text-2xl mb-4">Contact Details</h2>
         <span class="text-gray-600 text-sm md:text-base mb-4 inline-block">* — required fields</span>
-        {% partial 'input/input' sLabelText = 'Your name *' type = 'text' id = 'name' name = 'name' required = 'required' %}
-        {% partial 'input/input' sLabelText = 'Postal address *' type = 'text' id = 'address' name = 'address' sPartialClasses = 'mt-4' required = 'required' %}
-        {% partial 'input/input' sLabelText = 'Country *' type = 'text' id = 'country' name = 'country' sPartialClasses = 'mt-4' required = 'required' %}
-        {% partial 'input/input' sLabelText = 'Zip сode *' type = 'text' id = 'zip' name = 'zip' sPartialClasses = 'mt-4' required = 'required' %}
-        {% partial 'input/input' sLabelText = 'E-mail *' type = 'email' id = 'mail' name = 'mail' required = 'required' sPartialClasses = 'mt-4' %}
-        {% partial 'input/input' sLabelText = 'Phone number *' type = 'text' id = 'phone' name = 'phone' sPartialClasses = 'mt-4' required = 'required' %}
+        {% partial 'input/input' sLabelText = 'Your name *' type = 'text' sId = 'name' sName = 'name' sRequired = 'required' %}
+        {% partial 'input/input' sLabelText = 'Postal address *' sType = 'text' sId = 'address' sName = 'address' sPartialClasses = 'mt-4' sRequired = 'required' %}
+        {% partial 'input/input' sLabelText = 'Country *' sType = 'text' sId = 'country' sName = 'country' sPartialClasses = 'mt-4' sRequired = 'required' %}
+        {% partial 'input/input' sLabelText = 'Zip сode *' sType = 'text' sId = 'zip' sName = 'zip' sPartialClasses = 'mt-4' sRequired = 'required' %}
+        {% partial 'input/input' sLabelText = 'E-mail *' sType = 'email' sId = 'mail' sName = 'mail' sRequired = 'required' sPartialClasses = 'mt-4' %}
+        {% partial 'input/input' sLabelText = 'Phone number *' sType = 'text' sId = 'phone' sName = 'phone' sPartialClasses = 'mt-4' sRequired = 'required' %}
     </section>
     <section class="sm:max-w-xs mt-6 md:mt-8">
         <h2 class="font-medium uppercase text-lg md:text-2xl mb-4">Payment method</h2>
