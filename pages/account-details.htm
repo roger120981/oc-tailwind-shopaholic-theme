@@ -10,10 +10,13 @@ is_hidden = 0
     <h1 class="font-medium uppercase text-xl md:text-3xl mb-4">My details</h1>
     <span class="text-gray-600 text-sm md:text-base mb-4 inline-block">* — required fields</span>
     <form class="_required">
-        {% partial 'input/input' sLabelText = 'Your name *' sType = 'text' sId = 'name' sName = 'name' required = 'required' %}
-        {% partial 'input/input' sLabelText = 'E-mail *' sType = 'email' sId = 'mail' sName = 'mail' required = 'required' sPartialClasses = 'mt-4' %}
-        {% partial 'input/input' sLabelText = 'Phone number' sType = 'text' sId = 'phone' sName = 'phone' sPartialClasses = 'mt-4' %}
-        {% partial 'input/input' sLabelText = 'Country' sType = 'text' sId = 'country' sName = 'country' sPartialClasses = 'mt-4' %}
+        {% partial 'input/input' sLabelText = 'Your name *' sType = 'text' sId = 'name' sName = 'name' sValue = arForm.name ?? obUser.name required = 'required' %}
+        {# TODO: Add inline ajax validation for name existing #}
+        {% partial 'input/input' sLabelText = 'E-mail *' sType = 'email' sId = 'mail' sName = 'mail' sValue = arForm.email ?? obUser.email required = 'required' sPartialClasses = 'mt-4' %}
+        {# TODO: Add inline ajax validation for email existing #}
+        {% partial 'input/input' sLabelText = 'Phone number' sType = 'text' sId = 'phone' sName = 'phone' sValue = arForm.phone ?? obUser.phone sPartialClasses = 'mt-4' %}
+        {# TODO: Add inline ajax validation for Phone number format #}
+        {% partial 'input/input' sLabelText = 'Country' sType = 'text' sId = 'country' sName = 'country' sValue = arForm.country ?? obUser.address.country sPartialClasses = 'mt-4' %}
         {% partial 'input/input' sLabelText = 'City' sType = 'text' sId = 'city' sName = 'city' sPartialClasses = 'mt-4' %}
         {% partial 'input/input' sLabelText = 'Zip сode' sType = 'text' sId = 'zip' sName = 'zip' sPartialClasses = 'mt-4' %}
         {% partial 'input/input' sLabelText = 'Postal address' sType = 'text' sId = 'address' sName = 'address' sPartialClasses = 'mt-4' %}
