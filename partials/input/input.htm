@@ -5,7 +5,7 @@
         <label for="{{ sId }}" class="text-xs text-gray-600 inline-block mb-1 {{ sLabelClasses }}">{{ sLabelText }}</label>
     {% endif %}
     <input
-        type="{{ type|default('text') }}"
+        type="{{ sType|default('text') }}"
         id="{{ sId }}"
         {% if sName %}
             name="{{ sName }}"
