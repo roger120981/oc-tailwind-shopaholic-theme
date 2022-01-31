@@ -82,7 +82,7 @@
         'plugin_buddies'                     => 'Requires to install <strong><a href="https://octobercms.com/plugin/lovata-buddies">Buddies</a></strong>',
         'plugin_faq'                         => 'Requires to install <strong><a href="https://octobercms.com/plugin/andreishilov-faq">FAQ</a></strong>',
         'main_carousel_alt'                  => 'This string will have been shown in case an image has not loaded on the page.',
-        'main_carousel_image'                => 'Recommended resolution: 1440×640px. The SVG format is supported.',
+        'main_carousel_image'                => 'Recommended resolution: 1920×640px. The SVG format is supported.',
         'main_carousel_title'                => 'This string will be shown on the mouse hover on the image.',
         ],
     'placeholder' => [
