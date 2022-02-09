@@ -1,6 +1,6 @@
 {##}
 
-<article class="flex flex-col">
+<article class="flex flex-col {{ sPartialClasses }}">
     <h{{ sCardHeadingLevel }} class="mt-2 order-1">
         <a class="hover:text-blue-800 focus-visible:outline-blue" href="{{ obArticle.getPageUrl('news-item') }}">{{ obArticle.title }}</a>
     </h{{ sCardHeadingLevel }}>
@@ -14,7 +14,7 @@
                 <img class="w-full h-full rounded object-cover" src="{{ obArticle.preview_image.getThumb(sWidth, sHeight, {'quality': 100}) }}" alt="{{ obArticle.preview_image.description }}">
             </picture>
         {% else %}
-            <img class="w-full h-full rounded object-cover" src="{{ 'assets/images/no-photo.svg'|theme }}" alt="No article image">
+            <img class="w-full h-full rounded object-cover" src="{{ 'assets/images/no-photo.svg'|theme }}" alt="{{ 'text_no_image_article'|_ }}">
         {% endif %}
     </div>
 </article>
