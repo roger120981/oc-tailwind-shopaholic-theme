@@ -32,6 +32,11 @@ sorting = "popularity|desc"
     %}
     {# TODO: Change sSectionHeadingLevel to iSectionHeadingLevel overall #}
 {% endif %}
+{% partial 'advanced-list/advanced-list'
+    sAdvancedListType = sAdvancedListTypeCategory
+    iTake = 6
+    sButtonName = 'Show all'
+%}
 {% if this.theme.page_seo_block_active %}
     {% partial 'page-seo-content/page-seo-content' %}
 {% endif %}
