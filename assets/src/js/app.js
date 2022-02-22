@@ -1,3 +1,4 @@
+window.$ = window.jQuery = require('jquery');
 import '../../../../../modules/system/assets/js/framework';
 import '../../../../../modules/system/assets/js/framework.extras';
 import './validation';
