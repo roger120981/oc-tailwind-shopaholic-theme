@@ -1,2 +1,2 @@
 import '/partials/product-card/wish-list';
-import '/partials/product-item/product-choose';
+import '/partials/product-choose/product-choose';
