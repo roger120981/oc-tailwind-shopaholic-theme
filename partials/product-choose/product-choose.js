@@ -8,6 +8,9 @@ export default new class ProductChoose {
     });
     $("#minus-btn").click((event) => {
       event.preventDefault();
+      if (val === 0) {
+        return;
+      }
       $("#counter").html(--val);
     });
   }
