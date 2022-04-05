@@ -4,14 +4,14 @@ export default new class ProductChoose {
     $("#counter").html(val);
     $("#plus-btn").click((event) => {
       event.preventDefault();
-      $("#counter").html(++val);
+      $("#counter").val(++val);
     });
     $("#minus-btn").click((event) => {
       event.preventDefault();
       if (val === 0) {
         return;
       }
-      $("#counter").html(--val);
+      $("#counter").val(--val);
     });
   }
 }();
