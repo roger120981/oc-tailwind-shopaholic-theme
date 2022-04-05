@@ -53,9 +53,9 @@
                 </svg>
             </button>
         {% else %}
-            <button class="_shopaholic-add-wish-list-button text-white hover:text-red-400 active:text-red-500 w-11 md:w-12 h-11 md:h-12 bg-gray-400 hover:bg-gray-500 group bg-opacity-40 hover:bg-opacity-40 focus:outline-none absolute -top-px -right-px flex justify-center items-center rounded-bl rounded-tr focus-visible:outline-blue focus-visible:text-red-500" type="button">
-                {% partial 'product-card/heart' %}
-            </button>
+            {% partial 'button/button-wish-list'
+                sPartialClasses = 'bg-opacity-40 absolute -top-px -right-px flex rounded-bl rounded-tr'
+            %}
         {% endif %}
     {% endif %}
 </div>
