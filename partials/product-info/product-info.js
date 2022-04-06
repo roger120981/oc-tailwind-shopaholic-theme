@@ -4,23 +4,36 @@ export default new class Info {
       "details": false,
       "shipping": false,
     };
-    /* mobile */
+
+    /* Mobile */
     $(".accordion-nav button").click((event) => {
       event.preventDefault();
-      const btn = $(event.target);
-      const id = "rollout-" + btn.data("tab")
+      toggleAccordion($(event.target));
+    });
+    $(".accordion-nav button > span").click((event) => {
+      event.preventDefault();
+      toggleAccordion($(event.target).parent());
+    });
+    $(".accordion-nav button > svg").click((event) => {
+      event.preventDefault();
+      toggleAccordion($(event.target).parent());
+    });
+
+    const toggleAccordion = (btn) => {
+      const id = "rollout-" + btn.data("tab");
       ids[id] = !ids[id];
       if (ids[id]) {
         btn.removeClass("text-blue-800");
-        btn.children("img").first().addClass("rotate-180");
+        btn.children("svg").first().css("transform", "rotate(180deg)");
         $(`#${id}`).show(200);
       } else {
         btn.addClass("text-blue-800");
-        btn.children("img").first().removeClass("rotate-180");
+        btn.children("svg").first().css("transform", "");
         $(`#${id}`).hide(200);
       }
-    });
-    /* web app */
+    };
+
+    /* Web app */
     $(".tab-nav button").click((event) => {
       event.preventDefault();
 
