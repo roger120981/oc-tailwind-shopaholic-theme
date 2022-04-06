@@ -1,4 +1,4 @@
-const plugin = require('tailwindcss/plugin')
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   corePlugins: {
@@ -22,22 +22,25 @@ module.exports = {
         blue: ['1px dashed #1E40AF', '1px'],
       },
       backgroundSize: {
-        '65': '65%',
+        65: '65%',
         'info-icon': '12.5rem',
       },
       fontSize: {
         error: ['9rem', '1'],
       },
       padding: {
-        '54': '13.5rem',
-        '57': '14.25rem',
+        54: '13.5rem',
+        57: '14.25rem',
       },
       maxHeight: {
-        '160': '40rem',
+        160: '40rem',
+      },
+      minWidth: {
+        18: '72px'
       },
       maxWidth: {
         'screen-3xl': '1920px'
-      }
+      },
     }
   },
   plugins: [
@@ -51,7 +54,7 @@ module.exports = {
         '.separator': {
           content: 'url(/themes/lovata-tailwind-shopaholic/assets/images/separator.svg)',
         }
-      }
+      };
       addUtilities(newUtilities, ['before'])
     }),
     plugin(({ addVariant, e }) => {
@@ -60,4 +63,4 @@ module.exports = {
       })
     }),
   ]
-}
+};
