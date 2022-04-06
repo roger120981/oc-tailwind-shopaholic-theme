@@ -12,21 +12,21 @@
 <div class="w-full">
     <!-- mobile buttons -->
     <div class="accordion-nav block md:hidden flex flex-col -mx-4">
-        <section class="border-t border-gray-200 py-3">
+        <div class="border-t border-gray-200 py-3">
             <button
                 class="flex flex-row justify-between items-center pl-4 pr-5 w-full text-left text-base text-blue-800"
                 data-tab="details"
             >
                 <span>{{ 'button_details'|_ }}</span>
-                <svg class="transition-transform w-2.5 h-1.5 ">
+                <svg class="transition-transform w-2.5 h-1.5">
                     <use xlink:href="#star"></use>
                 </svg>
             </button>
             <div id="rollout-details" class="hidden mx-4 text-sm">
                 {% partial 'product-info/product-details' obInfo=obInfo %}
             </div>
-        </section>
-        <section class="border-t border-b border-gray-200 py-3">
+        </div>
+        <div class="border-t border-b border-gray-200 py-3">
             <button
                 class="flex flex-row justify-between items-center pl-4 pr-5 w-full text-left text-base text-blue-800"
                 data-tab="shipping"
@@ -39,7 +39,7 @@
             <div id="rollout-shipping" class="hidden mx-4 text-sm">
                 {% partial 'product-info/product-shipping' obInfo=obInfo %}
             </div>
-        </section>
+        </div>
     </div>
     <!-- web app buttons -->
     <div class="tab-nav hidden md:block flex flex-row justify-start space-x-8 text-xl border-b-2 border-gray-200">
