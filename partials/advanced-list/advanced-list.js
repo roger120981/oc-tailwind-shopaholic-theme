@@ -23,6 +23,7 @@ export default new class AdvancedList {
         update: {'advanced-list/advanced-list-ajax': `.${this.sAdvancedListWrapperClass}`},
         complete: function () {
           self.obButton.removeAttr('disabled');
+          $('._advanced-list-button-show-all').css('display', 'none');
         },
       });
     });
