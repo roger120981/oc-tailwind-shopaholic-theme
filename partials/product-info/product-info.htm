@@ -42,19 +42,46 @@
         </div>
     </div>
     <!-- web app buttons -->
-    <div class="tab-nav hidden md:block flex flex-row justify-start space-x-8 text-xl border-b-2 border-gray-200">
-        <button class="px-0.5 pb-4 border-b-4 border-blue-800" data-tab="details">
+    <div role="tablist" class="tab-nav hidden md:block flex flex-row justify-start space-x-8 text-xl border-b-2 border-gray-200">
+        <button
+            type="button"
+            role="tab"
+            id="details"
+            aria-selected="true"
+            aria-controls="details-tab"
+            data-tab="details"
+            class="px-0.5 pb-4 border-b-4 border-blue-800"
+        >
             {{ 'button_details'|_ }}
         </button>
-        <button class="px-0.5 pb-4" data-tab="shipping">
+        <button
+            type="button"
+            id="shipping"
+            role="tab"
+            aria-selected="false"
+            aria-controls="shipping-tab"
+            data-tab="shipping"
+            class="px-0.5 pb-4"
+        >
             {{ 'button_shipping_and_returns'|_ }}
         </button>
     </div>
     <div class="tabs hidden md:block mt-5">
-        <div id="tab-details">
+        <div
+            tabindex="0"
+            role="tabpanel"
+            id="details-tab"
+            aria-labelledby="details"
+        >
             {% partial 'product-info/product-details' obInfo=obInfo %}
         </div>
-        <div id="tab-shipping" class="hidden">
+        <div
+            tabindex="0"
+            role="tabpanel"
+            id="shipping-tab"
+            aria-labelledby="shipping"
+            class="hidden"
+        >
             {% partial 'product-info/product-shipping' obInfo=obInfo %}
         </div>
     </div>
