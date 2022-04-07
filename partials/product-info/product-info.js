@@ -25,11 +25,11 @@ export default new class Info {
       if (ids[id]) {
         btn.removeClass("text-blue-800");
         btn.children("svg").first().css("transform", "rotate(180deg)");
-        $(`#${id}`).show(200);
+        $(`#${id}`).slideDown("quick")
       } else {
         btn.addClass("text-blue-800");
         btn.children("svg").first().css("transform", "");
-        $(`#${id}`).hide(200);
+        $(`#${id}`).slideUp("quick")
       }
     };
 
@@ -47,7 +47,7 @@ export default new class Info {
         .addClass("border-blue-800");
 
       $('.tabs > div').hide(200);
-      $("#tab-" + btn.data("tab")).show(200);
+      $("#" + btn.data("tab") + "-tab").show(200);
     });
    }
 }();
