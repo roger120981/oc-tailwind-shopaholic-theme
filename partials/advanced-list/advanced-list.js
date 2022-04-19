@@ -2,8 +2,9 @@ export default new class AdvancedList {
   constructor() {
     this.sAdvancedListWrapperClass = '_advanced-list';
     this.sAdvancedListButtonShowMoreClass = '_advanced-list-button-show-all';
-    this.obButton = null;
+    this.sAdvancedListButtonShowMoreClassHidden = '_advanced-list-button-show-all-hidden';
 
+    this.obButton = null;
     this.showAllList();
   }
 
@@ -14,6 +15,9 @@ export default new class AdvancedList {
     $(document).on('click', `.${this.sAdvancedListButtonShowMoreClass}`, (obEvent) => {
       this.obButton = $(obEvent.target);
       this.obButton.attr('disabled', 'disabled');
+      
+      $(`.${this.sAdvancedListButtonShowMoreClass}`).css('display', 'none');
+      $(`.${this.sAdvancedListButtonShowMoreClassHidden}`).css('display', 'block');
 
       const sAdvancedListType = this.obButton.attr('data-advanced-list-type');
       const self = this;
@@ -23,7 +27,7 @@ export default new class AdvancedList {
         update: {'advanced-list/advanced-list-ajax': `.${this.sAdvancedListWrapperClass}`},
         complete: function () {
           self.obButton.removeAttr('disabled');
-          $('._advanced-list-button-show-all').css('display', 'none');
+          $(`.${self.sAdvancedListButtonShowMoreClassHidden}`).css('display', 'none');
         },
       });
     });

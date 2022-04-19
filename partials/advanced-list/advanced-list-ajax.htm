@@ -1,11 +1,9 @@
-[CategoryList]
-==
 {##}
 
 {% set sAdvancedListType = sAdvancedListType|default(input('advanced_list_type')) %}
 {% if sAdvancedListType == sAdvancedListTypeCategory %}
     {% set arCategoryList = CategoryList.make().tree().take(iTake) %}
-    {% for obCategory in arCategoryList if obCategory.product_count > 0 %}
+    {% for obCategory in arCategoryList %}
         {% partial 'advanced-list/advanced-item'
             sName = obCategory.name
             sUrl = obCategory.getPageUrl('product-list')
