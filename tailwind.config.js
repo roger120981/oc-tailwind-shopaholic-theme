@@ -23,22 +23,37 @@ module.exports = {
         blue: ['1px dashed #1E40AF', '1px'],
       },
       backgroundSize: {
-        '65': '65%',
+        65: '65%',
         'info-icon': '12.5rem',
       },
       fontSize: {
         error: ['9rem', '1'],
       },
       padding: {
-        '54': '13.5rem',
-        '57': '14.25rem',
+        54: '13.5rem',
+        57: '14.25rem',
+      },
+      height: {
+        23: '92px',
+        131: '524px'
       },
       maxHeight: {
-        '160': '40rem',
+        160: '40rem',
+      },
+      width: {
+        23: '92px',
+        174: '696px',
+        225: '900px',
       },
       maxWidth: {
-        'screen-3xl': '1920px'
-      }
+        'screen-3xl': '1920px',
+        225: '900px',
+      },
+      spacing: {
+        2.25: '9px',
+        1.75: '7px',
+        0.25: '1px',
+      },
     }
   },
   plugins: [
