@@ -34,6 +34,12 @@ function onInit()
 
 {% partial 'breadcrumbs/breadcrumbs' %} {# TODO: Fix wrong breadcrumbs #}
 
+{% if obProduct.description is not empty %}
+    <div class="w-full flex flex-col md:w-1/2">
+        {% partial 'product-description/product-description' sDescription=obProduct.description %}
+    </div>
+{% endif %}
+
 {% if this.theme.has_viewed_products %}
     {% partial 'product-list-small/product-list-small'
         sProductListSmallType = sProductListSmallTypeViewedProducts
@@ -43,6 +49,7 @@ function onInit()
         iShowIndex = 0
     %}
 {% endif %}
+
 {% if this.theme.has_related_products %}
     {% partial 'product-list-small/product-list-small'
         sProductListSmallType = sProductListSmallTypeRelatedProducts
