@@ -12,26 +12,29 @@
             <span>Gold</span>
         </li>
     </ul>
-    <div class="flex flex-row items-center space-x-2 mt-7 md:mt-12">
-        <button id="minus-btn" class="flex flex-row justify-center items-center rounded-sm md:rounded bg-gray-200 w-9 h-9">
-            <svg width="18" height="4" viewBox="0 0 18 4" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M0.599609 1.99999C0.599609 1.68173 0.726038 1.3765 0.951081 1.15146C1.17612 0.926416 1.48135 0.799988 1.79961 0.799988H16.1996C16.5179 0.799988 16.8231 0.926416 17.0481 1.15146C17.2732 1.3765 17.3996 1.68173 17.3996 1.99999C17.3996 2.31825 17.2732 2.62347 17.0481 2.84852C16.8231 3.07356 16.5179 3.19999 16.1996 3.19999H1.79961C1.48135 3.19999 1.17612 3.07356 0.951081 2.84852C0.726038 2.62347 0.599609 2.31825 0.599609 1.99999Z" fill="#4B5563"/>
-            </svg>
-        </button>
-        <input id="counter" class="text-center border border-gray-300 rounded-sm md:rounded w-9 h-9" value="1" />
-        <button id="plus-btn" class="flex flex-row justify-center items-center rounded-sm md:rounded bg-blue-800 w-9 h-9">
-            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M6 0C6.31826 0 6.62348 0.126428 6.84853 0.351472C7.07357 0.576516 7.2 0.88174 7.2 1.2V4.8H10.8C11.1183 4.8 11.4235 4.92643 11.6485 5.15147C11.8736 5.37652 12 5.68174 12 6C12 6.31826 11.8736 6.62348 11.6485 6.84853C11.4235 7.07357 11.1183 7.2 10.8 7.2H7.2V10.8C7.2 11.1183 7.07357 11.4235 6.84853 11.6485C6.62348 11.8736 6.31826 12 6 12C5.68174 12 5.37652 11.8736 5.15147 11.6485C4.92643 11.4235 4.8 11.1183 4.8 10.8V7.2H1.2C0.88174 7.2 0.576516 7.07357 0.351472 6.84853C0.126428 6.62348 0 6.31826 0 6C0 5.68174 0.126428 5.37652 0.351472 5.15147C0.576516 4.92643 0.88174 4.8 1.2 4.8H4.8V1.2C4.8 0.88174 4.92643 0.576516 5.15147 0.351472C5.37652 0.126428 5.68174 0 6 0Z" fill="white"/>
-            </svg>
-        </button>
+    <div class="flex flex-row items-center mt-7 md:mt-12">
+        {% partial 'input-quantity/input-quantity' 
+            iMin = 1
+            iMax = 10
+            iValue = 1
+            sPartialWidth = "w-9 h-9"
+        %}
     </div>
     <div class="flex flex-row items-center space-x-2 mt-8 md:mt-10">
         {% partial 'button/button'
             sText = 'button_add_to_cart'|_
             sPartialClasses = 'font-bold h-11 md:h-12 w-full md:w-60'
         %}
-        {% partial 'button-wish-list/button-wish-list'
-            sPartialClasses = 'hidden md:flex rounded-sm md:rounded'
-        %}
+        {% if obProduct.inWishList() %}
+            <button class="_shopaholic-remove-wish-list-button text-red-500 hover:text-red-400 active:text-red-500 w-11 md:w-12 h-11 md:h-12 bg-gray-400 hover:bg-gray-500 group bg-opacity-40 hover:bg-opacity-40 focus:outline-none flex justify-center items-center rounded-bl rounded-tr focus-visible:outline-blue focus-visible:text-red-500" type="button">
+                <svg class="stroke-current fill-current" width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1.59834 2.26511C1.25011 2.61333 0.973884 3.02673 0.785425 3.48171C0.596967 3.93668 0.499969 4.42432 0.499969 4.91678C0.499969 5.40924 0.596967 5.89688 0.785425 6.35185C0.973884 6.80683 1.25011 7.22023 1.59834 7.56845L8 13.9701L14.4017 7.56845C15.1049 6.86518 15.5 5.91135 15.5 4.91678C15.5 3.92221 15.1049 2.96838 14.4017 2.26511C13.6984 1.56185 12.7446 1.16676 11.75 1.16676C10.7554 1.16676 9.8016 1.56185 9.09834 2.26511L8 3.36345L6.90167 2.26511C6.55345 1.91689 6.14005 1.64066 5.68508 1.4522C5.2301 1.26375 4.74246 1.16675 4.25 1.16675C3.75754 1.16675 3.2699 1.26375 2.81493 1.4522C2.35995 1.64066 1.94656 1.91689 1.59834 2.26511V2.26511Z" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        {% else %}
+            {% partial 'button-wish-list/button-wish-list'
+                sPartialClasses = 'bg-opacity-40 flex rounded-bl rounded-tr'
+            %}
+        {% endif %}
     </div>
 </section>

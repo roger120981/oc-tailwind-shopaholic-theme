@@ -17,8 +17,16 @@ export default new class InputQuantity {
       })()
 
       $count.on("input", (ev) => {
-        setValue($(ev.target).val());
-        sQuantityCount = $(ev.target).val()
+        if(isMin()){
+          setValue(getMin());
+          sQuantityCount = getMin()
+        }else if(isMax()){
+          setValue(getMax());
+          sQuantityCount = getMax()
+        }else {
+          setValue($(ev.target).val());
+          sQuantityCount = $(ev.target).val()
+        }
 
         counterInitialization();
       });
