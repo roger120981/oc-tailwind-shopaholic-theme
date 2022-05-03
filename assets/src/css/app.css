@@ -78,6 +78,10 @@
   .quantity_input{
     -moz-appearance: textfield;
   }
+  ._input-checkbox-color{
+    color: var(--input-checkbox-color);
+    background-color: var(--input-checkbox-color);
+  }
   .progress_bar_evaluation{
     width: var(--progress-bar-evaluation-width);
   }
