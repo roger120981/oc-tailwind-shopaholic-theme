@@ -23,7 +23,7 @@
                 </svg>
             </button>
             <div id="rollout-details" class="hidden mx-4 text-sm">
-                {% partial 'product-info/product-info-details' obInfo=obInfo %}
+                {% partial 'tabs/tabs-details' obInfo=obInfo %}
             </div>
         </div>
         <div class="border-t border-b border-gray-200 py-3">
@@ -37,7 +37,7 @@
                 </svg>
             </button>
             <div id="rollout-shipping" class="hidden mx-4 text-sm">
-                {% partial 'product-info/product-info-shipping' obInfo=obInfo %}
+                {% partial 'tabs/tabs-shipping' obInfo=obInfo %}
             </div>
         </div>
     </div>
@@ -73,7 +73,7 @@
             id="details-tab"
             aria-labelledby="details"
         >
-            {% partial 'product-info/product-info-details' obInfo=obInfo %}
+            {% partial 'tabs/tabs-details' obInfo=obInfo %}
         </div>
         <div
             tabindex="0"
@@ -82,7 +82,7 @@
             aria-labelledby="shipping"
             class="hidden"
         >
-            {% partial 'product-info/product-info-shipping' obInfo=obInfo %}
+            {% partial 'tabs/tabs-shipping' obInfo=obInfo %}
         </div>
     </div>
 </div>

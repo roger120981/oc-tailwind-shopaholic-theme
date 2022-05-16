@@ -34,7 +34,7 @@ function onInit()
 
 {% partial 'breadcrumbs/breadcrumbs' %} {# TODO: Fix wrong breadcrumbs #}
 
-{% partial 'product-info/product-info' obInfo=obProduct.info %}
+{% partial 'tabs/tabs' obInfo=obProduct.info %}
 
 {% if this.theme.has_viewed_products %}
     {% partial 'product-list-small/product-list-small'
