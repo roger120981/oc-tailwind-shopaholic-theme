@@ -22,6 +22,16 @@ sorting = "no"
 [ProductData]
 ==
 <?php
+function onStart()
+{
+    //Get product and first offer item
+    $obProductItem = $this->ProductPage->get();
+    if (empty($obProductItem)) {
+        return;
+    }
+    $this['obProduct'] = $obProductItem;
+}
+
 function onInit()
 {
     $this['path_page_js'] = mix('assets/dist/js/product-item.js', 'themes/lovata-tailwind-shopaholic');
@@ -30,11 +40,12 @@ function onInit()
 ==
 {##}
 
-{% set obProduct = ProductPage.get() %}
-
 {% partial 'breadcrumbs/breadcrumbs' %} {# TODO: Fix wrong breadcrumbs #}
 
-{% partial 'tabs/tabs' obInfo=obProduct.info %}
+{% partial 'tabs/tabs' 
+    obProduct=obProduct  
+    obContent = this.theme.product_page
+%}
 
 {% if this.theme.has_viewed_products %}
     {% partial 'product-list-small/product-list-small'

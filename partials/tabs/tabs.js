@@ -1,53 +1,68 @@
-export default new class Info {
+export default new class Tabs {
   constructor() {
-    const ids = {
-      "details": false,
-      "shipping": false,
-    };
+    this.obTab = $('._tabs');
+    this.obTabsButtons = this.obTab.find('._tabs-buttons');
+    this.obTabsContent = this.obTab.find('._tabs-content');
+    this.obTabsButton = this.obTabsButtons.find('._tabs-button');
+    this.obTabsText = this.obTabsContent.find('._tabs-text');
 
-    /* Mobile */
-    $(".accordion-nav button").click((event) => {
-      event.preventDefault();
-      toggleAccordion($(event.target));
-    });
-    $(".accordion-nav button > span").click((event) => {
-      event.preventDefault();
-      toggleAccordion($(event.target).parent());
-    });
-    $(".accordion-nav button > svg").click((event) => {
-      event.preventDefault();
-      toggleAccordion($(event.target).parent());
-    });
+    this.nOldButton = null;
+    this.init();
+  }
 
-    const toggleAccordion = (btn) => {
-      const id = "rollout-" + btn.data("tab");
-      ids[id] = !ids[id];
-      if (ids[id]) {
-        btn.removeClass("text-blue-800");
-        btn.children("svg").first().css("transform", "rotate(180deg)");
-        $(`#${id}`).slideDown("quick")
-      } else {
-        btn.addClass("text-blue-800");
-        btn.children("svg").first().css("transform", "");
-        $(`#${id}`).slideUp("quick")
+  init(){
+    this.tabsActive();
+  }
+
+  buttonActive(index, active){
+    if(active){
+      this.obTabsButton[index].classList.add('border-b-4', 'border-blue-800');
+    }else{
+      this.obTabsButton[index].classList.remove('border-b-4', 'border-blue-800');
+    }
+  }
+
+  tabAnimate(index, active){
+    if(active){
+      this.obTabsText[index].classList.remove('opacity-0');
+    }else{
+      this.obTabsText[index].classList.add('opacity-0');
+    }
+  }
+
+  tabsAnimateShow(index){
+    this.tabAnimate(index, true)
+    setTimeout(()=>{
+      this.buttonActive(index, true);
+      this.tabActive(index, true);
+    },200)
+  }
+  
+  tabsAnimateHide(oldIndex){
+    this.tabAnimate(oldIndex, false)
+    setTimeout(()=>{
+      this.buttonActive(oldIndex, false);
+      this.tabActive(oldIndex, false);
+    },200)
+  }
+
+  tabActive(index, active){
+    if(active){
+      this.obTabsText[index].classList.remove('hidden');
+    }else{
+      this.obTabsText[index].classList.add('hidden');
+    }
+  }
+
+  tabsActive(){
+    this.obTabsButton.on('click', (el) => {
+      if(!this.nOldButton){
+        this.nOldButton = 0;
       }
-    };
-
-    /* Web app */
-    $(".tab-nav button").click((event) => {
-      event.preventDefault();
-
-      $(".tab-nav button")
-        .removeClass("border-b-4")
-        .removeClass("border-blue-800");
-
-      const btn = $(event.target);
-      btn
-        .addClass("border-b-4")
-        .addClass("border-blue-800");
-
-      $('.tabs > div').hide(200);
-      $("#" + btn.data("tab") + "-tab").show(200);
-    });
-   }
+      let index = el.target.dataset.id - 1;
+      this.tabsAnimateHide(this.nOldButton);
+      this.tabsAnimateShow(index);
+      this.nOldButton = index;
+    })
+  }
 }();
