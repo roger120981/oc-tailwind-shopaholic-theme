@@ -2,7 +2,6 @@ title = "Contact"
 url = "/contact"
 layout = "main"
 is_hidden = 0
-
 [genericForm]
 rules[name] = "required"
 rules[email] = "required"
@@ -20,7 +19,20 @@ recaptcha_type = "image"
 recaptcha_size = "normal"
 emails_date_format = "Y-m-d"
 ==
+==
+<?php
+function onInit()
+{
+    $arBreadcrumbs = [
+        ['name' => 'Contact', 'url' => \Cms\Classes\Page::url('contact', ['contact' => false])],
+    ];
+
+    $this['arBreadcrumbs'] = $arBreadcrumbs;
+}
+?>
+==
 {##}
+
 {% partial 'breadcrumbs/breadcrumbs' %}
 <h1 class="text-lg md:text-3xl text-gray-900 font-medium uppercase mb-4 md:mb-6">Contact us</h1>
 <div class="flex flex-col lg:flex-row mb-7 md:mb-10">

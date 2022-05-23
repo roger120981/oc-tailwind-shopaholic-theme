@@ -3,14 +3,17 @@ const plugin = require('tailwindcss/plugin')
 module.exports = {
   corePlugins: {
   },
-  purge: [
+  content: [
     './layouts/**/*.htm',
     './pages/**/*.htm',
     './partials/**/*.htm',
+    './partials/**/*.js',
   ],
-  darkMode: false,
   theme: {
     extend: {
+      transitionDuration: {
+        '0': '0ms',
+      },
       gridTemplateColumns: {
         'full': '100%',
         'social': 'repeat(auto-fill, 40px)',
@@ -23,8 +26,14 @@ module.exports = {
         blue: ['1px dashed #1E40AF', '1px'],
       },
       backgroundSize: {
+        '45': '45%',
         '65': '65%',
         '300': '300px',
+        '75': '75%',
+        'info-icon': '12.5rem',
+      },
+      backgroundImage: {
+        'check': "url('/themes/lovata-tailwind-shopaholic/assets/images/check.svg')"
       },
       fontSize: {
         error: ['9rem', '1'],
@@ -32,13 +41,38 @@ module.exports = {
       maxWidth: {
         '850': '850px',
         'screen': '100vw',
+        'screen-3xl': '1920px',
+        225: '900px',
       },
       backgroundImage: {
         'feedback': "url('/themes/lovata-tailwind-shopaholic/assets/images/union.svg')",
       },
       margin: {
         '-screen-1/2': '-50vw',
-      }
+      },
+      padding: {
+        54: '13.5rem',
+        57: '14.25rem',
+      },
+      maxHeight: {
+        160: '40rem',
+      },
+      width: {
+        90: '360px',
+        174: '696px',
+        23: '92px',
+        174: '696px',
+        225: '900px',
+      },
+      height: {
+        23: '92px',
+        131: '524px'
+      },
+      spacing: {
+        2.25: '9px',
+        1.75: '7px',
+        0.25: '1px',
+      },
     }
   },
   variants: {
@@ -54,13 +88,12 @@ module.exports = {
       fill: ['hover', 'group-hover', 'group-focus', 'focus'],
       stroke: ['hover', 'group-hover', 'group-focus', 'focus'],
       width: ['hover'],
-      borderWidth: ['first', 'last']
+      borderWidth: ['first', 'last'],
     }
   },
   plugins: [
     require('@tailwindcss/forms'),
     require('@tailwindcss/typography'),
-    require('tailwindcss-scroll-snap'),
     require('@tailwindcss/aspect-ratio'),
     require('tailwindcss-pseudo-elements'),
     require('@tailwindcss/line-clamp'),
@@ -71,6 +104,11 @@ module.exports = {
         }
       }
       addUtilities(newUtilities, ['before'])
+    }),
+    plugin(({ addVariant, e }) => {
+      addVariant('backdrop', ({ modifySelectors, separator }) => {
+        modifySelectors(({ className }) => `.${e(`backdrop${separator}${className}`)}::backdrop`)
+      })
     }),
   ]
 }
