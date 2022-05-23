@@ -1,17 +1,17 @@
+import ShopaholicCartAdd from '@lovata/shopaholic-cart/shopaholic-cart-add';
+
 export default new class ProductChoose {
   constructor() {
-    let val = 1;
-    $("#counter").html(val);
-    $("#plus-btn").click((event) => {
-      event.preventDefault();
-      $("#counter").val(++val);
-    });
-    $("#minus-btn").click((event) => {
-      event.preventDefault();
-      if (val === 0) {
-        return;
-      }
-      $("#counter").val(--val);
-    });
+    this.init();
   }
+
+  // init(){
+  //   console.log('Go')
+
+  //   const obListHelper = new ShopaholicCartAdd();
+  //   obListHelper.setAjaxRequestCallback((obRequestData) => {
+  //     console.log('okay');
+  //     return obRequestData;
+  //   });
+  // }
 }();

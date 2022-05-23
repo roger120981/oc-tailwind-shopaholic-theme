@@ -1,5 +1,4 @@
 {##}
-
 {% for obValue in obPropertyValueList %}
     {% set bChecked = arFilterValue[obProperty.id] is not empty and obValue.slug in arFilterValue[obProperty.id] %}
     {% set bDisabled = false %}
@@ -9,19 +8,19 @@
     {% endif %}
 
     {% if obValue.label == 'White' %}
-        {% set checkboxStyle = 'border-gray-300 checked:bg-45 checked:bg-check checked:border-gray-300 checked:hover:border-gray-300
+        {% set checkboxStyle = 'border-gray-300 checked:bg-75 checked:bg-check-black checked:border-gray-300 checked:hover:border-gray-300
         disabled:opacity-30' %}
     {% else %}
-        {% set checkboxStyle = 'border-0 checked:bg-75
+        {% set checkboxStyle = 'border-0 checked:bg-75 checked:bg-check
         checked:border-0 disabled:opacity-30' %}
     {% endif %}
-
     <div class="w-max flex flex-col items-center mb-4 mr-2 {{sPartialClasses}}">
         <input
             class="_input-checkbox-color rounded w-9 h-9 mr-0 focus:outline-none focus-visible:border-blue-800 {{checkboxStyle}}"
-            type="checkbox"
+            type="{{sType|default('checkbox')}}"
             id="{{obValue.slug}}"
             value="{{obValue.slug}}"
+            name="{{sName}}"
             style="--input-checkbox-color: {{obValue.value}};"
             {{bDisabled ? 'disabled'}}
             {{bChecked ? 'checked'}}
