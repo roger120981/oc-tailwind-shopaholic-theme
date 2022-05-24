@@ -32,7 +32,7 @@ const jsFileList = [
 ];
 
 let postCssPlugins = [
-  require('tailwindcss'),
+    require('tailwindcss'),
 ];
 
 mix.setPublicPath('./');
@@ -64,10 +64,6 @@ mix.browserSync({
     './pages/**/*.htm',
     './partials/**/*.htm'
   ],
-});
-
-mix.autoload({
-  jquery: ['$', 'window.jQuery', 'jQuery']
 });
 
 mix.sourceMaps(true, 'source-map');
