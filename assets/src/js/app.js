@@ -23,3 +23,4 @@ import '/partials/product-list/product-list';
 import '/partials/product-list/filter/filter';
 /* * Search Input* */
 import '/partials/search/search';
+import '/partials/flash-message/flash-message';

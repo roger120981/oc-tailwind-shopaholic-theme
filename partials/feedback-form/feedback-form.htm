@@ -1,6 +1,13 @@
-<form class="_required" data-request="genericForm::onFormSubmit" method="POST">
+{##}
+
+<form 
+    class="_required"
+    data-request="genericForm::onFormSubmit"
+    method="POST"
+    data-request-flash
+>
     {{ form_token() }}
-    <div id="genericForm_forms_flash"></div>
+
     {% partial 'input/input'
         sId = 'name'
         sLabelText = 'Your name '

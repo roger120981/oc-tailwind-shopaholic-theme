@@ -26,6 +26,18 @@ function onInit()
         ['name' => 'Contact', 'url' => \Cms\Classes\Page::url('contact', ['contact' => false])],
     ];
 
+    // Sets an success message
+    $this['success'] = Flash::success('Settings successfully saved!');
+
+    // Sets an error message
+    $this['error'] = Flash::error('Error saving settings');
+
+    // Sets a warning message
+    $this['warning'] = Flash::warning('There was a problem but no worries');
+
+    // Sets an informative message
+    $this['info'] = Flash::info('Just a heads up about the settings');
+
     $this['arBreadcrumbs'] = $arBreadcrumbs;
 }
 ?>
