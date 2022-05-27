@@ -50,7 +50,7 @@ export default new class Flash {
                
                 $('._flash').prepend(el)
 
-                if(app.nCount > 1){
+                if(app.nCount > 5){
                     app.obClearAllButton.removeClass('hidden')
                 }
 
@@ -64,7 +64,7 @@ export default new class Flash {
                     app.nCount--
                     el.remove();
                     let container = $('._flash > .flash-message');
-                    if(container.length <= 1){
+                    if(container.length <= 5){
                         app.obClearAllButton.addClass('hidden')
                         app.nCount = 0;
                     }
