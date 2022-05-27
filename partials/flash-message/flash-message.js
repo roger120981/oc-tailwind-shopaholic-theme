@@ -58,7 +58,7 @@ export default new class Flash {
                     el.addClass('in')
                 }, 100)
 
-                var timer = window.setTimeout(remove, 2500)
+                var timer = window.setTimeout(remove, 5500)
 
                 function removeElement() {
                     app.nCount--
