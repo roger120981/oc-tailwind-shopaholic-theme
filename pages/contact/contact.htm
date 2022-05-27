@@ -47,22 +47,22 @@ function onInit()
 {##}
 
 {% partial 'breadcrumbs/breadcrumbs' %}
-<h1 class="text-lg md:text-3xl text-gray-900 font-medium uppercase mb-4 md:mb-6">Contact us</h1>
+<h1 class="text-lg md:text-3xl text-gray-900 font-medium uppercase mb-4 md:mb-6">{{'heading_contact'|_}}</h1>
 <div class="flex flex-col lg:flex-row mb-7 md:mb-10">
     <div class="flex flex-col sm:flex-row lg:flex-col gap-y-5 sm:gap-x-20">
         <div>
             {% if this.theme.business_card_address is not empty %}
-                <span class="text-gray-600 text-sm md:text-base font-normal mb-2 md:mb-1 inline-block">Address</span>
+                <span class="text-gray-600 text-sm md:text-base font-normal mb-2 md:mb-1 inline-block">{{'text_address'|_}}</span>
                 <div class="mb-5 md:mb-6 text-sm md:text-base text-gray-900">{{ this.theme.business_card_address }}</div>
             {% endif %}
             {% if this.theme.business_card_phone is not empty %}
-                <span class="text-gray-600 text-sm md:text-base font-normal mb-2 md:mb-1 inline-block">Phone number</span>
+                <span class="text-gray-600 text-sm md:text-base font-normal mb-2 md:mb-1 inline-block">{{'text_phone_number'|_}}</span>
                 <div class="mb-5 md:mb-6 text-sm md:text-base">
                     <a class="text-blue-800 underline hover:text-blue-700 hover:no-underline active:text-blue-900 focus-visible:outline-blue" href="tel:{{ this.theme.business_card_phone|replace({'-': '', '(': '', ')': '', ' ': ''}) }}">{{ this.theme.business_card_phone }}</a>
                 </div>
             {% endif %}
             {% if this.theme.business_card_email is not empty %}
-                <span class="text-gray-600 text-sm md:text-base font-normal mb-2 md:mb-1 inline-block">E-mail</span>
+                <span class="text-gray-600 text-sm md:text-base font-normal mb-2 md:mb-1 inline-block">{{'input_email'|_}}</span>
                 <div class="text-sm md:text-base">
                     <a class="text-blue-800 underline hover:text-blue-700 hover:no-underline active:text-blue-900 focus-visible:outline-blue" href="mailto:{{ this.theme.business_card_email }}">{{ this.theme.business_card_email }}</a>
                 </div>
@@ -71,7 +71,7 @@ function onInit()
         {% if this.theme.pickup_points_active %}
             {% set arPickupPointsList = this.theme.pickup_points_list %}
             <div>
-                <span class="text-gray-600 text-sm md:text-base font-normal mb-2 inline-block">Pickup Points</span>
+                <span class="text-gray-600 text-sm md:text-base font-normal mb-2 inline-block">{{'text_pickup_points'|_}}</span>
                 <ul class="list-disc list-inside pl-2.5">
                     {% for obItem in arPickupPointsList %}
                     <li>{{ obItem.point }}</li>
@@ -86,7 +86,7 @@ function onInit()
         {% partial 'map/map' sApiKey = sApiKey %}
     {% else %}
         <div class="lg:ml-auto w-full lg:max-w-screen-sm xl:max-w-850 mt-7 md:mt-0">
-            <h2 class="text-lg md:text-2xl text-gray-900 font-medium mb-4 md:mb-6 uppercase">Waiting for your feedback</h2>
+            <h2 class="text-lg md:text-2xl text-gray-900 font-medium mb-4 md:mb-6 uppercase">{{'heading_waiting_for_your_feedback'|_}}</h2>
             {% partial 'feedback-form/feedback-form' %}
         </div>
     {% endif %}
@@ -95,7 +95,7 @@ function onInit()
     <div class="full-width lg:bg-feedback lg:bg-no-repeat lg:bg-left lg:bg-300 xl:bg-auto">
         <div class="flex sm:container sm:mx-auto px-4">
             <div class="md:ml-auto w-full lg:max-w-screen-sm xl:max-w-850 mb-8 md:mb-12">
-                <h2 class="text-lg md:text-2xl text-gray-900 font-medium mb-4 md:mb-6 uppercase">Waiting for your feedback</h2>
+                <h2 class="text-lg md:text-2xl text-gray-900 font-medium mb-4 md:mb-6 uppercase">{{'heading_waiting_for_your_feedback'|_}}</h2>
                 {% partial 'feedback-form/feedback-form' %}
             </div>
         </div>
