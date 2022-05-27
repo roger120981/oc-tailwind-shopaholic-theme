@@ -10,6 +10,9 @@
             name="{{ name }}"
         {% endif %}
         {{ required }}
+        {% if sRows %}
+            rows="{{ sRows }}"
+        {% endif %}
         {% if placeholder %}
             placeholder="{{ placeholder }}"
         {% endif %}
