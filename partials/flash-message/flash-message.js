@@ -4,6 +4,7 @@ export default new class Flash {
         this.obClearAllButton = this.obContainer.find('._clear-all');
         
         this.nCount = 0;
+        this.typeMessages = null;
 
         this.init();
     }
@@ -12,7 +13,7 @@ export default new class Flash {
         let app = this;
         let container = $('._flash > .flash-message');
         this.nCount = container.length;
-        
+
         $(document).on('ajaxSetup', function(event, context) {
             context.options.flash = true
                 
@@ -22,7 +23,17 @@ export default new class Flash {
                 $.oc.flashMsg({ text: message, class: 'error' })
             }
             context.options.handleFlashMessage = function(message, type) {
-                let el = $('<div />').addClass(type).html(message);
+                let messages = null;
+
+                if(app.typeMessages === type){
+                    messages = message;
+                }
+
+                if(!messages){
+                    return
+                }
+
+                let el = $('<div />').addClass(app.typeMessages).html(messages);
                 let color = null;
                 
                 if((app.nCount - 1) >= 5){
@@ -32,13 +43,13 @@ export default new class Flash {
                     app.nCount++;
                 }
 
-                if(type === 'success'){
+                if(app.typeMessages === 'success'){
                     color = 'text-green-900 bg-green-100'
-                }else if(type === 'error'){
+                }else if(app.typeMessages === 'error'){
                     color = 'text-red-900 bg-red-100'
-                }else if(type === 'info'){
+                }else if(app.typeMessages === 'info'){
                     color = 'text-gray-900 bg-gray-100'
-                }else if(type === 'warning'){
+                }else if(app.typeMessages === 'warning'){
                     color = 'text-blue-900 bg-blue-100'
                 }
 
@@ -53,7 +64,7 @@ export default new class Flash {
                 setTimeout(()=>{
                     el.removeClass('opacity-0')
                 }, 300)
-
+                
                 if(app.nCount > 5){
                     app.obClearAllButton.removeClass('hidden')
                 }
@@ -72,7 +83,6 @@ export default new class Flash {
                         let container = $('._flash > .flash-message');
                         if(container.length <= 5){
                             app.obClearAllButton.addClass('hidden')
-                            app.nCount = 0;
                         }
                     },500)
                 }            
@@ -90,6 +100,7 @@ export default new class Flash {
             }
 
         })
+
         this.obClearAllButton.on('click', ()=>{
             let flash = this.obContainer.find('.flash-message');
             flash.addClass('opacity-0')
@@ -98,6 +109,21 @@ export default new class Flash {
             setTimeout(()=>{
                 flash.remove();
             },250)
+        })
+
+        $(document).on('ajaxComplete', function( event, xhr, settings ) {
+            if(settings.status){
+                let status = settings.status.toString().substr(0, 2);
+                if(status === '10' || status === '19'){
+                    app.typeMessages = 'info';
+                }else if(status === '20' || status === '29'){
+                    app.typeMessages = 'success';
+                }else if(status === '30' || status === '39'){
+                    app.typeMessages = 'warning';
+                }else if(status === '40' || status === '49' || status === '50' || status === '59'){
+                    app.typeMessages = 'error';
+                }
+            }
         })
     }
 }();
