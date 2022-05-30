@@ -100,7 +100,7 @@ function onInit()
 <div class="flex flex-col lg:flex-row-reverse lg:justify-end">
     <div class="flex flex-col">
         {% partial 'product-info/product-info' %}
-        <div class="flex flex-col md:flex-row md:pl-14">
+        <div class="hidden flex-col md:flex-row md:pl-14 lg:flex">
             {% partial 'product-choose/product-choose' 
                 obProduct=obProduct 
             %}
@@ -113,10 +113,15 @@ function onInit()
                 {% partial 'product-description/product-description' sDescription=obProduct.description %}
             </div>
         {% endif %}
+        <div class="flex flex-col md:flex-row mt-7 lg:hidden">
+            {% partial 'product-choose/product-choose' 
+                obProduct=obProduct 
+            %}
+        </div>
     </div>
 </div>
-<div class="flex items-end items-baseline mt-10 flex-col lg:flex-row lg:max-w-6xl lg:justify-between">
-    <div id="reviews" class="w-full md:w-1/2 flex flex-col mt-10">
+<div class="flex items-end items-baseline flex-col lg:flex-row lg:max-w-6xl lg:justify-between">
+    <div id="reviews" class="w-full md:w-1/2 flex flex-col lg:mt-10">
         <h2 class="text-gray-900 text-2xl font-medium uppercase mb-5">{{ 'heading_customer_reviews'|_ }}</h2>
         {% partial 'review-list/review-list'
             obReview = obReviewList
