@@ -116,7 +116,7 @@ function onInit()
     </div>
 </div>
 <div class="flex items-end items-baseline mt-10 flex-col lg:flex-row lg:max-w-6xl lg:justify-between">
-    <div class="w-full md:w-1/2 flex flex-col mt-10">
+    <div id="reviews" class="w-full md:w-1/2 flex flex-col mt-10">
         <h2 class="text-gray-900 text-2xl font-medium uppercase mb-5">{{ 'heading_customer_reviews'|_ }}</h2>
         {% partial 'review-list/review-list'
             obReview = obReviewList
