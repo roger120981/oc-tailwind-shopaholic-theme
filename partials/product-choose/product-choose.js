@@ -5,13 +5,13 @@ export default new class ProductChoose {
     this.init();
   }
 
-  // init(){
-  //   console.log('Go')
+  init(){
+    console.log('Go')
 
-  //   const obListHelper = new ShopaholicCartAdd();
-  //   obListHelper.setAjaxRequestCallback((obRequestData) => {
-  //     console.log('okay');
-  //     return obRequestData;
-  //   });
-  // }
+    // const obListHelper = new ShopaholicCartAdd();
+    // obListHelper.setAjaxRequestCallback((obRequestData) => {
+    //   console.log('okay');
+    //   return obRequestData;
+    // });
+  }
 }();

@@ -97,19 +97,15 @@ function onInit()
 
 {% partial 'breadcrumbs/breadcrumbs' %}
 
-<div class="flex flex-col">
-    <div class="flex flex-col md:flex-row space-y-16 md:space-x-16">
-        <div class="w-full md:w-1/2 flex flex-col"></div>
-        <div class="w-full md:w-1/2 flex flex-col">
+<div class="flex flex-col lg:flex-row-reverse lg:justify-end">
+    <div class="flex flex-col">
+        {% partial 'product-info/product-info' %}
+        <div class="flex flex-col md:flex-row md:pl-14">
             {% partial 'product-choose/product-choose' 
                 obProduct=obProduct 
             %}
         </div>
     </div>
-</div>
-
-<div class="flex flex-col lg:flex-row-reverse lg:justify-end">
-    {% partial 'product-info/product-info' %}
     <div class="md:w-min">
         {% partial 'product-gallery/product-gallery' arImages = obProduct.images %}
         {% if obProduct.description is not empty %}
