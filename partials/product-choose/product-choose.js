@@ -7,13 +7,10 @@ export default new class ProductChoose {
   }
 
   init(){
-    console.log('Go')
-
     const obShopaholicCartAdd = new ShopaholicCartAdd();
     obShopaholicCartAdd.setAjaxRequestCallback((obRequestData, obButton) => {
       obRequestData.complete = ({ responseJSON }) => {
         obShopaholicCartAdd.completeCallback(responseJSON, obButton);
-        console.log('okay?')
       };
 
       return obRequestData;
@@ -23,7 +20,6 @@ export default new class ProductChoose {
     obShopaholicCartUpdate.setAjaxRequestCallback((obRequestData, obInput) => {
       obRequestData.complete = ({ responseJSON }) => {
         obShopaholicCartUpdate.completeCallback(responseJSON);
-        console.log('update count')
       };
 
       return obRequestData;
