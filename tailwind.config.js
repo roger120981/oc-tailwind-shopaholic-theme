@@ -56,6 +56,8 @@ module.exports = {
         225: '900px',
       },
       height: {
+        'screen-3xl': '1920px',
+        225: '900px',
         23: '92px',
         131: '524px'
       },
