@@ -11,10 +11,6 @@ export default new class InputQuantity {
       let $count = $counter.find("._count");
       let sQuantityCount = $count.attr('value');
 
-      if($count.hasClass("_shopaholic-cart-quantity")){
-        return
-      }
-
       (function () {
         counterInitialization();
       })()
