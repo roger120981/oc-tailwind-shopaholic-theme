@@ -97,7 +97,7 @@ function onInit()
 
 {% partial 'breadcrumbs/breadcrumbs' %}
 
-<div class="flex flex-col lg:flex-row-reverse lg:justify-end">
+<div class="_shopaholic-product-wrapper flex flex-col lg:flex-row-reverse lg:justify-end" data-product-id="{{ obProduct.id }}">
     <div class="flex flex-col">
         {% partial 'product-info/product-info' %}
         <div class="hidden flex-col md:flex-row md:pl-14 lg:flex">

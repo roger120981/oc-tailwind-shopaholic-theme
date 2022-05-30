@@ -8,10 +8,9 @@ export default new class ProductChoose {
   init(){
     console.log('Go')
 
-    // const obListHelper = new ShopaholicCartAdd();
-    // obListHelper.setAjaxRequestCallback((obRequestData) => {
-    //   console.log('okay');
-    //   return obRequestData;
-    // });
+    const obShopaholicCartAdd = new ShopaholicCartAdd();
+    obShopaholicCartAdd.setAjaxRequestCallback((obRequestData, obButton) => {
+      console.log('okay?')
+    }).init();
   }
 }();
