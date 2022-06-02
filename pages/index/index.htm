@@ -10,10 +10,6 @@ sorting = "publish|desc"
 sorting = "popularity|desc"
 
 [CategoryList]
-
-[staticMenu ProfileMenu]
-code = "navigation-profile"
-
 ==
 <?php
 function onInit()
@@ -24,11 +20,7 @@ function onInit()
 ==
 {##}
 
-{% set arCategoryList = CategoryList.make().tree().take(iTake) %}
-
 {% set arArticleList = ArticleList.make().sort('publish|desc').published().take(4) %}
-
-{% set arMenuList = ProfileMenu.menuItems %}
 
 {% if this.theme.main_carousel_active and this.theme.main_carousel is not empty %}
     {% partial 'carousel-main/carousel-main' arCarouselList = this.theme.main_carousel %}
@@ -51,15 +43,9 @@ function onInit()
     %}
     {# TODO: Change sSectionHeadingLevel to iSectionHeadingLevel overall #}
 {% endif %}
+<h2 class="font-medium text-3xl text-gray-900 mb-10 uppercase">{{'heading_product_categories'|_}}</h2>
 <div class="flex flex-col mb-10">
-    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-4 _advanced-list">
-        {% partial 'advanced-list/advanced-list'
-            arList = arMenuList
-        %}
-    </ul>
-</div>
-<div class="flex flex-col mb-10">
-    {% set iTake = 3 %}
+    {% set iTake = 6 %}
     {% set arCategoryList = CategoryList.make().tree().take(iTake) %}
 
     <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-4 _advanced-list">
@@ -84,9 +70,7 @@ function onInit()
         </div>
     {% endif %}
 </div>
-{% partial 'advanced-list-small/advanced-list-small'
-    arCategoryList = arCategoryList
-%}
+
 {% if this.theme.page_seo_block_active %}
     {% partial 'page-seo-content/page-seo-content' %}
 {% endif %}

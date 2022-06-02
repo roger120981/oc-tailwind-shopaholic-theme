@@ -2,6 +2,9 @@ title = "Account"
 url = "/account"
 layout = "main"
 is_hidden = 0
+
+[staticMenu ProfileMenu]
+code = "navigation-profile"
 ==
 <?php
 function onInit()
@@ -26,8 +29,13 @@ function onInit()
 ==
 {##}
 
+{% set arMenuList = ProfileMenu.menuItems %}
+
 {% partial 'breadcrumbs/breadcrumbs' %}
-{% partial 'advanced-list/advanced-list'
-    sAdvancedListType = sAdvancedListTypeAccount
-    iTake = 6
-%}
+<div class="flex flex-col mb-10">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-4 _advanced-list">
+        {% partial 'advanced-list/advanced-list'
+            arList = arMenuList
+        %}
+    </ul>
+</div>
