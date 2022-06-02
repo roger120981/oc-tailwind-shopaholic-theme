@@ -6,7 +6,7 @@
     {% for obCategory in arCategoryList %}
         {% partial 'advanced-list/advanced-item'
             sName = obCategory.name
-            sUrl = obCategory.getPageUrl('product-list')
+            sUrl = obCategory.getPageUrl('catalog/catalog')
             sImagePath = obCategory.icon.path
         %}
     {% endfor %}
