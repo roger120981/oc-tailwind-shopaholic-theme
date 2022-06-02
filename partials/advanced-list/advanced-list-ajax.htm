@@ -1,8 +1,8 @@
 {##}
 
-{% set sAdvancedListType = sAdvancedListType|default(input('advanced_list_type')) %}
-{% if sAdvancedListType == sAdvancedListTypeCategory %}
-    {% set arCategoryList = CategoryList.make().tree().take(iTake) %}
+{% set arCategoryList = CategoryList.make().tree().take(iTake) %}
+
+{% if arList|length == 0 %}
     {% for obCategory in arCategoryList %}
         {% partial 'advanced-list/advanced-item'
             sName = obCategory.name
@@ -10,23 +10,12 @@
             sImagePath = obCategory.icon.path
         %}
     {% endfor %}
-{% elseif sAdvancedListType == sAdvancedListTypeAccount %}
-    {% set arList = [
-        {'name': 'My orders', 'url': '#', 'icon_path': 'assets/images/temp_img/1.svg'|theme},
-        {'name': 'My details', '#': '#', 'icon_path': 'assets/images/temp_img/1.svg'|theme},
-        {'name': 'Wish list', 'url': '#', 'icon_path': 'assets/images/temp_img/1.svg'|theme},
-        {'name': 'Change password', 'url': '#', 'icon_path': 'assets/images/temp_img/1.svg'|theme},
-        {'name': 'Need help?', 'url': '#', 'icon_path': 'assets/images/temp_img/1.svg'|theme},
-        {'name': 'Sign out', 'url': '#', 'icon_path': 'assets/images/temp_img/1.svg'|theme}
-    ] %}
-    {% if iTake is not empty %}
-        {% set arList = arList|slice(0, iTake) %}
-    {% endif %}
-    {% for arItem in arList %}
+{% else %}
+    {% for obCategory in arList %}
         {% partial 'advanced-list/advanced-item'
-            sName = arItem.name
-            sUrl = arItem.url
-            sImagePath = arItem.icon_path
+            sName = obCategory.title
+            sUrl = obCategory.url
+            sImagePath = obCategory.icon.path
         %}
     {% endfor %}
 {% endif %}

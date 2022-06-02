@@ -10,6 +10,10 @@ sorting = "publish|desc"
 sorting = "popularity|desc"
 
 [CategoryList]
+
+[staticMenu ProfileMenu]
+code = "navigation-profile"
+
 ==
 <?php
 function onInit()
@@ -20,7 +24,12 @@ function onInit()
 ==
 {##}
 
+{% set arCategoryList = CategoryList.make().tree().take(iTake) %}
+
 {% set arArticleList = ArticleList.make().sort('publish|desc').published().take(4) %}
+
+{% set arMenuList = ProfileMenu.menuItems %}
+
 {% if this.theme.main_carousel_active and this.theme.main_carousel is not empty %}
     {% partial 'carousel-main/carousel-main' arCarouselList = this.theme.main_carousel %}
 {% endif %}
@@ -43,9 +52,14 @@ function onInit()
     {# TODO: Change sSectionHeadingLevel to iSectionHeadingLevel overall #}
 {% endif %}
 {% partial 'advanced-list/advanced-list'
-    sAdvancedListType = sAdvancedListTypeCategory
+    arList = arMenuList
+%}
+{% partial 'advanced-list/advanced-list'
     iTake = 6
     sButtonName = 'button_all_categories'|_
+%}
+{% partial 'advanced-list/advanced-list-small'
+    arCategoryList = arCategoryList
 %}
 {% if this.theme.page_seo_block_active %}
     {% partial 'page-seo-content/page-seo-content' %}
