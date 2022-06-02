@@ -4,7 +4,7 @@
 
 {% if arList|length == 0 %}
     {% for obCategory in arCategoryList %}
-        {% partial 'advanced-list/advanced-item'
+        {% partial 'advanced-list/advanced-list-item'
             sName = obCategory.name
             sUrl = obCategory.getPageUrl('catalog/catalog')
             sImagePath = obCategory.icon.path
@@ -12,7 +12,7 @@
     {% endfor %}
 {% else %}
     {% for obCategory in arList %}
-        {% partial 'advanced-list/advanced-item'
+        {% partial 'advanced-list/advanced-list-item'
             sName = obCategory.title
             sUrl = obCategory.url
             sImagePath = obCategory.icon.path
