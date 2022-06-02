@@ -17,6 +17,9 @@ import '/partials/input-quantity/input-quantity';
 import '/partials/off-canvas/off-canvas';
 /* * Advanced list * */
 import '/partials/advanced-list/advanced-list';
+/* * Product List * */
+import '/partials/product-list/product-list';
+/* * Filter * */
+import '/partials/filter/filter';
 /* * Search Input* */
 import '/partials/search/search';
-

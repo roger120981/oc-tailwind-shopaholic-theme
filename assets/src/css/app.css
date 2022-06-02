@@ -90,5 +90,15 @@
     transform: translate(-50%, -50%);
     -webkit-mask: var(--advanced-list-icon-src) center / 100% no-repeat;
   }
+  ._input-checkbox-color{
+    color: var(--input-checkbox-color);
+    background-color: var(--input-checkbox-color);
+  }
+  .progress_bar_evaluation{
+    width: var(--progress-bar-evaluation-width);
+  }
+  ._description-text{
+    max-height: var(--description-text-max-height);
+  }
 }
 @import "../../../node_modules/swiper/swiper-bundle.min.css";
