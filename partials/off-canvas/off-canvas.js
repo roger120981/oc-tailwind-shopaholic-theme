@@ -154,7 +154,7 @@ export default class offCanvas {
 
   clearEvents(){
     $(this.$vNav).off();
-    $(document).off();
+    // $(document).off();
     this.clear();
   }
 
