@@ -1,0 +1,25 @@
+{##}
+
+<div class="_sorting-filter flex items-center mb-4 md:justify-end" data-pagination-page="{{iPage}}" data-pagination-max="{{iMaxPage}}">
+    <label class="select__label w-16" for="sort-select">{{'text_sort_by'|_}}: </label>
+    <select class="_shopaholic-sorting w-full border-0 outline-none focus:outline-none focus:border-0 md:w-auto" id="sort-select" name="sort">
+        <option value="popularity|desc" {{ (sActiveSorting == 'popularity|desc' or sActiveSorting is empty) ? 'selected' : '' }} >Popular</option>
+        <option value="price|desc" {{ sActiveSorting == 'price|desc' ? 'selected' : '' }} >Expensive</option>
+        <option value="price|asc" {{ sActiveSorting == 'price|asc' ? 'selected' : '' }}>Cheap</option>
+        <option value="new" {{ sActiveSorting == 'new' ? 'selected' : '' }} >New</option>
+    </select>
+</div>
+{% partial 'sorting/sorting-ajax' %}
+
+{% set arPaginationList = Pagination.get(iPage, obProductList.count()) %}
+
+{% partial 'pagination/pagination'
+    sPartialClasses = '_pagination mb-14'
+    arPaginationList = arPaginationList
+    iMaxPage = iMaxPage
+    iPage = iPage
+    sLinkClass = '_shopaholic-pagination'
+%}
+
+{# TODO: Баг, при переключении пагинации и выборе фильтра, пагинация в строке адреса слетает #}
+

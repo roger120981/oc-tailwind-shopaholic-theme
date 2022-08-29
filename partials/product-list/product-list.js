@@ -103,6 +103,7 @@ export default new class ProductList {
                 'product-list/product-list-ajax': '.catalog_wrapper',
                 'filter/filters-desktop-ajax': '._filters-desktop',
                 'filter/filters-mobile-ajax': '._filters-mobile',
+                'sorting/sorting': `._sorting`,
             };
             return obRequestData;
         });
