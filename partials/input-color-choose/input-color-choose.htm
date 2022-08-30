@@ -10,7 +10,7 @@
         {% set bChecked = true %}
     {% endif %}
     {% if obValue.label == 'White' %}
-        {% set checkboxStyle = 'border-gray-300 checked:bg-75 checked:bg-check-black checked:border-gray-300 checked:hover:border-gray-300 disabled:opacity-30' %}
+        {% set checkboxStyle = 'border-gray-300 checked:bg-75 checked:bg-check-black checked:border-gray-300 focus:border-gray-300 active:border-gray-300 checked:hover:border-gray-300 checked:focus:border-gray-300 disabled:opacity-30' %}
     {% else %}
         {% set checkboxStyle = 'border-0 checked:bg-75 checked:bg-check checked:border-0 disabled:opacity-30' %}
     {% endif %}
