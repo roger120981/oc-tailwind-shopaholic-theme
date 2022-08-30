@@ -97,23 +97,23 @@ function onInit()
 
 {% partial 'breadcrumbs/breadcrumbs' %}
 
-<div class="_shopaholic-product-wrapper flex flex-col lg:flex-row-reverse lg:justify-end" data-product-id="{{ obProduct.id }}">
-    <div class="flex flex-col">
-        {% partial 'product-info/product-info' %}
-        <div class="hidden flex-col md:flex-row md:pl-14 lg:flex">
-            {% partial 'product-choose/product-choose' 
-                obProduct=obProduct 
-            %}
-        </div>
-    </div>
-    <div class="md:w-min">
+<div class="_shopaholic-product-wrapper grid grid-cols-1 xl:grid-cols-2 xl:justify-items-center 2xl:justify-items-start" data-product-id="{{ obProduct.id }}">
+    <div>
+        {% partial 'product-info/product-info' 
+            sPartialClass = 'xl:absolute xl:invisible'
+        %}
         {% partial 'product-gallery/product-gallery' arImages = obProduct.images %}
         {% if obProduct.description is not empty %}
             <div class="w-full flex flex-col mt-7 md:mt-11">
                 {% partial 'product-description/product-description' sDescription=obProduct.description %}
             </div>
         {% endif %}
-        <div class="flex flex-col md:flex-row mt-7 lg:hidden">
+    </div>
+    <div class="flex flex-col">
+        {% partial 'product-info/product-info' 
+            sPartialClass = 'absolute invisible w-auto xl:w-full xl:static xl:visible'
+        %}
+        <div class="flex mt-7 flex-col xl:mt-0 xl:flex-row xl:pl-14">
             {% partial 'product-choose/product-choose' 
                 obProduct=obProduct 
             %}
