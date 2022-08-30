@@ -14,24 +14,26 @@
 
     <!-- web app buttons -->
     <div class="_tabs hidden md:block">
-        <div role="tablist" class="_tabs-buttons flex flex-row justify-start space-x-8 text-xl border-b-2 border-gray-200">
+        <ul role="tablist" class="_tabs-buttons flex flex-row justify-start space-x-8 text-xl border-b-2 border-gray-200">
             {% for tab in obContent %}
                 {% if loop.index == 1 %}
-                    {% set init = 'border-b-4 border-blue-800 px-0.5 pb-4 -mb-0.5' %}
+                    {% set init = 'relative after:content-[""] after:w-full after:absolute after:bottom-0 after:left-0 after:border-b-4 after:border-blue-800 px-0.5 pb-4 -mb-0.5' %}
                 {% else %}
                     {% set init = 'px-0.5 pb-4 -mb-0.5' %}
                 {% endif %}
-                <button
-                    type="button"
-                    role="tab"
-                    aria-selected="true"
-                    data-id='{{loop.index}}'
-                    class="_tabs-button {{init}}"
-                >
-                    {{tab.title}}
-                </button>
+               <li>
+                    <button
+                        type="button"
+                        role="tab"
+                        aria-selected="true"
+                        data-id='{{loop.index}}'
+                        class="_tabs-button {{init}}"
+                    >
+                        {{tab.title}}
+                    </button>
+               </li>
             {% endfor %}
-        </div>
+        </ul>
         <div class="_tabs-content mt-5">
             {% for tabValue in obContent %}
                 {% if loop.index != 1 %}
