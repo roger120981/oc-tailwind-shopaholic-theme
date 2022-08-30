@@ -237,11 +237,13 @@ function onStart()
     {% partial 'product-card/product-card' %}
 {% else %}
     {# Product list #}
-    <div class="flex justify-between flex-col md:flex-row">
+    <div class="grid md:grid-cols-4">
         {% if bShowFilter %}
-            {% partial 'filter/filter' %}
+            {% partial 'filter/filter' 
+                sPartialClass='md:col-span-1'
+            %}
         {% endif %}
-        <div class="_sorting-container w-full">
+        <div class="_sorting-container w-full md:col-span-3">
             <div class="_sorting">
                 {% partial 'sorting/sorting' %}
             </div>
