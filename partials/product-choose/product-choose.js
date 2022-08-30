@@ -12,7 +12,9 @@ export default new class ProductChoose {
       obRequestData.complete = ({ responseJSON }) => {
         obShopaholicCartAdd.completeCallback(responseJSON, obButton);
       };
-
+      obRequestData.update = { 
+        'header/header-ajax': `._header-purchases`,
+      };
       return obRequestData;
     }).init();
 
@@ -21,7 +23,9 @@ export default new class ProductChoose {
       obRequestData.complete = ({ responseJSON }) => {
         obShopaholicCartUpdate.completeCallback(responseJSON);
       };
-
+      obRequestData.update = { 
+        'header/header-ajax': `._header-purchases`,
+      };
       return obRequestData;
     }).init();
   }

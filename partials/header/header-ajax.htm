@@ -1,0 +1,13 @@
+{##}
+
+{% set obCartList = Cart.get() %}
+
+<button class="relative ml-5 sm:ml-8 md:ml-10 text-gray-900 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue" type="button">
+    <svg width="18" height="20" viewBox="0 0 18 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13 9V5C13 3.93913 12.5786 2.92172 11.8284 2.17157C11.0783 1.42143 10.0609 1 9 1C7.93913 1 6.92172 1.42143 6.17157 2.17157C5.42143 2.92172 5 3.93913 5 5V9M2 7H16L17 19H1L2 7Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    {% if obCartList|length > 0 %}
+        <div class="absolute right-0 -bottom-px w-2 h-2 bg-blue-800 rounded"></div>
+    {% endif %}
+    <span class="sr-only">{{ 'button_page_header_cart'|_ }}</span>
+</button>
