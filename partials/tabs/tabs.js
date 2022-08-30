@@ -16,9 +16,9 @@ export default new class Tabs {
 
   buttonActive(index, active){
     if(active){
-      this.obTabsButton[index].classList.add('border-b-4', 'border-blue-800');
+      this.obTabsButton[index].classList.add('relative', 'after:content-[""]', 'after:w-full', 'after:absolute', 'after:bottom-0', 'after:left-0', 'after:border-b-4', 'after:border-blue-800');
     }else{
-      this.obTabsButton[index].classList.remove('border-b-4', 'border-blue-800');
+      this.obTabsButton[index].classList.remove('relative', 'after:content-[""]', 'after:w-full', 'after:absolute', 'after:bottom-0', 'after:left-0', 'after:border-b-4', 'after:border-blue-800');
     }
   }
 
