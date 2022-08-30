@@ -98,9 +98,9 @@ function onInit()
 {% partial 'breadcrumbs/breadcrumbs' %}
 
 <div class="_shopaholic-product-wrapper grid grid-cols-1 xl:grid-cols-2 xl:justify-items-center 2xl:justify-items-start" data-product-id="{{ obProduct.id }}">
-    <div>
+    <div class="w-full">
         {% partial 'product-info/product-info' 
-            sPartialClass = 'xl:absolute xl:invisible'
+            sPartialClass = 'xl:w-auto xl:absolute xl:invisible'
         %}
         {% partial 'product-gallery/product-gallery' arImages = obProduct.images %}
         {% if obProduct.description is not empty %}
@@ -120,8 +120,8 @@ function onInit()
         </div>
     </div>
 </div>
-<div class="flex items-end items-baseline flex-col lg:flex-row lg:max-w-6xl lg:justify-between">
-    <div id="reviews" class="w-full md:w-1/2 flex flex-col lg:mt-10">
+<div class="grid grid-cols-1 xl:mt-10 xl:justify-items-center 2xl:justify-items-start xl:grid-cols-2">
+    <div id="reviews" class="w-full flex flex-col">
         <h2 class="text-gray-900 text-2xl font-medium uppercase mb-5">{{ 'heading_customer_reviews'|_ }}</h2>
         {% partial 'review-list/review-list'
             obReview = obReviewList
@@ -134,7 +134,7 @@ function onInit()
     </div>
     {% partial 'product-rating/product-rating' 
         obProduct=obProduct
-        sPartialClass = 'mt-6 lg:mt-0 lg:mr-20'
+        sPartialClass = 'mt-6 xl:mt-14 xl:pl-11 2xl:pl-14'
     %}
 </div>
 
