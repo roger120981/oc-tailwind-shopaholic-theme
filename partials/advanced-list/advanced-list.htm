@@ -1,5 +1,7 @@
 {##}
 
-{% set arCategoryList = CategoryList.make().tree().take(iTake) %}
-
-{% partial 'advanced-list/advanced-list-ajax' iTake = iTake %}
+{% partial 'advanced-list/advanced-list-ajax' 
+    iTake = iTake
+    arList = arList
+    sLoad = sLoad
+%}

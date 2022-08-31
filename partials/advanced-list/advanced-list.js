@@ -1,35 +1,37 @@
 export default new class AdvancedList {
   constructor() {
-    this.sAdvancedListWrapperClass = '_advanced-list';
-    this.sAdvancedListButtonShowMoreClass = '_advanced-list-button-show-all';
-    this.sAdvancedListButtonShowMoreClassHidden = '_advanced-list-button-show-all-hidden';
+    this.sAdvancedListWrapperClass = $('._advanced-list');
+    this.sAdvancedListButtonShowMoreClass = $('._advanced-list-button-show-all');
+    this.sAdvancedListButtonShowMoreClassHidden = $('._advanced-list-button-show-all-hidden');
 
     this.obButton = null;
+
+    this.init();
     this.showAllList();
   }
 
   /**
    * @description Show all list.
    */
+
+  init(){
+    if(this.sAdvancedListWrapperClass.find('li').data('take')){
+      for(let i = 0; i !== this.sAdvancedListWrapperClass.find('li').data('take'); i++){
+        this.sAdvancedListWrapperClass.find('li')[i].removeAttribute('aria-hidden');
+        this.sAdvancedListWrapperClass.find('li')[i].classList.remove('hidden');
+      }
+    }
+  }
+
   showAllList() {
-    $(document).on('click', `.${this.sAdvancedListButtonShowMoreClass}`, (obEvent) => {
-      this.obButton = $(obEvent.target);
-      this.obButton.attr('disabled', 'disabled');
-      
-      $(`.${this.sAdvancedListButtonShowMoreClass}`).css('display', 'none');
-      $(`.${this.sAdvancedListButtonShowMoreClassHidden}`).css('display', 'block');
-
-      const sAdvancedListType = this.obButton.attr('data-advanced-list-type');
-      const self = this;
-
-      $.request('onInit', {
-        data: {'advanced_list_type': sAdvancedListType},
-        update: {'advanced-list/advanced-list-ajax': `.${this.sAdvancedListWrapperClass}`},
-        complete: function () {
-          self.obButton.removeAttr('disabled');
-          $(`.${self.sAdvancedListButtonShowMoreClassHidden}`).css('display', 'none');
-        },
-      });
+    this.sAdvancedListButtonShowMoreClass.on('click', ()=> {
+      this.sAdvancedListButtonShowMoreClass.addClass('hidden');
+      this.sAdvancedListButtonShowMoreClassHidden.removeClass('hidden');
+      setTimeout(()=>{
+        this.sAdvancedListWrapperClass.find('li').removeAttr('aria-hidden', null);
+        this.sAdvancedListWrapperClass.find('li').removeClass('hidden');
+        this.sAdvancedListButtonShowMoreClassHidden.addClass('hidden');
+      },300)
     });
   }
 }();

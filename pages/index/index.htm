@@ -49,9 +49,11 @@ function onInit()
     {% set arCategoryList = CategoryList.make().tree().take(iTake) %}
     {% set arCategoryListCount = CategoryList.make().tree() %}
     
-    <ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-4 _advanced-list">
+    <ul class="_advanced-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-4">
         {% partial 'advanced-list/advanced-list'
             iTake = iTake
+            arList = arCategoryListCount
+            sLoad = 'true'
         %}
     </ul>
     {% if arCategoryListCount|length > iTake %}

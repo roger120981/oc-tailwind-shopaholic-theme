@@ -1,22 +1,21 @@
 {##}
 
-{% set arCategoryList = CategoryList.make().tree().take(iTake) %}
+{% set sName = '' %}
+{% set sUrl = '' %}
 
-{% if arList|length == 0 %}
-    {% for obCategory in arCategoryList %}
-        {% partial 'advanced-list/advanced-list-item'
-            sName = obCategory.name
-            sUrl = obCategory.getPageUrl('catalog/catalog')
-            sImagePath = obCategory.icon.path
-        %}
-    {% endfor %}
-{% else %}
-    {% for obCategory in arList %}
-        {% partial 'advanced-list/advanced-list-item'
-            sName = obCategory.title
-            sUrl = obCategory.url
-            sImagePath = obCategory.icon.path
-            sPartialClasses = obCategory.viewBag.cssClass
-        %}
-    {% endfor %}
-{% endif %}
+{% for obItem in arList %}
+    {% if obItem.title|length > 0 %}
+        {% set sName = obItem.title %}
+        {% set sUrl = obItem.url %}
+    {% else %}
+        {% set sName = obItem.name %}
+        {% set sUrl = obItem.getPageUrl('catalog/catalog') %}
+    {% endif %}
+    {% partial 'advanced-list/advanced-list-item'
+        sName = sName
+        sUrl = sUrl
+        sImagePath = obItem.icon.path
+        sPartialClasses = obItem.viewBag.cssClass
+        sLoad = sLoad
+    %}
+{% endfor %}
