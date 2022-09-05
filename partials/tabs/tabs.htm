@@ -25,7 +25,7 @@
                     <button
                         type="button"
                         role="tab"
-                        aria-selected="true"
+                        {% if loop.index == 1 %} aria-selected="true" {% else %} aria-selected="false" {% endif %}
                         data-id='{{loop.index}}'
                         class="_tabs-button {{init}}"
                     >
@@ -44,6 +44,7 @@
                     role="tabpanel"
                     class="_tabs-text duration-150 {{init}}"
                     data-id='{{loop.index}}'
+                    {% if loop.index != 1 %} aria-hidden="true" {% endif %}
                 >
                     {% if tabValue.dropdown == 'product_detail' %}
                         {% partial 'tabs/tabs-details' obPropertyList=obPropertyList %}

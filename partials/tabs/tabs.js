@@ -17,16 +17,20 @@ export default new class Tabs {
   buttonActive(index, active){
     if(active){
       this.obTabsButton[index].classList.add('relative', 'after:content-[""]', 'after:w-full', 'after:absolute', 'after:bottom-0', 'after:left-0', 'after:border-b-4', 'after:border-blue-800');
+      this.obTabsButton[index].setAttribute('aria-selected', 'true');
     }else{
       this.obTabsButton[index].classList.remove('relative', 'after:content-[""]', 'after:w-full', 'after:absolute', 'after:bottom-0', 'after:left-0', 'after:border-b-4', 'after:border-blue-800');
+      this.obTabsButton[index].setAttribute('aria-selected', 'false');
     }
   }
 
   tabAnimate(index, active){
     if(active){
       this.obTabsText[index].classList.remove('opacity-0');
+      this.obTabsText[index].removeAttribute('aria-hidden');
     }else{
       this.obTabsText[index].classList.add('opacity-0');
+      this.obTabsText[index].setAttribute('aria-hidden', 'true');
     }
   }
 
