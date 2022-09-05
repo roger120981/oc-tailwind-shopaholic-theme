@@ -5,17 +5,16 @@
 <section class="flex flex-col mb-12">
     <fieldset>
         <legend>{{ 'heading_colors'|_ }}</legend>
-        <ul class="flex flex-row space-x-2 mt-4 md:mt-2 text-xs text-gray-600">
-            {% for obValue in obPropertyList if obValue.code == 'Color' %}
-                {% partial 'input-color-choose/input-color-choose'
-                    sPartialClasses = 'mr-0'
-                    obPropertyValueList = obValue.property_value
-                    obProperty = obProperty
-                    sName = 'offer_id'
-                    sType = 'radio'
-                %}
-            {% endfor %}
-        </ul>
+        {% for obValue in obPropertyList if obValue.code == 'Color' %}
+            {% partial 'input-color-choose/input-color-choose'
+                sPartialClasses = 'mr-0'
+                obPropertyValueList = obValue.property_value
+                obProperty = obProperty
+                sName = 'offer_id'
+                sType = 'radio'
+                sContainerClasses = 'flex flex-row space-x-2 mt-4 md:mt-2 text-xs text-gray-600'
+            %}
+        {% endfor %}
     </fieldset>
     <div class="flex flex-row items-center mt-7 md:mt-10">
         {% partial 'input-quantity/input-quantity' 
