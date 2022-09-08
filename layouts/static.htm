@@ -15,6 +15,17 @@ function onInit()
     $this['sProductListSmallTypePopularity'] = 'popularity';
     $this['sProductListSmallTypeViewedProducts'] = 'viewed_products';
     $this['sProductListSmallTypeRelatedProducts'] = 'related_products';
+
+    if ($this->theme->has_buddies) {
+        $this->addComponent('Lovata\Buddies\Components\UserData', 'UserData', []);
+        $this['obUser'] = $this->UserData->get();
+    }
+
+    $arBreadcrumbs = [
+        ['name' => $this->page->title, 'url' => \Cms\Classes\Page::url('static', ['static' => false])],
+    ];
+
+    $this['arBreadcrumbs'] = $arBreadcrumbs;
 }
 function onStart()
 {
