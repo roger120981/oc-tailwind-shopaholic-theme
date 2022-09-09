@@ -31,9 +31,11 @@ export default new class Checkout {
         $('._payment-method').on('click', 'input', () => {
             if($(this.sCash).prop('checked')){
                 $(this.sPaymentCard).addClass('hidden');
+                $(this.sPaymentCard).attr('aria-hidden', true);
             }
             if($(this.sCard).prop('checked')){
                 $(this.sPaymentCard).removeClass('hidden');
+                $(this.sPaymentCard).removeAttr('aria-hidden');
             }
         })
     }
