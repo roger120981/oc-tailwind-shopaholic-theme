@@ -34,12 +34,12 @@
                </li>
             {% endfor %}
         </ul>
-        <div class="_tabs-content mt-5">
+        <ul class="_tabs-content mt-5">
             {% for tabValue in obContent %}
                 {% if loop.index != 1 %}
                     {% set init = 'hidden opacity-0' %}
                 {% endif %}
-                <div
+                <li
                     tabindex="0"
                     role="tabpanel"
                     class="_tabs-text duration-150 {{init}}"
@@ -51,8 +51,8 @@
                     {% else %}
                         {% partial 'tabs/tabs-markup' text = tabValue.richeditor %}
                     {% endif %}
-                </div>
+                </li>
             {% endfor %}
-        </div>
+        </ul>
     </div>
 </div>
