@@ -18,6 +18,33 @@
                 </button>
             {% endif %}
         {% endif %}
+        {% if this.theme.has_labels %}
+            {% set obLabelList = obProduct.label.active().sort() %}
+            {% if obLabelList.isNotEmpty() %}
+                {% if obLabelList.count() == 1 %}
+                    <div class="absolute z-10 -top-px -left-px overflow-hidden rounded-br rounded-tl flex">
+                        {% for obLabel in obLabelList %}
+                            {% if obLabel.code == 'new' %}
+                                {% set sColorState = 'bg-green-900' %}
+                            {% elseif obLabel.code == 'sale' %}
+                                {% set sColorState = 'bg-red-700' %}
+                            {% else %}
+                                {% set sColorState = 'bg-red-700' %}
+                            {% endif %}
+                            <div class="{{sColorState}} text-white px-4 py-2 whitespace-nowrap text-xs lg:text-sm">{{ obLabel.name }}</div>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    <ul class="absolute z-10 -top-px -left-px rounded-br rounded-tl flex w-2/3 scrollbar-x-none overflow-x-scroll md:overflow-auto md:hover:w-auto">
+                        {% for obLabel in obLabelList %}
+                            <li>
+                                <div class="text-white bg-red-700 px-4 py-2 whitespace-nowrap">{{ obLabel.name }}</div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            {% endif %}
+        {% endif %}
         <ul class="swiper-wrapper">
             {% for obImage in arImages %}
                 <li class="swiper-slide cursor-pointer">
