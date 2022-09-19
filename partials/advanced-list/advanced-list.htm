@@ -1,7 +1,26 @@
 {##}
 
-{% partial 'advanced-list/advanced-list-ajax' 
-    iTake = iTake
-    arList = arList
-    sLoad = sLoad
-%}
+{% set sName = '' %}
+{% set sUrl = '' %}
+
+<ul class="_advanced-list grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-4">
+    {% for obItem in arList %}
+        {% if obItem.title|length > 0 %}
+            {% set sName = obItem.title %}
+            {% set sUrl = obItem.url %}
+        {% else %}
+            {% set sName = obItem.name %}
+            {% set sUrl = obItem.getPageUrl('catalog/catalog') %}
+        {% endif %}
+        
+        {% partial 'advanced-list/advanced-list-item'
+            sName = sName
+            sUrl = sUrl
+            sImagePath = obItem.icon.path
+            sPartialClasses = obItem.viewBag.cssClass
+            sLoad = sLoad
+            sHidden = sHidden
+            iTake = iTake
+        %}
+    {% endfor %}
+</ul>
