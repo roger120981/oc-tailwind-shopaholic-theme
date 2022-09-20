@@ -50,6 +50,8 @@ function onStart()
 {
     //Get product and first offer item
     $obProductItem = $this->ProductPage->get();
+    $obOfferList = $obProductItem->offer;
+    
     if (empty($obProductItem)) {
         return;
     }
@@ -80,7 +82,9 @@ function onStart()
         'url' => $this->pageUrl($this->page->baseFileName, false),
     ];
 
+    $this['obRelatedProductList'] = $obProductItem->related;
     $this['obProduct'] = $obProductItem;
+    $this['obOfferList'] = $obOfferList;
     $this['arBreadcrumbs'] = array_reverse($arBreadcrumbs);
 }
 

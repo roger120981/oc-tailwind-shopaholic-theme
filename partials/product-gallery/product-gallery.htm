@@ -22,7 +22,7 @@
             {% set obLabelList = obProduct.label.active().sort() %}
             {% if obLabelList.isNotEmpty() %}
                 {% if obLabelList.count() == 1 %}
-                    <div class="absolute z-10 -top-px -left-px overflow-hidden rounded-br rounded-tl flex">
+                    <div class="absolute z-10 top-4 left-4 overflow-hidden rounded-br rounded-tl flex md:-left-px md:top-7">
                         {% for obLabel in obLabelList %}
                             {% if obLabel.code == 'new' %}
                                 {% set sColorState = 'bg-green-900' %}
@@ -35,10 +35,22 @@
                         {% endfor %}
                     </div>
                 {% else %}
-                    <ul class="absolute z-10 -top-px -left-px rounded-br rounded-tl flex w-2/3 scrollbar-x-none overflow-x-scroll md:overflow-auto md:hover:w-auto">
+                    <ul class="absolute z-10 top-4 left-4 flex w-2/3 scrollbar-x-none overflow-x-scroll space-x-0.5 md:space-x-1 md:overflow-auto md:hover:w-auto md:-left-px md:top-7">
                         {% for obLabel in obLabelList %}
+                            {% if obLabel.code == 'new' %}
+                                {% set sColorState = 'bg-green-900' %}
+                            {% elseif obLabel.code == 'sale' %}
+                                {% set sColorState = 'bg-red-700' %}
+                            {% else %}
+                                {% set sColorState = 'bg-red-700' %}
+                            {% endif %}
+                            {% if loop.index == 1 %}
+                                {% set sRounded = 'rounded-br rounded-tl' %}
+                            {% else %}
+                                {% set sRounded = 'rounded-b-lg' %}
+                            {% endif %}
                             <li>
-                                <div class="text-white bg-red-700 px-4 py-2 whitespace-nowrap">{{ obLabel.name }}</div>
+                                <div class="{{sRounded}} {{sColorState}} text-white px-4 py-2 whitespace-nowrap">{{ obLabel.name }}</div>
                             </li>
                         {% endfor %}
                     </ul>
