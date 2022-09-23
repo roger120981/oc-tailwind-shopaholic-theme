@@ -70,9 +70,6 @@
   .wishlist__empty {
     background-image: url('/themes/lovata-tailwind-shopaholic/assets/images/wishlist.svg');
   }
-  ._account-order-items.active svg{
-    @apply transform rotate-180 transition-all duration-300
-  }
   .quantity_input::-webkit-inner-spin-button,
   .quantity_input::-webkit-outer-spin-button{
     -webkit-appearance: none;
