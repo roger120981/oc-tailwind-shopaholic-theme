@@ -198,22 +198,21 @@ function onInit()
             <div class="_subtotal-container w-full md:w-1/2 mt-7 mb-12">
                 <h2 class="mb-4 text-gray-900 font-medium text-lg uppercase md:text-2xl">{{'heading_summary'|_}}</h2>
                 <div class="_subtotal flex mb-4 justify-between">
-                    <span class="flex text-gray-900 font-medium">
+                    <span class="flex text-gray-900 text-sm md:text-base">
                         {{'text_subtotal'|_}}&nbsp;
-                        <span class="text-gray-600">
+                        <span>
                             <output class="_item"></output>
                         </span>
-                        :
                     </span>
-                    <output class="_price font-medium pl-4"></output>
+                    <output class="_price text-sm md:text-base pl-4"></output>
                 </div>
                 <div class="flex mb-4 justify-between">
                     <span class="text-sm md:text-base">{{'text_delivery'|_}}</span>
                     <span class="_delivery-price text-sm md:text-base">{{'text_free'|_}}</span>
                 </div>
                 <div class="flex mb-8 justify-between font-medium text-lg">
-                    <span class="text-sm md:text-base">{{'text_est_total'|_}}</span>
-                    <output class="_total-price text-sm md:text-base"></output>
+                    <span class="text-base md:text-lg">{{'text_est_total'|_}}</span>
+                    <output class="_total-price text-base md:text-lg"></output>
                 </div>
                 {% partial 'button/button'
                     sPartialClasses = 'w-full md:w-auto'
