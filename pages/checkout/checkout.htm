@@ -197,12 +197,15 @@ function onInit()
             </fieldset>
             <div class="_subtotal-container w-full md:w-1/2 mt-7 mb-12">
                 <h2 class="mb-4 text-gray-900 font-medium text-lg uppercase md:text-2xl">{{'heading_summary'|_}}</h2>
-                <div class="_subtotal flex mb-4 justify-between">
-                    <div class="flex">
-                        <span class="text-sm md:text-base">{{'text_subtotal'|_}}</span>&nbsp
-                        <span class="_item text-sm md:text-base"></span>
-                    </div>
-                    <span class="_price pl-4 text-sm md:text-base"></span>
+                <div class="_subtotal flex mt-6 mb-7 justify-between md:justify-start">
+                    <span class="flex text-gray-900 font-medium">
+                        {{'text_subtotal'|_}}&nbsp;
+                        <span class="text-gray-600">
+                            <output class="_item"></output>
+                        </span>
+                        :
+                    </span>
+                    <output class="_price font-medium pl-4"></output>
                 </div>
                 <div class="flex mb-4 justify-between">
                     <span class="text-sm md:text-base">{{'text_delivery'|_}}</span>
