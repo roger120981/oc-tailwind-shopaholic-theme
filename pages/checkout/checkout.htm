@@ -197,7 +197,7 @@ function onInit()
             </fieldset>
             <div class="_subtotal-container w-full md:w-1/2 mt-7 mb-12">
                 <h2 class="mb-4 text-gray-900 font-medium text-lg uppercase md:text-2xl">{{'heading_summary'|_}}</h2>
-                <div class="_subtotal flex mt-6 mb-7 justify-between md:justify-start">
+                <div class="_subtotal flex mb-4 justify-between">
                     <span class="flex text-gray-900 font-medium">
                         {{'text_subtotal'|_}}&nbsp;
                         <span class="text-gray-600">
@@ -213,7 +213,7 @@ function onInit()
                 </div>
                 <div class="flex mb-8 justify-between font-medium text-lg">
                     <span class="text-sm md:text-base">{{'text_est_total'|_}}</span>
-                    <span class="_total-price text-sm md:text-base"></span>
+                    <output class="_total-price text-sm md:text-base"></output>
                 </div>
                 {% partial 'button/button'
                     sPartialClasses = 'w-full md:w-auto'
