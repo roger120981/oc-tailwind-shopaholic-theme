@@ -3,7 +3,6 @@ export default new class Flash {
         this.obContainer = $('._flash');
         this.obClearAllButton = this.obContainer.find('._clear-all');
         
-        this.nCount = 0;
         this.typeMessages = null;
 
         this.init();
@@ -11,10 +10,10 @@ export default new class Flash {
 
     init(){
         let app = this;
-        let container = $('._flash > .flash-message');
-        this.nCount = container.length;
 
         $(document).on('ajaxSetup', function(event, context) {
+            let container = $('._flash .flash-message');
+
             context.options.flash = true
                 
             context.options.loading = $.oc.stripeLoadIndicator
@@ -36,11 +35,9 @@ export default new class Flash {
                 let el = $('<li />').addClass(app.typeMessages).html(messages);
                 let color = null;
                 
-                if((app.nCount - 1) >= 5){
-                    let flash = $('._flash > .flash-message');
+                if(container.length === 5){
+                    let flash = $('._flash .flash-message');
                     flash[flash.length - 1].remove();
-                }else{
-                    app.nCount++;
                 }
 
                 if(app.typeMessages === 'success'){
@@ -64,8 +61,8 @@ export default new class Flash {
                 setTimeout(()=>{
                     el.removeClass('opacity-0')
                 }, 300)
-                
-                if(app.nCount > 5){
+
+                if(container.length === 5){
                     app.obClearAllButton.removeClass('hidden')
                 }
 
@@ -78,7 +75,6 @@ export default new class Flash {
                 function removeElement() {
                     el.addClass('opacity-0')
                     setTimeout(()=>{
-                        app.nCount--
                         el.remove();
                         let container = $('._flash > .flash-message');
                         if(container.length <= 5){
@@ -105,7 +101,6 @@ export default new class Flash {
             let flash = this.obContainer.find('.flash-message');
             flash.addClass('opacity-0')
             this.obClearAllButton.addClass('hidden');
-            this.nCount = 0;
             setTimeout(()=>{
                 flash.remove();
             },250)
