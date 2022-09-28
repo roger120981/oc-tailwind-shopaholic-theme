@@ -1,9 +1,10 @@
 {##}
 
-<div class="_flash w-80 fixed top-20 z-50 flex flex-col space-y-2 md:w-96 left-1/2 -translate-x-1/2 md:-translate-x-0 md:left-auto md:right-20">
+<div class="_flash w-80 fixed top-20 z-50 md:w-96 left-1/2 -translate-x-1/2 md:-translate-x-0 md:left-auto md:right-20">
+    <ul class="flex flex-col space-y-2"></ul>
     {% partial 'button/button'
         sText = 'button_hide_all'|_
         sType = 'button'
-        sPartialClasses = '_clear-all hidden mt-12 bg-gray-200 !text-blue-800 hover:!text-white md:mt-10'
+        sPartialClasses = '_clear-all w-full hidden mt-1 bg-gray-200 !text-blue-800 hover:!text-white md:mt-2'
     %}
 </div>
