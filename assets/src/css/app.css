@@ -88,5 +88,8 @@
   ._description-text{
     max-height: var(--description-text-max-height);
   }
+  .product-active{
+    visibility: var(--icon-indicator);
+  }
 }
 @import "../../../node_modules/swiper/swiper-bundle.min.css";
