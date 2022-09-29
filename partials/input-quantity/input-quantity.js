@@ -9,7 +9,6 @@ export default new class InputQuantity {
       let $minus = $counter.find("._decrement");
       let $plus = $counter.find("._increment");
       let $count = $counter.find("._count");
-      let sInputQuantityCount = '_count';
       let sQuantityCount = $count.attr('value');
 
       (function () {
