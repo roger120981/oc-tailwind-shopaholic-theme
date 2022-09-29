@@ -4,8 +4,8 @@
 {% set iTotalQuantity = obOfferList.getTotalQuantity() %}
 
 <section class="flex flex-col mb-12">
-    <fieldset>
-        <legend>{{ 'heading_colors'|_ }}</legend>
+    <div>
+        <span>{{ 'heading_colors'|_ }}</span>
         <ul class="flex space-x-2 mt-2">
             {% for obValue in obPropertyList if obValue.code == 'Color' %}
                 {% partial 'input-color-imitation/input-color-imitation'
@@ -33,7 +33,7 @@
                     {% endfor %}
             {% endfor %}
         </ul>
-    </fieldset>
+    </div>
     {% if iTotalQuantity > 0 %}
         <div class="flex flex-row items-center mt-7 md:mt-10">
             {% partial 'input-quantity/input-quantity' 
