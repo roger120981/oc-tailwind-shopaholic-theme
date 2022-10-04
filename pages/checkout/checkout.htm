@@ -197,23 +197,22 @@ function onInit()
             </fieldset>
             <div class="_subtotal-container w-full md:w-1/2 mt-7 mb-12">
                 <h2 class="mb-4 text-gray-900 font-medium text-lg uppercase md:text-2xl">{{'heading_summary'|_}}</h2>
-                <div class="_subtotal flex mb-4 justify-between">
-                    <span class="flex text-gray-900 text-sm md:text-base">
-                        {{'text_subtotal'|_}}&nbsp;
-                        <span>
-                            <output class="_item"></output>
-                        </span>
-                    </span>
-                    <output class="_price text-sm md:text-base pl-4"></output>
-                </div>
-                <div class="flex mb-4 justify-between">
-                    <span class="text-sm md:text-base">{{'text_delivery'|_}}</span>
-                    <span class="_delivery-price text-sm md:text-base">{{'text_free'|_}}</span>
-                </div>
-                <div class="flex mb-8 justify-between font-medium text-lg">
-                    <span class="text-base md:text-lg">{{'text_est_total'|_}}</span>
-                    <output class="_total-price text-base md:text-lg"></output>
-                </div>
+                <table class="w-full mb-8">         
+                    <tbody>
+                        <tr>
+                            <th colspan="2" class="font-normal pb-4 text-left text-gray-900 text-sm md:text-base">{{'text_subtotal'|_}}&nbsp;</th>
+                            <td class="font-normal text-right text-gray-900 pb-4 text-sm md:text-base"></td>
+                        </tr>
+                        <tr>
+                            <th colspan="2" class="font-normal pb-4 text-gray-900 text-sm text-left md:text-base">{{'text_delivery'|_}}</th>
+                            <td class="font-normal text-right text-gray-900 pb-4 text-sm md:text-base">{{'text_free'|_}}</td>
+                        </tr>
+                        <tr>
+                            <th colspan="2" class="text-gray-900 text-base text-left md:text-lg">{{'text_est_total'|_}}</th>
+                            <td class="text-gray-900 text-right text-base md:text-lg"></td>
+                        </tr>
+                    </tbody>
+                </table>
                 {% partial 'button/button'
                     sPartialClasses = 'w-full md:w-auto'
                     sText = 'button_order'|_
