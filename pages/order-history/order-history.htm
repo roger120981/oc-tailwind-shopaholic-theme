@@ -62,7 +62,7 @@ function onStart()
 {% set obOrderList = obUser.order %}
 
 <div class="mb-8 mt-1 lg:mb-16">
-    <h1 class="uppercase text-xl font-medium lg:text-3xl">{{'heading_my_orders'|_}}</h1>
+    <h1 class="uppercase text-xl mb-4 font-medium lg:text-3xl">{{'heading_my_orders'|_}}</h1>
     {% if obOrderList|length > 0 %}
         {% partial 'order-list/order-list' %}
     {% else %}

@@ -5,6 +5,7 @@
 {% set iPage = Pagination.getPageFromRequest() %}
 {% set iMaxPage = Pagination.getMaxPage(obOrderList.count()) %}
 
+{#
 <div class="_modal">
     {% partial 'button/button'
         sDefaultStyle = 'false'
@@ -22,6 +23,7 @@
         sButtonConfirmText = 'button_delete'|_
     %}
 </div>
+#}
 <div class="hidden lg:grid-flow-col lg:grid-cols-6 lg:bg-gray-200 lg:grid">
     <div class="col-span-1 py-2 px-3 text-base font-medium">{{'heading_order_number'|_}}</div>
     <div class="col-span-1 py-2 px-3 text-base font-medium">{{'heading_order_date'|_}}</div>
