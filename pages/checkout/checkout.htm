@@ -54,7 +54,7 @@ function onInit()
             <div class="_switch">
                 <h2 class="text-gray-900 text-lg font-medium uppercase md:text-2xl">{{'heading_delivery_method'|_}}</h2>
                 <fieldset class="_switch-radio mb-5 w-full flex flex-col space-y-4 md:w-1/2">
-                    <legend class="hidden">{{'text_choose_delivery_method'|_}}</legend>
+                    <legend class="sr-only">{{'text_choose_delivery_method'|_}}</legend>
                     <div class="flex justify-between">
                         {% partial 'input-radio/input-radio'
                             sLabelText = 'input_pickup'|_
@@ -91,7 +91,7 @@ function onInit()
                 </fieldset>
                 <fieldset class="_switch-one-container flex flex-col space-y-4">
                     <h3>{{'heading_choose_pickup_point'|_}}</h3>
-                    <legend class="hidden">{{'heading_choose_pickup_point'|_}}</legend>
+                    <legend class="sr-only">{{'heading_choose_pickup_point'|_}}</legend>
                     {% partial 'input-radio/input-radio'
                         sPartialClasses = 'flex items-center'
                         sLabelText = 'Port Mafaldaview, 3561 Hane Island Suite 810'
@@ -166,7 +166,7 @@ function onInit()
             </div>
             <fieldset class="_payment-method">
                 <h2 class="mb-4 text-gray-900 text-lg font-medium uppercase md:text-2xl">{{'heading_payment_method'|_}}</h2>
-                <legend class="hidden">{{'text_choose_payment_method'|_}}</legend>
+                <legend class="sr-only">{{'text_choose_payment_method'|_}}</legend>
                 {% partial 'input-radio/input-radio'
                     sPartialClasses = 'flex items-center mb-4'
                     sLabelText = 'input_cash'|_
