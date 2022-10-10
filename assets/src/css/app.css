@@ -92,4 +92,51 @@
     visibility: var(--icon-indicator);
   }
 }
+.pswp__top-bar.pswp__hide-on-close{
+  @apply space-x-4 w-auto flex bg-gray-100 items-center right-0 left-auto rounded-bl lg:space-x-6
+}
+.pswp__top-bar.pswp__hide-on-close .pswp__counter{
+  text-shadow: initial;
+  @apply h-14 text-gray-600 flex ml-4 items-center opacity-100 mt-0 text-sm lg:text-2xl lg:ml-7
+}
+.pswp__top-bar.pswp__hide-on-close .pswp__preloader{
+  @apply hidden -order-1
+}
+.pswp__top-bar.pswp__hide-on-close .pswp__button.pswp__button--fullscreen-button{
+  @apply order-3
+}
+.pswp__top-bar.pswp__hide-on-close .pswp__button.pswp__button--fullscreen-button .pswp__icn{
+  fill: black;
+}
+.pswp__top-bar.pswp__hide-on-close .pswp__button.pswp__button--zoom{
+  @apply order-2
+}
+.pswp__top-bar.pswp__hide-on-close .pswp__button.pswp__button--close{
+  @apply mr-4 order-4 lg:mr-6
+}
+.pswp__top-bar.pswp__hide-on-close .pswp__button{
+  @apply w-8 h-8 flex items-center justify-center lg:w-12 lg:h-14
+}
+.pswp__top-bar.pswp__hide-on-close .pswp__button .pswp__icn{
+  @apply w-6 h-6 static lg:w-8 lg:h-8
+}
+.pswp--has_mouse .pswp__button--arrow{
+  @apply w-11 h-11 bg-gray-100 rounded p-3 mt-0 lg:w-14 lg:h-14
+}
+.pswp__button--arrow .pswp__icn{
+  @apply w-6 h-6 top-10 fill-black lg:w-8 lg:h-8
+}
+.pswp__button--arrow--next{
+  @apply right-4 
+}
+.pswp__button--arrow--prev{
+  @apply left-4
+}
+.pswp__button--arrow--next .pswp__icn{
+  @apply right-3 lg:right-4
+}
+.pswp__button--arrow--prev .pswp__icn{
+  @apply left-3 lg:left-4
+}
 @import "../../../node_modules/swiper/swiper-bundle.min.css";
+@import "../../../node_modules/photoswipe/dist/photoswipe.css";

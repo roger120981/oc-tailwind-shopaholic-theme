@@ -21,3 +21,5 @@ import '/partials/product-list/product-list';
 import '/partials/filter/filter';
 /* * Search Input* */
 import '/partials/search/search';
+
+import '../../dist/js/node_modules_photoswipe_dist_photoswipe_esm_js';
