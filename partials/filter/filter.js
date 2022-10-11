@@ -1,21 +1,30 @@
 export default class Filter{
     constructor(){
-        this.obContainer = document.getElementsByClassName('_filter')[0];
-        this.obTemplate = this.obContainer.querySelectorAll('._filterTemplate');
+        this.obContainer = null;
+        this.obTemplate = null;
         this.obFilterRange = null;
         this.obFilterDetails = null;
 
         this.sUrl = null;
         this.nAmountProperties = null;
         this.obLocalContainer = null;
-        this.obShow = this.obContainer.querySelectorAll('._show');
+        this.obShow = null
         this.obFilterProperties = [];
+
+        this.init();
+    }
+
+    init(){
+        if(!document.getElementsByClassName('_filter')[0]) return
+        this.obContainer = document.getElementsByClassName('_filter')[0];
+        this.obTemplate = this.obContainer.querySelectorAll('._filterTemplate');
+        this.obShow = this.obContainer.querySelectorAll('._show');
 
         this.adaptation();
         this.variationInit();
     }
 
-    adaptation(){   
+    adaptation(){ 
         if(window.innerWidth >= '768' && this.obContainer && this.obContainer.childElementCount <= 2){
             this.obLocalContainer = this.obTemplate;
 
