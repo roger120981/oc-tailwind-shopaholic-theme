@@ -13,7 +13,7 @@ export default new class RestorePassword {
    * @description Init handler.
    */
   initHandler() {
-    let obButton = document.getElementsByClassName(this.sButtonRestorePasswordClass)
+    const obButton = document.getElementsByClassName(this.sButtonRestorePasswordClass)
 
     if(!obButton[0]) return
 

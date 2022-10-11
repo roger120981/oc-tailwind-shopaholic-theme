@@ -13,7 +13,7 @@ export default new class SignUpn {
    * @description Init handler.
    */
   initHandler() {
-    let obButton = document.getElementsByClassName(this.sButtonSignUpClass)
+    const obButton = document.getElementsByClassName(this.sButtonSignUpClass)
 
     if(!obButton[0]) return
 

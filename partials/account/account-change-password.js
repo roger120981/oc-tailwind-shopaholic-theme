@@ -13,7 +13,7 @@ export default new class AccountChangePassword {
    * @description Init handler.
    */
   initHandler() {
-    let obButton = document.getElementsByClassName(this.sButtonAccountChangePasswordClass)
+    const obButton = document.getElementsByClassName(this.sButtonAccountChangePasswordClass)
 
     if(!obButton[0]) return
 

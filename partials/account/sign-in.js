@@ -13,7 +13,7 @@ export default new class SignIn {
    * @description Init handler.
    */
   initHandler() {
-    let obButton = document.getElementsByClassName(this.sButtonSignInClass)
+    const obButton = document.getElementsByClassName(this.sButtonSignInClass)
 
     if(!obButton[0]) return
 
