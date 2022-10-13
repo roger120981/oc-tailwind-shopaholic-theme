@@ -6,11 +6,11 @@ import Filter from "../filter/filter";
 export default new class ProductList {
     constructor(){
         this.obContainer = document.getElementsByClassName('_filter')[0];
-        this.obProductCount = null
+        this.obProductCount = null;
         this.obButtonLoading = null;
         this.obResult = null;
         this.obClear = null;
-        this.obShow = null
+        this.obShow = null;
 
         this.adaptation();
     }
@@ -37,14 +37,14 @@ export default new class ProductList {
 
     activeProductUpdate(){
         this.obProductCount = this.obContainer.querySelectorAll('._product-count');
-        if(!this.obProductCount.length) return
+        if(!this.obProductCount.length) return;
         const seeAll = this.obProductCount[0].innerHTML.split('(')[0];
         const product = document.getElementsByClassName('_shopaholic-product-wrapper');
         this.obProductCount[0].innerHTML = seeAll + ' (' + product.length +')';
     }
 
     showLoading(){
-        if(!this.obProductCount.length) return
+        if(!this.obProductCount.length) return;
         this.obProductCount[0].style.display = 'none';
         this.obButtonLoading = this.obContainer.querySelectorAll('._show-more-hidden');
         this.obButtonLoading[0].style.display = 'block';
@@ -92,7 +92,7 @@ export default new class ProductList {
     clear(){
         this.obResult = document.getElementsByClassName('catalog_wrapper')[0];
         this.obClear = this.obResult.querySelectorAll("._clearFilter");
-        if(!this.obClear.length) return
+        if(!this.obClear.length) return;
         this.obClear[0].addEventListener('click', () => {
             const url = window.location.href.split('?')[0];
             window.location.href = url;
