@@ -9,7 +9,7 @@ export default new class CustomerReviews {
   }
 
   init(){
-    console.log(this.obLoadMore)
+    if(!this.obLoadMore) return;
     this.obLoadMore.addEventListener("click", () => {
       const iPage = parseInt(this.obLoadMore.dataset.page, 10);
       const iNextPage = iPage + 1;

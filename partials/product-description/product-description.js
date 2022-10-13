@@ -1,13 +1,24 @@
 export default new class ProductDescription {
   constructor() {
+    this.obDescription = null;
+    this.obButton = null
+    this.obSvg = null;
+    this.obSpan = null;
+    this.obDescriptionText = null;
+
+    this.sMinHeight = '';
+    this.sMaxHeight = '';
+
+    this.init();
+  }
+
+  init(){
     this.obDescription = document.getElementsByClassName('_description')[0];
+    if(!this.obDescription) return;
     this.obButton = document.getElementsByClassName('_description-toggle')[0];
     this.obSvg = this.obButton.querySelectorAll("._arrow");
     this.obSpan = this.obButton.querySelectorAll("._status");
     this.obDescriptionText = this.obDescription.querySelectorAll("._description-text");
-
-    this.sMinHeight = '';
-    this.sMaxHeight = '';
 
     this.animInit();
     this.btnInit();
