@@ -12,7 +12,7 @@
     {% elseif bChecked %}
         {% set sChecked = 'relative after:content-[""] after:absolute after:bg-75 after:border-0 after:inset-0 after:bg-check after:bg-no-repeat after:bg-center' %}
     {% endif %}  
-    <li>
+    <li class="flex">
         <a class="w-max flex flex-col items-center mb-4 {{sPartialClasses}}" 
             {% if sHref %}
                 href="{{sHref}}"
