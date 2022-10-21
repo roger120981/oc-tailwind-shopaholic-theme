@@ -19,16 +19,16 @@
     {% endif %}
     <li class="{{sBackground}} border-y border-gray-200 lg:border-y-0 lg:border-none lg:grid lg:grid-flow-col lg:grid-cols-6">
         <div class="py-4 grid gap-y-2 lg:gap-y-0 lg:py-0 lg:col-span-3 lg:grid-cols-3">
-            <div class="grid grid-cols-2 lg:px-3 lg:py-2 lg:block lg:col-span-1">
-                <span class="text-sm font-medium col-span-1 lg:hidden">{{'heading_order_number'|_}}:&nbsp;</span>
-                <span class="text-sm font-medium col-span-1 text-right lg:text-left lg:font-normal lg:text-base">#{{obOrder.order_number}}</span>
+            <div class="grid grid-cols-2 lg:px-3 lg:py-2 lg:block">
+                <span class="text-sm font-medium lg:hidden">{{'heading_order_number'|_}}:&nbsp;</span>
+                <span class="text-sm font-medium text-right lg:text-left lg:font-normal lg:text-base">#{{obOrder.order_number}}</span>
             </div>
-            <div class="grid grid-cols-2 lg:py-2 lg:px-3 lg:block lg:col-span-1">
-                <span class="text-sm col-span-1 lg:hidden">{{'heading_order_date'|_}}&nbsp;</span>
-                <span class="text-sm col-span-1 text-right lg:text-left lg:text-base">{{obOrder.created_at|date('d/m/Y')}}</span>
+            <div class="grid grid-cols-2 lg:py-2 lg:px-3 lg:block">
+                <span class="text-sm lg:hidden">{{'heading_order_date'|_}}&nbsp;</span>
+                <span class="text-sm text-right lg:text-left lg:text-base">{{obOrder.created_at|date('d/m/Y')}}</span>
             </div>
-            <div class="grid grid-cols-2 lg:py-2 lg:px-3 lg:block lg:col-span-1">
-                <span class="text-sm col-span-1 lg:hidden">{{'heading_status'|_}}&nbsp;</span>
+            <div class="grid grid-cols-2 lg:py-2 lg:px-3 lg:block">
+                <span class="text-sm lg:hidden">{{'heading_status'|_}}&nbsp;</span>
                 {% if obOrder.status_id == 3 %}
                     {% set colorState = 'text-green-900' %}
                 {% elseif obOrder.status_id == 4 %}
@@ -36,7 +36,7 @@
                 {% else %}
                     {% set colorState = 'text-gray-900' %}
                 {% endif %}
-                <span class="{{colorState}} text-sm col-span-1 text-right lg:text-left lg:text-base">{{obOrder.status.name_for_user}}</span>
+                <span class="{{colorState}} text-sm text-right lg:text-left lg:text-base">{{obOrder.status.name_for_user}}</span>
             </div>
         </div>
         <div class="py-3 text-base border-t border-gray-200 lg:border-t-0 lg:border-none lg:border-0 lg:py-2 lg:px-3 lg:col-span-2">
@@ -125,9 +125,9 @@
                 </ul>
             {% endpartial %}
         </div>
-        <div class="py-4 grid grid-cols-2 border-t border-gray-200 lg:border-t-0 lg:border-none lg:py-2 lg:border-0 lg:px-3 lg:block lg:col-span-1">
-            <span class="text-sm col-span-1 font-medium lg:hidden">{{'heading_price'|_}}&nbsp;</span>
-            <span class="text-sm col-span-1 text-right font-medium lg:font-normal lg:text-left lg:text-base">{{obOrderTotal.price_value}} {{ obOrder.currency_symbol }}</span>
+        <div class="py-4 grid grid-cols-2 border-t border-gray-200 lg:border-t-0 lg:border-none lg:py-2 lg:border-0 lg:px-3 lg:block">
+            <span class="text-sm font-medium lg:hidden">{{'heading_price'|_}}&nbsp;</span>
+            <span class="text-sm text-right font-medium lg:font-normal lg:text-left lg:text-base">{{obOrderTotal.price_value}} {{ obOrder.currency_symbol }}</span>
         </div>
     </li>
 {% endif %}
