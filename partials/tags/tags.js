@@ -72,7 +72,7 @@ export default new class Tags{
             this.obFilterDetails = $('._filter-details');
             this.obFilterDetails.find(`#${elem.target.closest('._delete').dataset.id}`).attr('checked', false).trigger('change');
             if(this.obTagsContainer[0].childElementCount <= 1){
-                this.obTags.addClass('!hidden');
+                this.obTags.addClass('hidden');
             }
         })
     }
@@ -107,7 +107,7 @@ export default new class Tags{
                 if (mutation.type === 'childList') {
                     app.initTags();
                     if(app.obTagsContainer[0].childElementCount < 1){
-                        app.obTags.addClass('!hidden');
+                        app.obTags.addClass('hidden');
                     }
                 }
             }
