@@ -34,6 +34,15 @@ function onInit()
 {% partial 'breadcrumbs/breadcrumbs' %}
 <div class="flex flex-col mb-10">
     {% partial 'advanced-list/advanced-list'
-        arList = arMenuList
+        body
     %}
+        {% for obItem in arMenuList %}
+            {% partial 'advanced-list/advanced-list-item'
+                sName = obItem.title
+                sUrl = obItem.url
+                sImagePath = obItem.icon.path
+                sPartialClasses = obItem.viewBag.cssClass
+            %}
+        {% endfor %}
+    {% endpartial %}
 </div>
