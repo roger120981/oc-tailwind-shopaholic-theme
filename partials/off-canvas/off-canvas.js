@@ -152,6 +152,7 @@ export default class offCanvas {
       this.$vOffCanvasRemove = this.$vNav.find('._offCanvasContainer');
       if(this.$vShow.attr('data-show')){
         this.$vOffCanvasRemove.removeAttr('open');
+        this.$vOffCanvasRemove.addClass('hidden');
       }else if(this.newRend === 'detach'){
         this.$vOffCanvasRemove.removeAttr('open').detach();
       }else{

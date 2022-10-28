@@ -124,6 +124,7 @@ export default new class Tags{
             this.initTags();
             if(this.bRepetition){
                 this.obFilterButton.attr('data-tags', null);
+                $('._offCanvasContainer').removeClass('hidden');
             }
         })
     }
@@ -149,6 +150,7 @@ export default new class Tags{
             this.bRepetition = true;
             this.obFilterButton.attr('data-tags', true);
             this.obFilterButton.attr('data-show', true);
+            $('._offCanvasContainer').addClass('hidden');
         }
     }
 }
