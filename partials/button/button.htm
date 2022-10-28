@@ -8,6 +8,10 @@
     {% set sDefaultClass = 'text-base rounded bg-blue-800 text-white py-3 px-8 hover:bg-blue-700 active:bg-blue-900 focus:outline-none focus-visible:ring-1 focus-visible:ring-blue-800 focus-visible:ring-offset-1 focus-visible:ring-offset-white disabled:bg-gray-300 disabled:text-gray-600' %}
 {% endif %}
 
+{% if sButtonType == 'link' %}
+    {% set sDefaultClass = 'whitespace-nowrap underline text-base' %}
+{% endif %}
+
 {% if sHref %}
     <a href="{{ sHref }}"
     {% if bBlank == true %}

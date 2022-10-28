@@ -19,7 +19,7 @@
                     {% endfor %}
                 </div>
             {% else %}
-                <ul class="absolute z-10 -top-px -left-px rounded-br rounded-tl flex w-2/3 scrollbar-x-none overflow-x-scroll md:overflow-auto md:hover:w-auto">
+                <ul class="absolute z-10 -top-px -left-px rounded-br rounded-tl flex w-2/3 scrollbar-x-none overflow-x-scroll space-x-0.5 md:space-x-1 md:overflow-auto md:hover:w-auto">
                     {% for obLabel in obLabelList %}
                         {% if obLabel.code == 'new' %}
                             {% set sColorState = 'bg-green-900' %}
@@ -28,8 +28,13 @@
                         {% else %}
                             {% set sColorState = 'bg-red-700' %}
                         {% endif %}
+                        {% if loop.index == 1 %}
+                            {% set sRounded = 'rounded-br rounded-tl' %}
+                        {% else %}
+                            {% set sRounded = 'rounded-b-lg' %}
+                        {% endif %}
                         <li>
-                            <div class="{{sColorState}} text-white px-4 py-2 whitespace-nowrap text-xs lg:text-sm">{{ obLabel.name }}</div>
+                            <div class="{{sRounded}} {{sColorState}} text-white whitespace-nowrap py-1 px-2 text-xs lg:text-sm md:px-4 md:py-2">{{ obLabel.name }}</div>
                         </li>
                     {% endfor %}
                 </ul>

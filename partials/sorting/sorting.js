@@ -1,7 +1,9 @@
 import ShopaholicProductList from '@lovata/shopaholic-product-list/shopaholic-product-list';
 import ShopaholicSorting from '@lovata/shopaholic-product-list/shopaholic-sorting';
 import ShopaholicPagination from '@lovata/shopaholic-product-list/shopaholic-pagination';
+import Choices from 'choices.js';
 import Filter from '../filter/filter'
+
 
 export default new class Sorting{
     constructor() {
@@ -11,7 +13,43 @@ export default new class Sorting{
         this.handlers();
     }
 
+    initChoices(){
+        const choices = new Choices('.js-choice', {
+            searchEnabled: false,
+            searchChoices: false,
+            allowHTML: false,
+            itemSelectText: '',
+            classNames: {
+                containerOuter: 'choices w-full md:w-auto',
+                containerInner: 'pr-4',
+                listDropdown: 'js-choice__dropdown',
+            },
+            callbackOnCreateTemplates: function(template) {
+                return {
+                  item: ({ classNames }, data) => {
+                    let active = $('._sorting-filter').attr('data-active-text');
+                    return template(`
+                        <div class="${classNames.item} ${
+                        data.highlighted
+                        ? classNames.highlightedState
+                        : classNames.itemSelectable
+                    } ${
+                        data.placeholder ? classNames.placeholder : ''
+                    }" data-item data-id="${data.id}" data-value="${data.value}" ${
+                        data.active ? 'aria-selected="true"' : ''
+                    } ${data.disabled ? 'aria-disabled="true"' : ''}>
+                        <span class="pr-2">${active}:</span> ${data.label}
+                        </div>
+                    `);
+                  },
+                };
+              },
+        });
+    }
+
     handlers(){
+        this.initChoices();
+
         new Filter();
         this.initContainerWatch();
         const obListHelper = new ShopaholicProductList();
@@ -41,25 +79,10 @@ export default new class Sorting{
         const callback = function (mutationsList, observer) {
             for (let mutation of mutationsList) {
                 if (mutation.type === 'childList') {
-                    let container = app.obSorting.find('.catalog_wrapper');
-                    let count = container[0].childElementCount;
-                    let sorting = app.obSorting.find('._sorting-filter');
-                    let pagination = app.obSorting.find('._pagination');
-                    let paginationMax = sorting.data('pagination-max');
-                    let paginationPage = sorting.data('pagination-page');
-
-                    if(count <= 1){
-                        sorting.addClass('hidden');
-                    }else{
-                        sorting.removeClass('hidden');
-                    }
-
-                    // if(count <= 14 && paginationPage !== paginationMax){
-                    //     pagination.addClass('hidden');
-                    // }else{
-                    //     pagination.removeClass('hidden');
-                    // }
                     new Filter();
+                    if(!$('.choices').length){
+                        app.initChoices();
+                    }
                 }
             }
         };
