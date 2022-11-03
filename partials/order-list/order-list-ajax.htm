@@ -11,7 +11,7 @@
 
 {% for obOrder in arOrderList %}
 {% if obOrder %}
-    {% set nColor = obOrder.getObject().status.color %}
+    {% set sColorState = obOrder.getObject().status.color %}
     {% set obOrderTotal = obOrder.total_price_data %}
     <li class="odd:bg-white border-y border-gray-200 lg:even:bg-gray-100 lg:border-y-0 lg:border-none lg:grid lg:grid-flow-col lg:grid-cols-6">
         <div class="py-4 grid gap-y-2 lg:gap-y-0 lg:py-0 lg:col-span-3 lg:grid-cols-3">
@@ -25,7 +25,7 @@
             </div>
             <div class="grid grid-cols-2 lg:py-2 lg:px-3 lg:block">
                 <span class="text-sm lg:hidden">{{'heading_status'|_}}&nbsp;</span>
-                <span class="text-sm text-right lg:text-left lg:text-base" style="color:{{nColor}}">{{obOrder.status.name_for_user}}</span>
+                <span class="text-sm text-right lg:text-left lg:text-base" style="color:{{sColorState}}">{{obOrder.status.name_for_user}}</span>
             </div>
         </div>
         <div class="py-3 text-base border-t border-gray-200 lg:border-t-0 lg:border-none lg:border-0 lg:py-2 lg:px-3 lg:col-span-2">
