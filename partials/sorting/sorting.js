@@ -23,6 +23,7 @@ export default new class Sorting{
                 containerOuter: 'choices w-full md:w-auto',
                 containerInner: 'pr-4',
                 listDropdown: 'js-choice__dropdown',
+                itemChoice: 'choices__item--choice text-gray-700',
             },
             callbackOnCreateTemplates: function(template) {
                 return {
@@ -35,10 +36,10 @@ export default new class Sorting{
                         : classNames.itemSelectable
                     } ${
                         data.placeholder ? classNames.placeholder : ''
-                    }" data-item data-id="${data.id}" data-value="${data.value}" ${
+                    }text-gray-700 text-base" data-item data-id="${data.id}" data-value="${data.value}" ${
                         data.active ? 'aria-selected="true"' : ''
                     } ${data.disabled ? 'aria-disabled="true"' : ''}>
-                        <span class="pr-2">${active}:</span> ${data.label}
+                        <span class="pr-2 text-gray-600">${active}:</span> ${data.label}
                         </div>
                     `);
                   },
