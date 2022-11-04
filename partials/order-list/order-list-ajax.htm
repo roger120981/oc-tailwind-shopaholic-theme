@@ -105,7 +105,7 @@
                                     <span class="text-gray-900 text-sm lg:text-base">{{'input_quantity'|_}}: {{ obOrderItem.quantity }}</span>
                                     <div>
                                         <span class="break-line text-sm text-gray-900 mr-2 lg:text-base">{{ obOffer.currency }}{{ obOffer.price }}</span>
-                                        {% if obOffer.old_price_value > obOffer.price_value %}
+                                        {% if obOffer.old_price_value > 0 %}
                                             <span class="break-line text-sm text-gray-600 line-through lg:text-base">{{ obOffer.currency }}{{ obOffer.old_price }}</span>
                                         {% endif %}
                                     </div>
