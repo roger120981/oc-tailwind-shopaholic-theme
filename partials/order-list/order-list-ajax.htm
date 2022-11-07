@@ -1,5 +1,7 @@
 {##}
 
+{# TODO: Come up with a more correct way to transfer the color sColorState #}
+
 {% if obOrderList is empty %}
     {% set obUser = UserData.get() %}
     {% set obOrderList = obUser.order %}
