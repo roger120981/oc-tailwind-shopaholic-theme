@@ -15,3 +15,9 @@ import '/partials/checkout/total-price';
 import '/partials/checkout/switch';
 
 import '../../assets/src/js/validation';
+
+import '/partials/card-list/card-list';
+
+import '/partials/button-wish-list/button-wish-list';
+
+import '../../assets/src/js/validation';

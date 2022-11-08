@@ -1,100 +1,35 @@
-export default new class ProductCardCheckout {
+import ShopaholicCartRemove from '@lovata/shopaholic-cart/shopaholic-cart-remove';
+import InputQuantity from '../input-quantity/input-quantity'
+
+export default new class productCardCheckout{
     constructor(){
-        this.nQuantity = {
-            aInternal: 0,
-            aListener: function (val) { },
-            set propName(val) {
-                this.aInternal = val;
-                this.aListener(val);
-            },
-            get propName() {
-                return this.aInternal;
-            },
-            registerListener: function (listener) {
-                this.aListener = listener;
-            }
+        this.obCardList = null;
+        this.obStateBasket = null;
+
+        this.init();
+    }
+
+    changeStateBasket(){
+        this.obCardList = $('._header-purchases ._card-list');
+        this.obStateBasket = $('.product-active');
+        if(!this.obCardList.find('ul').length){
+            this.obStateBasket.css('--icon-indicator', 'hidden');
         }
-        this.nPrice = {
-            aInternal: 0,
-            aListener: function (val) { },
-            set propName(val) {
-                this.aInternal = val;
-                this.aListener(val);
-            },
-            get propName() {
-                return this.aInternal;
-            },
-            registerListener: function (listener) {
-                this.aListener = listener;
+    }
+
+    init(){
+        const obShopaholicCartRemove = new ShopaholicCartRemove();
+        obShopaholicCartRemove.setAjaxRequestCallback((obRequestData, obButton) => {
+            obRequestData.update = {
+                'card-list/card-list-ajax': `._card-list`,
             }
-        }
-
-
-        this.watchQuantity()
-        this.watchPrice()
-        this.priceСalculation(this.nQuantity, this.nPrice);
+            obRequestData.complete = () =>{
+                this.changeStateBasket();
+                $('._counter').children().off();
+                InputQuantity.make('._counter');
+            }
+            return obRequestData;
+        }).init();
     }
 
-    watchQuantity(){
-        let app = this
-        this.nQuantity.registerListener(function(val) {
-            app.finalScore(app.nQuantity.propName, app.nPrice.propName);
-        });
-    }
-
-    watchPrice(){
-        let app = this
-        this.nPrice.registerListener(function(val) {
-            app.finalScore(app.nQuantity.propName, app.nPrice.propName);
-        });
-    }
-
-    finalScore(quantity, price){
-        $("._subtotal").each(function () {
-            let $subtotal = $(this);
-            let $item = $subtotal.find("._item");
-            let $price = $subtotal.find("._price");
-            
-            (function(){
-                let a = price + '';
-                $(document).ready(() => {
-                    $item.text('(' + quantity + ' ' + window.subtotal.item + ')');
-                    $price.text(window.subtotal.currency + a.substring(0,6));
-                })
-            })()
-        })
-    }
-
-    priceСalculation(quantity, price) {
-        $("._product-card").each(function () {
-            let $card = $(this);
-            let $counter = $card.find("._counter");
-            let $cost = $card.find("._cost");
-            let $count = $counter.find("._count");
-            let $decrement = $counter.find("._decrement");
-            let $increment = $counter.find("._increment");
-            let previousСount = '';
-
-            (function () {
-                previousСount = $count.val()
-                quantity.propName = quantity.propName + 1
-                price.propName = price.propName + Number($cost.text())
-                $decrement.on("click", () => {
-                    previousСount = $count.val()
-                    quantity.propName = quantity.propName - 1
-                    price.propName = price.propName - Number($cost.text())
-                });
-                $increment.on("click", () => {
-                    previousСount = $count.val()
-                    quantity.propName = quantity.propName + 1
-                    price.propName = price.propName + Number($cost.text())
-                });
-                $count.on("input", (ev) => {
-                    quantity.propName = (Number($(ev.target).val()) - Number(previousСount)) + quantity.propName
-                    price.propName = ((Number($(ev.target).val()) - Number(previousСount)) * Number($cost.text())) + price.propName
-                    previousСount = $count.val()
-                });
-            })()
-        })
-    }
-}()
+}();
