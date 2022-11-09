@@ -2,7 +2,7 @@
 
 {% set obOffer = obCartPosition.offer %}
 {% set obProduct = obOffer.product %}
-{% set obPropertyColor = obOffer.property.getByCode('color') %}
+{% set obPropertyColor = obOffer.property.getByCode('Color') %}
 
 <div class="flex py-4 md:py-5">
     <div class="relative w-20 md:w-24">
@@ -65,7 +65,7 @@
                 </div>
             </div>
             {# TODO: Add receiving colors for order #}
-            <div class="my-4 md:mt-2 text-gray-600 text-sm md:text-base">{{'text_color'|_}}: <span class="pl-2"><a class="underline" href="{{obProduct.getPageUrl('product-item/product-item')}}">{{obPropertyColor.property_value.getValueString()}}</a></span></div>
+            <div class="my-4 md:mt-2 text-gray-600 text-sm md:text-base">{{'text_color'|_}}: <span class="pl-2"><a class="underline" href="{{obProduct.getPageUrl('product-item/product-item')}}">{{obPropertyColor.property_value.first().value}}</a></span></div>
             <div class="flex items-center justify-between">
                 {% partial 'input-quantity/input-quantity' 
                     iMin = 1 
