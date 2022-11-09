@@ -20,11 +20,11 @@ export default new class ProductChoose {
 
   subtotalCount(){
     let count = 0;
-    for(let i = 0; $('._header-purchases ._card-list ul ._shopaholic-product-wrapper').length > i; i++){
-      count += new Number($('._header-purchases ._card-list ul ._shopaholic-product-wrapper')[i].getElementsByClassName('_count')[0].value);
+    for(let i = 0; $('._card-list ._shopaholic-product-wrapper').length > i; i++){
+      count += new Number($('._card-list ._shopaholic-product-wrapper')[i].getElementsByClassName('_count')[0].value);
     }
-    $('._header-purchases ._card-list ._subtotal ._item')[0].innerText = '(' + count + ' ' + window.subtotal.item + ')';
-    $('._header-purchases ._card-list ._subtotal ._checkout-button')[0].innerText = window.subtotal.checkout + ' (' + count + ')';
+    $('._card-list ._subtotal ._item')[0].innerText = '(' + count + ' ' + window.subtotal.item + ')';
+    $('._card-list ._subtotal ._checkout-button')[0].innerText = window.subtotal.checkout + ' (' + count + ')';
   }
 
   init(){

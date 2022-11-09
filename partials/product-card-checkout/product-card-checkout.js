@@ -10,7 +10,7 @@ export default new class productCardCheckout{
     }
 
     changeStateBasket(){
-        this.obCardList = $('._header-purchases ._card-list');
+        this.obCardList = $('._card-list');
         this.obStateBasket = $('.product-active');
         if(!this.obCardList.find('ul').length){
             this.obStateBasket.css('--icon-indicator', 'hidden');
