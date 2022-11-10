@@ -1,5 +1,7 @@
 import '/partials/input-quantity/input-quantity';
 
+import '/partials/card-list/card-list';
+
 /* * Product Card Checkout * */
 import '/partials/product-card-checkout/product-card-checkout';
 
