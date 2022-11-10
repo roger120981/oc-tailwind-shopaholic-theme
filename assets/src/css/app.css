@@ -17,6 +17,23 @@
   .slider__bullet_active{
     @apply bg-blue-800
   }
+  .js-choice__dropdown[aria-expanded]{
+    @apply bg-white border-0 w-full rounded-md shadow-lg mt-1 z-50 break-normal overflow-x-hidden whitespace-nowrap
+  }
+  div.choices[data-type*=select-one]::after{
+    width:13px;
+    height:9px;
+    border-width: 0;
+    margin-bottom: 2px;
+    right: 0;
+    background-image: url('/themes/lovata-tailwind-shopaholic/assets/images/arrow.svg');
+    background-repeat: no-repeat;
+  }
+  div.choices[data-type*=select-one].is-open::after{
+    margin-bottom: 0;
+    margin-top: -3px;
+    transform: rotate(180deg);
+  }
 }
 
 @layer utilities {
@@ -102,3 +119,4 @@
   }
 }
 @import "../../../node_modules/swiper/swiper-bundle.min.css";
+@import "../../../node_modules/choices.js/public/assets/styles/choices.min.css";
