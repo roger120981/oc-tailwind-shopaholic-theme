@@ -3,11 +3,10 @@ import ShopaholicCouponRemove from '@lovata/shopaholic-coupon/shopaholic-coupon-
 
 export default new class Coupon {
     constructor() {
-        this.test();
+        this.init();
     }
 
-    test(){
-        console.log('go')
+    init(){
         const obAdd = new ShopaholicCouponAdd();
             obAdd.setAjaxRequestCallback(function (obRequestData, obInput, obButton) {
 

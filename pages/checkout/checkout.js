@@ -8,10 +8,8 @@ import '/partials/checkout/checkout';
 
 import '/partials/checkout/coupon';
 
-import '/partials/checkout/total-price';
-
 import '/partials/checkout/switch';
 
-import '/partials/button-wish-list/button-wish-list';
+import '/partials/checkout/order';
 
 import '../../assets/src/js/validation';

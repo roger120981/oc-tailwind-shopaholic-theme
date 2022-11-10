@@ -1,3 +1,5 @@
+import ShopaholicCartShippingType from '@lovata/shopaholic-cart/shopaholic-cart-shipping-type';
+
 export default new class Checkout {
    constructor(){
        this.sDeliveryInfo = "._delivery-info";
@@ -6,8 +8,22 @@ export default new class Checkout {
        this.sCard = "._card";
        this.sPaymentCard = "._payment-card";
 
+       this.init();
        this.deliveryTerms();
        this.paymentMethod();
+   }
+
+   init(){
+        setTimeout(()=>{
+            $('#delivery_1').trigger('change')
+        }, 10)
+        const obShopaholicCartShippingType = new ShopaholicCartShippingType();
+        obShopaholicCartShippingType.setAjaxRequestCallback((obRequestData, obButton) => {
+            obRequestData.update = {
+                'checkout-subtotal/checkout-subtotal-ajax': `._checkout-subtotal`,
+            }
+            return obRequestData;
+        }).init();
    }
 
     deliveryTerms(){
