@@ -1,7 +1,7 @@
 import ShopaholicAddWishList from '@lovata/shopaholic-wish-list/shopaholic-add-wish-list';
 import ShopaholicRemoveWishList from '@lovata/shopaholic-wish-list/shopaholic-remove-wish-list';
 
-export default new class WishList {
+export default new class ButtonWishList {
   constructor() {
     this.sAddButtonClass = 'text-white';
     this.sAddSvgClass = 'group-hover:fill-current';
