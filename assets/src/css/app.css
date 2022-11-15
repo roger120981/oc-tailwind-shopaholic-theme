@@ -95,6 +95,18 @@
   .quantity_input{
     -moz-appearance: textfield;
   }
+  .advanced-list-icon::after {
+    content: '';
+    width: inherit;
+    height: inherit;
+    display: block;
+    background: currentColor;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-mask: var(--advanced-list-icon-src) center / 100% no-repeat;
+  }
   ._input-checkbox-color{
     color: var(--input-checkbox-color);
     background-color: var(--input-checkbox-color);
