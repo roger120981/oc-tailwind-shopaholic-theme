@@ -21,6 +21,8 @@ sorting = "no"
 
 [ProductData]
 
+[MakeReview]
+
 [Pagination]
 count_per_page = 3
 pagination_limit = 5
@@ -170,12 +172,11 @@ function onInit()
         {% partial 'review-list/review-list'
             obReview = obReviewList
             sPartialClass = '_review-list-container'
+            sListClass = '_review-list-update'
         %}
-        {% partial 'button/button'
-            sText = 'button_write_review'|_
-            sPartialClasses = 'w-full md:w-72 mt-8 p-2'
-            bGhost = true
-        %}
+       {% partial 'review-add/review-add' 
+            obProduct = obProduct
+       %}
     </div>
     {% partial 'product-rating/product-rating' 
         obProduct=obProduct
