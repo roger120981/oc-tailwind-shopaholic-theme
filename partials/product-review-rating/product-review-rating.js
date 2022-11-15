@@ -8,6 +8,7 @@ export default new class productReviewRating {
         this.obShowImitation = null;
         this.nActive = null;
 
+        this.obListWrapper = '_review-list-update';
         this.sActiveStar = '#F59E0B';
         this.sDefaultStar = '#D1D5DB';
         this.init();
@@ -16,9 +17,18 @@ export default new class productReviewRating {
     sendReview(){
         this.obContainerReview = $('._review-container button');
         $(this.obContainerReview).on('click', (event) => {
+            event.preventDefault();
+
             const form = document.querySelector('._review-container');
   
-            $(form).request('MakeReview::onCreate');
+            $(form).request('MakeReview::onCreate', {
+                update: {
+                    'review-list/review-list-ajax': `.${this.obListWrapper}`
+                },
+                complete: ()=> {
+                    location.reload(true);
+                }
+            });
         });
     }
 
