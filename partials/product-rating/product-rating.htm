@@ -1,6 +1,6 @@
 {##}
 
-<section class="{{sPartialClass}}" >
+<section id="ratings" class="{{sPartialClass}}">
     {% set iReviewCount = obProduct.review.active().count() %}
     {% if sHeaderHidden != true %}
         <h2 class="text-gray-900 text-lg md:text-2xl font-medium uppercase">{{ 'heading_customers_ratings'|_ }}</h2>
