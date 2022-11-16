@@ -31,7 +31,7 @@
             </div>
         </div>
         <div class="py-3 text-base border-t border-gray-200 lg:border-t-0 lg:border-none lg:border-0 lg:py-2 lg:px-3 lg:col-span-2">
-            {% partial 'toggle/toggle' 
+            {% partial 'toggle/toggle'
                 sPartialClasses = 'py-1 lg:w-max'
                 sPartialId = obOrder.order_number
                 body
@@ -49,13 +49,13 @@
                                         <source media="(min-width:769px)" srcset="{{ obProduct.preview_image.getThumb(420, 315, {'quality': 80}) }}" type="image/jpeg">
                                         <source media="(max-width:768px)" srcset="{{ obProduct.preview_image.getThumb(500, 373, {'quality': 80, 'extension': 'webp'}) }}" type="image/webp">
                                         <source media="(max-width:768px)" srcset="{{ obProduct.preview_image.getThumb(500, 373, {'quality': 80}) }}" type="image/jpeg">
-                                        <img 
+                                        <img
                                             class="object-fill h-full w-full rounded"
                                             src="{{ obProduct.preview_image.getThumb(500, 373, {'quality': 80}) }}"
                                             itemprop="image"
                                             alt="{{ obProduct.preview_image.description }}"
                                             title="{{ obProduct.preview_image.title }}"
-                                            loading="lazy" 
+                                            loading="lazy"
                                         >
                                     </picture>
                                     {% if this.theme.has_labels %}
@@ -100,7 +100,7 @@
                                 </div>
                                 <div class="flex flex-col space-y-1">
                                     {% if obProduct.active %}
-                                        <a href="{{ obProduct.getPageUrl('product-item/product-item') }}" target="_blank" class="text-gray-900 text-sm lg:text-base">{{ obProduct.name }}</a>
+                                        <a href="{{ obProduct.getPageUrl('product-item/product-item') }}" class="text-gray-900 text-sm lg:text-base">{{ obProduct.name }}</a>
                                     {% else %}
                                         <span class="text-gray-900 text-sm lg:text-base">{{ obProduct.name }}</span>
                                     {% endif %}
