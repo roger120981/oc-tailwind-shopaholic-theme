@@ -1,6 +1,10 @@
 {##}
 
-<div class="_counter inline-flex">
+<div class="_counter inline-flex" 
+    {% if sData %}
+        {{sData}}
+    {% endif %}
+>
     <button class="_decrement bg-blue-800 rounded-sm hover:bg-blue-700 active:bg-blue-900 text-white disabled:bg-gray-200 disabled:text-gray-600 focus-visible:outline-blue {{sDecrementClass}} {{sPartialWidth|default('w-8 h-8 md:h-6 md:w-6')}}" type="button" aria-label="{{ 'button_quantity_decrease'|_ }}" aria-controls="quantity" disabled>
         <svg class="m-auto" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M2.40039 7.99995C2.40039 7.78778 2.48468 7.5843 2.63471 7.43427C2.78473 7.28424 2.98822 7.19995 3.20039 7.19995H12.8004C13.0126 7.19995 13.216 7.28424 13.3661 7.43427C13.5161 7.5843 13.6004 7.78778 13.6004 7.99995C13.6004 8.21212 13.5161 8.41561 13.3661 8.56564C13.216 8.71567 13.0126 8.79995 12.8004 8.79995H3.20039C2.98822 8.79995 2.78473 8.71567 2.63471 8.56564C2.48468 8.41561 2.40039 8.21212 2.40039 7.99995Z" fill="currentColor"/>
@@ -10,10 +14,10 @@
     <input id="quantity"
         class="_count quantity_input md:text-sm border border-gray-300 rounded-sm p-1.5 text-center mx-2 focus:outline-none focus-visible:border-blue-800 hover:border-blue-700 active:border-blue-900 text-gray-900 {{sInputClass}} {{sPartialWidth|default('w-8 h-8 md:h-6 md:w-6')}}"
         type="number"
+        name="{{ sName }}"
         min="{{ iMin }}"
         max="{{ iMax }}"
         value="{{ iValue }}"
-        name="{{ sName }}"    
     >
     <button class="_increment bg-blue-800 rounded-sm hover:bg-blue-700 active:bg-blue-900 text-white disabled:bg-gray-200 disabled:text-gray-600 focus-visible:outline-blue {{sIncrementClass}} {{sPartialWidth|default('w-8 h-8 md:h-6 md:w-6')}}" type="button" aria-label="{{ 'button_quantity_increase'|_ }}" aria-controls="quantity">
         <svg class="m-auto" width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

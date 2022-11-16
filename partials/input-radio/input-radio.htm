@@ -2,7 +2,7 @@
 
 <div class="{{ sPartialClasses }}">
     <input
-        class="text-blue-800 border-gray-600 mr-2.5 focus:outline-none focus-visible:border-blue-800 {{sInput}}"
+        class="text-blue-800 border-gray-600 mr-2.5 focus:outline-none focus-visible:border-blue-800 {{sInputClasses}}"
         type="radio"
         {% if sName %}
             name="{{ sName }}"
@@ -19,10 +19,13 @@
         {% if sChecked %}
             checked
         {% endif %}
+        {% if sData %}
+            {{ sData }}
+        {% endif %}
     >
     <label 
         for="{{ sId }}" 
-        class="text-sm md:text-base text-gray-600"
+        class="text-sm md:text-base text-gray-600 {{ sLabelClasses }}"
         {{sDataLabel}}
         sTitle="{{sTitle}}"
     >{{ sLabelText }}{{body|raw}}</label>

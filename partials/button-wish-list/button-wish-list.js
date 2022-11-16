@@ -66,14 +66,22 @@ export default new class ButtonWishList {
     const obSvg = obButton.find('svg');
 
     if (sType === this.sTypeAdd) {
+      if(obSvg.hasClass('_card-list-chekout')){
+        this.sAddButtonClass = 'text-gray-600';
+      }else{
+        obSvg.addClass(this.sAddSvgClass);
+      }
       obSvg.removeClass(this.sRemoveSvgClass);
-      obSvg.addClass(this.sAddSvgClass);
       obButton.removeClass(this.obRemoveHelper.sDefaultButtonClass);
       obButton.addClass(this.obAddHelper.sDefaultButtonClass);
       obButton.removeClass(this.sRemoveButtonClass);
       obButton.addClass(this.sAddButtonClass);
     } else {
-      obSvg.removeClass(this.sAddSvgClass);
+      if(obSvg.hasClass('_card-list-chekout')){
+        this.sAddButtonClass = 'text-gray-600';
+      }else{
+        obSvg.removeClass(this.sAddSvgClass);
+      }
       obSvg.addClass(this.sRemoveSvgClass);
       obButton.removeClass(this.obAddHelper.sDefaultButtonClass);
       obButton.addClass(this.obRemoveHelper.sDefaultButtonClass);
