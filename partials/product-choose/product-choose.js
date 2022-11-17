@@ -20,11 +20,15 @@ export default new class ProductChoose {
 
   subtotalCount(){
     let count = 0;
-    for(let i = 0; $('._card-list ._shopaholic-product-wrapper').length > i; i++){
-      count += new Number($('._card-list ._shopaholic-product-wrapper')[i].getElementsByClassName('_count')[0].value);
+    for(let i = 0; $('._card-checkout-list ._shopaholic-product-wrapper').length > i; i++){
+      count += new Number($('._card-checkout-list ._shopaholic-product-wrapper')[i].getElementsByClassName('_count')[0].value);
     }
-    $('._card-list ._subtotal ._item')[0].innerText = '(' + count + ' ' + window.subtotal.item + ')';
-    $('._card-list ._subtotal ._checkout-button')[0].innerText = window.subtotal.checkout + ' (' + count + ')';
+    if($('._card-checkout-list ._subtotal ._item').length){
+      $('._card-checkout-list ._subtotal ._item').text('(' + count + ' ' + window.subtotal.item + ')');
+    }
+    if($('._card-checkout-list ._subtotal ._checkout-button').length){
+      $('._card-checkout-list ._subtotal ._checkout-button')[0].innerText = window.subtotal.checkout + ' (' + count + ')';
+    }
   }
 
   init(){

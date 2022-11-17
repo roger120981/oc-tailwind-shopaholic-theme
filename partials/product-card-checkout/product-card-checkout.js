@@ -22,6 +22,8 @@ export default new class productCardCheckout{
         obShopaholicCartRemove.setAjaxRequestCallback((obRequestData, obButton) => {
             obRequestData.update = {
                 'card-list/card-list-ajax': `._card-list`,
+                'checkout-list/checkout-list-ajax': `._checkout-list`,
+                'checkout-subtotal/checkout-subtotal-ajax': `._checkout-subtotal`,
             }
             obRequestData.complete = () =>{
                 this.changeStateBasket();
