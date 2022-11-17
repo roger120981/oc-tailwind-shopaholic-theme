@@ -38,10 +38,28 @@ module.exports = {
       fontSize: {
         error: ['9rem', '1'],
       },
-      padding: {
-        54: '13.5rem',
-        57: '14.25rem',
+      maxWidth: {
+        'screen': '100vw',
       },
+      padding: {
+        '54': '13.5rem',
+        '57': '14.25rem',
+      },
+      margin: {
+        '-screen-1/2': '-50vw',
+      },
+      margin: ['first', 'last'],
+      textColor: ['active', 'focus-visible', 'visited'],
+      outline: ['focus-visible'],
+      backgroundColor: ['group-focus', 'active', 'focus-visible', 'disabled', 'even'],
+      ringWidth: ['focus-visible'],
+      ringColor: ['hover', 'active', 'focus', 'focus-visible'],
+      ringOffsetWidth: ['responsive', 'focus-visible', 'focus'],
+      opacity: ['hover', 'focus'],
+      fill: ['hover', 'group-hover', 'group-focus', 'focus'],
+      stroke: ['hover', 'group-hover', 'group-focus', 'focus'],
+      width: ['hover'],
+      borderWidth: ['first', 'last'],
       maxHeight: {
         160: '40rem',
       },
