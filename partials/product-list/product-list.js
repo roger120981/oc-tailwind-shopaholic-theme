@@ -22,6 +22,7 @@ export default new class ProductList {
             this.obShow[0].addEventListener('click', () => {
                 this.initPlugins();
                 this.activeProductUpdate();
+                this.updateFilters();
             })
         }else{
             this.initPlugins();
@@ -106,6 +107,7 @@ export default new class ProductList {
                 'product-list/product-list-ajax': '.catalog_wrapper',
                 'filter/filters-desktop-ajax': '._filters-desktop',
                 'filter/filters-mobile-ajax': '._filters-mobile',
+                'sorting/sorting': `._sorting`,
             };
             return obRequestData;
         });

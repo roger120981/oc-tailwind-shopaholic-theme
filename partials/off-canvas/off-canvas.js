@@ -33,17 +33,25 @@ export default class offCanvas {
     }
     this.obDialog = document.querySelectorAll('._offCanvasContainer')[0];
     dialogPolyfill.registerDialog(this.obDialog);
-    this.obDialog.showModal();
 
-    document.body.style.overflowY = 'hidden';
-    document.body.style.paddingRight = this.sScrollWidth + 'px';
+    setTimeout(()=>{
+      if(!this.obShow.dataset.tags){
+        this.obDialog.showModal();
+
+        document.body.style.overflowY = 'hidden';
+        document.body.style.paddingRight = this.sScrollWidth + 'px';
+      }
+    }, 10)
+
     this.obContainer = this.obNav.querySelectorAll("._nav");
   }
 
   initFocus() {
-    this.obFocus = focusTrap.createFocusTrap('._offCanvasContainer');
+    if(!this.obShow.dataset.tags){
+      this.obFocus = focusTrap.createFocusTrap('._offCanvasContainer');
 
-    this.obFocus.activate()
+      this.obFocus.activate()
+    }
   }
 
   initScrollWidth() {
@@ -142,7 +150,11 @@ export default class offCanvas {
       document.body.style.paddingRight = '0px';
       this.obFocus.deactivate();
       this.obOffCanvasRemove = this.obNav.querySelectorAll('._offCanvasContainer');
-      if(this.sNewRend === 'detach'){
+      if(this.obShow.dataset.show){
+        this.obOffCanvasRemove[0].removeAttribute('open');
+        this.$vOffCanvasRemove[0].classList.add('hidden');
+      }
+      else if(this.sNewRend === 'detach'){
         this.obOffCanvasRemove[0].removeAttribute('open');
         this.obContainerRend = this.obNav.removeChild(this.obOffCanvasRemove[0]);
       }else{
@@ -164,15 +176,19 @@ export default class offCanvas {
   }
 
   activeOffCanvas(){
-    this.initScrollWidth();
     this.initOffCanvas();
+    this.initScrollWidth();
     this.initAnimOpen();
   }
 
   showMethod(){
     this.obShow[0].addEventListener("click", () => {
-      this.activeOffCanvas();
-      this.initEvents();
+      this.activeOffCanvas();    
+      setTimeout(()=>{
+        if(!this.obShow.dataset.tags){
+          this.initEvents();
+        }
+      }, 10)
     })
   }
 

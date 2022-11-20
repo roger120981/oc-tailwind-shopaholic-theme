@@ -1,3 +1,5 @@
+// переписать с учетом того, чтобы можно было вызвать с новым классом
+
 export default new class InputQuantity {
   constructor() {
     this.initialization();
@@ -109,3 +111,4 @@ export default new class InputQuantity {
     });
   }
 }
+

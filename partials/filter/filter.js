@@ -90,6 +90,10 @@ export default class Filter{
                 const filterId = elem.id;
                 if(filterId === app.obFilterProperties[i].id){
                     elem.setAttribute('open', '')
+                    elem.querySelectorAll('summary')[0].classList.add('after:transition-none');
+                    setTimeout(()=>{
+                        elem.querySelectorAll('summary')[0].classList.remove('after:transition-none');
+                    }, 100)
                 }
             });
         }
@@ -106,5 +110,3 @@ export default class Filter{
         this.autocompleteFilters();
     }
 }
-
-new Filter();
