@@ -28,6 +28,10 @@ export default class offCanvas {
       this.obTemplate = this.obTemplateNav[0].content.cloneNode(true);
       this.obNav.appendChild(this.obTemplate);
       this.onNewRend();
+    }else{
+      if(this.obContainerRend){
+        this.obNav.appendChild(this.obContainerRend);
+      }
     }
     this.obDialog = document.querySelectorAll('._offCanvasContainer')[0];
     dialogPolyfill.registerDialog(this.obDialog);
