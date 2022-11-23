@@ -57,7 +57,7 @@ export default new class ProductList {
 
     watchResult(){
         const app = this;
-        const target = document.getElementsByClassName('catalog_wrapper')[0];
+        const target = document.getElementsByClassName('_sorting')[0];
     
         const config = {
           childList: true,

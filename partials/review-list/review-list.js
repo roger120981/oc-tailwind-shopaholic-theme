@@ -3,10 +3,8 @@ import Choices from 'choices.js';
 
 export default new class CustomerReviews {
   constructor() {
-    this.obLoadMore = null;
     this.obShow = document.getElementsByClassName('_review-list-container')[0].querySelectorAll('._show')[0];
-    this.obLoadMore = document.getElementsByClassName('_show-more-reviews')[0];
-
+    this.obLoadMore = null;
     this.obListWrapper = '_review-list';
     
     this.init();
@@ -48,6 +46,7 @@ export default new class CustomerReviews {
   }
 
   initLoadMore(){
+    this.obLoadMore = document.getElementsByClassName('_show-more-reviews')[0];
     if(!this.obLoadMore) return;
     this.obLoadMore.addEventListener("click", () => {
       const iPage = parseInt(this.obLoadMore.dataset.page, 10);
@@ -65,10 +64,12 @@ export default new class CustomerReviews {
   }
 
   init(){
-    this.obShow.on('click', ()=>{
-      this.initChoices();
-      this.initLoadMore();
-    })
+    if(this.obShow){
+      this.obShow.addEventListener('click', ()=>{
+        this.initChoices();
+        this.initLoadMore();
+      })
+    }
   }
 
   sendAjax(iNextPage) {

@@ -28,14 +28,12 @@ export default class offCanvas {
       this.obTemplate = this.obTemplateNav[0].content.cloneNode(true);
       this.obNav.appendChild(this.obTemplate);
       this.onNewRend();
-    }else{
-      this.obNav.appendChild(this.obContainerRend);
     }
     this.obDialog = document.querySelectorAll('._offCanvasContainer')[0];
     dialogPolyfill.registerDialog(this.obDialog);
 
     setTimeout(()=>{
-      if(!this.obShow.dataset.tags){
+      if(!this.obShow[0].dataset.tags){
         this.obDialog.showModal();
 
         document.body.style.overflowY = 'hidden';
@@ -47,7 +45,7 @@ export default class offCanvas {
   }
 
   initFocus() {
-    if(!this.obShow.dataset.tags){
+    if(!this.obShow[0].dataset.tags){
       this.obFocus = focusTrap.createFocusTrap('._offCanvasContainer');
 
       this.obFocus.activate()
@@ -150,9 +148,9 @@ export default class offCanvas {
       document.body.style.paddingRight = '0px';
       this.obFocus.deactivate();
       this.obOffCanvasRemove = this.obNav.querySelectorAll('._offCanvasContainer');
-      if(this.obShow.dataset.show){
+      if(this.obShow[0].dataset.show){
         this.obOffCanvasRemove[0].removeAttribute('open');
-        this.$vOffCanvasRemove[0].classList.add('hidden');
+        this.obOffCanvasRemove[0].classList.add('hidden');
       }
       else if(this.sNewRend === 'detach'){
         this.obOffCanvasRemove[0].removeAttribute('open');
@@ -185,7 +183,7 @@ export default class offCanvas {
     this.obShow[0].addEventListener("click", () => {
       this.activeOffCanvas();    
       setTimeout(()=>{
-        if(!this.obShow.dataset.tags){
+        if(!this.obShow[0].dataset.tags){
           this.initEvents();
         }
       }, 10)

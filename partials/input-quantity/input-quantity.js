@@ -1,113 +1,144 @@
-// переписать с учетом того, чтобы можно было вызвать с новым классом
-
-export default new class InputQuantity {
-  constructor() {
-    this.initialization();
+export default class InputQuantity {
+  constructor(app) {
+    this.obCounter = app;
+    this.obMinus = this.obCounter.querySelectorAll("._decrement");
+    this.obPlus = this.obCounter.querySelectorAll("._increment");
+    this.obCount = this.obCounter.querySelectorAll("._count");
+    this.sQuantityCount = this.obCount[0].getAttribute('value');
+  
+    this.obEvents = [];
   }
 
-  initialization() {
-    const obCounter = document.getElementsByClassName('_counter');
-    Array.from(obCounter).forEach(function (app) {
-      const obCounter = app;
-      const obMinus = obCounter.querySelectorAll("._decrement");
-      const obPlus = obCounter.querySelectorAll("._increment");
-      const obCount = obCounter.querySelectorAll("._count");
-      let sQuantityCount = obCount[0].getAttribute('value');
+  stateButton(button, state) {
+    if(state){
+      button.setAttribute('disabled', '');
+    } else {
+      button.removeAttribute('disabled');
+    }
+  }
 
-      (function () {
-        counterInitialization();
-      })()
+  getInput() {
+    return this.obCount[0];
+  }
 
-      obCount[0].addEventListener("input", (ev) => {
-        setValue(ev.target.value);
-        sQuantityCount = ev.target.value;
+  getValue() {
+    return this.getInput().value;
+  }
 
-        counterInitialization();
-      });
+  setValue(value) {
+    this.getInput().setAttribute('value', value);
+    this.getInput().value = value;
+  }
 
-      function getInput() {
-        return obCount[0];
+  getMax() {
+    return this.getInput().getAttribute('max');
+  }
+
+  getMin() {
+    return this.getInput().getAttribute('min');
+  }
+
+  isMin() {
+    return Number(this.getValue()) <= Number(this.getMin());
+  }
+
+  isMax() {
+    return Number(this.getValue()) >= Number(this.getMax());
+  }
+
+  counterInitialization() {
+    if (!this.isMin()) {
+      this.stateButton(this.obMinus[0], false);
+    }
+
+    if (this.isMin()) {
+      this.stateButton(this.obMinus[0], true);
+    }
+
+    if (!this.isMax()) {
+      this.stateButton(this.obPlus[0], false);
+    }
+
+    if (this.isMax()) {
+      this.stateButton(this.obPlus[0], true);
+    }
+  }
+
+  addEvents(){
+    const app = this;
+
+    this.obEvents[0] = (function(ev) {
+      if(app.isMin()){
+        app.setValue(app.getMin());
+        app.sQuantityCount = app.getMin()
+      }else if(app.isMax()){
+        app.setValue(app.getMax());
+        app.sQuantityCount = app.getMax()
+      }else {
+        app.setValue($(ev.target).val());
+        app.sQuantityCount = $(ev.target).val()
       }
 
-      function getValue() {
-        return getInput().value;
+      app.counterInitialization(); 
+    });
+
+    this.obEvents[1] = (function(e) {
+      if (!app.isMin()) {
+        app.sQuantityCount--;
+        app.setValue(app.sQuantityCount);
+        app.stateButton(app.obMinus[0], false);
       }
 
-      function setValue(value) {
-        getInput().setAttribute('value', value);
-        getInput().value = value;
+      if (app.isMin()) {
+        app.stateButton(app.obMinus[0], true);
       }
 
-      function getMax() {
-        return getInput().getAttribute('max');
+      if (!app.isMax()) {
+        app.stateButton(app.obPlus[0], false);
       }
 
-      function getMin() {
-        return getInput().getAttribute('min');
+      app.obCount[0].dispatchEvent(
+        new InputEvent('input', {
+          bubbles: true,
+          cancelable: true,
+      }));
+    });
+
+    this.obEvents[2] = (function(e) {
+      if (!app.isMax()) {
+        app.sQuantityCount++;
+        app.setValue(app.sQuantityCount);
+        app.stateButton(app.obPlus[0], false);
+      }
+      if (app.isMax()) {
+        app.stateButton(app.obPlus[0], true);
+      }
+      if (!app.isMin()) {
+        app.stateButton(app.obMinus[0], false);
       }
 
-      function isMin() {
-        return Number(getValue()) <= Number(getMin());
-      }
+      app.obCount[0].dispatchEvent(
+        new InputEvent('input', {
+          bubbles: true,
+          cancelable: true,
+      }));
+    });
 
-      function isMax() {
-        return Number(getValue()) >= Number(getMax());
-      }
+    this.obCount[0].addEventListener('input', this.obEvents[0]);
+    this.obMinus[0].addEventListener('click', this.obEvents[1]);
+    this.obPlus[0].addEventListener('click', this.obEvents[2]);
+  }
 
-      function stateButton(button, state) {
-        if(state){
-          button.setAttribute('disabled', '');
-        } else {
-          button.removeAttribute('disabled');
-        }
-      }
+  init() {
+    this.counterInitialization();
+    this.addEvents();
+  }
 
-      function counterInitialization() {
-        if (!isMin()) {
-          stateButton(obMinus[0], false);
-        }
-        if (isMin()) {
-          stateButton(obMinus[0], true);
-        }
-
-        if (!isMax()) {
-          stateButton(obPlus[0], false);
-        }
-
-        if (isMax()) {
-          stateButton(obPlus[0], true);
-        }
-      }
-
-      obMinus[0].addEventListener("click", () => {
-        if (!isMin()) {
-          sQuantityCount--;
-          setValue(sQuantityCount);
-          stateButton(obMinus[0], false);
-        }
-
-        if (isMin()) {
-          stateButton(obMinus[0], true);
-        }
-
-        if (!isMax()) {
-          stateButton(obPlus[0], false);
-        }
-      });
-
-      obPlus[0].addEventListener("click", () => {
-        if (!isMax()) {
-          sQuantityCount++;
-          setValue(sQuantityCount);
-          stateButton(obPlus[0], false);
-        }
-        if (isMax()) {
-          stateButton(obPlus[0], true);
-        }
-        if (!isMin()) {
-          stateButton(obMinus[0], false);
-        }
-      })
+  static make(container) {
+    const obContainer = document.getElementsByClassName(`${container}`);
+    Array.from(obContainer).forEach(function(e) {
+      const containerNav = new InputQuantity(e);
+      containerNav.init();
     });
   }
 }
