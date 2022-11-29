@@ -30,6 +30,7 @@ const jsFileList = [
   'pages/sign-up/sign-up',
   'pages/wish-list/wish-list',
   'pages/order-history/order-history',
+  'pages/create-new-password/create-new-password',
 ];
 
 let postCssPlugins = [
