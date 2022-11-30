@@ -1,4 +1,3 @@
-import '/partials/product-card/wish-list';
 import '/partials/tabs/tabs';
 import '/partials/review-list/review-list';
 import '/partials/product-gallery/product-gallery';

@@ -77,18 +77,18 @@ module.exports = {
       screens: {
         'ml': '840px',
       },
-      margin: ['first', 'last'],
-      textColor: ['active', 'focus-visible', 'visited'],
-      outline: ['focus-visible'],
-      backgroundColor: ['group-focus', 'active', 'focus-visible', 'disabled', 'even'],
-      ringWidth: ['focus-visible'],
-      ringColor: ['hover', 'active', 'focus', 'focus-visible'],
-      ringOffsetWidth: ['responsive', 'focus-visible', 'focus'],
-      opacity: ['hover', 'focus'],
-      fill: ['hover', 'group-hover', 'group-focus', 'focus'],
-      stroke: ['hover', 'group-hover', 'group-focus', 'focus'],
-      width: ['hover'],
-      borderWidth: ['first', 'last']
+      // margin: ['first', 'last'],
+      // textColor: ['active', 'focus-visible', 'visited'],
+      // outline: ['focus-visible'],
+      // backgroundColor: ['group-focus', 'active', 'focus-visible', 'disabled', 'even'],
+      // ringWidth: ['focus-visible'],
+      // ringColor: ['hover', 'active', 'focus', 'focus-visible'],
+      // ringOffsetWidth: ['responsive', 'focus-visible', 'focus'],
+      // opacity: ['hover', 'focus'],
+      // fill: ['hover', 'group-hover', 'group-focus', 'focus'],
+      // stroke: ['hover', 'group-hover', 'group-focus', 'focus'],
+      // width: ['hover'],
+      // borderWidth: ['first', 'last']
     }
   },
   plugins: [
