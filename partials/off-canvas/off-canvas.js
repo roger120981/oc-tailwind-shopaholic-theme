@@ -13,27 +13,44 @@ export default class offCanvas {
     this.$sScrollWidth = null;
     this.$sBackdrop = null;
     this.$sFocus = null;
+    this.$sContainerRend = null;
+    this.newRend = false;
+  }
+
+  onNewRend(){
+    this.newRend = this.$vNav.find('._offCanvasContainer').attr('data-type');
   }
 
   initOffCanvas(){
-    this.$vTemplateNav = this.$vNav.find("._offCanvasTemplate");
-    this.$vTemplate = this.$vTemplateNav[0].content.cloneNode(true);
-    $(this.$vTemplate).appendTo(this.$vNav);
-
+    if(this.newRend !== 'detach'){
+      this.$vTemplateNav = this.$vNav.find("._offCanvasTemplate");
+      this.$vTemplate = this.$vTemplateNav[0].content.cloneNode(true);
+      $(this.$vTemplate).appendTo(this.$vNav);
+      this.$sContainerRend = this.$vNav.find('._offCanvasContainer');
+      this.onNewRend();
+    }else{
+      $(this.$sContainerRend).appendTo(this.$vNav);
+    }
     this.$sDialog = document.querySelectorAll('._offCanvasContainer')[0];
     dialogPolyfill.registerDialog(this.$sDialog);
-    this.$sDialog.showModal();
+    setTimeout(()=>{
+      if(!this.$vShow.attr('data-tags')){
+        this.$sDialog.showModal();
 
-    $('body').css('overflow-y', 'hidden')
-    $('body').css('padding-right', this.$sScrollWidth)
+        $('body').css('overflow-y', 'hidden')
+        $('body').css('padding-right', this.$sScrollWidth)
+      }
+    }, 10)
 
     this.$vContainer = this.$vNav.find("._nav");
   }
 
   initFocus() {
-    this.$sFocus = focusTrap.createFocusTrap('._offCanvasContainer');
+    if(!this.$vShow.attr('data-tags')){
+      this.$sFocus = focusTrap.createFocusTrap('._offCanvasContainer');
 
-    this.$sFocus.activate()
+      this.$sFocus.activate()
+    }
   }
 
   initScrollWidth() {
@@ -48,7 +65,6 @@ export default class offCanvas {
     $('body').append(div)
 
     let scrollWidth = div[0].offsetWidth - div[0].clientWidth;
-
     div.remove();
 
     this.$sScrollWidth = scrollWidth;
@@ -130,17 +146,24 @@ export default class offCanvas {
 
   animClose(){
     setTimeout(() => {
-      $('body').css('overflow-y', 'auto')
-      $('body').css('padding-right', '0')
-      this.$sFocus.deactivate()
+      $('body').css('overflow-y', 'auto');
+      $('body').css('padding-right', '0');
+      this.$sFocus.deactivate();
       this.$vOffCanvasRemove = this.$vNav.find('._offCanvasContainer');
-      this.$vOffCanvasRemove.remove();
+      if(this.$vShow.attr('data-show')){
+        this.$vOffCanvasRemove.removeAttr('open');
+        this.$vOffCanvasRemove.addClass('hidden');
+      }else if(this.newRend === 'detach'){
+        this.$vOffCanvasRemove.removeAttr('open').detach();
+      }else{
+        this.$vOffCanvasRemove.remove();
+      }
     }, 400);
   }
 
   clearEvents(){
     $(this.$vNav).off();
-    $(document).off();
+    // $(document).off();
     this.clear();
   }
 
@@ -150,15 +173,19 @@ export default class offCanvas {
   }
 
   activeOffCanvas(){
-    this.initScrollWidth();
     this.initOffCanvas();
+    this.initScrollWidth();
     this.initAnimOpen();
   }
 
   showMethod(){
     this.$vShow.on("click", () => {
-      this.activeOffCanvas();
-      this.initEvents();
+      this.activeOffCanvas();    
+      setTimeout(()=>{
+        if(!this.$vShow.attr('data-tags')){
+          this.initEvents();
+        }
+      }, 10)
     })
   }
 

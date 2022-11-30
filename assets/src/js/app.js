@@ -15,5 +15,15 @@ import '/partials/carousel-main/carousel-main';
 import '/partials/input-quantity/input-quantity';
 /* * Off Canvas * */
 import '/partials/off-canvas/off-canvas';
+/* * Advanced list * */
+import '/partials/advanced-list/advanced-list';
+/* * Product List * */
+import '/partials/product-list/product-list';
+/* * Filter * */
+import '/partials/filter/filter';
 /* * Search Input* */
 import '/partials/search/search';
+import '/partials/product-card-checkout/product-card-checkout';
+import '/partials/button-wish-list/button-wish-list';
+import '/partials/product-choose/product-choose';
+import '../../dist/js/node_modules_photoswipe_dist_photoswipe_esm_js';
