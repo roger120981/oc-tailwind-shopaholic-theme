@@ -26,12 +26,6 @@
             <div class="mb-5 md:mt-5 text-sm md:text-base text-gray-600 {{prose}}">
                 {% if markup %}
                     {{ obItem.answer|raw }}
-                {% else %}
-                    {% if obItem.dropdown == 'product_detail' %}
-                        {% partial 'tabs/tabs-details' obPropertyList=obPropertyList %}
-                    {% else %}
-                        {% partial 'tabs/tabs-markup' text = obItem.richeditor %}
-                    {% endif %}
                 {% endif %}
             </div>
         </details>
