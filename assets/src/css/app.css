@@ -17,6 +17,24 @@
   .slider__bullet_active{
     @apply bg-blue-800
   }
+  .tabs.style__horizontal .tabs__nav .tabs__nav_link{
+    @apply font-medium text-xl bg-inherit border-0
+  }
+  .tabs.style__horizontal .tabs__nav .tabs__nav_link.is__active{
+    @apply border-solid border-b-4 border-blue-800 font-medium
+  }
+  .tabs.style__horizontal .tabs__content.is__active{
+    @apply border-0 border-gray-200 px-0 border-t-2 overflow-x-hidden ml:border-b-0
+  }
+  .tabs.style__accordion .tabs__content, .tabs.is__responsive .tabs__content{
+    @apply relative border-0 border-t-2 border-gray-200 px-0 overflow-x-hidden
+  }
+  .tabs.style__accordion .tabs__content, .tabs.is__responsive .tabs__content:last-child{
+    @apply border-b-2 border-gray-200
+  }
+  .tabs.style__accordion .tabs__nav_link, .tabs.is__responsive .tabs__nav_link, .tabs.style__accordion .tabs__content .tabs__nav_link, .tabs.is__responsive .tabs__content .tabs__nav_link{
+    @apply text-blue-800 text-base font-medium
+  }
 }
 
 @layer utilities {
@@ -78,5 +96,22 @@
   .quantity_input{
     -moz-appearance: textfield;
   }
+
+  .tabs.style__accordion .tabs__content, .tabs.is__responsive .tabs__content::after {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 10px;
+    top: 32px;
+    right: 20px;
+    background: url('/themes/lovata-tailwind-shopaholic/assets/images/marker.svg') no-repeat;
+    position: absolute;
+    transition: .2s;
+    transform: translateY(-50%);
+  }
+  .tabs.style__horizontal .tabs__content.is__active::after{
+    transform: translateY(-50%) rotate(180deg);
+  }
 }
 @import "../../../node_modules/swiper/swiper-bundle.min.css";
+@import "../js/vanila-tabs/vanilla-tabs.min.css";

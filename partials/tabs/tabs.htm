@@ -2,57 +2,8 @@
 
 {# TODO:Check if tabs work when there are more than their width #}
 
-{% set obPropertyList = obProduct.property %}
-
 <section class="w-full">
-    <!-- mobile buttons -->
-    {% partial 'accordion/accordion' 
-        sPartialClasses = 'block md:hidden'
-        obContent = obContent
-        sTextClass = 'w-max'
-    %}
-
-    <!-- web app buttons -->
-    <div class="_tabs hidden md:block">
-        <ul role="tablist" class="_tabs-buttons flex flex-row justify-start space-x-11 text-xl border-b-2 border-gray-200">
-            {% for tab in obContent %}
-                {% if loop.index == 1 %}
-                    {% set init = 'relative after:content-[""] after:w-full after:absolute after:bottom-0 after:left-0 after:border-b-4 after:border-blue-800 px-0.5 pb-4 -mb-0.5' %}
-                {% else %}
-                    {% set init = 'px-0.5 pb-4 -mb-0.5' %}
-                {% endif %}
-               <li>
-                    <button
-                        type="button"
-                        role="tab"
-                        {% if loop.index == 1 %} aria-selected="true" {% else %} aria-selected="false" {% endif %}
-                        data-id='{{loop.index}}'
-                        class="_tabs-button {{init}}"
-                    >
-                        {{tab.title}}
-                    </button>
-               </li>
-            {% endfor %}
-        </ul>
-        <ul class="_tabs-content mt-5">
-            {% for tabValue in obContent %}
-                {% if loop.index != 1 %}
-                    {% set init = 'hidden opacity-0' %}
-                {% endif %}
-                <li
-                    tabindex="0"
-                    role="tabpanel"
-                    class="_tabs-text duration-150 {{init}}"
-                    data-id='{{loop.index}}'
-                    {% if loop.index != 1 %} aria-hidden="true" {% endif %}
-                >
-                    {% if tabValue.dropdown == 'product_detail' %}
-                        {% partial 'tabs/tabs-details' obPropertyList=obPropertyList %}
-                    {% else %}
-                        {% partial 'tabs/tabs-markup' text = tabValue.richeditor %}
-                    {% endif %}
-                </li>
-            {% endfor %}
-        </ul>
-    </div>
+    <ul class="tabs {{sPartialClasses}}">
+        {{body|raw}}
+    </ul>
 </section>
