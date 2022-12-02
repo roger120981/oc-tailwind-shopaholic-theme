@@ -24,8 +24,7 @@
     <ul class="flex flex-col md:space-y-2 md:space-y mt-4">
         {% for i in 5..1 %}
             {% set iCount = obProduct.getRatingCount(i) %}
-            {% set customersVotedTotal = ((iCount * 100) / iReviewCount) * 1.75 %}
-            {% set votedTotal = (iCount * 100) / iReviewCount %}
+            {% set votedTotal = obProduct.getRatingPercent(i) %}
 
             <li class="flex items-center space-x-4" aria-label="{{ 'aria_label_customers_rating_all'|transRaw({
                 aria_label_customers_rating_all: i,
