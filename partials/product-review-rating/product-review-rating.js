@@ -5,8 +5,8 @@ export default new class productReviewRating {
         this.obContainerStarReview = null;
         this.obContainerReview = null;
 
-        this.obShow = document.getElementsByClassName('_off-canvas _write-review')[0].querySelectorAll('._show')[0];
-        this.obShowParents = document.getElementsByClassName('_review-list-container')[0].querySelectorAll('._show')[0];
+        this.obShow = document.querySelector('._off-canvas._write-review ._show');
+        this.obShowParents = document.querySelector('._review-list-container ._show');
         this.obShowImitation = null;
         this.nActive = null;
 
@@ -17,12 +17,12 @@ export default new class productReviewRating {
     }
 
     sendReview(){
-        this.obContainerReview = document.querySelectorAll('._review-container button')[0];
+        this.obContainerReview = document.querySelector('._review-container button');
         this.obContainerReview.addEventListener('click', (event) => {
             event.preventDefault();
 
             const form = document.querySelector('._review-container');
-  
+
             request.sendForm(form, 'MakeReview::onCreate', {
                 update: {
                     'review-list/review-list-ajax': `.${this.obListWrapper}`
@@ -37,11 +37,11 @@ export default new class productReviewRating {
     starState(state, count){
        if(state){
             for(let i = 0; count > i; i++){
-                this.obContainerStarReview[i].querySelectorAll('path')[0].style.fill = this.sActiveStar;
+                this.obContainerStarReview[i].querySelector('path').style.fill = this.sActiveStar;
             }
        }else{
             for(let i = 0; count > i; i++){
-                this.obContainerStarReview[i].querySelectorAll('path')[0].style.fill = this.sDefaultStar;
+                this.obContainerStarReview[i].querySelector('path').style.fill = this.sDefaultStar;
             }
        }
     }
@@ -95,9 +95,9 @@ export default new class productReviewRating {
 
     init(){
         this.obShowParents.addEventListener('click', ()=>{
-            this.obShowImitation = document.getElementsByClassName('_review-list-container')[0].querySelectorAll('._write-review')[0];
+            this.obShowImitation = document.querySelector('._review-list-container ._write-review');
             this.obShowImitation.addEventListener('click', ()=>{
-                document.getElementsByClassName('_review-list-container')[0].querySelectorAll('._hide')[0].dispatchEvent(
+              document.querySelectorAll('._review-list-container ._hide').dispatchEvent(
                 new InputEvent('click', {
                     bubbles: true,
                     cancelable: true,
@@ -109,11 +109,11 @@ export default new class productReviewRating {
                         cancelable: true,
                     }));
                 }, 400)
-            })           
+            })
         })
         this.obShow.addEventListener('click', ()=>{
             setTimeout(()=>{
-                this.obContainerStarReview = document.getElementsByClassName('_container-star-review')[0].querySelectorAll('label');
+                this.obContainerStarReview = document.querySelectorAll('._container-star-review label');
                 this.starState(true, 5);
                 this.nActive = 5;
                 this.initEvents();
