@@ -1,6 +1,7 @@
 window.$ = window.jQuery = require('jquery');
 import '../../../../../modules/system/assets/js/framework';
 import '../../../../../modules/system/assets/js/framework.extras';
+import '../../../../../modules/system/assets/css/framework.extras.css';
 
 import '/partials/top-info-block/top-info-block';
 
