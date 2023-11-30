@@ -1,5 +1,5 @@
 import '../../../../../modules/system/assets/js/framework';
-import '../../../../../modules/system/assets/js/framework.extras';
+import '../../../../../modules/system/assets/js/framework-extras';
 
 import '/partials/top-info-block/top-info-block';
 
