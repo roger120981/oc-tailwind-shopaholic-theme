@@ -37,9 +37,6 @@ let postCssPlugins = [
 
 mix.setPublicPath('./');
 mix.copy('node_modules/jquery/dist/jquery.min.js', 'assets/vendor/jquery.min.js');
-mix.autoload({
-  jquery: ['$', 'jQuery', 'window.jQuery'],
-});
 
 jsFileList.forEach(fileName => mix.js(`./${fileName}.js`, 'assets/dist/js'));
 
