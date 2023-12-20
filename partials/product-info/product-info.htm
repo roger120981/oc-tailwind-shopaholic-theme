@@ -44,7 +44,7 @@
     {% set obOfferList = obProduct.offer %}
     {% if obOfferList.isNotEmpty() %}
         {% set obOffer = obOfferList.first() %}
-        <input class="hidden" type="radio" id="offer_{{ obOffer.id }}" name="offer_id" value="{{ obOffer.id }}" checked> <label for="offer_{{ obOffer.id }}">{{ obOffer.name }}</label><br>
+        <input class="hidden" type="radio" id="offer_{{ obOffer.id }}" name="offer_id" value="{{ obOffer.id }}" checked>
     {% else %}
         <p class="text-gray-600 pt-4">No offers</p>
     {% endif %}
