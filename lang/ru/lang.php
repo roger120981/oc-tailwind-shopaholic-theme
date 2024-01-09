@@ -18,6 +18,12 @@
         'top_info_block_section'             => 'Верхний информационный блок',
         'top_info_block_active'              => 'Активность',
         'top_info_block_content'             => 'Содержимое',
+        'carousel_main_section'              => 'Главная карусель',
+        'main_carousel_alt'                  => 'Альтернативный текст',
+        'main_carousel_title'                => 'Всплывающая подсказка',
+
+
+
         'payment_methods_list_section'       => 'Методы оплаты',
         'payment_methods_list_active'        => 'Активность',
         'payment_methods_list_image_alt'     => 'Альтернативный текст',
@@ -39,7 +45,7 @@
         'sign_up_section'                    => 'Настройки регистрации',
         'sign_up_terms_link'                 => 'Ссылка на страницу \'Условия и положения\'',
         'sign_up_policy_link'                => 'Ссылка на страницу \'Политика конфиденциальности и использования файлов cookie\'',
-        'shopaholic_bar_section'             => 'Панель \'Povered by…\'',
+        'shopaholic_bar_section'             => 'Панель \'Powered by…\'',
         'shopaholic_bar_active'              => 'Активность',
         'latest_news_section'                => 'Блок \'Последние новости\' на главной странице',
         'latest_news_active'                 => 'Активность',
@@ -75,6 +81,9 @@
         'plugin_related_products_shopaholic' => 'Требуется установка <strong><a href="https://octobercms.com/plugin/lovata-relatedproductsshopaholic">Related product for Shopaholic</a></strong>',
         'plugin_buddies'                     => 'Требуется установка <strong><a href="https://octobercms.com/plugin/lovata-buddies">Buddies</a></strong>',
         'plugin_faq'                         => 'Требуется установка <strong><a href="https://octobercms.com/plugin/andreishilov-faq">FAQ</a></strong>',
+        'main_carousel_alt'                  => 'Эта строка будет показана в случае, если изображение не загружено на страницу.',
+        'main_carousel_image'                => 'Рекомендуемое разрешение: 1920×640 пикселей. Поддерживается формат SVG.',
+        'main_carousel_title'                => 'Эта строка будет отображаться при наведении курсора мыши на изображение.',
     ],
     'placeholder' => [
         'business_card_copyright' => '© 2020 Атмосфера. Все права защищены.',
