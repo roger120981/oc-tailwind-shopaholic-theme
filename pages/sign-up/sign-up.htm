@@ -60,7 +60,7 @@ function onInit()
                 sPartialClasses = 'mt-4 md:mt-3'
                 sId = 'remember_me'
                 sName = 'remember_me'
-                sLabelText = 'text_rules_acceptence'|_({text_rules_acceptence_link_terms_conditions: text_rules_acceptence_link_terms_conditions, text_rules_acceptence_link_privacy_cookie_policy: text_rules_acceptence_link_privacy_cookie_policy}) | raw
+                sLabelText = 'text_rules_acceptence'|transRaw({text_rules_acceptence_link_terms_conditions: text_rules_acceptence_link_terms_conditions, text_rules_acceptence_link_privacy_cookie_policy: text_rules_acceptence_link_privacy_cookie_policy}) | raw
                 bIsRequired = true
             %}
             {% partial 'button/button'
