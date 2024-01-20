@@ -178,8 +178,6 @@ function onInit() {
         $arProductList = $obProductList->page($iPage, $this->Pagination->getCountPerPage());
         $iMaxPage = $this->Pagination->getMaxPage($obProductList->count());
         $iCount = $obProductList->count();
-        $this['fMinPriceFilterValue'] = $fMinPriceFilterValue;
-        $this['fMaxPriceFilterValue'] = $fMaxPriceFilterValue;
         $this['sActiveSorting'] = $sActiveSorting;
         $this['iPage'] = $iPage;
         $this['iCount'] = $iCount;
@@ -239,9 +237,9 @@ function onStart()
     {% partial 'product-card/product-card' %}
 {% else %}
     {# Product list #}
-    <div class="grid md:grid-cols-4">
+    <div class="grid md:grid-cols-4 mb-14">
         {% if bShowFilter %}
-            {% partial 'filter/filter' 
+            {% partial 'filter/filter'
                 sPartialClass='md:col-span-1'
             %}
         {% endif %}
@@ -252,5 +250,5 @@ function onStart()
         </div>
     </div>
 {% endif %}
-    
+
 {# TODO: Rename partial to 'catalog-list' #}
