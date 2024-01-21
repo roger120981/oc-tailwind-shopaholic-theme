@@ -213,9 +213,10 @@ function onInit() {
     }
 
     $arBreadcrumbs[] = [
-        'name'   => $this->page->title,
-        'url'    => $this->pageUrl($this->page->baseFileName, false),
-        'active' => empty($obProductItem) && empty($obActiveCategoryItem),
+        'name'    => 'breadcrumbs_catalog_page',
+        'is_lang' => true,
+        'url'     => $this->pageUrl($this->page->baseFileName, false),
+        'active'  => empty($obProductItem) && empty($obActiveCategoryItem),
     ];
 
     $this['arBreadcrumbs'] = array_reverse($arBreadcrumbs);
