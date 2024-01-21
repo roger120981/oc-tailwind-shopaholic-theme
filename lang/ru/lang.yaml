@@ -19,7 +19,7 @@ button_password_change: 'Change password' #TODO: translate to Russian
 button_password_restore: 'Restore password' #TODO: translate to Russian
 button_reload_page: 'Reload page' #TODO: translate to Russian
 button_show_more_products: 'More products' #TODO: translate to Russian
-button_sign_in: 'Sign in' #TODO: translate to Russian
+button_sign_in: 'Вход' #TODO: translate to Russian
 button_sign_in_checkout: 'Sign in & Checkout' #TODO: translate to Russian
 button_sign_up: 'Sign up' #TODO: translate to Russian
 button_start_shopping: 'Start shopping' #TODO: translate to Russian
@@ -39,12 +39,12 @@ input_password_confirmation: 'Confirm new password' #TODO: translate to Russian
 input_remember_me: 'Keep me signed in' #TODO: translate to Russian
 link_see_all: 'See all' #TODO: translate to Russian
 link_password_restore: 'Forgot password?' #TODO: translate to Russian
-page_header_link_sign_in: 'Sign in' #TODO: translate to Russian
+page_header_link_sign_in: 'Вход' #TODO: translate to Russian
 page_heading_faq: 'F.A.Q.' #TODO: translate to Russian
 page_heading_news_list: 'News' #TODO: translate to Russian
 page_heading_password_change: 'Change password' #TODO: translate to Russian
 page_heading_password_restore: 'Recover password' #TODO: translate to Russian
-page_heading_sign_in: 'Sign in' #TODO: translate to Russian
+page_heading_sign_in: 'Вход' #TODO: translate to Russian
 page_heading_sign_up: 'Sign up' #TODO: translate to Russian
 text_checkout: 'To use a promo code, sign in or :text_checkout_link_sign_in first.' #TODO: translate to Russian
 text_checkout_link_sign_in: 'create an account' #TODO: translate to Russian
