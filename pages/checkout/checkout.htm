@@ -49,19 +49,16 @@ function onInit()
                 sLabelClasses='font-medium text-gray-900 mb-2 text-sm md:text-base'
                 disabled=obActiveCoupon is not empty
             %}
-            {% if obActiveCoupon is not empty %}
-                {% partial 'button/button'
-                    sText = 'button_remove_coupon'|_
-                    sPartialClasses = '_shopaholic-coupon-remove w-full ml-0 md:w-80 md:ml-2'
-                    bGhost= 'true'
-                %}
-            {% else %}
-                {% partial 'button/button'
-                    sText = 'button_apply_coupon'|_
-                    sPartialClasses = '_shopaholic-coupon-add w-full ml-0 md:w-80 md:ml-2 '
-                    bGhost = 'true'
-                %}
-            {% endif %}
+            {% partial 'button/button'
+                sText = 'button_remove_coupon'|_
+                sPartialClasses = '_shopaholic-coupon-remove w-full ml-0 md:w-80 md:ml-2 ' ~ (obActiveCoupon is not empty ? '' : 'hidden')
+                bGhost= 'true'
+            %}
+            {% partial 'button/button'
+                sText = 'button_apply_coupon'|_
+                sPartialClasses = '_shopaholic-coupon-add w-full ml-0 md:w-80 md:ml-2 ' ~ (obActiveCoupon is not empty ? 'hidden' : '')
+                bGhost = 'true'
+            %}
         </div>
         <div class="_switch">
             <h2 class="text-gray-900 text-lg font-medium uppercase md:text-2xl">{{'heading_delivery_method'|_}}</h2>
