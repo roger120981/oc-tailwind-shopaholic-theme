@@ -1,4 +1,4 @@
-const plugin = require('tailwindcss/plugin')
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   corePlugins: {
@@ -28,43 +28,44 @@ module.exports = {
       backgroundSize: {
         '45': '45%',
         '65': '65%',
-        '300': '300px',
         '75': '75%',
         'info-icon': '12.5rem',
       },
       backgroundImage: {
-        'check': "url('/themes/lovata-tailwind-shopaholic/assets/images/check.svg')"
+        'check': "url('/themes/lovata-tailwind-shopaholic/assets/images/check.svg')",
+        'check-black': "url('/themes/lovata-tailwind-shopaholic/assets/images/check-black.svg')",
+        'feedback': "url('/themes/lovata-tailwind-shopaholic/assets/images/union.svg')",
       },
       fontSize: {
         error: ['9rem', '1'],
       },
       maxWidth: {
-        '850': '850px',
         'screen': '100vw',
         'screen-3xl': '1920px',
         225: '900px',
-      },
-      backgroundImage: {
-        'feedback': "url('/themes/lovata-tailwind-shopaholic/assets/images/union.svg')",
-      },
-      margin: {
-        '-screen-1/2': '-50vw',
       },
       padding: {
         54: '13.5rem',
         57: '14.25rem',
       },
+      margin: {
+        '-screen-1/2': '-50vw',
+      },
       maxHeight: {
         160: '40rem',
+      },
+      minWidth: {
+        18: '72px'
       },
       width: {
         90: '360px',
         174: '696px',
         23: '92px',
-        174: '696px',
         225: '900px',
       },
       height: {
+        'screen-3xl': '1920px',
+        225: '900px',
         23: '92px',
         131: '524px'
       },
@@ -73,6 +74,21 @@ module.exports = {
         1.75: '7px',
         0.25: '1px',
       },
+      screens: {
+        'ml': '840px',
+      },
+      // margin: ['first', 'last'],
+      // textColor: ['active', 'focus-visible', 'visited'],
+      // outline: ['focus-visible'],
+      // backgroundColor: ['group-focus', 'active', 'focus-visible', 'disabled', 'even'],
+      // ringWidth: ['focus-visible'],
+      // ringColor: ['hover', 'active', 'focus', 'focus-visible'],
+      // ringOffsetWidth: ['responsive', 'focus-visible', 'focus'],
+      // opacity: ['hover', 'focus'],
+      // fill: ['hover', 'group-hover', 'group-focus', 'focus'],
+      // stroke: ['hover', 'group-hover', 'group-focus', 'focus'],
+      // width: ['hover'],
+      // borderWidth: ['first', 'last']
     }
   },
   variants: {
@@ -102,7 +118,7 @@ module.exports = {
         '.separator': {
           content: 'url(/themes/lovata-tailwind-shopaholic/assets/images/separator.svg)',
         }
-      }
+      };
       addUtilities(newUtilities, ['before'])
     }),
     plugin(({ addVariant, e }) => {
@@ -111,4 +127,4 @@ module.exports = {
       })
     }),
   ]
-}
+};
