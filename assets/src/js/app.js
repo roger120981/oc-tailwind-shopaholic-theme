@@ -1,10 +1,4 @@
 import '/partials/top-info-block/top-info-block';
-// window.$ = window.jQuery = require('jquery');
-// import '../../../../../modules/system/assets/js/framework';
-// import '../../../../../modules/system/assets/js/framework.extras';
-// import '../../../../../modules/system/assets/css/framework.extras.css';
-
-
 import '/partials/product-list-small/product-list-small';
 /* * Account * */
 // TODO: To decide regarding the assets with no markup
