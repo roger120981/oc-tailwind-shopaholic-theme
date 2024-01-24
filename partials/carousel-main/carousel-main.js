@@ -1,4 +1,4 @@
-import Swiper, { Navigation, Pagination } from 'swiper';
+import Swiper from 'swiper';
 
 export default new class MainCarousel {
   constructor() {
@@ -6,18 +6,18 @@ export default new class MainCarousel {
     this.paginationSelector = 'swiper-pagination';
     this.nextBulletSelector = 'slider__bullet';
     this.nextBulletActiveSelector = 'slider__bullet_active';
-    this.activeSlideSelector = 'main-slider__item_active';
     this.uselessPaginationSelector = 'slider__pagination-hidden';
 
     this.handler();
   }
 
   handler() {
-    const slider = document.querySelector(`.${this.sliderContainerSelector}`);
+    oc.pageReady().then(() => {
+      const slider = document.querySelector(`.${this.sliderContainerSelector}`);
+      if (!slider) {
+        return;
+      }
 
-    if (!slider) return;
-
-    document.addEventListener('DOMContentLoaded', () => {
       this.init();
     });
   }
