@@ -29,7 +29,7 @@ function onInit()
     {% if arProductList is not empty %}
         <div class="grid grid-cols-2 gap-x-4 gap-y-6 mt-4 md:grid-cols-4">
             {% for obProduct in arProductList %}
-                {% partial 'product-card/product-card' 
+                {% partial 'product-card/product-card'
                     obProduct = obProduct
                     iLoopIndex = loop.index
                     iShowIndex = 8
@@ -41,11 +41,11 @@ function onInit()
             sPartialClasses = 'mt-20 md:mt-7'
             sIconName = 'wishlist.svg'
             sEmptyPageMessage = 'text_wish_list_empty'|_
-            sHref = 'product-list'|page
+            sHref = 'catalog/catalog'|page
             sButtonText = 'button_start_shopping'|_
             sButtonClasses = 'mt-24 md:mt-6'
             sButtonType = link
-            sHref = '/catalog' 
+            sHref = '/catalog'
         %}
         {# TODO: sHref could be broken if site admin will choose another slug for the Catalog page. #}
     {% endif %}
