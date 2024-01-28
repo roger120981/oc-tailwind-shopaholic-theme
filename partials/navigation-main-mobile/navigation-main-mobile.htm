@@ -52,7 +52,7 @@ code = "navigation-main"
             {% partial 'button/button'
                 sText = 'button_sign_in'|_
                 sPartialClasses = 'font-medium text-lg w-full mb-4 text-center'
-                sHref='sign-in'
+                sHref='sign-in/sign-in'|page
             %}
             {% set text_no_account_link_sign_up = '<a class="text-blue-800 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue underline hover:no-underline text-sm md:text-base" href="'~( 'sign-up/sign-up'|page )~'">'~('text_no_account_link_sign_up'|_)~'</a>' %}
             <span class="block text-center text-gray-600 text-sm">{{ 'text_no_account' | _({text_no_account_link_sign_up: text_no_account_link_sign_up}) }}</span>
