@@ -1,11 +1,9 @@
-{##}
-
 {% set obCartList = Cart.get() %}
 
 {% if this.page.id != 'checkout-checkout' %}
-<div class="_header-purchases-container _off-canvas flex ml-auto">
-    <button class="_show relative ml-5 sm:ml-8 md:ml-10 text-gray-900 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue" type="button">
-        {% if obCartList|length > 0 %}
+<div class="_header-purchases-container flex ml-auto">
+    <button class="_offCanvasOpen relative ml-5 sm:ml-8 md:ml-10 text-gray-900 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue" type="button" data-for="header_cart">
+        {% if obCartList.isNotEmpty() %}
             {% set sHidden = 'visible' %}
         {% else %}
             {% set sHidden = 'hidden' %}
@@ -17,12 +15,12 @@
         <span class="sr-only">{{ 'purchase_go_to_cart'|_ }}</span>
     </button>
     {% partial 'off-canvas/off-canvas'
+        id = 'header_cart'
         sPosition = 'right'
         sHeading = 'shopping cart'
         sCanvasClasses = '_container-card-list cursor-auto'
         sIndentsClass = 'px-4 py-10 md:px-10'
         sBackgroundClass = 'bg-white'
-        sTemplateWorkType = 'detach'
         sCanvasClasses = 'md:w-full md:px-4 lg:px-10 lg:w-1/2'
         body
     %}
@@ -31,7 +29,7 @@
 </div>
 {% else %}
     <span class="relative ml-5 sm:ml-8 md:ml-10 text-gray-900 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue" type="button">
-        {% if obCartList|length > 0 %}
+        {% if obCartList.isNotEmpty() %}
             {% set sHidden = 'visible' %}
         {% else %}
             {% set sHidden = 'hidden' %}
