@@ -52,10 +52,6 @@ class ContactPage {
     messageNodeList.forEach((messageNode) => {
       const message = new FlashMessage(messageNode.textContent, type);
       message.show();
-      const message1 = new FlashMessage(messageNode.textContent, type);
-      message1.show();
-      const message2 = new FlashMessage(messageNode.textContent, type);
-      message2.show();
     })
   }
 }
