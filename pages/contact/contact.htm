@@ -2,6 +2,7 @@ title = "Contact"
 url = "/contact"
 layout = "main"
 is_hidden = 0
+
 [genericForm]
 rules[name] = "required"
 rules[email] = "required"
@@ -28,24 +29,10 @@ function onInit()
         ['name' => 'Contact', 'url' => \Cms\Classes\Page::url('contact', ['contact' => false])],
     ];
 
-    // Sets an success message
-    $this['success'] = Flash::success('Settings successfully saved!');
-
-    // Sets an error message
-    $this['error'] = Flash::error('Error saving settings');
-
-    // Sets a warning message
-    $this['warning'] = Flash::warning('There was a problem but no worries');
-
-    // Sets an informative message
-    $this['info'] = Flash::info('Just a heads up about the settings');
-
     $this['arBreadcrumbs'] = $arBreadcrumbs;
 }
 ?>
 ==
-{##}
-
 {% partial 'breadcrumbs/breadcrumbs' %}
 <h1 class="text-lg md:text-3xl text-gray-900 font-medium uppercase mb-4 md:mb-6">{{'heading_contact'|_}}</h1>
 <div class="flex flex-col lg:flex-row mb-7 md:mb-10">

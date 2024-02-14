@@ -1,16 +1,15 @@
-{##}
+{% component 'contactForm' form_description = 'My other description' send_btn_label = 'Stay in touch' %}
 
-<form 
+<form
+    id="feedback-form"
     class="_required"
-    data-request="genericForm::onFormSubmit"
-    method="POST"
 >
     {{ form_token() }}
 
     {% partial 'input/input'
         sId = 'name'
         sLabelText = 'input_your_name'|_
-        name = 'name'
+        sName = 'name'
         required = 'required'
         type = 'text'
         sPartialClasses = 'relative'
@@ -18,7 +17,7 @@
     {% partial 'input/input'
         sId = 'form-email'
         sLabelText = 'input_email'|_
-        name = 'email'
+        sName = 'email'
         required = 'required'
         type = 'email'
         sPartialClasses = 'mt-7 md:mt-8 relative'
@@ -26,7 +25,7 @@
     {% partial 'textarea/textarea'
         sId = 'message'
         sLabelText = 'input_your_message'|_
-        name = 'message'
+        sName = 'message'
         sPartialClasses = 'mt-7 md:mt-8 relative'
         sRows = '4'
     %}
