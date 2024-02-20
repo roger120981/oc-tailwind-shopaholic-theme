@@ -1,9 +1,16 @@
+title = "Account Orders"
 url = "/account/orders"
 layout = "main"
-title = "Order history"
 is_hidden = 0
 
-[UserData]
+[UserPage]
+slug = "{{ :slug }}"
+slug_required = 0
+mode = "ajax"
+flash_on = 0
+redirect_on = 0
+redirect_page = "account/account"
+login_page = "sign-in/sign-in"
 
 [ProductData]
 
@@ -34,36 +41,29 @@ last_button_number = 1
 <?php
 function onInit()
 {
-    if(input('delete_all_orders')) {
-        \Lovata\OrdersShopaholic\Models\Order::where('user_id', $obUser->id)->delete();
-    }
-}
-
-function onStart()
-{
     $this['path_page_js'] = mix('assets/dist/js/account-orders.js', 'themes/lovata-tailwind-shopaholic');
-    $obUser = $this->UserData->get();
 
-    $arBreadcrumbs = [
-        ['name' => \RainLab\Translate\Models\Message::trans('account_my_account'), 'url' => \Cms\Classes\Page::url('account/account')],
-        ['name' => \RainLab\Translate\Models\Message::trans('account_order_history'), 'url' => null],
-    ];
+    $bHasPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.buddies')
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.Buddies');
 
-    $this['arBreadcrumbs'] = $arBreadcrumbs;
-
+    if (!$bHasPlugin) {
+        return $this->controller->run('404');
+    }
 }
 ?>
 ==
-{##}
-
-{% partial 'breadcrumbs/breadcrumbs' %}
-
+{% set arBreadcrumbs = [
+    {'name': 'account_my_account'|_, 'url': 'account/account'|page},
+    {'name': 'account_order_history'|_, 'url': null}
+] %}
 {% set obUser = UserData.get() %}
 {% set obOrderList = obUser.order %}
 
+{% partial 'breadcrumbs/breadcrumbs' %}
+
 <div class="mb-8 mt-1 lg:mb-16">
     <h1 class="uppercase text-xl mb-4 font-medium lg:text-3xl">{{'account_order_history'|_}}</h1>
-    {% if obOrderList|length > 0 %}
+    {% if obOrderList.isNotEmpty() %}
         {% partial 'order-list/order-list' %}
     {% else %}
         {% partial 'info-message/info-message'

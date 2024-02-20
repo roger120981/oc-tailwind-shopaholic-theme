@@ -4,7 +4,6 @@ const jsFileList = [
   'pages/account-details/account-details',
   'pages/account-orders/account-orders',
   'pages/account-password/account-password',
-  'pages/account/account',
   'pages/sign-in-checkout/sign-in-checkout',
   'pages/checkout-success/checkout-success',
   'pages/checkout/checkout',

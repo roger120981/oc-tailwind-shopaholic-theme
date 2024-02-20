@@ -2,6 +2,11 @@ title = "Sign In"
 url = "/sign-in"
 layout = "main"
 is_hidden = 0
+
+[Login]
+redirect_on = 1
+redirect_page = "account/account"
+mode = "ajax"
 ==
 <?php
 function onInit()
@@ -9,21 +14,15 @@ function onInit()
         $this['path_page_js'] = mix('assets/dist/js/sign-in.js', 'themes/lovata-tailwind-shopaholic');
 
         $obUser = $this['obUser'];
+        $bHasPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.buddies')
+            && !\System\Classes\PluginManager::instance()->isDisabled('lovata.buddies');
 
-        if (!$this->theme->has_buddies || !empty($obUser)) {
+        if (!$bHasPlugin || !empty($obUser)) {
             return $this->controller->run('404');
         }
-
-        $this->addComponent('Lovata\Buddies\Components\Login', 'Login', [
-            'redirect_on' => 1,
-            'redirect_page' => 'account/account',
-            'mode' => 'ajax',
-        ]);
     }
 ?>
 ==
-{##}
-
 <div class="mt-7 mb-14 flex flex-col items-center">
     <h1 class="font-medium uppercase text-xl md:text-3xl mb-4">{{ 'account_signing_in'|_ }}</h1>
     <div class="max-w-xs">

@@ -3,34 +3,32 @@ url = "/account"
 layout = "main"
 is_hidden = 0
 
+[UserPage]
+slug = "{{ :slug }}"
+slug_required = 0
+mode = "ajax"
+flash_on = 0
+redirect_on = 0
+redirect_page = "account/account"
+login_page = "sign-in/sign-in"
 ==
 <?php
 function onInit()
 {
     $this['path_page_js'] = mix('assets/dist/js/account.js', 'themes/lovata-tailwind-shopaholic');
 
-    $arBreadcrumbs = [
-        ['name' => \RainLab\Translate\Models\Message::trans('account_my_account'), 'url' => null],
-    ];
+    $bHasPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.buddies')
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.Buddies');
 
-    $this['arBreadcrumbs'] = $arBreadcrumbs;
-
-    if ($this->theme->has_buddies) {
-        $this->addComponent('Lovata\Buddies\Components\UserPage', 'UserPage', [
-            'slug' => '{{ :slug }}',
-            'slug_required' => 0,
-            'mode' => 'ajax',
-            'flash_on' => 0,
-            'redirect_on' => 0,
-            'redirect_page' => 'account/account',
-            'login_page' => 'sign-in/sign-in',
-        ]);
-    } else {
+    if (!$bHasPlugin) {
         return $this->controller->run('404');
     }
 }
 ?>
 ==
+{% set arBreadcrumbs = [
+    {'name': 'account_my_account'|_, 'url': null},
+] %}
 {% set arList = [
     {
         title: 'account_order_history'|_,

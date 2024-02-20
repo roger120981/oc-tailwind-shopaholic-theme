@@ -2,9 +2,16 @@
 useContent = 1
 default = 0
 
+[Cart]
+
 [SeoToolbox]
 
 [sitePicker]
+
+[UserData]
+
+[global SiteContent]
+handle = Site\SiteContent
 ==
 <?php
 function onInit()
@@ -12,22 +19,40 @@ function onInit()
     $this['path_css'] = mix('assets/dist/css/app.css', 'themes/lovata-tailwind-shopaholic');
     $this['path_js'] = mix('assets/dist/js/app.js', 'themes/lovata-tailwind-shopaholic');
     $this['path_manifest_js'] = mix('assets/dist/js/manifest.js', 'themes/lovata-tailwind-shopaholic');
+    $this['sAdvancedListTypeCategory'] = 'category';
+    $this['sAdvancedListTypeAccount'] = 'account';
+    $this['sProductListSmallTypePopularity'] = 'popularity';
+    $this['sProductListSmallTypeViewedProducts'] = 'viewed_products';
+    $this['sProductListSmallTypeRelatedProducts'] = 'related_products';
+
+    $bHasPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.buddies')
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.Buddies');
+
+    if ($bHasPlugin && !empty($this->UserData)) {
+        $this['obUser'] = $this->UserData->get();
+    }
 }
+
 function onStart()
 {
-    $this['sTopInfoBlockHash'] = $this->theme->top_info_block_active && !empty($this->theme->top_info_block_content) ? md5($this->theme->top_info_block_content) : '';
+    $this['sTopInfoBlockHash'] = $this->SiteContent->top_info_block_active && !empty($this->SiteContent->top_info_block_content) ? md5($this->SiteContent->top_info_block_content) : '';
 }
 ?>
 ==
-
-{##}
-
 <!DOCTYPE html>
-<html lang="{{ activeLocale ? activeLocale : 'en' }}">
+<html class="scroll-smooth" lang="{{ activeLocale ? activeLocale : 'en' }}">
     <head>
+        {{ SeoToolbox.getHeadBegin()|raw }}
         {% partial 'head/head' %}
+        {% placeholder seo_tags default %}
+            {% component 'SeoToolbox' %}
+        {% endplaceholder %}
+        {{ SeoToolbox.getHeadEnd()|raw }}
     </head>
     <body class="bg-gray-50" itemscope itemtype="http://schema.org/WebPage">
+        {{ SeoToolbox.getBodyBegin()|raw }}
         {% page %}
+        {% partial 'scripts/scripts' %}
+        {{ SeoToolbox.getBodyEnd()|raw }}
     </body>
 </html>

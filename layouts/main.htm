@@ -1,8 +1,13 @@
 [Cart]
 
-[ProductList]
+[SeoToolbox]
 
 [sitePicker]
+
+[UserData]
+
+[global SiteContent]
+handle = Site\SiteContent
 ==
 <?php
 function onInit()
@@ -16,24 +21,33 @@ function onInit()
     $this['sProductListSmallTypeViewedProducts'] = 'viewed_products';
     $this['sProductListSmallTypeRelatedProducts'] = 'related_products';
 
-    if ($this->theme->has_buddies) {
-        $this->addComponent('Lovata\Buddies\Components\UserData', 'UserData', []);
+    $bHasPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.buddies')
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.Buddies');
+
+    if ($bHasPlugin && !empty($this->UserData)) {
         $this['obUser'] = $this->UserData->get();
     }
 }
+
 function onStart()
 {
-    $this['sTopInfoBlockHash'] = $this->theme->top_info_block_active && !empty($this->theme->top_info_block_content) ? md5($this->theme->top_info_block_content) : '';
+    $this['sTopInfoBlockHash'] = $this->SiteContent->top_info_block_active && !empty($this->SiteContent->top_info_block_content) ? md5($this->SiteContent->top_info_block_content) : '';
 }
 ?>
 ==
 <!DOCTYPE html>
 <html class="scroll-smooth" lang="{{ activeLocale ? activeLocale : 'en' }}">
     <head>
+        {{ SeoToolbox.getHeadBegin()|raw }}
         {% partial 'head/head' %}
+        {% placeholder seo_tags default %}
+            {% component 'SeoToolbox' %}
+        {% endplaceholder %}
+        {{ SeoToolbox.getHeadEnd()|raw }}
     </head>
     <body class="bg-gray-50 lg:overflow-x-hidden" itemscope itemtype="http://schema.org/WebPage">
-    {# TODO: Fix horizontal scroll on the lg breakpoint. lg:overflow-x-hidden is a temporary solution. #}
+        {{ SeoToolbox.getBodyBegin()|raw }}
+        {# TODO: Fix horizontal scroll on the lg breakpoint. lg:overflow-x-hidden is a temporary solution. #}
         <div class="sm:container sm:mx-auto px-4 min-h-screen l grid grid-cols-full grid-rows-auto-fr-auto">
             {% partial 'header/header' %}
             <main>
@@ -42,7 +56,8 @@ function onStart()
             {% partial 'footer/footer' %}
             {% partial 'flash-message/flash-message' %}
         </div>
-        {% partial 'scripts/scripts' %}
         {% partial 'input/input-validation-message' %}
+        {% partial 'scripts/scripts' %}
+        {{ SeoToolbox.getBodyEnd()|raw }}
     </body>
 </html>
