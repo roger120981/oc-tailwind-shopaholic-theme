@@ -7,8 +7,8 @@
         </svg>
         <span>{{'search_category'|_}}</span>
     </button>
-    <div class="_off-canvas">
-        <button class="_show flex border border-gray-300 py-3 pr-16 pl-3 rounded items-center">
+    <div>
+        <button class="_offCanvasOpen flex border border-gray-300 py-3 pr-16 pl-3 rounded items-center" data-for="filter_panel">
             <svg class="mr-4" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="2" y="5" width="16" height="1.4" rx="0.7" fill="#4B5563"/>
                 <rect x="4" y="9" width="12" height="1.4" rx="0.7" fill="#4B5563"/>
@@ -17,12 +17,12 @@
             <span>{{'filter_filter'|_}}</span>
         </button>
         {% partial 'off-canvas/off-canvas'
+            id = 'filter_panel'
             sPosition = 'right'
             sHeading = 'filter_filters'|_
             sCanvasClasses = 'pl-0 pr-0 cursor-auto'
             sBackgroundClass = 'bg-gray-50'
             sHeaderClasses = 'mr-4 ml-4 md:mr-0 md:ml-0'
-            sTemplateWorkType = 'detach'
             sIndentsClass = 'py-10'
             body
         %}
