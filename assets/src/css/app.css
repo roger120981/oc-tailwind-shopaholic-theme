@@ -234,6 +234,10 @@
   @apply rotate-180 -translate-x-0.5 translate-y-0.5 rtl:rotate-0 rtl:translate-x-1.5 rtl:translate-y-0.5
 }
 
+.content-visibility {
+  @apply content-visibility-auto contain-intrinsic-size-[0_100px]
+}
+
 
 
 @import "./swiper.css";
