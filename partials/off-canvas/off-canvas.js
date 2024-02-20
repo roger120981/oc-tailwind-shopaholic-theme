@@ -65,6 +65,7 @@ class OffCanvas {
   constructor(dialogID) {
     this.id = dialogID;
     this.templateNode = document.querySelector(`#${dialogID}_template`);
+    console.log(this.templateNode);
     this.parentNode = this.templateNode ? this.templateNode.parentElement : null;
 
     this.dialogTemplate = null;
