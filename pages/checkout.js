@@ -14,4 +14,4 @@ import '/partials/checkout/order';
 
 import '/partials/button-wish-list/button-wish-list';
 
-import '../../assets/src/js/validation';
+import '../assets/src/js/validation';

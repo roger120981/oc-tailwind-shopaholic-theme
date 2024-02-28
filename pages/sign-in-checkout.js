@@ -1,1 +1,1 @@
-import '../../assets/src/js/validation';
+import '../assets/src/js/validation';

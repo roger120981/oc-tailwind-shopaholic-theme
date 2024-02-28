@@ -1,4 +1,4 @@
-import '../../assets/src/js/validation';
+import '../assets/src/js/validation';
 import {FlashMessage} from '/partials/flash-message/flash-message';
 
 class ContactPage {
