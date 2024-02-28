@@ -1,5 +1,5 @@
-import ShopaholicAddWishList from '@lovata/shopaholic-wish-list/shopaholic-add-wish-list';
-import ShopaholicRemoveWishList from '@lovata/shopaholic-wish-list/shopaholic-remove-wish-list';
+import ShopaholicAddWishList from '@oc-shopaholic/shopaholic-wish-list/shopaholic-add-wish-list';
+import ShopaholicRemoveWishList from '@oc-shopaholic/shopaholic-wish-list/shopaholic-remove-wish-list';
 
 export default new class ButtonWishList {
   constructor() {
@@ -24,13 +24,13 @@ export default new class ButtonWishList {
    * @description Init add handler.
    */
   initAddHandler() {
+    const obThis = this;
     this.obAddHelper.setAjaxRequestCallback((obRequestData, obButton) => {
-      this.obButton = $(obButton);
-      this.obButton.attr('disabled', 'disabled');
-      const self = this;
+      obThis.obButton = obButton;
+      obThis.obButton.setAttribute('disabled', 'disabled');
       obRequestData.complete = () => {
-        const obButton = self.obButton;
-        const sType = self.sTypeRemove;
+        const obButton = obThis.obButton;
+        const sType = obThis.sTypeRemove;
         this.changeButtonView(obButton, sType);
       };
 
@@ -42,13 +42,13 @@ export default new class ButtonWishList {
    * @description Init remove handler.
    */
   initRemoveHandler() {
+    const obThis = this;
     this.obRemoveHelper.setAjaxRequestCallback((obRequestData, obButton) => {
-      this.obButton = $(obButton);
-      this.obButton.attr('disabled', 'disabled');
-      const self = this;
+      obThis.obButton = obButton;
+      obThis.obButton.setAttribute('disabled', 'disabled');
       obRequestData.complete = () => {
-        const obButton = self.obButton;
-        const sType = self.sTypeAdd;
+        const obButton = obThis.obButton;
+        const sType = obThis.sTypeAdd;
         this.changeButtonView(obButton, sType);
       };
 
@@ -63,32 +63,32 @@ export default new class ButtonWishList {
    * @param {string} sType
    */
   changeButtonView(obButton, sType) {
-    const obSvg = obButton.find('svg');
+    const obSvg = obButton.querySelector('svg');
 
     if (sType === this.sTypeAdd) {
-      if(obSvg.hasClass('_card-list-chekout')){
+      if (obSvg.classList.contains('_card-list-chekout')) {
         this.sAddButtonClass = 'text-gray-600';
       }else{
-        obSvg.addClass(this.sAddSvgClass);
+        obSvg.classList.add(this.sAddSvgClass);
       }
-      obSvg.removeClass(this.sRemoveSvgClass);
-      obButton.removeClass(this.obRemoveHelper.sDefaultButtonClass);
-      obButton.addClass(this.obAddHelper.sDefaultButtonClass);
-      obButton.removeClass(this.sRemoveButtonClass);
-      obButton.addClass(this.sAddButtonClass);
+      obSvg.classList.remove(this.sRemoveSvgClass);
+      obButton.classList.remove(this.obRemoveHelper.sDefaultButtonClass);
+      obButton.classList.add(this.obAddHelper.sDefaultButtonClass);
+      obButton.classList.remove(this.sRemoveButtonClass);
+      obButton.classList.add(this.sAddButtonClass);
     } else {
-      if(obSvg.hasClass('_card-list-chekout')){
+      if(obSvg.classList.contains('_card-list-chekout')){
         this.sAddButtonClass = 'text-gray-600';
       }else{
-        obSvg.removeClass(this.sAddSvgClass);
+        obSvg.classList.remove(this.sAddSvgClass);
       }
-      obSvg.addClass(this.sRemoveSvgClass);
-      obButton.removeClass(this.obAddHelper.sDefaultButtonClass);
-      obButton.addClass(this.obRemoveHelper.sDefaultButtonClass);
-      obButton.removeClass(this.sAddButtonClass);
-      obButton.addClass(this.sRemoveButtonClass);
+      obSvg.classList.add(this.sRemoveSvgClass);
+      obButton.classList.remove(this.obAddHelper.sDefaultButtonClass);
+      obButton.classList.add(this.obRemoveHelper.sDefaultButtonClass);
+      obButton.classList.remove(this.sAddButtonClass);
+      obButton.classList.add(this.sRemoveButtonClass);
     }
 
-    obButton.removeAttr('disabled');
+    obButton.removeAttribute('disabled');
   }
 }();

@@ -1,6 +1,6 @@
-import ShopaholicProductList from "@lovata/shopaholic-product-list/shopaholic-product-list";
-import ShopaholicFilterPrice from '@lovata/shopaholic-filter-panel/shopaholic-filter-price';
-import ShopaholicFilterPanel from "@lovata/shopaholic-filter-panel/shopaholic-filter-panel";
+import ShopaholicProductList from "@oc-shopaholic/shopaholic-product-list/shopaholic-product-list";
+import ShopaholicFilterPrice from '@oc-shopaholic/shopaholic-filter-panel/shopaholic-filter-price';
+import ShopaholicFilterPanel from "@oc-shopaholic/shopaholic-filter-panel/shopaholic-filter-panel";
 import Filter, { setAccordionState } from '../filter/filter';
 
 export default new class ProductList {

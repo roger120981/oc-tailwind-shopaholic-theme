@@ -1,4 +1,4 @@
-import UrlGeneration from '@lovata/url-generation'
+import UrlGeneration from '@oc-shopaholic/url-generation'
 import { AccordionInit } from '../accordion/accordion'
 export default new class Tags {
   constructor () {

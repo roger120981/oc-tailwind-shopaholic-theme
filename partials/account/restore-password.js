@@ -1,5 +1,3 @@
-import request from 'oc-request';
-
 export default new class RestorePassword {
   constructor() {
     this.sButtonRestorePasswordClass = '_button-restore-password';
@@ -41,7 +39,7 @@ export default new class RestorePassword {
 
     this.obButton.setAttribute('disabled', 'disabled');
     const self = this;
-    request.sendForm(obForm, 'RestorePassword::onAjax', {
+    oc.ajax(obForm, 'RestorePassword::onAjax', {
       success: (res) => {
         const obData = res;
         if (obData.status === false) {

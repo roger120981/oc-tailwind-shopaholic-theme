@@ -1,5 +1,3 @@
-import request from 'oc-request';
-
 export default new class AccountChangePassword {
   constructor() {
     this.sButtonAccountChangePasswordClass = '_button-account-change-password';
@@ -39,7 +37,7 @@ export default new class AccountChangePassword {
 
     this.obButton.setAttribute('disabled', 'disabled');
     const self = this;
-    request.sendForm(obForm, 'ChangePassword::onAjax', {
+    oc.ajax(obForm, 'ChangePassword::onAjax', {
       success: (res) => {
         const obData = res;
         if (obData.status === false) {

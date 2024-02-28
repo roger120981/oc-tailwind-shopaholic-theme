@@ -1,4 +1,4 @@
-import ShopaholicCartRemove from '@lovata/shopaholic-cart/shopaholic-cart-remove';
+import ShopaholicCartRemove from '@oc-shopaholic/shopaholic-cart/shopaholic-cart-remove';
 import InputQuantity from '../input-quantity/input-quantity'
 
 export default new class productCardCheckout{

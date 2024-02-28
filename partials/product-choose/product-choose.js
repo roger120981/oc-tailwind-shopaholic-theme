@@ -1,5 +1,4 @@
-import ShopaholicCartAdd from '@lovata/shopaholic-cart/shopaholic-cart-add';
-import ShopaholicCartUpdate from '@lovata/shopaholic-cart/shopaholic-cart-update';
+import ShopaholicCartAdd from '@oc-shopaholic/shopaholic-cart/shopaholic-cart-add';
 
 export default new class ProductChoose {
   constructor() {
@@ -14,14 +13,15 @@ export default new class ProductChoose {
       requestData.update = {'header/header-ajax': '._header-purchases'};
       requestData.complete = (data) => {
         shopaholicCartAdd.completeCallback(data, button);
-        let content = $(`.${this.cartPopupWrapper}`)
-        if (content.hasClass('hidden')) {
-          content.removeClass('hidden')
-          $('body').addClass('overflow-hidden')
-        } else {
-          content.addClass('hidden');
-          $('body').removeClass('overflow-hidden')
-        }
+        // let content = document.querySelector(`.${this.cartPopupWrapper}`);
+        // if (content.classList.contains('hidden')) {
+        //   content.classList.remove('hidden')
+        //
+        //   document.body.classList.add('overflow-hidden')
+        // } else {
+        //   content.classList.add('hidden');
+        //   document.body.classList.remove('overflow-hidden')
+        // }
       };
 
       return requestData;

@@ -1,5 +1,3 @@
-import request from 'oc-request';
-
 export default new class SignIn {
   constructor() {
     this.sButtonSignInClass = '_button-sign-in';
@@ -39,7 +37,7 @@ export default new class SignIn {
 
     this.obButton.setAttribute('disabled', 'disabled');
     const self = this;
-    request.sendForm(obForm, 'Login::onAjax', {
+    oc.ajax(obForm, 'Login::onAjax', {
       success: (res) => {
         const obData = res;
         if (obData.status === false) {

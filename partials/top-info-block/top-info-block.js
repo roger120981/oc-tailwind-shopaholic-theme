@@ -1,5 +1,3 @@
-import request from 'oc-request';
-
 export default new class TopInfoBlock {
   constructor() {
     this.sTopInfoBlockWrapperClass = '_top-info-block';
@@ -57,7 +55,7 @@ export default new class TopInfoBlock {
 
     const self = this;
 
-    request.sendData('onInit', {
+    oc.request('onInit', {
       update: {'top-info-block/top-info-block-ajax': `.${this.sTopInfoBlockWrapperClass}`},
       complete: function () {
         self.hide();

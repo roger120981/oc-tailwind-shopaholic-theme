@@ -1,6 +1,6 @@
-import ShopaholicProductList from '@lovata/shopaholic-product-list/shopaholic-product-list';
-import ShopaholicSorting from '@lovata/shopaholic-product-list/shopaholic-sorting';
-import ShopaholicPagination from '@lovata/shopaholic-product-list/shopaholic-pagination';
+import ShopaholicProductList from '@oc-shopaholic/shopaholic-product-list/shopaholic-product-list';
+import ShopaholicSorting from '@oc-shopaholic/shopaholic-product-list/shopaholic-sorting';
+import ShopaholicPagination from '@oc-shopaholic/shopaholic-product-list/shopaholic-pagination';
 import Choices from 'choices.js';
 import Filter, { setAccordionState } from '../filter/filter';
 

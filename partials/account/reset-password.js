@@ -11,27 +11,31 @@ export default new class ResetPassword {
    * @description Init handler.
    */
   initHandler() {
-    $(document).on('click', `.${this.sButtonRestorePasswordClass}`, (obEvent) => {
-      // TODO: Understand why we use setTimeout ()
-      setTimeout(() => {
-        this.sendRequest(obEvent);
-      }, 0);
+    const obThis = this;
+    document.addEventListener('click', (event) => {
+      const eventNode = event.target;
+      const buttonNode = eventNode.closest(`.${obThis.sButtonRestorePasswordClass}`);
+      if (!buttonNode) {
+        return;
+      }
+
+      buttonNode.setAttribute('disabled', 'disabled');
+
+      obThis.sendRequest(buttonNode);
     });
   }
 
   /**
    * @description Send request.
-   * @param {object} obEvent
+   * @param {Element} buttonNode
    */
-  sendRequest(obEvent) {
-    this.obButton = $(obEvent.target);
-    const obForm = this.obButton.closest('form');
-    if (obForm.hasClass(this.sInvalidClass)) {
+  sendRequest(buttonNode) {
+    const obForm = buttonNode.closest('form');
+    if (obForm.classList.contains(this.sInvalidClass)) {
       return;
     }
-    this.obButton.attr('disabled', 'disabled');
-    const self = this;
-    $.request('ResetPassword::onAjax', {
+
+    oc.ajax('ResetPassword::onAjax', {
       form: obForm,
       complete: (obResponse) => {
         const obData = obResponse.responseJSON;
@@ -39,7 +43,8 @@ export default new class ResetPassword {
           // TODO: Replace alert.
           alert(obData.message);
         }
-        self.obButton.removeAttr('disabled');
+
+        buttonNode.removeAttribute('disabled');
       },
     });
   }

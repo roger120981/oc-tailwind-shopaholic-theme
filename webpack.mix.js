@@ -1,30 +1,30 @@
 const mix = require('laravel-mix');
 const jsFileList = [
   'assets/src/js/app',
-  'pages/account-details/account-details',
-  'pages/account-orders/account-orders',
-  'pages/account-password/account-password',
-  'pages/sign-in-checkout/sign-in-checkout',
-  'pages/checkout-success/checkout-success',
-  'pages/checkout/checkout',
-  'pages/contact/contact',
-  'pages/error-404/error-404',
-  'pages/error-500/error-500',
-  'pages/error-503/error-503',
-  'pages/faq/faq',
-  'pages/index/index',
-  'pages/log-out/log-out',
-  'pages/news-item/news-item',
-  'pages/news-list/news-list',
-  'pages/password-reset-success/password-reset-success',
-  'pages/password-reset/password-reset',
-  'pages/product-item/product-item',
-  'pages/catalog/catalog',
-  'pages/sign-in/sign-in',
-  'pages/sign-up-confirmation/sign-up-confirmation',
-  'pages/sign-up-success/sign-up-success',
-  'pages/sign-up/sign-up',
-  'pages/wish-list/wish-list',
+  'pages/account-details',
+  'pages/account-orders',
+  'pages/account-password',
+  'pages/sign-in-checkout',
+  'pages/checkout-success',
+  'pages/checkout',
+  'pages/contact',
+  'pages/error-404',
+  'pages/error-500',
+  'pages/error-503',
+  'pages/faq',
+  'pages/index',
+  'pages/log-out',
+  'pages/news-item',
+  'pages/news-list',
+  'pages/password-reset-success',
+  'pages/password-reset',
+  'pages/product-item',
+  'pages/catalog',
+  'pages/sign-in',
+  'pages/sign-up-confirmation',
+  'pages/sign-up-success',
+  'pages/sign-up',
+  'pages/wish-list',
 ];
 
 let postCssPlugins = [
@@ -32,7 +32,6 @@ let postCssPlugins = [
 ];
 
 mix.setPublicPath('./');
-mix.copy('node_modules/jquery/dist/jquery.min.js', 'assets/vendor/jquery.min.js');
 
 jsFileList.forEach(fileName => mix.js(`./${fileName}.js`, 'assets/dist/js'));
 

@@ -1,4 +1,3 @@
-import request from 'oc-request';
 import { AccordionInit } from '../accordion/accordion'
 
 export default new class OrderList {
@@ -40,7 +39,7 @@ export default new class OrderList {
     // }
 
     sendAjax(iNextPage) {
-      request.sendData('ProductData::onAjaxRequest', {
+      oc.ajax('ProductData::onAjaxRequest', {
         data: { page: iNextPage },
         update: { 'order-list/order-list-ajax': `@.${this.obListWrapper}` },
         complete: ()=> {
