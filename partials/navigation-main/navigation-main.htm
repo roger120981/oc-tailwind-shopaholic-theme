@@ -1,13 +1,11 @@
 [staticMenu MainMenu]
 code = "navigation-main"
 ==
-{##}
-
 {% set arMenuList = MainMenu.menuItems %}
 {% if arMenuList is not empty %}
     <nav class="hidden lg:block">
         <ul class="flex flex-wrap">
-            {% for arItemMenu in arMenuList|filter(arItemMenu => not arItemMenu.viewBag.isHidden) -%}
+            {% for arItemMenu in arMenuList %}
                 {% if not arItemMenu.viewBag.isHidden %}
                     <li class="md:mr-20 md:last:mr-0 md:min-[10%]">
                         {% set sCode = arItemMenu.code is not empty ? 'data-code='~arItemMenu.code %}

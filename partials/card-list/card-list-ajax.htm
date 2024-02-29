@@ -1,5 +1,3 @@
-{##}
-
 {% set obCartList = Cart.get() %}
 
 {% if obCartList.isNotEmpty() %}
@@ -10,6 +8,8 @@
             <li class="_shopaholic-product-wrapper relative after:content-[''] after:absolute after:inset-0 after:border-b after:first:border-t after:border-gray-200 after:-left-4 after:-z-10 lg:after:left-0" data-position-id="{{ obCartPosition.id }}" data-product-id="{{ obProduct.id }}">
                 {% partial 'product-card-checkout/product-card-checkout'
                     obCartPosition = obCartPosition
+                    obOffer = obOffer
+                    obProduct = obProduct
                 %}
             </li>
         {% endfor %}
@@ -29,7 +29,7 @@
             {% partial 'button/button'
                 sPartialClasses = '_checkout-button px-16 mt-28 text-center text-lg lg:text-base lg:mt-px'
                 sText = 'purchase_checkout'|_ ~ ' (' ~ obCartList.getTotalQuantity() ~ ')'
-                sHref = obUser ? 'checkout/checkout'|page : 'checkout-authentification/checkout-authentification'|page
+                sHref = obUser ? 'checkout'|page : 'checkout-authentification'|page
             %}
         {% endif %}
     </div>
@@ -37,8 +37,8 @@
     {% partial 'info-message/info-message'
         sPartialClasses = 'mt-44 justify-center mb-8 text-center lg:mb-14 lg:mt-52'
         sIconName = 'basket.svg'
-        sEmptyPageMessage = 'Your Shopping Cart is empty.'
-        sHref = 'catalog/catalog'|page
+        sEmptyPageMessage = 'purchase_cart_is_empty'|_
+        sHref = 'catalog'|page
         sButtonText = 'purchase_start_shopping'|_
         sButtonClasses = 'mt-36 w-full lg:mt-24 md:w-auto'
     %}
@@ -47,7 +47,7 @@
     <script>
         window.subtotal = {
             'item': "{{ 'purchase_items'|_ }}",
-            'currency': "{{ 'purchase_currency'|_ }}",
+            'currency': "{{ obOffer.currency|_ }}",
             'checkout': "{{ 'purchase_checkout'|_ }}"
         };
     </script>

@@ -3,15 +3,6 @@ url = "/404"
 layout = "main"
 is_hidden = 0
 ==
-<?php
-function onInit()
-{
-    $this['path_page_js'] = mix('assets/dist/js/error-404.js', 'themes/lovata-tailwind-shopaholic');
-}
-?>
-==
-{##}
-
 {% partial 'error-message/error-message'
     sPartialClasses = 'mt-28 md:mt-20 mb-8 md:mb-12'
     sErrorCode = '404'

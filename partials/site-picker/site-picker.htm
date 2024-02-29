@@ -1,5 +1,3 @@
-{##}
-
 {% set iActiveSiteGroupId = input('site_group_id', this.site.group_id) %}
 {% set obSiteGroupList = sitePicker.sites().groupBy('group_id') %}
 {% set arGroupOptionList = [] %}
@@ -38,5 +36,3 @@
         sPartialClasses = 'w-full md:w-72 mt- p-2 mt-12'
     %}
 </form>
-
-

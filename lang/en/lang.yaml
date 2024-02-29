@@ -150,7 +150,6 @@ purchase_coupon_apply: 'Apply coupon'
 purchase_coupon_code: 'Coupon code'
 purchase_coupon_have: 'Do you have a coupon?'
 purchase_coupon_remove: 'Remove Coupon'
-purchase_currency: '€' #TODO: Remove translation key and get this value from backend
 purchase_customer_data: 'Contact details'
 purchase_delivery_info: 'In Store Pickup, sometimes called BOPIS (Buy Online, Pickup In Store) gives shoppers the option to pick up their order at a physical store location instead of having it shipped to an address. No charges are applied to this method.' #TODO: Move this to theme settings
 purchase_delivery_method_choose: 'Choose a delivery point'
@@ -175,6 +174,7 @@ purchase_subtotal: 'Subtotal'
 purchase_success_message: 'Thank you for shopping at our shop!'
 purchase_summary: 'Summary'
 purchase_total: 'Total'
+purchase_cart_is_empty: 'Your Shopping Cart is empty.'
 
 # Reviews
 reviews_customer_ratings: 'Customer ratings'

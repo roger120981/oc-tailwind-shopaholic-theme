@@ -21,10 +21,15 @@ function onInit()
     $this['sProductListSmallTypeViewedProducts'] = 'viewed_products';
     $this['sProductListSmallTypeRelatedProducts'] = 'related_products';
 
-    $bHasPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.buddies')
+    $bHasUserPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.buddies')
         && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.Buddies');
+    $bHasWishListPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.wishlistshopaholic')
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.WishListShopaholic');
 
-    if ($bHasPlugin && !empty($this->UserData)) {
+    $this['bHasUserPlugin'] = $bHasUserPlugin && !empty($this->UserData);
+    $this['bHasWishListPlugin'] = $bHasWishListPlugin;
+
+    if ($bHasUserPlugin && !empty($this->UserData)) {
         $this['obUser'] = $this->UserData->get();
     }
 }

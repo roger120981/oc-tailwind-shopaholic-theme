@@ -3,15 +3,6 @@ url = "/500"
 layout = "error"
 is_hidden = 0
 ==
-<?php
-function onInit()
-{
-    $this['path_page_js'] = mix('assets/dist/js/error-500.js', 'themes/lovata-tailwind-shopaholic');
-}
-?>
-==
-{##}
-
 {% partial 'error-message/error-message'
     sPartialClasses = 'min-h-screen justify-center px-4 py-8 max-w-2xl mx-auto text-center'
     sErrorCode = '500'
