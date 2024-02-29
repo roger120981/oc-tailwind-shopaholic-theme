@@ -2,7 +2,7 @@ export default new class ProductListSmall {
   constructor() {
     this.sProductListSmallWrapperClass = '_product-list-small';
     this.sProductListSmallButtonShowMoreWrapperClass = '_product-list-small-button';
-    this.sProductListSmallButtonMoreClass = document.getElementsByClassName('_product-list-small-button-more')[0];
+    this.productListSmallButtonNode = document.querySelector('._product-list-small-button-more');
 
     this.showMoreList();
   }
@@ -11,17 +11,20 @@ export default new class ProductListSmall {
    * @description Show more list.
    */
   showMoreList() {
-    if(!this.sProductListSmallButtonMoreClass) return
-    this.sProductListSmallButtonMoreClass.addEventListener('click', (obEvent) => {
-      this.obButton = obEvent.target;
-      this.obButton.setAttribute('disabled', 'disabled');
+    if (!this.productListSmallButtonNode) {
+      return
+    }
 
-      const app = this;
-      const sProductListSmallListType = this.obButton.dataset.productListSmallType;
-      const iPage = this.obButton.dataset.page;
-      const iTake = this.obButton.dataset.take;
-      const iProductId = this.obButton.dataset.productId;
-      const sButtonName = this.obButton.innerHTML;
+    this.productListSmallButtonNode.addEventListener('click', (event) => {
+      const eventNode = event.target;
+      eventNode.setAttribute('disabled', 'disabled');
+
+      const obThis = this;
+      const sProductListSmallListType = eventNode.dataset.productListSmallType;
+      const iPage = eventNode.dataset.page;
+      const iTake = eventNode.dataset.take;
+      const iProductId = eventNode.dataset.productId;
+      const sButtonName = eventNode.innerHTML;
       oc.ajax('onInit', {
         data: {
           'product_list_small_list_type': sProductListSmallListType,
@@ -34,9 +37,9 @@ export default new class ProductListSmall {
           'product-list-small/product-list-small-ajax': `@.${this.sProductListSmallWrapperClass}`,
           'product-list-small/product-list-small-button-ajax': `.${this.sProductListSmallButtonShowMoreWrapperClass}`
         },
-        complete: function() {
-          app.sProductListSmallButtonMoreClass = document.getElementsByClassName('_product-list-small-button-more')[0];
-          app.showMoreList();
+        complete: function () {
+          obThis.productListSmallButtonNode = document.querySelector('._product-list-small-button-more');
+          obThis.showMoreList();
         }
       });
     });
