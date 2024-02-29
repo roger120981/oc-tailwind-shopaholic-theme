@@ -19,7 +19,6 @@ export default new class ButtonWishList {
     this.initRemoveHandler();
   }
 
-  /* eslint-disable no-param-reassign */
   /**
    * @description Init add handler.
    */
@@ -28,10 +27,12 @@ export default new class ButtonWishList {
     this.obAddHelper.setAjaxRequestCallback((obRequestData, obButton) => {
       obThis.obButton = obButton;
       obThis.obButton.setAttribute('disabled', 'disabled');
+      this.changeButtonView(obThis.obButton, obThis.sTypeRemove);
       obRequestData.complete = () => {
-        const obButton = obThis.obButton;
-        const sType = obThis.sTypeRemove;
-        this.changeButtonView(obButton, sType);
+        obThis.obButton.classList.remove(obThis.obAddHelper.sDefaultButtonClass);
+        obThis.obButton.classList.add(obThis.obRemoveHelper.sDefaultButtonClass);
+
+        obThis.obButton.removeAttribute('disabled');
       };
 
       return obRequestData;
@@ -46,10 +47,12 @@ export default new class ButtonWishList {
     this.obRemoveHelper.setAjaxRequestCallback((obRequestData, obButton) => {
       obThis.obButton = obButton;
       obThis.obButton.setAttribute('disabled', 'disabled');
+      this.changeButtonView(obThis.obButton, obThis.sTypeAdd);
       obRequestData.complete = () => {
-        const obButton = obThis.obButton;
-        const sType = obThis.sTypeAdd;
-        this.changeButtonView(obButton, sType);
+        obThis.obButton.classList.remove(obThis.obRemoveHelper.sDefaultButtonClass);
+        obThis.obButton.classList.add(obThis.obAddHelper.sDefaultButtonClass);
+
+        obThis.obButton.removeAttribute('disabled');
       };
 
       return obRequestData;
@@ -66,29 +69,23 @@ export default new class ButtonWishList {
     const obSvg = obButton.querySelector('svg');
 
     if (sType === this.sTypeAdd) {
-      if (obSvg.classList.contains('_card-list-chekout')) {
+      if (obSvg.classList.contains('_card-list-checkout')) {
         this.sAddButtonClass = 'text-gray-600';
       }else{
         obSvg.classList.add(this.sAddSvgClass);
       }
       obSvg.classList.remove(this.sRemoveSvgClass);
-      obButton.classList.remove(this.obRemoveHelper.sDefaultButtonClass);
-      obButton.classList.add(this.obAddHelper.sDefaultButtonClass);
       obButton.classList.remove(this.sRemoveButtonClass);
       obButton.classList.add(this.sAddButtonClass);
     } else {
-      if(obSvg.classList.contains('_card-list-chekout')){
+      if(obSvg.classList.contains('_card-list-checkout')){
         this.sAddButtonClass = 'text-gray-600';
       }else{
         obSvg.classList.remove(this.sAddSvgClass);
       }
       obSvg.classList.add(this.sRemoveSvgClass);
-      obButton.classList.remove(this.obAddHelper.sDefaultButtonClass);
-      obButton.classList.add(this.obRemoveHelper.sDefaultButtonClass);
       obButton.classList.remove(this.sAddButtonClass);
       obButton.classList.add(this.sRemoveButtonClass);
     }
-
-    obButton.removeAttribute('disabled');
   }
 }();
