@@ -38,18 +38,16 @@ function onInit()
     {% endif %}
 {% endif %}
 
-{% if SiteSettings.has_popularity %}
-    {% partial 'product-list-small/product-list-small'
-        sProductListSmallType = sProductListSmallTypePopularity
-        sSectionHeading = 'catalog_products_popular'|_
-        sSectionHeadingLevel = 2
-        iTake = 4
-        sBtnMore = true
-        sButtonName = 'catalog_products_show_more'|_
-        iShowIndex = 4
-    %}
-    {# TODO: Change sSectionHeadingLevel to iSectionHeadingLevel overall #}
-{% endif %}
+{% partial 'product-list-small/product-list-small'
+    sProductListSmallType = bHasPopularityPlugin ? sProductListSmallTypePopularity : sProductListSmallTypeNew
+    sSectionHeading = 'catalog_products_popular'|_
+    sSectionHeadingLevel = 2
+    iTake = 4
+    sBtnMore = true
+    sButtonName = 'catalog_products_show_more'|_
+    iShowIndex = 4
+%}
+{# TODO: Change sSectionHeadingLevel to iSectionHeadingLevel overall #}
 
 {% set iTake = 6 %}
 {% set obCategoryList = CategoryList.make().tree() %}
@@ -62,7 +60,7 @@ function onInit()
             {% for obCategory in arCategoryList %}
                 {% partial 'advanced-list/advanced-list-item'
                     sName = obCategory.name
-                    sUrl = obCategory.getPageUrl('catalog/catalog')
+                    sUrl = obCategory.getPageUrl('catalog')
                     sImagePath = obCategory.icon.path
                     sLoad = 'true'
                     sHidden = 'hidden'

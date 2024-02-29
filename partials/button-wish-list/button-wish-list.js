@@ -69,7 +69,7 @@ export default new class ButtonWishList {
     const obSvg = obButton.querySelector('svg');
 
     if (sType === this.sTypeAdd) {
-      if (obSvg.classList.contains('_card-list-checkout')) {
+      if (obSvg.classList.contains('_cart-list-checkout')) {
         this.sAddButtonClass = 'text-gray-600';
       }else{
         obSvg.classList.add(this.sAddSvgClass);
@@ -78,7 +78,7 @@ export default new class ButtonWishList {
       obButton.classList.remove(this.sRemoveButtonClass);
       obButton.classList.add(this.sAddButtonClass);
     } else {
-      if(obSvg.classList.contains('_card-list-checkout')){
+      if(obSvg.classList.contains('_cart-list-checkout')){
         this.sAddButtonClass = 'text-gray-600';
       }else{
         obSvg.classList.remove(this.sAddSvgClass);

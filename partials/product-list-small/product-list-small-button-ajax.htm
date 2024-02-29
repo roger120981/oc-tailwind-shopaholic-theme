@@ -2,6 +2,8 @@
     {% set sProductListSmallType = sProductListSmallType|default(input('product_list_small_list_type')) %}
     {% if sProductListSmallType == sProductListSmallTypePopularity %}
         {% set obProductList = ProductList.make().active().sort('popularity|desc') %}
+    {% elseif sProductListSmallType == sProductListSmallTypeNew %}
+        {% set obProductList = ProductList.make().active().sort('new') %}
     {% elseif sProductListSmallType == sProductListSmallTypeViewedProducts %}
         {% set obProductList = ProductList.make().active().viewed() %}
     {% elseif sProductListSmallType == sProductListSmallTypeRelatedProducts %}

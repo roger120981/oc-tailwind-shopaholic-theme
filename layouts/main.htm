@@ -18,6 +18,7 @@ function onInit()
     $this['sAdvancedListTypeCategory'] = 'category';
     $this['sAdvancedListTypeAccount'] = 'account';
     $this['sProductListSmallTypePopularity'] = 'popularity';
+    $this['sProductListSmallTypeNew'] = 'new';
     $this['sProductListSmallTypeViewedProducts'] = 'viewed_products';
     $this['sProductListSmallTypeRelatedProducts'] = 'related_products';
 
@@ -25,9 +26,12 @@ function onInit()
         && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.Buddies');
     $bHasWishListPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.wishlistshopaholic')
         && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.WishListShopaholic');
+    $bHasPopularityPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.popularityshopaholic')
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.PopularityShopaholic');
 
     $this['bHasUserPlugin'] = $bHasUserPlugin && !empty($this->UserData);
     $this['bHasWishListPlugin'] = $bHasWishListPlugin;
+    $this['bHasPopularityPlugin'] = $bHasPopularityPlugin;
 
     if ($bHasUserPlugin && !empty($this->UserData)) {
         $this['obUser'] = $this->UserData->get();

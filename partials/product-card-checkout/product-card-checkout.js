@@ -10,7 +10,7 @@ export default new class productCardCheckout{
     }
 
     changeStateBasket(){
-        this.obCardList = document.getElementsByClassName('_card-list')[0];
+        this.obCardList = document.getElementsByClassName('_cart-list')[0];
         this.obStateBasket = document.getElementsByClassName('product-active')[0];
         if(this.obStateBasket && (!this.obCardList || this.obCardList.querySelectorAll('ul li').length === 0)) {
             this.obStateBasket.style = "--icon-indicator:hidden";
@@ -22,7 +22,7 @@ export default new class productCardCheckout{
         obShopaholicCartRemove.setAjaxRequestCallback((obRequestData, obButton) => {
             obRequestData.update = {
                 'header/header-ajax': '._header-purchases',
-                'card-list/card-list-ajax': `._card-list`,
+                'cart-list/cart-list-ajax': `._cart-list`,
                 'checkout-list/checkout-list-ajax': `._checkout-list`,
                 'checkout-subtotal/checkout-subtotal-ajax': `._checkout-subtotal`,
             }
