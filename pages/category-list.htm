@@ -1,0 +1,28 @@
+url = "/catalog"
+layout = "main"
+title = "Category list"
+
+[CategoryList]
+==
+{% set obCategoryList = CategoryList.make().active().tree() %}
+{% partial 'breadcrumbs/breadcrumbs' %}
+
+<h1 class="text-gray-900 text-xl md:text-2xl xl:text-3xl uppercase">{{ SeoToolbox.getPageTitle() }}</h1>
+
+{% if obCategoryList.isNotEmpty() %}
+    <div class="flex flex-col my-10">
+        {% partial 'common/advanced-list/advanced-list' body %}
+            {% for obCategory in obCategoryList %}
+                {% partial 'common/advanced-list/advanced-list-item'
+                    sName = obCategory.name
+                    sUrl = obCategory.getPageUrl('catalog')
+                    sImagePath = obCategory.icon.path
+                %}
+            {% endfor %}
+        {% endpartial %}
+    </div>
+{% endif %}
+
+<div class="mt-6">
+    {{  SeoToolbox.getPageDescription()|raw }}
+</div>

@@ -1,13 +1,13 @@
-url = "/catalog/:category?"
+url = "/catalog/:category*/:slug?"
 layout = "main"
 title = "Catalog"
 
 [CategoryPage MainCategoryPage]
 slug = "{{ :category }}"
-slug_required = 0
+slug_required = 1
 smart_url_check = 1
 has_wildcard = 1
-skip_error = 1
+skip_error = 0
 
 [CategoryPage]
 slug = "{{ :slug }}"
@@ -64,10 +64,6 @@ function onInit() {
 
     if (!empty($this->param('slug')) && (empty($obProductItem)) && empty($obActiveCategoryItem)) {
         return $this->ProductPage->getErrorResponse();
-    }
-
-    if (!empty($this->param('category')) && empty($obMainCategoryItem)) {
-        return $this->CategoryPage->getErrorResponse();
     }
 
     if(!empty($obProductItem)) {

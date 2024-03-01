@@ -1,12 +1,12 @@
 {##}
 
-{% if sLoad == 'true' %}
+{% if sLoad %}
     {% set sHidden = 'hidden' %}
 {% endif %}
 
-<li 
+<li
     class="{{sHidden}}"
-    {% if sLoad == 'true' %}
+    {% if sLoad %}
         aria-hidden="true"
         data-take="{{iTake}}"
     {% endif %}

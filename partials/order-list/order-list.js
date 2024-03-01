@@ -1,4 +1,4 @@
-import { AccordionInit } from '../accordion/accordion'
+import Accordion from '/partials/common/accordion/accordion'
 
 export default new class OrderList {
     constructor() {
@@ -10,7 +10,7 @@ export default new class OrderList {
     }
 
     init(){
-      AccordionInit()
+      Accordion.make();
       if(!this.obLoadMore) return
       this.obLoadMore.addEventListener("click", () => {
         const iPage = parseInt(this.obLoadMore.dataset.page, 10);

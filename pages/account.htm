@@ -51,9 +51,9 @@ function onInit()
 
 <div class="flex flex-col mb-10">
     <h1 class="font-medium uppercase text-xl md:text-3xl mb-4">{{'account_my_account'|_}}</h1>
-    {% partial 'advanced-list/advanced-list' body %}
+    {% partial 'common/advanced-list/advanced-list' body %}
         {% for obItem in arList %}
-            {% partial 'advanced-list/advanced-list-item'
+            {% partial 'common/advanced-list/advanced-list-item'
                 sName = obItem.title
                 sUrl = obItem.url|page
                 sImagePath = obItem.icon

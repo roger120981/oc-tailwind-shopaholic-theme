@@ -1,9 +1,5 @@
-import { AccordionInit } from '/partials/accordion/accordion'
-export default new class Faq {
-  constructor () {
-    this.init()
-  }
-  init () {
-    AccordionInit()
-  }
-}();
+import Accordion from '/partials/common/accordion/accordion'
+
+oc.pageReady().then(() => {
+  Accordion.make();
+});
