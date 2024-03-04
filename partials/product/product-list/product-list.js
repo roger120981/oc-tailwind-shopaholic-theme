@@ -1,7 +1,6 @@
 import ShopaholicProductList from "@oc-shopaholic/shopaholic-product-list/shopaholic-product-list";
 import ShopaholicFilterPrice from '@oc-shopaholic/shopaholic-filter-panel/shopaholic-filter-price';
 import ShopaholicFilterPanel from "@oc-shopaholic/shopaholic-filter-panel/shopaholic-filter-panel";
-import Filter, { setAccordionState } from '../filter/filter';
 
 export default new class ProductList {
     constructor(){
@@ -18,23 +17,17 @@ export default new class ProductList {
     adaptation(){
         if(!this.obContainer) return
         if(window.innerWidth <= '768' && this.obContainer){
-            this.obShow = this.obContainer.querySelectorAll('._show');
-            this.obShow[0].addEventListener('click', () => {
-                this.initPlugins();
-                this.activeProductUpdate();
-                this.updateFilters();
-            })
+            // this.obShow = this.obContainer.querySelectorAll('._show');
+            // this.obShow[0].addEventListener('click', () => {
+            //     this.initPlugins();
+            //     this.activeProductUpdate();
+            // })
         }else{
             this.initPlugins();
         }
         this.clear();
         this.watchResult();
         this.catalogPosition();
-    }
-
-    updateFilters(){
-        new Filter();
-        setAccordionState()
     }
 
     activeProductUpdate(){
@@ -105,10 +98,10 @@ export default new class ProductList {
         const obListHelper = new ShopaholicProductList();
         obListHelper.setAjaxRequestCallback((obRequestData) => {
             obRequestData.update = {
-                'product-list/product-list-ajax': '.catalog_wrapper',
-                'filter/filters-desktop-ajax': '._filters-desktop',
-                'filter/filters-mobile-ajax': '._filters-mobile',
-                'sorting/sorting': `._sorting`,
+                'product/product-list/product-list-ajax': '.catalog_wrapper',
+                'catalog/filter/filters-desktop-ajax': '._filters-desktop',
+                'catalog/filter/filters-mobile-ajax': '._filters-mobile',
+                'catalog/sorting/sorting-ajax': `._sorting`,
             };
             return obRequestData;
         });

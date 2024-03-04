@@ -66,13 +66,14 @@ function onInit() {
         return $this->ProductPage->getErrorResponse();
     }
 
+    $bHasFilterPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.filtershopaholic')
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.FilterShopaholic');
+
     if(!empty($obProductItem)) {
         //Product item data
         $this['obProduct'] = $obProductItem;
     } else {
-        //Product list data
-        $obPluginManager = \System\Classes\PluginManager::instance();
-
+        // Set main category as active category
         if (!empty($obMainCategoryItem) && empty($obActiveCategoryItem)) {
             $obActiveCategoryItem = $obMainCategoryItem;
         }
@@ -89,71 +90,27 @@ function onInit() {
         }
 
         //Get filters
-        if ($obPluginManager->exists('Lovata.FilterShopaholic')) {
+        if ($bHasFilterPlugin) {
             //Get price filter
             $arPriceFilterValue = explode('|', input('price'));
-            $fMinPriceFilterValue = array_get($arPriceFilterValue, 0);
-            $fMaxPriceFilterValue = array_get($arPriceFilterValue, 1);
+            $fMinPriceFilterValue = Arr::get($arPriceFilterValue, 0);
+            $fMaxPriceFilterValue = Arr::get($arPriceFilterValue, 1);
 
-            if(!empty($obActiveCategoryItem)) {
-                $obProductPropertyList = $obActiveCategoryItem->product_filter_property;
-                $obOfferPropertyList = $obActiveCategoryItem->offer_filter_property;
-                $arProductPropertyIdList = $obProductPropertyList->getIDList();
-                $arOfferPropertyIdList = $obOfferPropertyList->getIDList();
-            } else {
-                $obPropertySetCollection = \Lovata\PropertiesShopaholic\Classes\Collection\PropertySetCollection::make()->sort();
-                $arProductPropertyList = $obPropertySetCollection->getProductPropertyList();
-                $arOfferPropertyList = $obPropertySetCollection->getOfferPropertyList();
-                $obProductPropertyList = \Lovata\FilterShopaholic\Classes\Collection\FilterPropertyCollection::make()
-                    ->active()
-                    ->setPropertySetRelation($arProductPropertyList)
-                    ->setModel(Lovata\Shopaholic\Models\Product::class)
-                    ->setProductList($obProductList);
-                $obOfferPropertyList = \Lovata\FilterShopaholic\Classes\Collection\FilterPropertyCollection::make()
-                    ->active()
-                    ->setPropertySetRelation($arOfferPropertyList)
-                    ->setModel(Lovata\Shopaholic\Models\Offer::class)
-                    ->setProductList($obProductList);
-
-                $arProductPropertyIdList = $obProductPropertyList->getIDList();
-                $arOfferPropertyIdList = $obOfferPropertyList->getIDList();
-            }
+            $obProductPropertyList = $obActiveCategoryItem->product_filter_property;
+            $obOfferPropertyList = $obActiveCategoryItem->offer_filter_property;
 
             //Get filter by properties
             $arFilterValue = (array) input('property');
-
             if (!empty($arFilterValue)) {
                 foreach($arFilterValue as $sKey => &$sValue) {
                     $sValue = explode('|', $sValue);
                 }
             }
 
-            $arFilterValueWithoutProperty = [];
-
-            foreach($arProductPropertyIdList as $iPropertyID) {
-                $arFilterValueTemp = $arFilterValue;
-                if (isset($arFilterValueTemp[$iPropertyID])) {
-                    unset($arFilterValueTemp[$iPropertyID]);
-                }
-
-                $arFilterValueWithoutProperty[$iPropertyID] = $arFilterValueTemp;
-            }
-
-            foreach($arOfferPropertyIdList as $iPropertyID) {
-                $arFilterValueTemp = $arFilterValue;
-                if (isset($arFilterValueTemp[$iPropertyID])) {
-                    unset($arFilterValueTemp[$iPropertyID]);
-                }
-
-                $arFilterValueWithoutProperty[$iPropertyID] = $arFilterValueTemp;
-            }
-
             $obProductList = $obProductList->copy()
                 ->filterByProperty($arFilterValue, $obProductPropertyList)
                 ->filterByProperty($arFilterValue, $obOfferPropertyList)
                 ->filterByPrice($fMinPriceFilterValue, $fMaxPriceFilterValue);
-
-            $this['bShowFilter'] = true;
 
             $bSaleFilter = (bool) input('sale');
 
@@ -166,7 +123,6 @@ function onInit() {
             $this['bSaleFilter'] = $bSaleFilter;
 
             $this['arFilterValue'] = $arFilterValue;
-            $this['arFilterValueWithoutProperty'] = $arFilterValueWithoutProperty;
             $this['obProductPropertyList'] = $obProductPropertyList;
             $this['obOfferPropertyList'] = $obOfferPropertyList;
         }
@@ -208,14 +164,8 @@ function onInit() {
         $obCurrentCategory = $obCurrentCategory->parent;
     }
 
-    $arBreadcrumbs[] = [
-        'name'    => 'breadcrumbs_catalog',
-        'is_lang' => true,
-        'url'     => $this->pageUrl($this->page->baseFileName, false),
-        'active'  => empty($obProductItem) && empty($obActiveCategoryItem),
-    ];
-
     $this['arBreadcrumbs'] = array_reverse($arBreadcrumbs);
+    $this['bHasFilterPlugin'] = $bHasFilterPlugin;
 }
 
 function onStart()
@@ -224,8 +174,11 @@ function onStart()
 }
 ?>
 ==
+{% set arBreadcrumbs = [
+    {'name': 'breadcrumbs_catalog'|_, 'url': 'category-list'|page}
+]|merge(arBreadcrumbs) %}
 
-{% partial 'breadcrumbs/breadcrumbs' %} {# TODO: Fix wrong breadcrumbs #}
+{% partial 'breadcrumbs/breadcrumbs' %}
 
 {# TODO: Finish stylization of the select box. #}
 
@@ -235,17 +188,13 @@ function onStart()
 {% else %}
     {# Product list #}
     <div class="grid md:grid-cols-4 mb-14">
-        {% if bShowFilter %}
-            {% partial 'filter/filter'
-                sPartialClass='md:col-span-1'
-            %}
+        {% if bHasFilterPlugin %}
+            <section class="_filter md:col-span-1"></section>
         {% endif %}
         <div class="_sorting-container w-full md:col-span-3">
             <div class="_sorting">
-                {% partial 'sorting/sorting' %}
+                {% partial 'product/product-list/product-list-wrapper' %}
             </div>
         </div>
     </div>
 {% endif %}
-
-{# TODO: Rename partial to 'catalog-list' #}

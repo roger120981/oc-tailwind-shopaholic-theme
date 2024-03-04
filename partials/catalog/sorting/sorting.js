@@ -2,7 +2,6 @@ import ShopaholicProductList from '@oc-shopaholic/shopaholic-product-list/shopah
 import ShopaholicSorting from '@oc-shopaholic/shopaholic-product-list/shopaholic-sorting';
 import ShopaholicPagination from '@oc-shopaholic/shopaholic-product-list/shopaholic-pagination';
 import Choices from 'choices.js';
-import Filter, { setAccordionState } from '../filter/filter';
 
 
 export default new class Sorting{
@@ -49,12 +48,12 @@ export default new class Sorting{
 
     handlers(){
         this.initChoices();
-        this.updateFilters()
+        //this.updateFilters()
         this.initContainerWatch();
         const obListHelper = new ShopaholicProductList();
         obListHelper.setAjaxRequestCallback((obRequestData) => {
         obRequestData.update = {
-            'sorting/sorting': `._sorting`,
+            'catalog/sorting/sorting': `._sorting`,
         };
         return obRequestData;
         });
@@ -64,10 +63,6 @@ export default new class Sorting{
 
         const obSortingHelper = new ShopaholicSorting(obListHelper);
         obSortingHelper.init();
-    }
-    updateFilters(){
-      new Filter();
-      setAccordionState()
     }
 
     initContainerWatch(){
@@ -87,7 +82,6 @@ export default new class Sorting{
                     }
                 }
             }
-            app.updateFilters()
         };
 
         const observer = new MutationObserver(callback);

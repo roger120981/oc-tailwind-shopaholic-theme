@@ -1,6 +1,9 @@
 import dialogPolyfill from 'dialog-polyfill'
 import * as focusTrap from 'focus-trap'
 
+export const EVENT_OPEN = 'off-canvas:open';
+export const EVENT_CLOSE = 'off-canvas:close';
+
 export class OffCanvasContainer {
   constructor() {
     this.dialogList = {};
@@ -84,6 +87,10 @@ class OffCanvas {
     this.initScrollWidth();
     this.initAnimationOpen();
     this.initEvents();
+
+    document.dispatchEvent(new CustomEvent('off-canvas:open', {
+      detail: {id: this.id},
+    }))
   }
 
   initOffCanvas() {
@@ -222,6 +229,10 @@ class OffCanvas {
     this.clearEvents();
     this.initAnimationClose();
     this.animationClose();
+
+    document.dispatchEvent(new CustomEvent('off-canvas:close', {
+      detail: {id: this.id},
+    }))
   }
 }
 

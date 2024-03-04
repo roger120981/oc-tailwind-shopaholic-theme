@@ -18,8 +18,7 @@ export default new class Tags {
   }
 
   propertyCount () {
-    const params = Object.keys(UrlGeneration.obParamList)
-    this.nAmountProperties = params ? params.length : 0
+    this.nAmountProperties = UrlGeneration.obSearchParams.size
   }
 
   linkSorting () {
@@ -42,7 +41,7 @@ export default new class Tags {
 
   paramsList () {
     const paramsList = []
-    const paramList = UrlGeneration.obParamList
+    const paramList = UrlGeneration.obSearchParams.entries();
     for (const paramListElement in paramList) {
       let key = paramListElement
 
@@ -193,6 +192,10 @@ export default new class Tags {
   }
 
   initFilter () {
+    if (!this.obFilterButton) {
+      return;
+    }
+
     this.obFilterButton.addEventListener('click', () => {
       this.mobile()
       this.initTags()

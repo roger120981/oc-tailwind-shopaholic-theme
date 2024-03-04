@@ -1,0 +1,17 @@
+{% partial 'catalog/sorting/sorting' %}
+
+{% partial 'tags/tags'
+    sPartialClass = 'items-start mb-4 flex hidden'
+    sPartialContainer = 'flex flex-wrap -mb-3 scrollbar-x-none overflow-x-scroll ml-4 w-10/12 2xl:w-11/12'
+%}
+{% partial 'product/product-list/product-list' %}
+
+{% set arPaginationList = Pagination.get(iPage, obProductList.count()) %}
+
+{% partial 'pagination/pagination'
+    sPartialClasses = '_pagination mb-14 mt-10'
+    arPaginationList = arPaginationList
+    iMaxPage = iMaxPage
+    iPage = iPage
+    sLinkClass = '_shopaholic-pagination'
+%}

@@ -1,4 +1,4 @@
-import '/partials/filter/filter';
+import '/partials/catalog/filter/filter';
 import '/partials/button-wish-list/button-wish-list';
-import '/partials/sorting/sorting';
-import '/partials/tags/tags';
+import '/partials/catalog/sorting/sorting';
+// import '/partials/tags/tags';
