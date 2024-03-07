@@ -21,6 +21,7 @@ Params:
 - labelClasses
 - inputClasses
 #}
+{% set id = id|default(name) %}
 
 <div class="{{ partialClasses }}">
     {% if labelText %}

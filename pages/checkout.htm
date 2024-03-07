@@ -78,18 +78,18 @@ function onInit()
                             {% set sChecked = 'checked' %}
                         {% endif %}
                         {% if obShippingType.name == 'Mailing' %}
-                            {% set sDataSwitch = 'data-switch=_switch-mailing ' %}
+                            {% set sDataSwitch = 'data-switch="_switch-mailing" ' %}
                         {% elseif obShippingType.name == 'Pickup' %}
-                            {% set sDataSwitch = 'data-switch=_switch-pickup ' %}
+                            {% set sDataSwitch = 'data-switch="_switch-pickup" ' %}
                         {% endif %}
-                        {% partial 'input-radio/input-radio'
-                            sId = 'delivery_'~obShippingType.id
-                            sName = 'shipping_type_id'
-                            sChecked = sChecked
-                            sValue = obShippingType.id
+                        {% partial 'form/input-radio'
+                            id = 'shipping_type_'~obShippingType.id
+                            name = 'shipping_type_id'
+                            checked = sChecked
+                            value = obShippingType.id
                             partialClasses = 'flex items-center'
                             inputClasses = '_shopaholic-order-field peer'
-                            sData = sDataSwitch~'data-group=order'
+                            dataAtributes = sDataSwitch~'data-group="order"'
                             labelClasses = 'peer-checked:text-gray-900 w-full ps-2 flex justify-between'
                             body
                         %}
@@ -108,21 +108,21 @@ function onInit()
             <fieldset class="_switch-pickup-container flex flex-col mt-6 space-y-4 hidden">
                 <h3>{{'purchase_pickup_point_choose'|_}}</h3>
                 <legend class="sr-only">{{'purchase_pickup_point_choose'|_}}</legend>
-                {% partial 'input-radio/input-radio'
+                {% partial 'form/input-radio'
                     partialClasses = 'flex items-center'
                     labelText = 'Port Mafaldaview, 3561 Hane Island Suite 810'
-                    sId = 'Port Mafaldaview'
+                    id = 'point-1'
                     labelClasses = 'peer-checked:text-gray-900'
                     inputClasses = 'peer'
-                    sName = 'Point'
+                    name = 'point'
                 %}
-                {% partial 'input-radio/input-radio'
+                {% partial 'form/input-radio'
                     partialClasses = 'flex items-center'
                     labelText = 'Mayaville, 80354 Smitham Roads'
-                    sId = 'Mayaville'
+                    id = 'point-2'
                     labelClasses = 'peer-checked:text-gray-900'
                     inputClasses = 'peer'
-                    sName = 'Point'
+                    name = 'point'
                 %}
             </fieldset>
             <div class="mt-5 mb-7">
@@ -201,15 +201,15 @@ function onInit()
                     {% set sStyle = '_card' %}
                 {% endif %}
                 {% set checked = loop.index == 1 ? 'checked' : '' %}
-                {% partial 'input-radio/input-radio'
+                {% partial 'form/input-radio'
                     partialClasses = 'flex items-center mb-4'
                     labelText = obPaymentMethod.name
-                    sId = 'payment'~obPaymentMethod.id
-                    sName = 'payment_method_id'
-                    sChecked = checked
+                    id = 'payment_method_'~obPaymentMethod.id
+                    name = 'payment_method_id'
+                    checked = checked
                     inputClasses = sStyle~' _shopaholic-order-field peer'
-                    sValue = obPaymentMethod.id
-                    sData = 'data-group=order'
+                    value = obPaymentMethod.id
+                    dataAtributes = 'data-group="order"'
                     labelClasses = 'peer-checked:text-gray-900'
                 %}
             {% endfor %}

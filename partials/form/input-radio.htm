@@ -2,23 +2,25 @@
 Params:
 - id
 - name
-- labelText
 - value
-- checked
 - required
 - disabled
+- checked
 - dataAtributes
-- textSize
 - partialClasses
 - inputClasses
-- indentClasses
+- labelClasses
+- dataLabel
+- title
+- text
+- body
 #}
 {% set id = id|default(name) %}
 
 <div class="{{ partialClasses }}">
     <input
-        class="text-blue-800 focus:outline-none focus-visible:border-blue-800 {{inputClasses}} {{indentClasses|default('border-gray-600 me-2.5')}}"
-        type="checkbox"
+        class="text-blue-800 border-gray-600 me-2.5 focus:outline-none focus-visible:border-blue-800 {{inputClasses}}"
+        type="radio"
         {% if name %}
             name="{{ name }}"
         {% endif %}
@@ -36,6 +38,11 @@ Params:
             disabled="disabled"
         {% endif %}
         {{dataAtributes}}
-    > {# TODO: Fix focus-visible state for checkbox #}
-    <label for="{{ id }}" class="text-gray-600 {{textSize|default('text-sm md:text-base')}}">{{ labelText|raw}}</label>
+    >
+    <label
+        for="{{ id }}"
+        class="text-sm md:text-base text-gray-600 {{ labelClasses }}"
+        {{dataLabel}}
+        title="{{title}}"
+    >{{ text }}{{body|raw}}</label>
 </div>
