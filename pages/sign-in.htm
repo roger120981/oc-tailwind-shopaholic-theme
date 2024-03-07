@@ -28,20 +28,20 @@ function onInit()
     <div class="max-w-xs">
         <form class="_required">
             {# TODO: To discuss validation message layout shift #}
-            {% partial 'input/input'
-                sId = 'form-email'
+            {% partial 'form/input'
+                id = 'form-email'
                 labelText = 'form_user_email'|_
-                sName = 'email'
-                sRequired = 'required'
-                sType = 'email'
+                name = 'email'
+                required = 'required'
+                type = 'email'
             %}
             {# TODO: Add inline ajax validation for email existing #}
-            {% partial 'input/input'
-                sId = 'form-password'
+            {% partial 'form/input'
+                id = 'form-password'
                 labelText = 'form_user_password'|_
-                sName = 'password'
-                sRequired = 'required'
-                sType = 'password'
+                name = 'password'
+                required = 'required'
+                type = 'password'
                 partialClasses = 'mt-4'
             %}
             <div class="mt-4 text-end">

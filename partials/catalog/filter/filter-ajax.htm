@@ -38,24 +38,24 @@
                         <div class="js-accordion-content flex mb-4 ms-4 mt-3 me-5">
                             <fieldset class="me-3 w-full">
                                 <legend class="sr-only">{{'filter_price'|_}}&nbsp;{{'filter_min'|_}}</legend>
-                                {% partial 'input/input'
+                                {% partial 'form/input'
                                     labelText = 'filter_min'|_
-                                    inputClass = '_shopaholic-price-filter appearance-none quantity_input'
+                                    inputClasses = '_shopaholic-price-filter appearance-none quantity_input'
                                     type = 'number'
                                     name = 'filter-min-price'
                                     value = fMinPriceFilterValue
-                                    sId = 'min-price'
+                                    id = 'min-price'
                                 %}
                             </fieldset>
                             <fieldset class="w-full">
                                 <legend class="sr-only">{{'filter_price'|_}}&nbsp;{{'filter_max'|_}}</legend>
-                                {% partial 'input/input'
+                                {% partial 'form/input'
                                     labelText = 'filter_max'|_
-                                    inputClass = '_shopaholic-price-filter appearance-none quantity_input'
+                                    inputClasses = '_shopaholic-price-filter appearance-none quantity_input'
                                     type= 'number'
                                     name= 'filter-max-price'
                                     value = fMaxPriceFilterValue
-                                    sId = 'max-price'
+                                    id = 'max-price'
                                 %}
                             </fieldset>
                         </div>
@@ -115,24 +115,24 @@
                 <div class="flex pb-4">
                     <fieldset class="me-3">
                         <legend class="sr-only">{{'filter_price'|_}}&nbsp;{{'filter_min'|_}}</legend>
-                        {% partial 'input/input'
+                        {% partial 'form/input'
                             labelText = 'filter_min'|_
-                            inputClass = '_shopaholic-price-filter appearance-none quantity_input'
+                            inputClasses = '_shopaholic-price-filter appearance-none quantity_input'
                             type = 'number'
                             name = 'filter-min-price'
                             value = fMinPriceFilterValue
-                            sId = 'min-price'
+                            id = 'min-price'
                         %}
                     </fieldset>
                     <fieldset>
                         <legend class="sr-only">{{'filter_price'|_}}&nbsp;{{'filter_max'|_}}</legend>
-                        {% partial 'input/input'
+                        {% partial 'form/input'
                             labelText = 'filter_max'|_
-                            inputClass = '_shopaholic-price-filter appearance-none quantity_input'
+                            inputClasses = '_shopaholic-price-filter appearance-none quantity_input'
                             type = 'number'
                             name = 'filter-max-price'
                             value = fMaxPriceFilterValue
-                            sId = 'max-price'
+                            id = 'max-price'
                         %}
                     </fieldset>
                 </div>

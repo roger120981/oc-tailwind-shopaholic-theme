@@ -6,18 +6,18 @@
 >
     {{ form_token() }}
 
-    {% partial 'input/input'
-        sId = 'name'
+    {% partial 'form/input'
+        id = 'name'
         labelText = 'form_user_name'|_
-        sName = 'name'
+        name = 'name'
         required = 'required'
         type = 'text'
         partialClasses = 'relative'
     %}
-    {% partial 'input/input'
-        sId = 'form-email'
+    {% partial 'form/input'
+        id = 'form-email'
         labelText = 'form_user_email'|_
-        sName = 'email'
+        name = 'email'
         required = 'required'
         type = 'email'
         partialClasses = 'mt-7 md:mt-8 relative'

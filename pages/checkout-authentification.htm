@@ -25,15 +25,15 @@ function onInit()
     <h1 class="font-medium uppercase text-xl md:text-3xl mt-8 mb-4">{{ 'account_signing_in'|_ }}</h1>
     <div class="max-w-xs">
         <form class="_required">
-            {% partial 'input/input'
-                sId = 'form-email'
+            {% partial 'form/input'
+                id = 'form-email'
                 labelText = 'form_user_email'|_
                 name = 'mail'
                 id = 'mail'
                 required = 'required'
             %}
-            {% partial 'input/input'
-                sId = 'form-password'
+            {% partial 'form/input'
+                id = 'form-password'
                 labelText = 'form_user_password'|_
                 name = 'password'
                 id ='password'

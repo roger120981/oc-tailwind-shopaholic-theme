@@ -13,21 +13,23 @@
                 <div class="_filter-range flex" data-filter-id="{{ obProperty.id }}">
                     <fieldset class="me-3 w-full">
                         <legend class="sr-only">{{ obProperty.name }}&nbsp;{{'filter_min'|_}}</legend>
-                        {% partial 'input/input'
+                        {% partial 'form/input'
                             labelText = 'filter_min'|_
-                            inputClass = '_min appearance-none quantity_input'
+                            inputClasses = '_min appearance-none quantity_input'
                             value = fMinWidthFilterValue
-                            sId = obProperty.name ~ 'min'
+                            name = 'property-min-'.obProperty.id
+                            id = 'property-min-'.obProperty.id
                             type = 'number'
                         %}
                     </fieldset>
                     <fieldset class="w-full">
                         <legend class="sr-only">{{ obProperty.name }}&nbsp;{{'filter_min'|_}}</legend>
-                        {% partial 'input/input'
+                        {% partial 'form/input'
                             labelText = 'filter_max'|_
-                            inputClass = '_max appearance-none quantity_input'
+                            inputClasses = '_max appearance-none quantity_input'
                             value = fMaxWidthFilterValue
-                            sId = obProperty.name ~ 'max'
+                            name = 'property-max-'.obProperty.id
+                            id = 'property-max-'.obProperty.id
                             type = 'number'
                         %}
                     </fieldset>

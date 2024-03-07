@@ -37,64 +37,64 @@ function onInit()
 <div class="sm:max-w-xs mt-7 mb-8 md:mb-16">
     <span class="text-gray-600 text-sm md:text-base mb-4 inline-block">*{{'form_required_fields'|_}}</span>
     <form class="_required">
-        {% partial 'input/input'
+        {% partial 'form/input'
             labelText = 'form_user_name'|_
             type = 'text'
-            sId = 'name'
-            sName = 'name'
-            sValue = obUser.name
+            id = 'name'
+            name = 'name'
+            value = obUser.name
             required = 'required'
         %}
         {# TODO: Add inline ajax validation for name existing #}
-        {% partial 'input/input'
+        {% partial 'form/input'
             labelText = 'form_user_email'|_
-            sType = 'email'
-            sId = 'mail'
-            sName = 'mail'
-            sValue = obUser.email
+            type = 'email'
+            id = 'email'
+            name = 'email'
+            value = obUser.email
             required = 'required'
             partialClasses = 'mt-4'
         %}
         {# TODO: Add inline ajax validation for email existing #}
-        {% partial 'input/input'
+        {% partial 'form/input'
             labelText = 'form_user_phone'|_
-            sType = 'text'
-            sId = 'phone'
-            sName = 'phone'
-            sValue = obUser.phone
+            type = 'text'
+            id = 'phone'
+            name = 'phone'
+            value = obUser.phone
             partialClasses = 'mt-4'
         %}
         {# TODO: Add inline ajax validation for Phone number format #}
-        {% partial 'input/input'
+        {% partial 'form/input'
             labelText = 'form_user_country'|_
-            sType = 'text'
-            sId = 'country'
-            sName = 'country'
-            sValue = obUser.address.country
+            type = 'text'
+            id = 'country'
+            name = 'country'
+            value = obUser.address.country
             partialClasses = 'mt-4'
         %}
-        {% partial 'input/input'
+        {% partial 'form/input'
             labelText = 'form_user_city'|_
-            sType = 'text'
-            sId = 'city'
-            sName = 'city'
-            sValue = obUser.address.city
+            type = 'text'
+            id = 'city'
+            name = 'city'
+            value = obUser.address.city
             partialClasses = 'mt-4'
         %}
-        {% partial 'input/input'
+        {% partial 'form/input'
             labelText = 'form_user_zip_code'|_
-            sType = 'text'
-            sId = 'zip'
-            sName = 'zip'
-            sValue = obUser.address.zip
+            type = 'text'
+            id = 'zip'
+            name = 'zip'
+            value = obUser.address.zip
             partialClasses = 'mt-4'
         %}
-        {% partial 'input/input'
+        {% partial 'form/input'
             labelText = 'form_user_address_postal'|_
-            sType = 'text'
-            sId = 'address'
-            sName = 'address'
-            sValue = obUser.address.address
+            type = 'text'
+            id = 'address'
+            name = 'address'
+            value = obUser.address.address
             partialClasses = 'mt-4'
         %}
         {% partial 'form/button'
