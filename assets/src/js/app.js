@@ -9,7 +9,7 @@ import '/partials/account/account-change-password';
 /* * Input Quantity * */
 import '/partials/input-quantity/input-quantity';
 /* * Off Canvas * */
-import '/partials/off-canvas/off-canvas';
+import '/partials/common/off-canvas/off-canvas';
 /* * Advanced list * */
 import '/partials/common/advanced-list/advanced-list';
 /* * Search Input* */

@@ -7,14 +7,14 @@
         isGhost = true
         dataAtribute = 'data-for="review_card_info"'
     %}
-    {% partial 'off-canvas/off-canvas'
+    {% partial 'common/off-canvas/off-canvas'
         id = 'review_card_info'
-        sPosition = 'right'
-        sHeading = 'reviews_review_add'|_
-        sHeaderClasses = 'items-center mb-7'
-        sCanvasClasses = 'cursor-auto'
+        position = 'right'
+        heading = 'reviews_review_add'|_
+        headerClasses = 'items-center mb-7'
+        canvasClasses = 'cursor-auto'
         indentClasses = 'px-4 py-10 md:px-10'
-        sBackgroundClass = 'bg-white'
+        backgroundClasses = 'bg-white'
         body
     %}
         {% partial 'review-card-info/review-card-info'

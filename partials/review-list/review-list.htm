@@ -35,14 +35,14 @@
                     <use href="{{ 'assets/images/sprite.svg#arrow-right'|theme }}"></use>
                 </svg>
             </button>
-            {% partial 'off-canvas/off-canvas'
+            {% partial 'common/off-canvas/off-canvas'
                 id = 'review_info'
-                sPosition = 'right'
-                sHeading = 'reviews_customer_reviews_ratings'|_
-                sHeaderClasses = 'items-center mb-7'
-                sCanvasClasses = 'cursor-auto'
+                position = 'right'
+                heading = 'reviews_customer_reviews_ratings'|_
+                headerClasses = 'items-center mb-7'
+                canvasClasses = 'cursor-auto'
                 indentClasses = 'px-4 py-10 md:px-10'
-                sBackgroundClass = 'bg-white'
+                backgroundClasses = 'bg-white'
                 body
             %}
                 {% partial 'review-card-info/review-card-info'

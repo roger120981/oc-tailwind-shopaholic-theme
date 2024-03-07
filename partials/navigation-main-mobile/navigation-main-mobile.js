@@ -1,4 +1,4 @@
-import {OffCanvasContainer} from '/partials/off-canvas/off-canvas.js';
+import {OffCanvasContainer} from '/partials/common/off-canvas/off-canvas.js';
 
 oc.pageReady().then(() => {
   document.addEventListener('click', (event) => {

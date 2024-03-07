@@ -1,4 +1,4 @@
-import {EVENT_OPEN} from '/partials/off-canvas/off-canvas';
+import {EVENT_OPEN} from '/partials/common/off-canvas/off-canvas';
 
 export default class Filter {
   constructor() {

@@ -20,14 +20,14 @@
         <span class="sr-only">{{ 'purchase_go_to_cart'|_ }}</span>
     </button>
 
-    {% partial 'off-canvas/off-canvas'
+    {% partial 'common/off-canvas/off-canvas'
         id = 'header_cart'
-        sPosition = 'right'
-        sHeading = 'shopping cart'
-        sCanvasClasses = '_container-cart-list cursor-auto'
+        position = 'right'
+        heading = 'shopping cart'
+        canvasClasses = '_container-cart-list cursor-auto'
         indentClasses = 'px-4 py-10 md:px-10'
-        sBackgroundClass = 'bg-white'
-        sCanvasClasses = 'md:w-full md:px-4 lg:px-10 lg:w-1/2'
+        backgroundClasses = 'bg-white'
+        canvasClasses = 'md:w-full md:px-4 lg:px-10 lg:w-1/2'
         body
     %}
         {% partial 'cart-list/cart-list' %}

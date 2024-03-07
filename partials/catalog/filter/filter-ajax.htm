@@ -14,13 +14,13 @@
             </svg>
             <span>{{'filter_filter'|_}}</span>
         </button>
-        {% partial 'off-canvas/off-canvas'
+        {% partial 'common/off-canvas/off-canvas'
             id = 'filter_panel'
-            sPosition = 'right'
-            sHeading = 'filter_filters'|_
-            sCanvasClasses = 'ps-0 pe-0 cursor-auto'
-            sBackgroundClass = 'bg-gray-50'
-            sHeaderClasses = 'mr-4 ml-4 md:mr-0 md:ml-0'
+            position = 'right'
+            heading = 'filter_filters'|_
+            canvasClasses = 'ps-0 pe-0 cursor-auto'
+            backgroundClasses = 'bg-gray-50'
+            headerClasses = 'mr-4 ml-4 md:mr-0 md:ml-0'
             indentClasses = 'py-10'
             body
         %}

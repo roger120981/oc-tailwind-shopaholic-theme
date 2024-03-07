@@ -29,14 +29,14 @@
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M4.18414 5.76748C4.423 5.5378 4.80282 5.54525 5.0325 5.78411L8 8.93431L10.9675 5.78411C11.1972 5.54525 11.577 5.5378 11.8159 5.76748C12.0547 5.99715 12.0622 6.37698 11.8325 6.61584L8.4325 10.2158C8.31938 10.3335 8.16321 10.4 8 10.4C7.83679 10.4 7.68062 10.3335 7.5675 10.2158L4.1675 6.61584C3.93782 6.37698 3.94527 5.99715 4.18414 5.76748Z" fill="currentColor"/>
                 </svg>
             </button>
-            {% partial 'off-canvas/off-canvas'
+            {% partial 'common/off-canvas/off-canvas'
                 id = 'site_picker'
-                sPosition = 'right'
-                sHeading = 'multisite_settings'|_
-                sCanvasClasses = 'cursor-auto'
+                position = 'right'
+                heading = 'multisite_settings'|_
+                canvasClasses = 'cursor-auto'
                 indentClasses = 'py-10 md:px-10'
-                sBackgroundClass = 'bg-white'
-                sHeaderClasses = 'px-4'
+                backgroundClasses = 'bg-white'
+                headerClasses = 'px-4'
                 body
             %}
                 <div class="_site_picker px-4">
@@ -52,13 +52,13 @@
                 </svg>
                 <span class="sr-only">{{ 'search_search_products'|_ }}</span>
             </button>
-            {% partial 'off-canvas/off-canvas'
+            {% partial 'common/off-canvas/off-canvas'
                 id = 'search'
-                sPosition = 'right'
-                sHeading = 'search_search'|_
-                sCanvasClasses = 'cursor-auto'
+                position = 'right'
+                heading = 'search_search'|_
+                canvasClasses = 'cursor-auto'
                 indentClasses = 'px-4 py-10 md:px-10'
-                sBackgroundClass = 'bg-white'
+                backgroundClasses = 'bg-white'
                 body
             %}
                 {% partial 'search/search' %}
