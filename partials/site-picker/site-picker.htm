@@ -20,14 +20,15 @@
                 sSelectedValue = iActiveSiteGroupId
             %}
         {% endif %}
-        {% partial 'select/select'
+        {% partial 'form/select'
             inputClasses = ''
             labelText = 'form_language'|_
-            sName = 'site-name'
-            sId = 'site_id'
-            arOptionList = arSiteOptionList
-            sKeyForValue = 'url'
-            sSelectedValue = this.site.url
+            name = 'site-name'
+            id = 'site_id'
+            options = arSiteOptionList
+            keyForValue = 'url'
+            keyForLabel = 'name'
+            selectedValue = this.site.url
         %}
     </div>
     {% partial 'form/button'
