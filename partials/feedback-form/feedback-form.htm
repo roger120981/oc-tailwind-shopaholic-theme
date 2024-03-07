@@ -22,12 +22,12 @@
         type = 'email'
         partialClasses = 'mt-7 md:mt-8 relative'
     %}
-    {% partial 'textarea/textarea'
-        sId = 'message'
+    {% partial 'form/textarea'
+        id = 'message'
         labelText = 'form_user_message'|_
-        sName = 'message'
+        name = 'message'
         partialClasses = 'mt-7 md:mt-8 relative'
-        sRows = '4'
+        rows = '4'
     %}
     {% partial 'form/button'
         text = 'form_send'|_

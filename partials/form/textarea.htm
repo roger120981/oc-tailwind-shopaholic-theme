@@ -1,17 +1,32 @@
-{##}
+{#
+Params:
+- id
+- name
+- placeholder
+- required
+- disabled
+- rows
+- maxLength
+- validationErrorSelector
+- customErrorMessage
+- validationErrorSelector
+- partialClasses
+- labelClasses
+- labelText
+#}
 <div class="{{ partialClasses }}">
     {% if labelText %}
-        <label for="{{ sId }}" class="text-sm text-gray-600 inline-block mb-1 {{ sLabelClasses }}">{{ sLabelText }}</label>
+        <label for="{{ id }}" class="text-sm text-gray-600 inline-block mb-1 {{ labelClasses }}">{{ labelText }}</label>
     {% endif %}
     <textarea
         class="w-full border border-gray-400 py-3 px-4 rounded placeholder-gray-400 focus:outline-none focus:border-blue-800 focus:ring-transparent"
-        id="{{ sId }}"
+        id="{{ id }}"
         {% if name %}
             name="{{ name }}"
         {% endif %}
         {{ required }}
-        {% if sRows %}
-            rows="{{ sRows }}"
+        {% if rows %}
+            rows="{{ rows }}"
         {% endif %}
         {% if placeholder %}
             placeholder="{{ placeholder }}"
