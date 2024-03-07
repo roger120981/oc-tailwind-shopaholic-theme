@@ -21,7 +21,7 @@
             sCanvasClasses = 'ps-0 pe-0 cursor-auto'
             sBackgroundClass = 'bg-gray-50'
             sHeaderClasses = 'mr-4 ml-4 md:mr-0 md:ml-0'
-            sIndentsClass = 'py-10'
+            indentClasses = 'py-10'
             body
         %}
             <div class="mt-6">
@@ -60,14 +60,14 @@
                             </fieldset>
                         </div>
                         <div class="_shopaholic-sale-filter-wrapper mb-4" data-filter-type="checkbox">
-                            {% partial 'input-checkbox/input-checkbox'
+                            {% partial 'form/input-checkbox'
                                 labelText = 'product_filter_discounted_only'|_
                                 partialClasses = 'flex items-center pb-3 mx-4'
-                                sInputClass = 'rounded-sm'
-                                sChecked = bSaleFilter
-                                sId = 'sale'
-                                sName = 'sale'
-                                sValue = 1
+                                inputClasses = 'rounded-sm'
+                                checked = bSaleFilter
+                                id = 'sale'
+                                name = 'sale'
+                                value = 1
                             %}
                         </div>
                     </details>
@@ -137,14 +137,14 @@
                     </fieldset>
                 </div>
                 <div class="_shopaholic-sale-filter-wrapper pb-4" data-filter-type="checkbox">
-                    {% partial 'input-checkbox/input-checkbox'
+                    {% partial 'form/input-checkbox'
                         labelText = 'product_filter_discounted_only'|_
                         partialClasses = 'flex items-center'
-                        sInputClass = 'rounded-sm'
-                        sChecked = bSaleFilter
-                        sId = 'sale'
-                        sName = 'sale'
-                        sValue = 1
+                        inputClasses = 'rounded-sm'
+                        checked = bSaleFilter
+                        id = 'sale'
+                        name = 'sale'
+                        value = 1
                     %}
                 </div>
             </div>

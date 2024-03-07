@@ -88,7 +88,7 @@ function onInit()
                             sChecked = sChecked
                             sValue = obShippingType.id
                             partialClasses = 'flex items-center'
-                            sInputClasses = '_shopaholic-order-field peer'
+                            inputClasses = '_shopaholic-order-field peer'
                             sData = sDataSwitch~'data-group=order'
                             labelClasses = 'peer-checked:text-gray-900 w-full ps-2 flex justify-between'
                             body
@@ -113,7 +113,7 @@ function onInit()
                     labelText = 'Port Mafaldaview, 3561 Hane Island Suite 810'
                     sId = 'Port Mafaldaview'
                     labelClasses = 'peer-checked:text-gray-900'
-                    sInputClasses = 'peer'
+                    inputClasses = 'peer'
                     sName = 'Point'
                 %}
                 {% partial 'input-radio/input-radio'
@@ -121,7 +121,7 @@ function onInit()
                     labelText = 'Mayaville, 80354 Smitham Roads'
                     sId = 'Mayaville'
                     labelClasses = 'peer-checked:text-gray-900'
-                    sInputClasses = 'peer'
+                    inputClasses = 'peer'
                     sName = 'Point'
                 %}
             </fieldset>
@@ -207,7 +207,7 @@ function onInit()
                     sId = 'payment'~obPaymentMethod.id
                     sName = 'payment_method_id'
                     sChecked = checked
-                    sInputClasses = sStyle~' _shopaholic-order-field peer'
+                    inputClasses = sStyle~' _shopaholic-order-field peer'
                     sValue = obPaymentMethod.id
                     sData = 'data-group=order'
                     labelClasses = 'peer-checked:text-gray-900'

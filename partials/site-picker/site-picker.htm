@@ -11,7 +11,7 @@
     <div class="space-y-6">
         {% if arGroupOptionList|length > 1 %}
             {% partial 'site-picker/site-picker-select'
-                sInputClass = 'js-language-input'
+                inputClasses = 'js-language-input'
                 labelText = 'multisite_country'|_
                 sName = 'site_group_id'
                 sId = 'site_group_id'
@@ -21,7 +21,7 @@
             %}
         {% endif %}
         {% partial 'select/select'
-            sInputClass = ''
+            inputClasses = ''
             labelText = 'form_language'|_
             sName = 'site-name'
             sId = 'site_id'

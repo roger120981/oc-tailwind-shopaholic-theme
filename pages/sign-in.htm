@@ -47,10 +47,10 @@ function onInit()
             <div class="mt-4 text-end">
                 <a href="{{ 'password-reset/password-reset'|page }}" class="text-blue-800 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue underline hover:no-underline text-sm md:text-base">{{ 'account_password_forgot'|_ }}</a>
             </div>
-            {% partial 'input-checkbox/input-checkbox'
+            {% partial 'form/input-checkbox'
                 partialClasses = 'mt-4 md:mt-3 flex items-center'
-                sId = 'remember_me'
-                sName = 'remember_me'
+                id = 'remember_me'
+                name = 'remember_me'
                 labelText = 'form_user_keep_signed'|_
             %}
             {% partial 'form/button'

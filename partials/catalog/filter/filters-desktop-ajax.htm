@@ -47,14 +47,14 @@
                                 {% set obProductListTemp = obProductList.copy().filterByProperty(arFilterValueWithoutProperty[obProperty.id], obProductPropertyList).filterByProperty(arFilterValueWithoutProperty[obProperty.id], obOfferPropertyList) %}
                                 {% set bDisabled = obValue.isDisabled(obProductListTemp) %}
                             {% endif %}
-                            {% partial 'input-checkbox/input-checkbox'
+                            {% partial 'form/input-checkbox'
                                 labelText = obValue.value
                                 partialClasses = 'flex items-center mb-4'
-                                sInputClass = 'rounded-sm disabled:opacity-20'
-                                sDisabled = bDisabled
-                                sChecked= bChecked
-                                sId = obValue.slug
-                                sValue = obValue.slug
+                                inputClasses = 'rounded-sm disabled:opacity-20'
+                                disabled = bDisabled
+                                checked= bChecked
+                                id = obValue.slug
+                                value = obValue.slug
                             %}
                         {% endfor %}
                     </fieldset>

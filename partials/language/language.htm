@@ -13,7 +13,7 @@
     <div class="space-y-6">
         {% if arGroupOptionList|length > 1 %}
             {% partial 'language/language-select'
-                sInputClass = 'js-language-input'
+                inputClasses = 'js-language-input'
                 labelText = 'country'|_
                 sName = 'site_group_id'
                 sId = 'site_group_id'
@@ -23,7 +23,7 @@
             %}
         {% endif %}
         {% partial 'select/select'
-            sInputClass = ''
+            inputClasses = ''
             labelText = 'language'|_
             sName = 'site-name'
             sId = 'site'
