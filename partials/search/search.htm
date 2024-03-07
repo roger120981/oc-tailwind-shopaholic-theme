@@ -45,14 +45,14 @@
 <section class="search-result-wrapper">
     {% partial 'search/search-result' %}
 </section>
-{% partial 'button/button'
-    sText = 'search_show_more'|_
+{% partial 'form/button'
+    text = 'search_show_more'|_
     partialClasses = '_show-more mx-auto hidden relative w-60 mt-8'
 %}
-{% partial 'button/button'
-    sText = 'form_loading'|_
+{% partial 'form/button'
+    text = 'form_loading'|_
     partialClasses = '_show-more-hidden mx-auto hidden relative w-60 ps-12 mt-8'
-    bDisabled = true
+    disabled = true
     body
 %}
 <svg class="animate-spin absolute top-4 start-14 w-5 h-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

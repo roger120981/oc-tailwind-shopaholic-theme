@@ -19,9 +19,9 @@ function onInit()
     </svg>
     <span class="text-lg">{{'purchase_order_your'|_}} <span class="font-medium">{{'purchase_number_abbreviation'|_}} 2ХХХХХХ</span> {{'purchase_order_is_accepted'|_}}.</span> {#TODO: Make one-line translation key.#}
     <span class="text-lg mb-32 lg:mb-6">{{'purchase_success_message'|_}}</span>
-    {% partial 'button/button'
+    {% partial 'form/button'
         partialClasses = 'w-full text-center lg:w-auto'
-        sText = 'purchase_continue_shopping'|_
-        sHref = 'catalog/catalog'|page
+        text = 'purchase_continue_shopping'|_
+        url = 'catalog/catalog'|page
     %}
 </div>

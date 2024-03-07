@@ -26,15 +26,15 @@
                     <span class="mb-4 text-gray-900 text-sm lg:mb-8 lg:text-base">{{sText}}</span>
                 {% endif %}
                 <div class="w-full flex justify-between space-x-2 lg:space-x-4 rtl:space-x-reverse ">
-                    {% partial 'button/button'
-                        sText = sButtonCloseText
-                        sButtonType = 'cancel'
+                    {% partial 'form/button'
+                        text = sButtonCloseText
+                        buttonType = 'cancel'
                         partialClasses = '_hide'
                     %}
                     {% if sButtonConfirmText %}
-                        {% partial 'button/button'
-                            sText = sButtonConfirmText
-                            sButtonType = 'confirm'
+                        {% partial 'form/button'
+                            text = sButtonConfirmText
+                            buttonType = 'confirm'
                         %}
                     {% endif %}
                 </div>

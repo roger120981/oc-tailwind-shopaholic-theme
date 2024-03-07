@@ -26,17 +26,15 @@
             <span class="font-medium text-base ps-4">{{ obCartList.currency }}<span class="_shopaholic-cart" data-group="position-total-price" data-field="price">{{obCartList.getTotalPrice()}}</span></span>
         </div>
         {% if bButton != true %}
-            {% partial 'button/button'
+            {% partial 'form/button'
                 partialClasses = '_checkout-button px-16 mt-28 text-center text-lg lg:text-base lg:mt-px'
-                sHref = obUser ? 'checkout'|page : 'checkout-authentification'|page
+                url = obUser ? 'checkout'|page : 'checkout-authentification'|page
                 body
             %}
-
                <span class="inline-flex">
                     <span>{{'purchase_checkout'|_}}</span>&nbsp;
                     <span>({{obCartList.getTotalQuantity()}})</span>
                </span>
-
         {% endpartial %}
         {% endif %}
     </div>

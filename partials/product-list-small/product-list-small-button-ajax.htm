@@ -25,10 +25,10 @@
 {% set sButtonName = sButtonName|default(input('button_name')) %}
 
 {% if sButtonName is not empty and bShowButton %}
-    {% partial 'button/button'
-        bGhost = true
-        sText = sButtonName
+    {% partial 'form/button'
+        isGhost = true
+        text = sButtonName
         partialClasses = 'w-full md:w-auto font-medium _product-list-small-button-more'
-        sDataAtribute = 'data-page='~(iPage + 1)~' data-product-list-small-type='~sProductListSmallType~' data-take='~iTake~' data-product-id='~iProductId
+        dataAtribute = 'data-page='~(iPage + 1)~' data-product-list-small-type='~sProductListSmallType~' data-take='~iTake~' data-product-id='~iProductId
     %}
 {% endif %}

@@ -63,9 +63,9 @@ function onInit()
                 labelText = 'account_rules_acceptance'|transRaw({account_privacy_terms_conditions: account_privacy_terms_conditions, account_privacy_cookie_policy: account_privacy_cookie_policy}) | raw
                 bIsRequired = true
             %}
-            {% partial 'button/button'
-                sText = 'account_sign_up'|_
-                sType = 'submit'
+            {% partial 'form/button'
+                text = 'account_sign_up'|_
+                type = 'submit'
                 partialClasses = '_button-sign-up w-full mt-8 md:mt-6'
             %}
         </form>

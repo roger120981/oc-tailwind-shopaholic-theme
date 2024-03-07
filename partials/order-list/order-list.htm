@@ -9,9 +9,9 @@
 
 
 {# <div class="_modal">
-    {% partial 'button/button'
-        sButtonType = 'link'
-        sText = 'account_order_history_delete'|_
+    {% partial 'form/button'
+        buttonType = 'link'
+        text = 'account_order_history_delete'|_
         partialClasses = '_delete_all_orders _show'
         body
     %}
@@ -41,10 +41,10 @@ TODO: Move this functionality to a separate Git branch #}
 </ul>
 {% if iMaxPage > iPage %}
     <div class="flex justify-center">
-        {% partial 'button/button'
-            bGhost = true
-            sText = 'account_order_more'|_
-            sDataAtribute = 'data-max-page=' ~ iMaxPage ~ ' data-page=1'
+        {% partial 'form/button'
+            isGhost = true
+            text = 'account_order_more'|_
+            dataAtribute = 'data-max-page=' ~ iMaxPage ~ ' data-page=1'
             partialClasses = '_show-more-orders mt-8 lg:mt-10'
         %}
     </div>

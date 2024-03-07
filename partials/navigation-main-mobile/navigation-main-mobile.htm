@@ -58,10 +58,10 @@ code = "navigation-main"
                 </ul>
             </nav>
             <h2 class="uppercase font-medium text-lg text-gray-900 mb-4 mt-8">{{'account_my'|_}}</h2>
-            {% partial 'button/button'
-                sText = 'account_sign_in'|_
+            {% partial 'form/button'
+                text = 'account_sign_in'|_
                 partialClasses = 'font-medium text-lg w-full mb-4 text-center'
-                sHref='sign-in'|page
+                url = 'sign-in'|page
             %}
             {% set account_sign_up = '<a class="text-blue-800 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue underline hover:no-underline text-sm md:text-base" href="'~( 'sign-up'|page )~'">'~('account_sign_up'|_)~'</a>' %}
             <span class="block text-center text-gray-600 text-sm">{{ 'account_no_account_sign_up' | transRaw({account_sign_up: account_sign_up}) }}</span>

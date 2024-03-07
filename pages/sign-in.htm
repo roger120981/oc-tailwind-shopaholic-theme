@@ -53,9 +53,9 @@ function onInit()
                 sName = 'remember_me'
                 labelText = 'form_user_keep_signed'|_
             %}
-            {% partial 'button/button'
-                sText = 'account_sign_in'|_
-                sType = 'submit'
+            {% partial 'form/button'
+                text = 'account_sign_in'|_
+                type = 'submit'
                 partialClasses = '_button-sign-in w-full mt-8 md:mt-6'
             %}
             {# TODO: Add inline ajax validation #}

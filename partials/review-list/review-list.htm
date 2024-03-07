@@ -53,10 +53,10 @@
                     sPartialClass = 'mt-7'
                     sHeaderHidden = true
                 %}
-                {% partial 'button/button'
-                    sText = 'reviews_review_write'|_
+                {% partial 'form/button'
+                    text = 'reviews_review_write'|_
                     partialClasses = '_write-review w-full md:w-72 mt-10 p-2'
-                    bGhost = true
+                    isGhost = true
                 %}
                 <div class="mt-6 md:mt-10">
                     <ul class="_review-list">
@@ -69,11 +69,11 @@
                     </ul>
                 </div>
 
-                {% partial 'button/button'
-                    sText = 'reviews_read_mode'|_
+                {% partial 'form/button'
+                    text = 'reviews_read_mode'|_
                     partialClasses = '_show-more-reviews w-full md:w-72 mt-3 p-2'
-                    bGhost = true
-                    sDataAtribute = 'data-max-page=' ~ iMaxPage ~ ' data-page=1'
+                    isGhost = true
+                    dataAtribute = 'data-max-page=' ~ iMaxPage ~ ' data-page=1'
                 %}
             {% endpartial %}
         </div>

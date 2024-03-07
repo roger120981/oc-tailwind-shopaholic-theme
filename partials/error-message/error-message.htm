@@ -5,10 +5,10 @@
     <span class="text-3xl mt-8 text-gray-400">{{ 'error_page_apology'|_ }}</span>
     <p class="text-base md:text-lg mt-2 text-gray-400">{{ sErrorMessage }}</p>
     {% if bIsButton %}
-        {% partial 'button/button'
-            sText = sButtonText
+        {% partial 'form/button'
+            text = sButtonText
             partialClasses = sButtonClass
-            sOnClick = sOnClick
+            onClick = sOnClick
         %}
     {% endif %}
 </div>

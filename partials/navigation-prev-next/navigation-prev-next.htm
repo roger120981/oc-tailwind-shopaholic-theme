@@ -8,11 +8,11 @@
 
 <div class="{{ partialClasses|default('flex my-10 flex-col justify-between md:flex-row') }}">
     {% if obPrevArticle.isNotEmpty() %}
-        {% partial 'button/button'
+        {% partial 'form/button'
             partialClasses = 'flex border-2 bg-transparent border-blue-800 text-blue-800 py-3 ps-7 pe-10 rounded mt-2 order-1 md:order-none md:mt-0'
-            sText = 'blog_post_prev'|_
-            sHref = obPrevArticle.getPageUrl(this.page.baseFileName)
-            bGhost = true
+            text = 'blog_post_prev'|_
+            url = obPrevArticle.getPageUrl(this.page.baseFileName)
+            isGhost = true
             body
         %}
             <svg class="me-2 rtl:rotate-180" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -21,11 +21,11 @@
         {% endpartial %}
     {% endif %}
     {% if obNextArticle.isNotEmpty() %}
-        {% partial 'button/button'
+        {% partial 'form/button'
             partialClasses = 'flex border-2 bg-transparent border-blue-800 text-blue-800 py-3 ps-10 pe-7 rounded md:ms-auto'
-            sText = 'blog_post_next'|_
-            sHref = obNextArticle.getPageUrl(this.page.baseFileName)
-            bGhost = true
+            text = 'blog_post_next'|_
+            url = obNextArticle.getPageUrl(this.page.baseFileName)
+            isGhost = true
             body
         %}
             <svg class="ms-2 order-1 rtl:rotate-180 block" width="25" height="24" viewBox="0 0 25 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">

@@ -211,8 +211,8 @@ function getBreadcrumbs(): array
                     </div>
                     <div class="flex flex-row items-center space-x-2 rtl:space-x-reverse  mt-8 md:mt-10">
                         {# TODO: Turn two buttons into one #}
-                        {% partial 'button/button'
-                            sText = 'product_add_to_cart'|_
+                        {% partial 'form/button'
+                            text = 'product_add_to_cart'|_
                             partialClasses = '_shopaholic-cart-add font-bold h-11 md:h-12 w-full md:w-60'
                         %}
                         {% if obProduct.inWishList() %}

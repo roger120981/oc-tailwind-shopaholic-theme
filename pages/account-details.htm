@@ -97,6 +97,10 @@ function onInit()
             sValue = obUser.address.address
             partialClasses = 'mt-4'
         %}
-        {% partial 'button/button' sText = 'form_save'|_ sType = 'submit' partialClasses = 'w-full md:w-auto mt-8' %}
+        {% partial 'form/button'
+            text = 'form_save'|_
+            type = 'submit'
+            partialClasses = 'w-full md:w-auto mt-8'
+        %}
     </form>
 </div>
