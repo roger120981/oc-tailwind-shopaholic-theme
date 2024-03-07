@@ -36,12 +36,6 @@ function onInit()
     if ($bHasUserPlugin && !empty($this->UserData)) {
         $this['obUser'] = $this->UserData->get();
     }
-
-    $arBreadcrumbs = [
-        ['name' => $this->page->title, 'url' => \Cms\Classes\Page::url('static', ['static' => false])],
-    ];
-
-    $this['arBreadcrumbs'] = $arBreadcrumbs;
 }
 
 function onStart()
@@ -50,6 +44,10 @@ function onStart()
 }
 ?>
 ==
+{% set arBreadcrumbs = [
+    {'name': page.title, 'url': null},
+] %}
+
 <!DOCTYPE html>
 <html dir="auto" lang="{{ activeLocale ? activeLocale : 'en' }}">
     <head>
@@ -65,7 +63,7 @@ function onStart()
         <div class="sm:container sm:mx-auto px-4 min-h-screen grid grid-cols-full grid-rows-auto-fr-auto">
             {% partial 'header/header' %}
             <main>
-                {% partial 'breadcrumbs/breadcrumbs' %}
+                {% partial 'common/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
                 <div class="max-w-5xl mx-auto mb-6 md:mb-14">
                     <h1 class="font-medium text-lg md:text-2xl mb-3 md:mb-6">{{ SeoToolbox.getPageTitle()|default(this.page.title) }}</h1>
                     <div class="overflow-x-hidden prose max-w-none text-sm md:text-base">

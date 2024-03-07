@@ -59,7 +59,7 @@ function onInit()
 {% set obUser = UserData.get() %}
 {% set obOrderList = obUser.order %}
 
-{% partial 'breadcrumbs/breadcrumbs' %}
+{% partial 'common/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
 
 <div class="mb-8 mt-1 lg:mb-16">
     <h1 class="uppercase text-xl mb-4 font-medium lg:text-3xl">{{'account_order_history'|_}}</h1>

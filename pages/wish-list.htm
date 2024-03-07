@@ -9,20 +9,17 @@ sorting = "no"
 <?php
 function onInit()
 {
-    $arBreadcrumbs = [
-        ['name' => 'Wish List', 'url' => \Cms\Classes\Page::url('wish-list', ['wish' => false])],
-    ];
-
-    $this['arBreadcrumbs'] = $arBreadcrumbs;
     $this['path_page_js'] = mix('assets/dist/js/wish-list.js', 'themes/lovata-tailwind-shopaholic');
 }
 ?>
 ==
-{##}
+{% set arBreadcrumbs = [
+    {'name': 'wishlist_wishlist'|_, 'url': null}
+] %}
 
 {% set arProductList = ProductList.make().active().wishList() %}
 
-{% partial 'breadcrumbs/breadcrumbs' %}
+{% partial 'common/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
 <section class="pb-10 md:pb-16">
     <h1 class="uppercase font-medium text-xl md:text-3xl">{{ 'wishlist_wishlist'|_ }}</h1>
     {# TODO: Add check for theme settings #}

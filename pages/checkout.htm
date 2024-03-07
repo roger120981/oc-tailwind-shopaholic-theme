@@ -20,7 +20,10 @@ function onInit()
 }
 ?>
 ==
-{##}
+{% set arBreadcrumbs = [
+    {'name': 'purchase_checkout'|_, 'url': null}
+] %}
+
 {% set obActiveCoupon = Cart.getAppliedCouponList()|first %}
 {% set obShippingTypeList = ShippingTypeList.make().sort().active() %}
 {% set obPaymentMethodList = PaymentMethodList.make().sort().active() %}
@@ -31,7 +34,7 @@ function onInit()
     {% set obActiveShippingType = obShippingTypeList.first() %}
 {% endif %}
 
-{% partial 'breadcrumbs/breadcrumbs' %}
+{% partial 'common/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
 
 <section class="grid lg:grid-cols-2">
     <form class="_required _shopaholic-order-form lg:col-span-1">

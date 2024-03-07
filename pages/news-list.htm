@@ -33,16 +33,12 @@ last_button_number = 1
 function onInit()
 {
     $this['path_page_js'] = mix('assets/dist/js/news-list.js', 'themes/lovata-tailwind-shopaholic');
-
-    $arBreadcrumbs = [
-        ['name' => 'News', 'url' => \Cms\Classes\Page::url('news-list', ['news' => false])],
-    ];
-
-    $this['arBreadcrumbs'] = $arBreadcrumbs;
 }
 ?>
 ==
-{##}
+{% set arBreadcrumbs = [
+    {'name': 'blog_title'|_, 'url': null }
+] %}
 
 {% set obArticleList = ArticleList.make().sort('publish|desc').published() %}
 {% set iPage = Pagination.getPageFromRequest() %}
@@ -51,7 +47,7 @@ function onInit()
 {% set arPaginationList = Pagination.get(iPage, obArticleList.count()) %}
 
 {# TODO: Fix wrong breadcrumbs #}
-{% partial 'breadcrumbs/breadcrumbs' %}
+{% partial 'common/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
 <h1 class="container mx-auto mb-4 md:mb-10 text-lg md:text-3xl uppercase">{{ 'blog_title'|_ }}</h1>
 {% partial 'news-list/news-list'
     arArticleList = arArticleList
