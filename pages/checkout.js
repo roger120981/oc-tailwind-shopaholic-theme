@@ -12,6 +12,4 @@ import '/partials/checkout/switch';
 
 import '/partials/checkout/order';
 
-import '/partials/button-wish-list/button-wish-list';
-
 import '../assets/src/js/validation';

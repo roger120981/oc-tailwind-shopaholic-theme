@@ -267,5 +267,7 @@ validation_wrong_length_under: 'Please lengthen this text to {minLength} charact
 wishlist_empty: 'Your wish list is empty.'
 wishlist_start_shopping: 'Start shopping'
 wishlist_wishlist_add: 'Add to wish list'
+wishlist_wishlist_add_success: 'Product added to wish list'
 wishlist_wishlist_remove: 'Remove from wish list'
+wishlist_wishlist_remove_success: 'Product removed from wish list'
 wishlist_wishlist: 'Wish list'
