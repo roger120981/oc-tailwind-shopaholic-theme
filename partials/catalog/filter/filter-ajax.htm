@@ -39,7 +39,7 @@
                             <fieldset class="mr-3 w-full">
                                 <legend class="sr-only">{{'filter_price'|_}}&nbsp;{{'filter_min'|_}}</legend>
                                 {% partial 'input/input'
-                                    sLabelText = 'filter_min'|_
+                                    labelText = 'filter_min'|_
                                     inputClass = '_shopaholic-price-filter appearance-none quantity_input'
                                     type = 'number'
                                     name = 'filter-min-price'
@@ -50,7 +50,7 @@
                             <fieldset class="w-full">
                                 <legend class="sr-only">{{'filter_price'|_}}&nbsp;{{'filter_max'|_}}</legend>
                                 {% partial 'input/input'
-                                    sLabelText = 'filter_max'|_
+                                    labelText = 'filter_max'|_
                                     inputClass = '_shopaholic-price-filter appearance-none quantity_input'
                                     type= 'number'
                                     name= 'filter-max-price'
@@ -61,8 +61,8 @@
                         </div>
                         <div class="_shopaholic-sale-filter-wrapper mb-4" data-filter-type="checkbox">
                             {% partial 'input-checkbox/input-checkbox'
-                                sLabelText = 'product_filter_discounted_only'|_
-                                sPartialClasses = 'flex items-center pb-3 mx-4'
+                                labelText = 'product_filter_discounted_only'|_
+                                partialClasses = 'flex items-center pb-3 mx-4'
                                 sInputClass = 'rounded-sm'
                                 sChecked = bSaleFilter
                                 sId = 'sale'
@@ -78,11 +78,11 @@
                 <div class="ml-4 mr-5">
                     {% partial 'button/button'
                         sText = 'filter_see_all'|_
-                        sPartialClasses = '_hide _product-count w-full mt-8'
+                        partialClasses = '_hide _product-count w-full mt-8'
                     %}
                     {% partial 'button/button'
                         sText = 'form_loading'|_
-                        sPartialClasses = '_show-more-hidden hidden mx-auto relative w-full pl-12 mt-8'
+                        partialClasses = '_show-more-hidden hidden mx-auto relative w-full pl-12 mt-8'
                         bDisabled = true
                         body
                     %}
@@ -116,7 +116,7 @@
                     <fieldset class="mr-3">
                         <legend class="sr-only">{{'filter_price'|_}}&nbsp;{{'filter_min'|_}}</legend>
                         {% partial 'input/input'
-                            sLabelText = 'filter_min'|_
+                            labelText = 'filter_min'|_
                             inputClass = '_shopaholic-price-filter appearance-none quantity_input'
                             type = 'number'
                             name = 'filter-min-price'
@@ -127,7 +127,7 @@
                     <fieldset>
                         <legend class="sr-only">{{'filter_price'|_}}&nbsp;{{'filter_max'|_}}</legend>
                         {% partial 'input/input'
-                            sLabelText = 'filter_max'|_
+                            labelText = 'filter_max'|_
                             inputClass = '_shopaholic-price-filter appearance-none quantity_input'
                             type = 'number'
                             name = 'filter-max-price'
@@ -138,8 +138,8 @@
                 </div>
                 <div class="_shopaholic-sale-filter-wrapper pb-4" data-filter-type="checkbox">
                     {% partial 'input-checkbox/input-checkbox'
-                        sLabelText = 'product_filter_discounted_only'|_
-                        sPartialClasses = 'flex items-center'
+                        labelText = 'product_filter_discounted_only'|_
+                        partialClasses = 'flex items-center'
                         sInputClass = 'rounded-sm'
                         sChecked = bSaleFilter
                         sId = 'sale'

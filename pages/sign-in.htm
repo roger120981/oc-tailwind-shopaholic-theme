@@ -30,7 +30,7 @@ function onInit()
             {# TODO: To discuss validation message layout shift #}
             {% partial 'input/input'
                 sId = 'form-email'
-                sLabelText = 'form_user_email'|_
+                labelText = 'form_user_email'|_
                 sName = 'email'
                 sRequired = 'required'
                 sType = 'email'
@@ -38,25 +38,25 @@ function onInit()
             {# TODO: Add inline ajax validation for email existing #}
             {% partial 'input/input'
                 sId = 'form-password'
-                sLabelText = 'form_user_password'|_
+                labelText = 'form_user_password'|_
                 sName = 'password'
                 sRequired = 'required'
                 sType = 'password'
-                sPartialClasses = 'mt-4'
+                partialClasses = 'mt-4'
             %}
             <div class="mt-4 text-right">
                 <a href="{{ 'password-reset/password-reset'|page }}" class="text-blue-800 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue underline hover:no-underline text-sm md:text-base">{{ 'account_password_forgot'|_ }}</a>
             </div>
             {% partial 'input-checkbox/input-checkbox'
-                sPartialClasses = 'mt-4 md:mt-3 flex items-center'
+                partialClasses = 'mt-4 md:mt-3 flex items-center'
                 sId = 'remember_me'
                 sName = 'remember_me'
-                sLabelText = 'form_user_keep_signed'|_
+                labelText = 'form_user_keep_signed'|_
             %}
             {% partial 'button/button'
                 sText = 'account_sign_in'|_
                 sType = 'submit'
-                sPartialClasses = '_button-sign-in w-full mt-8 md:mt-6'
+                partialClasses = '_button-sign-in w-full mt-8 md:mt-6'
             %}
             {# TODO: Add inline ajax validation #}
         </form>

@@ -39,7 +39,6 @@ export default class Filter {
 
     filterDetails.forEach((filterDetailNode) => {
       const detailsData = sessionStorage.getItem(`filter-details-${filterDetailNode.id}`);
-      console.log(detailsData);
       if (!detailsData) {
         return;
       }

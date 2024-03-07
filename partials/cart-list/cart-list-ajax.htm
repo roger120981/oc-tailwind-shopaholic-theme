@@ -27,7 +27,7 @@
         </div>
         {% if bButton != true %}
             {% partial 'button/button'
-                sPartialClasses = '_checkout-button px-16 mt-28 text-center text-lg lg:text-base lg:mt-px'
+                partialClasses = '_checkout-button px-16 mt-28 text-center text-lg lg:text-base lg:mt-px'
                 sText = 'purchase_checkout'|_ ~ ' (' ~ obCartList.getTotalQuantity() ~ ')'
                 sHref = obUser ? 'checkout'|page : 'checkout-authentification'|page
             %}
@@ -35,7 +35,7 @@
     </div>
 {% else %}
     {% partial 'info-message/info-message'
-        sPartialClasses = 'mt-44 justify-center mb-8 text-center lg:mb-14 lg:mt-52'
+        partialClasses = 'mt-44 justify-center mb-8 text-center lg:mb-14 lg:mt-52'
         sIconName = 'basket.svg'
         sEmptyPageMessage = 'purchase_cart_is_empty'|_
         sHref = 'catalog'|page

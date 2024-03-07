@@ -38,7 +38,7 @@ function onInit()
     <span class="text-gray-600 text-sm md:text-base mb-4 inline-block">*{{'form_required_fields'|_}}</span>
     <form class="_required">
         {% partial 'input/input'
-            sLabelText = 'form_user_name'|_
+            labelText = 'form_user_name'|_
             type = 'text'
             sId = 'name'
             sName = 'name'
@@ -47,56 +47,56 @@ function onInit()
         %}
         {# TODO: Add inline ajax validation for name existing #}
         {% partial 'input/input'
-            sLabelText = 'form_user_email'|_
+            labelText = 'form_user_email'|_
             sType = 'email'
             sId = 'mail'
             sName = 'mail'
             sValue = obUser.email
             required = 'required'
-            sPartialClasses = 'mt-4'
+            partialClasses = 'mt-4'
         %}
         {# TODO: Add inline ajax validation for email existing #}
         {% partial 'input/input'
-            sLabelText = 'form_user_phone'|_
+            labelText = 'form_user_phone'|_
             sType = 'text'
             sId = 'phone'
             sName = 'phone'
             sValue = obUser.phone
-            sPartialClasses = 'mt-4'
+            partialClasses = 'mt-4'
         %}
         {# TODO: Add inline ajax validation for Phone number format #}
         {% partial 'input/input'
-            sLabelText = 'form_user_country'|_
+            labelText = 'form_user_country'|_
             sType = 'text'
             sId = 'country'
             sName = 'country'
             sValue = obUser.address.country
-            sPartialClasses = 'mt-4'
+            partialClasses = 'mt-4'
         %}
         {% partial 'input/input'
-            sLabelText = 'form_user_city'|_
+            labelText = 'form_user_city'|_
             sType = 'text'
             sId = 'city'
             sName = 'city'
             sValue = obUser.address.city
-            sPartialClasses = 'mt-4'
+            partialClasses = 'mt-4'
         %}
         {% partial 'input/input'
-            sLabelText = 'form_user_zip_code'|_
+            labelText = 'form_user_zip_code'|_
             sType = 'text'
             sId = 'zip'
             sName = 'zip'
             sValue = obUser.address.zip
-            sPartialClasses = 'mt-4'
+            partialClasses = 'mt-4'
         %}
         {% partial 'input/input'
-            sLabelText = 'form_user_address_postal'|_
+            labelText = 'form_user_address_postal'|_
             sType = 'text'
             sId = 'address'
             sName = 'address'
             sValue = obUser.address.address
-            sPartialClasses = 'mt-4'
+            partialClasses = 'mt-4'
         %}
-        {% partial 'button/button' sText = 'form_save'|_ sType = 'submit' sPartialClasses = 'w-full md:w-auto mt-8' %}
+        {% partial 'button/button' sText = 'form_save'|_ sType = 'submit' partialClasses = 'w-full md:w-auto mt-8' %}
     </form>
 </div>

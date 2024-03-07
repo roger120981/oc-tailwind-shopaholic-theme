@@ -25,12 +25,12 @@
     {% if bBlank == true %}
         target="_blank" rel="noopener noreferrer"
     {% endif %}
-    class="{{ sDefaultClass }} inline-block {{ sPartialClasses }}">
+    class="{{ sDefaultClass }} inline-block {{ partialClasses }}">
         {{body|raw}}
         {{ sText }}
     </a>
 {% else %}
-    <button class="{{ sDefaultClass }} {{ sPartialClasses }}"
+    <button class="{{ sDefaultClass }} {{ partialClasses }}"
         type="{{ sType|default('button') }}"
         {{ sDataAtribute }}
         {% if sOnClick %}

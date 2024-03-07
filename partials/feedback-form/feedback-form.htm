@@ -8,30 +8,30 @@
 
     {% partial 'input/input'
         sId = 'name'
-        sLabelText = 'input_your_name'|_
+        labelText = 'input_your_name'|_
         sName = 'name'
         required = 'required'
         type = 'text'
-        sPartialClasses = 'relative'
+        partialClasses = 'relative'
     %}
     {% partial 'input/input'
         sId = 'form-email'
-        sLabelText = 'input_email'|_
+        labelText = 'input_email'|_
         sName = 'email'
         required = 'required'
         type = 'email'
-        sPartialClasses = 'mt-7 md:mt-8 relative'
+        partialClasses = 'mt-7 md:mt-8 relative'
     %}
     {% partial 'textarea/textarea'
         sId = 'message'
-        sLabelText = 'input_your_message'|_
+        labelText = 'input_your_message'|_
         sName = 'message'
-        sPartialClasses = 'mt-7 md:mt-8 relative'
+        partialClasses = 'mt-7 md:mt-8 relative'
         sRows = '4'
     %}
     {% partial 'button/button'
         sText = 'button_send'|_
         sType = 'submit'
-        sPartialClasses = 'w-full md:w-auto mt-12 md:mt-10'
+        partialClasses = 'w-full md:w-auto mt-12 md:mt-10'
     %}
 </form>

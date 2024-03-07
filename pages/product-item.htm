@@ -119,7 +119,7 @@ function getBreadcrumbs(): array
 
         {% if this.theme.product_page is not empty %}
             {% partial 'tabs/tabs'
-                sPartialClasses = '_tabs-product'
+                partialClasses = '_tabs-product'
                 sPartialContainer = 'mt-4 mb-7 lg:my-10'
                 body
             %}
@@ -213,7 +213,7 @@ function getBreadcrumbs(): array
                         {# TODO: Turn two buttons into one #}
                         {% partial 'button/button'
                             sText = 'product_add_to_cart'|_
-                            sPartialClasses = '_shopaholic-cart-add font-bold h-11 md:h-12 w-full md:w-60'
+                            partialClasses = '_shopaholic-cart-add font-bold h-11 md:h-12 w-full md:w-60'
                         %}
                         {% if obProduct.inWishList() %}
                             <button class="_shopaholic-remove-wish-list-button text-red-500 hover:text-red-400 active:text-red-500 w-11 md:w-12 h-11 md:h-12 bg-gray-400/40 hover:bg-gray-500/40 group focus:outline-none flex justify-center items-center rounded-bl rounded-tr focus-visible:outline-blue focus-visible:text-red-500" type="button">
@@ -223,7 +223,7 @@ function getBreadcrumbs(): array
                             </button>
                         {% else %}
                             {% partial 'button-wish-list/button-wish-list'
-                                sPartialClasses = 'flex rounded-bl rounded-tr'
+                                partialClasses = 'flex rounded-bl rounded-tr'
                             %}
                         {% endif %}
                     </div>

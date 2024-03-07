@@ -14,7 +14,7 @@
                     <fieldset class="mr-3 w-full">
                         <legend class="sr-only">{{ obProperty.name }}&nbsp;{{'filter_min'|_}}</legend>
                         {% partial 'input/input'
-                            sLabelText = 'filter_min'|_
+                            labelText = 'filter_min'|_
                             inputClass = '_min appearance-none quantity_input'
                             value = fMinWidthFilterValue
                             sId = obProperty.name ~ 'min'
@@ -24,7 +24,7 @@
                     <fieldset class="w-full">
                         <legend class="sr-only">{{ obProperty.name }}&nbsp;{{'filter_min'|_}}</legend>
                         {% partial 'input/input'
-                            sLabelText = 'filter_max'|_
+                            labelText = 'filter_max'|_
                             inputClass = '_max appearance-none quantity_input'
                             value = fMaxWidthFilterValue
                             sId = obProperty.name ~ 'max'
@@ -48,8 +48,8 @@
                                 {% set bDisabled = obValue.isDisabled(obProductListTemp) %}
                             {% endif %}
                             {% partial 'input-checkbox/input-checkbox'
-                                sLabelText = obValue.value
-                                sPartialClasses = 'flex items-center mb-4'
+                                labelText = obValue.value
+                                partialClasses = 'flex items-center mb-4'
                                 sInputClass = 'rounded-sm disabled:opacity-20'
                                 sDisabled = bDisabled
                                 sChecked = bChecked
@@ -65,7 +65,7 @@
                         {% partial 'input-color-choose/input-color-choose'
                             obPropertyValueList = obPropertyValueList
                             obProperty = obProperty
-                            sPartialClasses = 'mr-3'
+                            partialClasses = 'mr-3'
                             sContainerClasses = 'w-full flex flex-wrap'
                         %}
                     </fieldset>

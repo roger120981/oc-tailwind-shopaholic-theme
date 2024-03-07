@@ -50,19 +50,16 @@ export default new class Sorting{
         this.initChoices();
         //this.updateFilters()
         this.initContainerWatch();
-        const obListHelper = new ShopaholicProductList();
-        obListHelper.setAjaxRequestCallback((obRequestData) => {
-        obRequestData.update = {
-            'catalog/sorting/sorting': `._sorting`,
-        };
-        return obRequestData;
-        });
-
-        const obPaginationHelper = new ShopaholicPagination(obListHelper);
-        obPaginationHelper.init();
-
-        const obSortingHelper = new ShopaholicSorting(obListHelper);
-        obSortingHelper.init();
+        // const obListHelper = new ShopaholicProductList();
+        // obListHelper.setAjaxRequestCallback((obRequestData) => {
+        // return obRequestData;
+        // });
+        //
+        // const obPaginationHelper = new ShopaholicPagination(obListHelper);
+        // obPaginationHelper.init();
+        //
+        // const obSortingHelper = new ShopaholicSorting(obListHelper);
+        // obSortingHelper.init();
     }
 
     initContainerWatch(){

@@ -3,7 +3,7 @@
 <div class="_write-review">
     {% partial 'button/button'
         sText = 'reviews_review_write'|_
-        sPartialClasses = '_offCanvasOpen w-full md:w-72 mt-8 p-2'
+        partialClasses = '_offCanvasOpen w-full md:w-72 mt-8 p-2'
         bGhost = true
         sDataAtribute = 'data-for="review_card_info"'
     %}
@@ -30,14 +30,14 @@
                     {% partial 'input-radio/input-radio'
                         sName = 'recommended'
                         sId = 'recommended'
-                        sLabelText = 'form_yes'|_
-                        sPartialClasses = 'flex items-center'
+                        labelText = 'form_yes'|_
+                        partialClasses = 'flex items-center'
                     %}
                     {% partial 'input-radio/input-radio'
                         sName = 'recommended'
                         sId = 'non-recommended'
-                        sLabelText = 'form_no'|_
-                        sPartialClasses = 'flex items-center'
+                        labelText = 'form_no'|_
+                        partialClasses = 'flex items-center'
                     %}
                 </div>
             </fieldset>
@@ -48,7 +48,7 @@
             {% partial 'button/button'
                 sType = 'submit'
                 sText = 'reviews_review_submit'|_
-                sPartialClasses = '_send-review w-full md:w-72 mt-8 p-2'
+                partialClasses = '_send-review w-full md:w-72 mt-8 p-2'
             %}
         </form>
     {% endpartial %}

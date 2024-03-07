@@ -14,7 +14,7 @@
         {% if arGroupOptionList|length > 1 %}
             {% partial 'language/language-select'
                 sInputClass = 'js-language-input'
-                sLabelText = 'country'|_
+                labelText = 'country'|_
                 sName = 'site_group_id'
                 sId = 'site_group_id'
                 arOptionList = arGroupOptionList
@@ -24,7 +24,7 @@
         {% endif %}
         {% partial 'select/select'
             sInputClass = ''
-            sLabelText = 'language'|_
+            labelText = 'language'|_
             sName = 'site-name'
             sId = 'site'
             arOptionList = arSiteOptionList
@@ -35,6 +35,6 @@
     {% partial 'button/button'
         sType = 'submit'
         sText = 'submit'|_
-        sPartialClasses = 'w-full md:w-72 mt- p-2 mt-12'
+        partialClasses = 'w-full md:w-72 mt- p-2 mt-12'
     %}
 </form>

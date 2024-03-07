@@ -60,7 +60,7 @@ code = "navigation-main"
             <h2 class="uppercase font-medium text-lg text-gray-900 mb-4 mt-8">{{'account_my'|_}}</h2>
             {% partial 'button/button'
                 sText = 'account_sign_in'|_
-                sPartialClasses = 'font-medium text-lg w-full mb-4 text-center'
+                partialClasses = 'font-medium text-lg w-full mb-4 text-center'
                 sHref='sign-in'|page
             %}
             {% set account_sign_up = '<a class="text-blue-800 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue underline hover:no-underline text-sm md:text-base" href="'~( 'sign-up'|page )~'">'~('account_sign_up'|_)~'</a>' %}

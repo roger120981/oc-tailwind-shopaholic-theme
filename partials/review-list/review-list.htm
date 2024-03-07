@@ -56,7 +56,7 @@
                 %}
                 {% partial 'button/button'
                     sText = 'reviews_review_write'|_
-                    sPartialClasses = '_write-review w-full md:w-72 mt-10 p-2'
+                    partialClasses = '_write-review w-full md:w-72 mt-10 p-2'
                     bGhost = true
                 %}
                 <div class="mt-6 md:mt-10">
@@ -72,7 +72,7 @@
 
                 {% partial 'button/button'
                     sText = 'reviews_read_mode'|_
-                    sPartialClasses = '_show-more-reviews w-full md:w-72 mt-3 p-2'
+                    partialClasses = '_show-more-reviews w-full md:w-72 mt-3 p-2'
                     bGhost = true
                     sDataAtribute = 'data-max-page=' ~ iMaxPage ~ ' data-page=1'
                 %}

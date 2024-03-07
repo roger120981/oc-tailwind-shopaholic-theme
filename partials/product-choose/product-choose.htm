@@ -11,7 +11,7 @@
         {% for obValue in obPropertyList %}
             {% if obValue.code == 'color' %}
                 {% partial 'input-color-imitation/input-color-imitation'
-                    sPartialClasses = 'mr-0'
+                    partialClasses = 'mr-0'
                     obPropertyValueList = obValue.property_value
                     obProperty = obProperty
                     sName = 'offer_id'
@@ -27,7 +27,7 @@
                 {% for obValue in obPropertyList %}
                     {% if obValue.code == 'color' %}
                         {% partial 'input-color-imitation/input-color-imitation'
-                            sPartialClasses = 'mr-0'
+                            partialClasses = 'mr-0'
                             obPropertyValueList = obValue.property_value
                             obProperty = obProperty
                             sName = 'offer_id'

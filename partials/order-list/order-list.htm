@@ -12,7 +12,7 @@
     {% partial 'button/button'
         sButtonType = 'link'
         sText = 'account_order_history_delete'|_
-        sPartialClasses = '_delete_all_orders _show'
+        partialClasses = '_delete_all_orders _show'
         body
     %}
         <svg class="mr-2" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +45,7 @@ TODO: Move this functionality to a separate Git branch #}
             bGhost = true
             sText = 'account_order_more'|_
             sDataAtribute = 'data-max-page=' ~ iMaxPage ~ ' data-page=1'
-            sPartialClasses = '_show-more-orders mt-8 lg:mt-10'
+            partialClasses = '_show-more-orders mt-8 lg:mt-10'
         %}
     </div>
 {% endif %}

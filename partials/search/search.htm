@@ -1,9 +1,9 @@
 {% partial 'input/input'
     inputClass='_shopaholic-search-input relative z-10 bg-transparent border-gray-400 focus:border-gray-600 pl-12 pr-11 md:pr-10'
     maxLength='100'
-    sPartialClasses='w-full flex w-full relative items-center mb-4'
-    sLabelText='search_search'|_
-    sLabelClasses='sr-only'
+    partialClasses='w-full flex w-full relative items-center mb-4'
+    labelText='search_search'|_
+    labelClasses='sr-only'
     body
 %}
     <span class="_placeholder absolute text-gray-400 left-12 whitespace-pre"></span>
@@ -47,11 +47,11 @@
 </section>
 {% partial 'button/button'
     sText = 'search_show_more'|_
-    sPartialClasses = '_show-more mx-auto hidden relative w-60 mt-8'
+    partialClasses = '_show-more mx-auto hidden relative w-60 mt-8'
 %}
 {% partial 'button/button'
     sText = 'form_loading'|_
-    sPartialClasses = '_show-more-hidden mx-auto hidden relative w-60 pl-12 mt-8'
+    partialClasses = '_show-more-hidden mx-auto hidden relative w-60 pl-12 mt-8'
     bDisabled = true
     body
 %}

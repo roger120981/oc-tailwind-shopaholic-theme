@@ -1,7 +1,7 @@
 {% if sButtonType %}
-    {% set sPartialClasses = 'flex justify-between' %}
+    {% set partialClasses = 'flex justify-between' %}
 {% else %}
-    {% set sPartialClasses = 'flex justify-end lg:justify-between' %}
+    {% set partialClasses = 'flex justify-end lg:justify-between' %}
 {% endif %}
 
 {% if sButtonHeadingHidden %}
@@ -15,7 +15,7 @@
 <template class="_offCanvasTemplate" id="{{ id }}_template">
     <dialog class="_offCanvasContainer cursor-auto z-50 bg-transparent p-0 w-full min-w-full h-full min-h-full my-0 mr-0 backdrop:bg-gray-400 backdrop:opacity-60">
         <div class="_offCanvasContent hidden box-border fixed right-0 w-full h-full max-h-full overflow-auto duration-1000 md:w-1/2 {{ sCanvasClasses }} {{ sIndentsClass|default('py-10 pr-20 pl-10') }} {{ sBackgroundClass|default('bg-gray-200') }}" data-position="{{sPosition}}">
-            <div class="{{sPartialClasses}} {{sHeaderClasses}} mb-10 {{sHeadingHidden}}">
+            <div class="{{partialClasses}} {{sHeaderClasses}} mb-10 {{sHeadingHidden}}">
                 {% if sHiddenDefaultHeader == false %}
                     <h2 class="text-lg md:text-xl uppercase {{sHeadingHidden}}">{{sHeading}}</h2>
                     {% if sButtonType %}

@@ -6,10 +6,10 @@
 {% set obNextArticle = obArticleList.getNearestPrev(obArticle.id).first() %}
 {% set obPrevArticle = obArticleList.getNearestNext(obArticle.id).first() %}
 
-<div class="{{ sPartialClasses|default('flex my-10 flex-col justify-between md:flex-row') }}">
+<div class="{{ partialClasses|default('flex my-10 flex-col justify-between md:flex-row') }}">
     {% if obPrevArticle.isNotEmpty() %}
         {% partial 'button/button'
-            sPartialClasses = 'flex border-2 bg-transparent border-blue-800 text-blue-800 py-3 pl-7 pr-10 rounded mt-2 order-1 md:order-none md:mt-0'
+            partialClasses = 'flex border-2 bg-transparent border-blue-800 text-blue-800 py-3 pl-7 pr-10 rounded mt-2 order-1 md:order-none md:mt-0'
             sText = 'blog_post_prev'|_
             sHref = obPrevArticle.getPageUrl(this.page.baseFileName)
             bGhost = true
@@ -22,7 +22,7 @@
     {% endif %}
     {% if obNextArticle.isNotEmpty() %}
         {% partial 'button/button'
-            sPartialClasses = 'flex border-2 bg-transparent border-blue-800 text-blue-800 py-3 pl-10 pr-7 rounded md:ml-auto'
+            partialClasses = 'flex border-2 bg-transparent border-blue-800 text-blue-800 py-3 pl-10 pr-7 rounded md:ml-auto'
             sText = 'blog_post_next'|_
             sHref = obNextArticle.getPageUrl(this.page.baseFileName)
             bGhost = true

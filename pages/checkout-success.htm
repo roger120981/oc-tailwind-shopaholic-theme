@@ -20,7 +20,7 @@ function onInit()
     <span class="text-lg">{{'purchase_order_your'|_}} <span class="font-medium">{{'purchase_number_abbreviation'|_}} 2ХХХХХХ</span> {{'purchase_order_is_accepted'|_}}.</span> {#TODO: Make one-line translation key.#}
     <span class="text-lg mb-32 lg:mb-6">{{'purchase_success_message'|_}}</span>
     {% partial 'button/button'
-        sPartialClasses = 'w-full text-center lg:w-auto'
+        partialClasses = 'w-full text-center lg:w-auto'
         sText = 'purchase_continue_shopping'|_
         sHref = 'catalog/catalog'|page
     %}
