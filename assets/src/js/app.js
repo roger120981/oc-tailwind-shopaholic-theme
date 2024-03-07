@@ -1,4 +1,6 @@
 import '/partials/top-info-block/top-info-block';
+/** Navigation **/
+import '/partials/navigation/navigation-main-mobile';
 /* * Account * */
 // TODO: To decide regarding the assets with no markup
 import '/partials/account/sign-up';

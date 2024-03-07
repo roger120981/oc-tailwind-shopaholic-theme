@@ -3,7 +3,7 @@ import '/partials/review-list/review-list';
 import '/partials/product-gallery/product-gallery';
 import '/partials/product-description/product-description';
 import '/partials/product-review-rating/product-review-rating';
-import '/partials/product-list-small/product-list-small';
+import '/partials/product/product-list-small/product-list-small';
 import InputQuantity from '/partials/input-quantity/input-quantity';
 
 export default new class productItem {
