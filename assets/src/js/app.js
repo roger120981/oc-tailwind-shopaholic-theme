@@ -7,7 +7,6 @@ import '/partials/account/sign-in';
 import '/partials/account/restore-password';
 /* TODO: Rename restore-password file*/
 import '/partials/account/account-change-password';
-import '/partials/carousel-main/carousel-main';
 /* * Input Quantity * */
 import '/partials/input-quantity/input-quantity';
 /* * Off Canvas * */

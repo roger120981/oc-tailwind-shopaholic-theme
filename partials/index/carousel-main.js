@@ -1,28 +1,20 @@
 import Swiper from 'swiper';
 
-export default new class MainCarousel {
+class MainCarousel {
   constructor() {
     this.sliderContainerSelector = 'carousel-main';
     this.paginationSelector = 'swiper-pagination';
     this.nextBulletSelector = 'slider__bullet';
     this.nextBulletActiveSelector = 'slider__bullet_active';
     this.uselessPaginationSelector = 'slider__pagination-hidden';
-
-    this.handler();
-  }
-
-  handler() {
-    oc.pageReady().then(() => {
-      const slider = document.querySelector(`.${this.sliderContainerSelector}`);
-      if (!slider) {
-        return;
-      }
-
-      this.init();
-    });
   }
 
   init() {
+    const slider = document.querySelector(`.${this.sliderContainerSelector}`);
+    if (!slider) {
+      return;
+    }
+
     this.MainCarousel = new Swiper(`.${this.sliderContainerSelector}`, {
       slidesPerView: 1,
       spaceBetween: 0,
@@ -40,4 +32,9 @@ export default new class MainCarousel {
       }
     });
   }
-}();
+}
+
+oc.pageReady().then(() => {
+  const obMainCarousel = new MainCarousel();
+  obMainCarousel.init();
+});
