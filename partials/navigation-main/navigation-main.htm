@@ -4,7 +4,7 @@ code = "navigation-main"
 {% set arMenuList = MainMenu.menuItems %}
 {% if arMenuList is not empty %}
     <nav class="hidden lg:block">
-        <ul class="flex flex-wrap">
+        <ul class="flex flex-wrap space-x-20 rtl:space-x-reverse ">
             {% for arItemMenu in arMenuList %}
                 {% if not arItemMenu.viewBag.isHidden %}
                     <li class="md:mr-20 md:last:mr-0 md:min-[10%]">
