@@ -1,5 +1,4 @@
 import '/partials/top-info-block/top-info-block';
-import '/partials/product-list-small/product-list-small';
 /* * Account * */
 // TODO: To decide regarding the assets with no markup
 import '/partials/account/sign-up';

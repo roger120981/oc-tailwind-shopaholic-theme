@@ -1,10 +1,22 @@
-{% if sProductListSmallType == sProductListSmallTypePopularity %}
+{#
+Params:
+- type
+- buttonName
+- sectionHeadingLevel
+- sectionHeading
+- showIndex
+- partialClasses
+- obProduct
+- iTake
+#}
+
+{% if type == sProductListSmallTypePopularity %}
     {% set obProductList = ProductList.make().active().sort('popularity|desc') %}
-{% elseif sProductListSmallType == sProductListSmallTypeNew %}
+{% elseif type == sProductListSmallTypeNew %}
     {% set obProductList = ProductList.make().active().sort('new') %}
-{% elseif sProductListSmallType == sProductListSmallTypeViewedProducts %}
+{% elseif type == sProductListSmallTypeViewedProducts %}
     {% set obProductList = ProductList.make().active().viewed() %}
-{% elseif sProductListSmallType == sProductListSmallTypeRelatedProducts %}
+{% elseif type == sProductListSmallTypeRelatedProducts %}
     {% set obProductList = obProduct.related().active() %}
 {% endif %}
 
@@ -13,26 +25,27 @@
 
 {% set arProductList = obProductList.page(iPage, iTake) %}
 {% set iTotalCount = obProductList.count() %}
-{% set bShowButton = iTake * iPage < iTotalCount %}
+{% set showButton = iTake * iPage < iTotalCount %}
 
 {% if arProductList is not empty %}
     <section class="content-visibility mt-10 mb-10 {{ partialClasses }}">
-        <h{{ sSectionHeadingLevel }} class="text-lg md:text-3xl uppercase mb-4 md:mb-10">{{ sSectionHeading }}</h{{ sSectionHeadingLevel }}>
+        <h{{ sectionHeadingLevel }} class="text-lg md:text-3xl uppercase mb-4 md:mb-10">{{ sectionHeading }}</h{{ sectionHeadingLevel }}>
         <ul class="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-6 _product-list-small">
-            {% partial 'product-list-small/product-list-small-ajax'
+            {% partial 'product/product-list-small/product-list-small-ajax'
                 arProductList = arProductList
-                iShowIndex = iShowIndex
+                type = type
+                showIndex = showIndex
             %}
         </ul>
-        {% if sButtonName is not empty and bShowButton %}
+        {% if buttonName is not empty and showButton %}
             <div class="mt-4 md:mt-11 text-center _product-list-small-button">
-                {% partial 'product-list-small/product-list-small-button-ajax'
+                {% partial 'product/product-list-small/product-list-small-button-ajax'
                     arProductList = arProductList
-                    sProductListSmallType = sProductListSmallType
+                    type = type
                     iTake = iTake
                     iPage = iPage
-                    iProductId = obProduct.id
-                    bShowButton = bShowButton
+                    iProductID = obProduct.id
+                    showButton = showButton
                 %}
             </div>
         {% endif %}

@@ -247,23 +247,22 @@ function getBreadcrumbs(): array
 </div>
 
 {% if this.theme.has_viewed_products %}
-    {% partial 'product-list-small/product-list-small'
-        sProductListSmallType = sProductListSmallTypeViewedProducts
-        sSectionHeading = 'catalog_products_viewed'|_
-        sSectionHeadingLevel = 2
+    {% partial 'product/product-list-small/product-list-small'
+        type = sProductListSmallTypeViewedProducts
+        sectionHeading = 'catalog_products_viewed'|_
+        sectionHeadingLevel = 2
         iTake = 4
-        iShowIndex = 0
+        showIndex = 0
     %}
 {% endif %}
 
 {% if this.theme.has_related_products %}
-    {# TODO: rename sSectionHeadingLevel var to iSectionHeadingLevel #}
-    {% partial 'product-list-small/product-list-small'
-        sProductListSmallType = sProductListSmallTypeRelatedProducts
+    {% partial 'product/product-list-small/product-list-small'
+        type = sProductListSmallTypeRelatedProducts
         obProduct = obProduct
-        sSectionHeading = 'catalog_products_also_like'|_
-        sSectionHeadingLevel = 2
+        sectionHeading = 'catalog_products_also_like'|_
+        sectionHeadingLevel = 2
         iTake = 4
-        iShowIndex = 0
+        showIndex = 0
     %}
 {% endif %}

@@ -1,14 +1,21 @@
+{#
+Params:
+- arProductList
+- type
+- showIndex
+#}
+
 {% if arProductList is empty %}
-    {% set sProductListSmallType = sProductListSmallType|default(input('product_list_small_list_type')) %}
-    {% if sProductListSmallType == sProductListSmallTypePopularity %}
+    {% set type = type|default(input('type')) %}
+    {% if type == sProductListSmallTypePopularity %}
         {% set obProductList = ProductList.make().active().sort('popularity|desc') %}
-    {% elseif sProductListSmallType == sProductListSmallTypeNew %}
+    {% elseif type == sProductListSmallTypeNew %}
         {% set obProductList = ProductList.make().active().sort('new') %}
-    {% elseif sProductListSmallType == sProductListSmallTypeViewedProducts %}
+    {% elseif type == sProductListSmallTypeViewedProducts %}
         {% set obProductList = ProductList.make().active().viewed() %}
-    {% elseif sProductListSmallType == sProductListSmallTypeRelatedProducts %}
-        {% set iProductId = input('product_id') %}
-        {% set obProduct = ProductData.get(iProductId) %}
+    {% elseif type == sProductListSmallTypeRelatedProducts %}
+        {% set iProductID = input('product_id') %}
+        {% set obProduct = ProductData.get(iProductID) %}
         {% set obProductList = obProduct.related().active() %}
     {% endif %}
 
@@ -26,8 +33,8 @@
         {% partial 'product-card/product-card'
             obProduct=obProduct
             partialClasses = 'h-full'
-            iLoopIndex = loop.index
-            iShowIndex = iShowIndex
+            loopIndex = loop.index
+            showIndex = showIndex
         %}
     </li>
 {% endfor %}

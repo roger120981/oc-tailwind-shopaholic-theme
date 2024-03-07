@@ -38,14 +38,13 @@ function onInit()
     {% endif %}
 {% endif %}
 
-{% partial 'product-list-small/product-list-small'
-    sProductListSmallType = bHasPopularityPlugin ? sProductListSmallTypePopularity : sProductListSmallTypeNew
-    sSectionHeading = 'catalog_products_popular'|_
-    sSectionHeadingLevel = 2
+{% partial 'product/product-list-small/product-list-small'
+    type = bHasPopularityPlugin ? sProductListSmallTypePopularity : sProductListSmallTypeNew
+    sectionHeading = 'catalog_products_popular'|_
+    sectionHeadingLevel = 2
     iTake = 4
-    sBtnMore = true
-    sButtonName = 'catalog_products_show_more'|_
-    iShowIndex = 4
+    buttonName = 'catalog_products_show_more'|_
+    showIndex = 4
 %}
 {# TODO: Change sSectionHeadingLevel to iSectionHeadingLevel overall #}
 
