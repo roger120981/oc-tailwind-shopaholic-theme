@@ -46,12 +46,10 @@ function onInit()
 {% set iMaxPage = Pagination.getMaxPage(obArticleList.count()) %}
 {% set arPaginationList = Pagination.get(iPage, obArticleList.count()) %}
 
-{# TODO: Fix wrong breadcrumbs #}
-{% partial 'common/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
-<h1 class="container mx-auto mb-4 md:mb-10 text-lg md:text-3xl uppercase">{{ 'blog_title'|_ }}</h1>
-{% partial 'news-list/news-list'
+{% partial 'common/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
+<h1 class="container mx-auto mb-4 md:mb-10 text-lg md:text-3xl uppercase">{{ SeoToolbox.getPageTitle()|default('blog_title'|_) }}</h1>
+{% partial 'news/news-list'
     arArticleList = arArticleList
-    sCardHeadingLevel = 2
 %}
 {% partial 'pagination/pagination'
     arPaginationList = arPaginationList

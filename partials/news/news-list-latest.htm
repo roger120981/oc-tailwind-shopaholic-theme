@@ -1,8 +1,14 @@
+{#
+Params:
+- sectionHeadingLevel
+- partialClasses
+#}
+
 <div class="mt-10 mb-10 {{ partialClasses }}">
     <div class="flex justify-between items-center mb-4 md:mb-10">
-        <h{{ sSectionHeadingLevel }} class="text-lg md:text-3xl uppercase">
+        <h{{ sectionHeadingLevel }} class="text-lg md:text-3xl uppercase">
             {{ 'blog_posts_latest'|_ }}
-        </h{{ sSectionHeadingLevel }}>
+        </h{{ sectionHeadingLevel }}>
         <a class="text-blue-800 underline text-base md:text-xl active:text-blue-900 hover:text-blue-700 hover:no-underline" href="{{ 'news-list'|page }}">
             {{ 'blog_see_all'|_ }}
         </a>
@@ -11,11 +17,11 @@
         <ul class="grid grid-flow-col md:grid-flow-row md:grid-cols-4 gap-x-2 md:gap-x-4 overflow-x-scroll xl:overflow-visible scrollbar-x-none snap-x snap-mandatory">
             {% for obArticle in arArticleList %}
                 <li class="snap-start w-40 md:w-auto">
-                    {% partial 'news-card/news-card'
+                    {% partial 'news/news-card'
                         obArticle = obArticle
-                        sCardHeadingLevel = 3
-                        iLoopIndex = loop.index
-                        iShowIndex = 4
+                        cardHeadingLevel = 3
+                        loopIndex = loop.index
+                        showIndex = 4
                     %}
                 </li>
             {% endfor %}

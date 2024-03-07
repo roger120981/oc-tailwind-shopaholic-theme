@@ -31,9 +31,9 @@ function onInit()
 {% if SiteSettings.latest_news_active %}
     {% set arArticleList = ArticleList.make().sort('publish|desc').published().take(4) %}
     {% if arArticleList is not empty %}
-        {% partial 'news-list-latest/news-list-latest'
+        {% partial 'news/news-list-latest'
             arArticleList = arArticleList
-            sSectionHeadingLevel = 2
+            sectionHeadingLevel = 2
         %}
     {% endif %}
 {% endif %}

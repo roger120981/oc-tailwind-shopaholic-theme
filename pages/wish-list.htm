@@ -19,7 +19,7 @@ function onInit()
 
 {% set arProductList = ProductList.make().active().wishList() %}
 
-{% partial 'common/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
+{% partial 'common/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
 <section class="pb-10 md:pb-16">
     <h1 class="uppercase font-medium text-xl md:text-3xl">{{ 'wishlist_wishlist'|_ }}</h1>
     {# TODO: Add check for theme settings #}

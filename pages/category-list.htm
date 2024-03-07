@@ -9,7 +9,7 @@ title = "Category list"
 ] %}
 
 {% set obCategoryList = CategoryList.make().active().tree() %}
-{% partial 'common/breadcrumbs/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
+{% partial 'common/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
 
 <h1 class="text-gray-900 text-xl md:text-2xl xl:text-3xl uppercase">{{ SeoToolbox.getPageTitle()|default('catalog_categories'|_) }}</h1>
 
