@@ -102,8 +102,10 @@ function onInit() {
             //Get filter by properties
             $arFilterValue = (array) input('property');
             if (!empty($arFilterValue)) {
-                foreach($arFilterValue as $sKey => &$sValue) {
-                    $sValue = explode('|', $sValue);
+                foreach($arFilterValue as $sKey => $sValue) {
+                    $arValueList = explode('|', $sValue);
+                    $arValueList = array_filter($arValueList);
+                    $arFilterValue[$sKey] = count($arValueList) === 1 ? array_shift($arValueList) : $arValueList;
                 }
             }
 

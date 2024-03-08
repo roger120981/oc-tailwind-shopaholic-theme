@@ -34,10 +34,9 @@
                         %}
                     </fieldset>
                 </div>
-            {% endif %}
-            {% if obProperty.filter_type == 'checkbox' %}
-            {% set obPropertyValueList = obProperty.property_value.sort() %}
-                {% if obProperty.code != 'Color' %}
+            {% elseif obProperty.filter_type == 'checkbox' %}
+                {% set obPropertyValueList = obProperty.property_value.sort() %}
+                {% if obProperty.code != 'color' %}
                     <fieldset class="me-3 w-full">
                         <legend class="sr-only">{{ obProperty.name }}</legend>
                         {% for obValue in obPropertyValueList %}
@@ -53,13 +52,13 @@
                                 inputClasses = 'rounded-sm disabled:opacity-20'
                                 disabled = bDisabled
                                 checked= bChecked
-                                id = obValue.slug
+                                id = 'property-'.obProperty.id
+                                name = 'property-'.obProperty.id
                                 value = obValue.slug
                             %}
                         {% endfor %}
                     </fieldset>
-                {% endif %}
-                {% if obProperty.code == 'Color' %}
+                {% else %}
                     <fieldset class="flex flex-wrap">
                         <legend class="sr-only">{{ obProperty.name }}</legend>
                         {% partial 'input-color-choose/input-color-choose'
@@ -70,6 +69,34 @@
                         %}
                     </fieldset>
                 {% endif %}
+            {% elseif obProperty.filter_type == 'select' %}
+                {% set obPropertyValueList = obProperty.property_value.sort() %}
+                {% set selectOptions = [] %}
+                {% for obPropertyValue in obPropertyValueList %}
+                    {% set selectOptions = selectOptions|merge([{value: obPropertyValue.slug, label: obPropertyValue.value}]) %}
+                {% endfor %}
+                {% partial 'form/select'
+                    id = 'property-'.obProperty.id
+                    name = 'property-'.obProperty.id
+                    wrapperClasses = 'w-full'
+                    options = selectOptions
+                    selectedValue = arFilterValue[obProperty.id]
+                %}
+            {% elseif obProperty.filter_type == 'radio' %}
+                <fieldset class="flex flex-wrap">
+                    {% set obPropertyValueList = obProperty.property_value.sort() %}
+                    {% for obPropertyValue in obPropertyValueList %}
+                        {% set bChecked = arFilterValue[obProperty.id] is not empty and obValue.slug in arFilterValue[obProperty.id] %}
+                        {% partial 'form/input-radio'
+                            id = 'property-'.obProperty.id
+                            name = 'property-'.obProperty.id
+                            wrapperClasses = 'w-full'
+                            value = obPropertyValue.slug
+                            checked = bChecked
+                            text = obPropertyValue.value
+                        %}
+                    {% endfor %}
+                </fieldset>
             {% endif %}
         </div>
     </details>

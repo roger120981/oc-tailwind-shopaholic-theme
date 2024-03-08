@@ -32,12 +32,13 @@ Params:
         {{dataAtributes}}
     >
         {% for obOption in options %}
+            {% set optionValue = obOption[keyForValue] %}
             <option
-                    value="{{ obOption[keyForValue] }}"
+                    value="{{ optionValue }}"
                     {% if obOption['disabled'] == true %}
                         disabled="disabled"
                     {% endif %}
-                    {% if obOption[keyForValue] == selectedValue %}selected{% endif %}
+                    {% if optionValue == selectedValue %}selected{% endif %}
             >{{ obOption[keyForLabel] }}</option>
         {% endfor %}
     </select>

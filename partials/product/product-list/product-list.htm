@@ -1,7 +1,7 @@
 {% if arProductList is not empty %}
     <div class="grid grid-cols-2 gap-x-4 gap-y-6 md:grid-cols-3 content-visibility">
         {% for obProduct in arProductList %}
-            {% partial 'product/product-card/product-card' obProduct = obProduct %}
+            {% partial 'product/product-card' obProduct = obProduct %}
         {% endfor %}
     </div>
 

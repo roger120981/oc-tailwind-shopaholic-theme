@@ -1,9 +1,16 @@
 import {EVENT_OPEN} from '/partials/common/off-canvas/off-canvas';
+import {ProductList} from '/partials/product/product-list/product-list';
+import UrlGeneration from '@oc-shopaholic/url-generation';
+import ShopaholicFilterPrice from '@oc-shopaholic/shopaholic-filter-panel/shopaholic-filter-price';
+import ShopaholicFilterPanel from '@oc-shopaholic/shopaholic-filter-panel/shopaholic-filter-panel';
 
 export default class Filter {
   constructor() {
     this.filterNode = null
     this.templateNode = null
+
+    const obProductList = new ProductList();
+    this.obListHelper = obProductList.getListHelper();
   }
 
   init() {
@@ -14,8 +21,23 @@ export default class Filter {
 
     this.templateNode = this.filterNode.querySelector('._filterTemplate');
 
-    this.adaptation()
-    this.initAccordionState()
+    this.adaptation();
+    this.initAccordionState();
+    this.initHandlers();
+  }
+
+  initHandlers() {
+    const obFilterPrice = new ShopaholicFilterPrice(this.obListHelper);
+    obFilterPrice.init();
+
+    const obFilterPanel = new ShopaholicFilterPanel(this.obListHelper);
+    obFilterPanel.init();
+
+    const obFilterPanelDiscount = new ShopaholicFilterPanel(this.obListHelper);
+    obFilterPanelDiscount
+      .setWrapperSelector('._shopaholic-sale-filter-wrapper')
+      .setFieldName('sale')
+      .init();
   }
 
   /**
@@ -26,6 +48,59 @@ export default class Filter {
       const obLocalNodeContainer = this.templateNode.content.cloneNode(true);
       this.filterNode.appendChild(obLocalNodeContainer);
     }
+  }
+
+  initClearButton() {
+    document.addEventListener('click', (event) => {
+      const eventNode = event.target;
+      const buttonNode = eventNode.closest('._clearFilter');
+      if (!buttonNode) {
+        return;
+      }
+
+      UrlGeneration.clear();
+      if (this.filterNode) {
+        this.clearPriceFilterValue('filter-min-price');
+        this.clearPriceFilterValue('filter-max-price');
+        this.clearDiscountsFilter();
+        this.clearPropertyFilters();
+      }
+
+      this.obListHelper.send();
+    });
+  }
+
+  clearPriceFilterValue(inputName) {
+    const inputNode = this.filterNode.querySelector(`input[name="${inputName}"]`);
+    if (!inputNode) {
+      return;
+    }
+
+    inputNode.value = null;
+  }
+
+  clearDiscountsFilter() {
+    const checkboxNode = this.filterNode.querySelector('._shopaholic-sale-filter-wrapper input[name="sale"]');
+    if (!checkboxNode) {
+      return;
+    }
+
+    checkboxNode.checked = false;
+  }
+
+  clearPropertyFilters() {
+    const inputNodeList = this.filterNode.querySelectorAll('._shopaholic-filter-wrapper input');
+    if (inputNodeList.length === 0) {
+      return;
+    }
+
+    inputNodeList.forEach((inputNode) => {
+      if (inputNode.type === 'checkbox') {
+        inputNode.checked = false;
+      } else {
+        inputNode.value = null;
+      }
+    });
   }
 
   /**
@@ -44,10 +119,11 @@ export default class Filter {
       }
 
       const summaryNode = filterDetailNode.querySelector('summary');
-      const propertyNode = document.querySelector(`[data-property-id="${filterDetailNode.id}"]`);
       if (summaryNode) {
         summaryNode.classList.remove('after:transition-none');
       }
+
+      const propertyNode = document.querySelector(`[data-property-id="${filterDetailNode.id}"]`);
 
       if (propertyNode && detailsData === 'open') {
         propertyNode.setAttribute('open', '');
@@ -61,7 +137,7 @@ export default class Filter {
     });
   }
 
-  static initEvents() {
+  initSummaryEvents() {
     document.addEventListener('click', (event) => {
       const eventNode = event.target;
       const summaryNode = eventNode.closest('._filter-details summary');
@@ -75,18 +151,19 @@ export default class Filter {
         return;
       }
 
-      sessionStorage.setItem(`filter-details-${detailsNode.id}`, !detailsNode.open ? 'open' : 'close');
+      sessionStorage.setItem(`filter-details-${detailsNode.id}`, detailsNode.open ? 'close' : 'open');
     });
   }
 }
 
 oc.pageReady().then(() => {
-  Filter.initEvents();
+  const obFilter = new Filter();
+  obFilter.initSummaryEvents();
+  obFilter.initClearButton();
 
   oc.ajax('onInit', {
     update: {'catalog/filter/filter-ajax': '._filter'},
     complete: () => {
-      const obFilter = new Filter();
       obFilter.init();
 
       document.addEventListener(EVENT_OPEN, (event) => {
