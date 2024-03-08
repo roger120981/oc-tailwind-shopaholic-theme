@@ -21,7 +21,7 @@ export default new class productCardCheckout{
         const obShopaholicCartRemove = new ShopaholicCartRemove();
         obShopaholicCartRemove.setAjaxRequestCallback((obRequestData, obButton) => {
             obRequestData.update = {
-                'header/header-ajax': '._header-purchases',
+                'main/header-ajax': '._header-purchases',
                 'cart-list/cart-list-ajax': `._cart-list`,
                 'checkout-list/checkout-list-ajax': `._checkout-list`,
                 'checkout-subtotal/checkout-subtotal-ajax': `._checkout-subtotal`,

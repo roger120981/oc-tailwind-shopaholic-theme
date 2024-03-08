@@ -10,7 +10,7 @@ export default new class ProductChoose {
     const shopaholicCartAdd = new ShopaholicCartAdd();
     shopaholicCartAdd.setAjaxRequestCallback((requestData, button) => {
 
-      requestData.update = {'header/header-ajax': '._header-purchases'};
+      requestData.update = {'main/header-ajax': '._header-purchases'};
       requestData.complete = (data) => {
         shopaholicCartAdd.completeCallback(data, button);
         // let content = document.querySelector(`.${this.cartPopupWrapper}`);

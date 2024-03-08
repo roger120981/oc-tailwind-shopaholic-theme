@@ -48,7 +48,7 @@ function onStart()
 <html dir="auto" lang="{{ activeLocale ? activeLocale : 'en' }}">
     <head>
         {{ SeoToolbox.getHeadBegin()|raw }}
-        {% partial 'head/head' %}
+        {% partial 'main/head' %}
         {% placeholder seo_tags default %}
             {% component 'SeoToolbox' %}
         {% endplaceholder %}

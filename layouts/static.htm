@@ -52,7 +52,7 @@ function onStart()
 <html dir="auto" lang="{{ activeLocale ? activeLocale : 'en' }}">
     <head>
         {{ SeoToolbox.getHeadBegin()|raw }}
-        {% partial 'head/head' %}
+        {% partial 'main/head' %}
         {% placeholder seo_tags default %}
             {% component 'SeoToolbox' %}
         {% endplaceholder %}
@@ -61,7 +61,7 @@ function onStart()
     <body class="bg-gray-50" itemscope itemtype="http://schema.org/WebPage">
         {{ SeoToolbox.getBodyBegin()|raw }}
         <div class="sm:container sm:mx-auto px-4 min-h-screen grid grid-cols-full grid-rows-auto-fr-auto">
-            {% partial 'header/header' %}
+            {% partial 'main/header' %}
             <main>
                 {% partial 'common/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
                 <div class="max-w-5xl mx-auto mb-6 md:mb-14">
@@ -72,7 +72,7 @@ function onStart()
                     </div>
                 </div>
             </main>
-            {% partial 'footer/footer' %}
+            {% partial 'main/footer' %}
             {% partial 'message/flash-message' %}
         </div>
         {% partial 'scripts/scripts' %}

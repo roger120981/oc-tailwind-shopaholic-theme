@@ -82,7 +82,7 @@
             {% endif %}
         {% endif %}
         <div class="_header-purchases flex mt-2">
-            {% partial 'header/header-ajax' %}
+            {% partial 'main/header-ajax' %}
         </div>
         {% if bHasUserPlugin and obUser is empty %}
             <a href="{{ 'sign-in'|page }}" class="ms-9 shrink-0 text-blue-800 focus-visible:outline-blue hover:text-blue-700 active:text-blue-900 hidden lg:inline">{{ 'account_sign_in'|_ }}</a>
