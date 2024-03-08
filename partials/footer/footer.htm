@@ -4,12 +4,12 @@
             {% partial 'navigation/navigation-columns' %}
             {% if SiteContent.payment_methods_list_active %}
                 {% partial 'icon-list/icon-list'
-                    sSectionHeader = "theme_payment_methods"|_
+                    sectionHeader = "theme_payment_methods"|_
                     partialClasses = "lg:mt-8"
-                    sUlClass = "gap-x-2"
+                    listClasses = "gap-x-2"
                     arItemList = SiteContent.payment_methods_list
-                    sItemClass = "w-14 aspect-w-14 aspect-h-9"
-                    sNotFoundResultsMessage = "theme_payment_methods_not_added"|_
+                    itemClasses = "w-14 aspect-w-14 aspect-h-9"
+                    notFoundMessage = "theme_payment_methods_not_added"|_
                 %}
             {% endif %}
         </div>
@@ -45,11 +45,11 @@
                 {% endif %}
                 {% if SiteContent.social_media_list_active %}
                     {% partial 'icon-list/icon-list'
-                        sSectionHeader = "theme_social_media_list"|_
+                        sectionHeader = "theme_social_media_list"|_
                         partialClasses = "lg:mt-5"
                         arItemList = SiteContent.social_media_list
-                        sItemClass = "w-10 aspect-w-1 aspect-h-1"
-                        sNotFoundResultsMessage = "theme_social_media_list_not_added"|_
+                        itemClasses = "w-10 aspect-w-1 aspect-h-1"
+                        notFoundMessage = "theme_social_media_list_not_added"|_
                     %}
                 {% endif %}
             </div>
