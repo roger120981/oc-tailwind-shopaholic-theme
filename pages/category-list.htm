@@ -18,9 +18,9 @@ title = "Category list"
         {% partial 'common/advanced-list/advanced-list' body %}
             {% for obCategory in obCategoryList %}
                 {% partial 'common/advanced-list/advanced-list-item'
-                    sName = obCategory.name
-                    sUrl = obCategory.getPageUrl('catalog')
-                    sImagePath = obCategory.icon.path
+                    name = obCategory.name
+                    href = obCategory.getPageUrl('catalog')
+                    imagePath = obCategory.icon.path
                 %}
             {% endfor %}
         {% endpartial %}

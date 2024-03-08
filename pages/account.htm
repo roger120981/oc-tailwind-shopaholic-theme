@@ -54,9 +54,9 @@ function onInit()
     {% partial 'common/advanced-list/advanced-list' body %}
         {% for obItem in arList %}
             {% partial 'common/advanced-list/advanced-list-item'
-                sName = obItem.title
-                sUrl = obItem.url|page
-                sImagePath = obItem.icon
+                name = obItem.title
+                href = obItem.url|page
+                imagePath = obItem.icon
                 partialClasses = obItem.viewBag.cssClass
             %}
         {% endfor %}

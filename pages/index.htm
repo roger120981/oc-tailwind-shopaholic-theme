@@ -59,10 +59,10 @@ function onInit()
         {% partial 'common/advanced-list/advanced-list' body %}
             {% for obCategory in arCategoryList %}
                 {% partial 'common/advanced-list/advanced-list-item'
-                    sName = obCategory.name
-                    sUrl = obCategory.getPageUrl('catalog')
-                    sImagePath = obCategory.icon.path
-                    sLoad = true
+                    name = obCategory.name
+                    href = obCategory.getPageUrl('catalog')
+                    imagePath = obCategory.icon.path
+                    needLoad = true
                     iTake = iTake
                 %}
             {% endfor %}
