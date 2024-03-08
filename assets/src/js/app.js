@@ -26,5 +26,4 @@ import '../../dist/js/node_modules_photoswipe_dist_photoswipe_esm_js';
 import '/partials/input-quantity/input-quantity';
 
 import '/partials/map/map.js';
-import '/partials/flash-message/flash-message';
-
+import '/partials/message/flash-message';

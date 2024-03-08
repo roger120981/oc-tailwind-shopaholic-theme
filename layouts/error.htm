@@ -57,6 +57,7 @@ function onStart()
     <body class="bg-gray-50" itemscope itemtype="http://schema.org/WebPage">
         {{ SeoToolbox.getBodyBegin()|raw }}
         {% page %}
+        {% partial 'message/flash-message' %}
         {% partial 'scripts/scripts' %}
         {{ SeoToolbox.getBodyEnd()|raw }}
     </body>

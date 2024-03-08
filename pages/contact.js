@@ -1,5 +1,5 @@
 import '../assets/src/js/validation';
-import {FlashMessage} from '/partials/flash-message/flash-message';
+import {FlashMessage} from '/partials/message/flash-message';
 
 class ContactPage {
   constructor() {
