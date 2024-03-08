@@ -66,13 +66,13 @@ function onInit()
     {% if obOrderList.isNotEmpty() %}
         {% partial 'order-list/order-list' %}
     {% else %}
-        {% partial 'info-message/info-message'
+        {% partial 'message/info-message'
             partialClasses = 'mt-28 md:mt-14'
-            sIconName = 'empty.svg'
-            sEmptyPageMessage = 'account_no_orders'|_
-            sHref = 'catalog/catalog'|page
-            sButtonText = 'account_start_shopping'|_
-            sButtonClasses = 'mt-24 w-full text-center md:px-16 md:mt-6 md:w-auto'
+            icon = 'empty.svg'
+            message = 'account_no_orders'|_
+            buttonHref = 'catalog'|page
+            buttonText = 'account_start_shopping'|_
+            buttonClasses = 'mt-24 w-full text-center md:px-16 md:mt-6 md:w-auto'
         %}
     {% endif %}
 </div>

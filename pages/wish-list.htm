@@ -34,15 +34,14 @@ function onInit()
             {% endfor %}
         </div>
     {% else %}
-        {% partial 'info-message/info-message'
+        {% partial 'message/info-message'
             partialClasses = 'mt-20 md:mt-7'
-            sIconName = 'wishlist.svg'
-            sEmptyPageMessage = 'wishlist_empty'|_
-            sHref = 'catalog/catalog'|page
-            sButtonText = 'wishlist_start_shopping'|_
-            sButtonClasses = 'mt-24 md:mt-6'
-            sButtonType = link
-            sHref = 'catalog/catalog'|page
+            icon = 'wishlist.svg'
+            message = 'wishlist_empty'|_
+            buttonHref = 'catalog'|page
+            buttonText = 'wishlist_start_shopping'|_
+            buttonClasses = 'mt-24 md:mt-6'
+            buttonType = 'link'
         %}{#TODO: sHref could be broken if site admin will choose another slug for the Catalog page. #}
     {% endif %}
 </section>

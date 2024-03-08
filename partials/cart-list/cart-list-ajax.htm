@@ -39,13 +39,13 @@
         {% endif %}
     </div>
 {% else %}
-    {% partial 'info-message/info-message'
+    {% partial 'message/info-message'
         partialClasses = 'mt-44 justify-center mb-8 text-center lg:mb-14 lg:mt-52'
-        sIconName = 'basket.svg'
-        sEmptyPageMessage = 'purchase_cart_is_empty'|_
-        sHref = 'catalog'|page
-        sButtonText = 'purchase_start_shopping'|_
-        sButtonClasses = 'mt-36 w-full lg:mt-24 md:w-auto'
+        icon = 'basket.svg'
+        message = 'purchase_cart_is_empty'|_
+        buttonHref = 'catalog'|page
+        buttonText = 'purchase_start_shopping'|_
+        buttonClasses = 'mt-36 w-full lg:mt-24 md:w-auto'
     %}
 {% endif %}
 {% put scripts %}
