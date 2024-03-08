@@ -39,7 +39,7 @@ function onInit()
 {% endif %}
 
 {% partial 'product/product-list-small/product-list-small'
-    type = bHasPopularityPlugin ? sProductListSmallTypePopularity : sProductListSmallTypeNew
+    type = bHasPopularityPlugin ? 'popularity' : 'new'
     sectionHeading = 'catalog_products_popular'|_
     sectionHeadingLevel = 2
     iTake = 4

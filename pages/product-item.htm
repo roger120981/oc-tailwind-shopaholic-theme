@@ -248,7 +248,7 @@ function getBreadcrumbs(): array
 
 {% if this.theme.has_viewed_products %}
     {% partial 'product/product-list-small/product-list-small'
-        type = sProductListSmallTypeViewedProducts
+        type = 'viewed_products'
         sectionHeading = 'catalog_products_viewed'|_
         sectionHeadingLevel = 2
         iTake = 4
@@ -258,7 +258,7 @@ function getBreadcrumbs(): array
 
 {% if this.theme.has_related_products %}
     {% partial 'product/product-list-small/product-list-small'
-        type = sProductListSmallTypeRelatedProducts
+        type = 'related_products'
         obProduct = obProduct
         sectionHeading = 'catalog_products_also_like'|_
         sectionHeadingLevel = 2

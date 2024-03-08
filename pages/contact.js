@@ -1,4 +1,6 @@
 import '../assets/src/js/validation';
+import '/partials/map/map.js';
+
 import {FlashMessage} from '/partials/message/flash-message';
 
 class ContactPage {

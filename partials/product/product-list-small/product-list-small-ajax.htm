@@ -7,13 +7,13 @@ Params:
 
 {% if arProductList is empty %}
     {% set type = type|default(input('type')) %}
-    {% if type == sProductListSmallTypePopularity %}
+    {% if type == 'popularity' %}
         {% set obProductList = ProductList.make().active().sort('popularity|desc') %}
-    {% elseif type == sProductListSmallTypeNew %}
+    {% elseif type == 'new' %}
         {% set obProductList = ProductList.make().active().sort('new') %}
-    {% elseif type == sProductListSmallTypeViewedProducts %}
+    {% elseif type == 'viewed_products' %}
         {% set obProductList = ProductList.make().active().viewed() %}
-    {% elseif type == sProductListSmallTypeRelatedProducts %}
+    {% elseif type == 'related_products' %}
         {% set iProductID = input('product_id') %}
         {% set obProduct = ProductData.get(iProductID) %}
         {% set obProductList = obProduct.related().active() %}
