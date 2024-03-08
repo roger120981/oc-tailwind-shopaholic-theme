@@ -26,16 +26,16 @@ function onInit()
     {% if arProductList is not empty %}
         <div class="grid grid-cols-2 gap-x-4 gap-y-6 mt-4 md:grid-cols-4">
             {% for obProduct in arProductList %}
-                {% partial 'product-card/product-card'
+                {% partial 'product/product-card/product-card'
                     obProduct = obProduct
-                    iLoopIndex = loop.indexproduct-card
-                    iShowIndex = 8
+                    loopIndex = loop.indexproduct-card
+                    showIndex = 8
                 %}
             {% endfor %}
         </div>
     {% else %}
         {% partial 'message/info-message'
-            partialClasses = 'mt-20 md:mt-7'
+            wrapperClasses = 'mt-20 md:mt-7'
             icon = 'wishlist.svg'
             message = 'wishlist_empty'|_
             buttonHref = 'catalog'|page

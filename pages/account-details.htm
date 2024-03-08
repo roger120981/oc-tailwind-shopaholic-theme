@@ -53,7 +53,7 @@ function onInit()
             name = 'email'
             value = obUser.email
             required = 'required'
-            partialClasses = 'mt-4'
+            wrapperClasses = 'mt-4'
         %}
         {# TODO: Add inline ajax validation for email existing #}
         {% partial 'form/input'
@@ -62,7 +62,7 @@ function onInit()
             id = 'phone'
             name = 'phone'
             value = obUser.phone
-            partialClasses = 'mt-4'
+            wrapperClasses = 'mt-4'
         %}
         {# TODO: Add inline ajax validation for Phone number format #}
         {% partial 'form/input'
@@ -71,7 +71,7 @@ function onInit()
             id = 'country'
             name = 'country'
             value = obUser.address.country
-            partialClasses = 'mt-4'
+            wrapperClasses = 'mt-4'
         %}
         {% partial 'form/input'
             labelText = 'form_user_city'|_
@@ -79,7 +79,7 @@ function onInit()
             id = 'city'
             name = 'city'
             value = obUser.address.city
-            partialClasses = 'mt-4'
+            wrapperClasses = 'mt-4'
         %}
         {% partial 'form/input'
             labelText = 'form_user_zip_code'|_
@@ -87,7 +87,7 @@ function onInit()
             id = 'zip'
             name = 'zip'
             value = obUser.address.zip
-            partialClasses = 'mt-4'
+            wrapperClasses = 'mt-4'
         %}
         {% partial 'form/input'
             labelText = 'form_user_address_postal'|_
@@ -95,12 +95,12 @@ function onInit()
             id = 'address'
             name = 'address'
             value = obUser.address.address
-            partialClasses = 'mt-4'
+            wrapperClasses = 'mt-4'
         %}
         {% partial 'form/button'
             text = 'form_save'|_
             type = 'submit'
-            partialClasses = 'w-full md:w-auto mt-8'
+            wrapperClasses = 'w-full md:w-auto mt-8'
         %}
     </form>
 </div>

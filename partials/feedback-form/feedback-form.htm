@@ -12,7 +12,7 @@
         name = 'name'
         required = 'required'
         type = 'text'
-        partialClasses = 'relative'
+        wrapperClasses = 'relative'
     %}
     {% partial 'form/input'
         id = 'form-email'
@@ -20,18 +20,18 @@
         name = 'email'
         required = 'required'
         type = 'email'
-        partialClasses = 'mt-7 md:mt-8 relative'
+        wrapperClasses = 'mt-7 md:mt-8 relative'
     %}
     {% partial 'form/textarea'
         id = 'message'
         labelText = 'form_user_message'|_
         name = 'message'
-        partialClasses = 'mt-7 md:mt-8 relative'
+        wrapperClasses = 'mt-7 md:mt-8 relative'
         rows = '4'
     %}
     {% partial 'form/button'
         text = 'form_send'|_
         type = 'submit'
-        partialClasses = 'w-full md:w-auto mt-12 md:mt-10'
+        wrapperClasses = 'w-full md:w-auto mt-12 md:mt-10'
     %}
 </form>

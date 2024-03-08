@@ -1,11 +1,11 @@
 {#
 Render page breadcrumbs
 Params:
-    - partialClasses
+    - wrapperClasses
     - arBreadcrumbs
 #}
 
-<nav class="my-4 md:my-6 overflow-auto xl:overflow-hidden scrollbar-x-none {{ partialClasses }}" role="navigation">
+<nav class="my-4 md:my-6 overflow-auto xl:overflow-hidden scrollbar-x-none {{ wrapperClasses }}" role="navigation">
     <ul class="flex flex-nowrap xl:flex-wrap text-gray-600" aria-label="{{ 'breadcrumbs_breadcrumbs'|_ }}">
         <li>
             <a class="underline" href="{{ 'index'|page }}">{{ 'breadcrumbs_home'|_ }}</a>

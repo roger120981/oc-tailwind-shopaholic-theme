@@ -43,7 +43,7 @@ function onInit()
                 name = 'password'
                 required = 'required'
                 type = 'password'
-                partialClasses = 'mt-4'
+                wrapperClasses = 'mt-4'
             %}
             {# TODO: Add inline ajax validation for matching of the password fields values #}
             {% partial 'form/input'
@@ -52,12 +52,12 @@ function onInit()
                 name = 'password_confirmation'
                 required = 'required'
                 type = 'password'
-                partialClasses = 'mt-4'
+                wrapperClasses = 'mt-4'
             %}
             {% set accountPrivacyTermsConditions = '<a class="text-blue-800 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue underline hover:no-underline text-sm md:text-base" href="'~ this.theme.sign_up_terms_link|link ~'">'~('account_privacy_terms_conditions'|_)|raw ~'</a>' %}
             {% set accountPrivacyCookiePolicy = '<a class="text-blue-800 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue underline hover:no-underline text-sm md:text-base" href="'~ this.theme.sign_up_policy_link|link ~'">'~('account_privacy_cookie_policy'|_)~'</a>' %}
             {% partial 'form/input-checkbox'
-                partialClasses = 'mt-4 md:mt-3'
+                wrapperClasses = 'mt-4 md:mt-3'
                 id = 'remember_me'
                 name = 'remember_me'
                 labelText = 'account_rules_acceptance'|transRaw({account_privacy_terms_conditions: accountPrivacyTermsConditions, account_privacy_cookie_policy: accountPrivacyCookiePolicy}) | raw
@@ -65,7 +65,7 @@ function onInit()
             {% partial 'form/button'
                 text = 'account_sign_up'|_
                 type = 'submit'
-                partialClasses = '_button-sign-up w-full mt-8 md:mt-6'
+                wrapperClasses = '_button-sign-up w-full mt-8 md:mt-6'
             %}
         </form>
         {% set account_sign_in = '<a class="text-blue-800 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue underline hover:no-underline text-sm md:text-base" href="'~( 'sign-in/sign-in'|page )~'">'~('account_sign_in'|_)~'</a>' %}

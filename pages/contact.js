@@ -1,5 +1,5 @@
 import '../assets/src/js/validation';
-import '/partials/map/map.js';
+import '/partials/common/map/map';
 
 import {FlashMessage} from '/partials/message/flash-message';
 

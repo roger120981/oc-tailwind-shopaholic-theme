@@ -1,6 +1,6 @@
 {#
 Params:
-- partialClasses
+- wrapperClasses
 - icon
 - message
 - buttonHref
@@ -9,12 +9,12 @@ Params:
 - buttonType
 #}
 
-<div class="flex flex-col items-center pt-57 md:pt-54 bg-no-repeat bg-top bg-info-icon {{ partialClasses }}" style="background-image:url({{ ('assets/images/info-message/' ~ icon)|theme }})">
+<div class="flex flex-col items-center pt-57 md:pt-54 bg-no-repeat bg-top bg-info-icon {{ wrapperClasses }}" style="background-image:url({{ ('assets/images/info-message/' ~ icon)|theme }})">
     <p class="text-lg md:text-xl text-gray-400">{{ message }}</p>
     {% partial 'form/button'
         url = buttonHref
         text = buttonText
-        partialClasses = buttonClasses
+        wrapperClasses = buttonClasses
         buttonType = buttonType
     %}
 </div>

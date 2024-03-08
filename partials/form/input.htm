@@ -16,14 +16,14 @@ Params:
 - attribute
 - validationErrorSelector
 - customErrorMessage
-- partialClasses
+- wrapperClasses
 - labelText
 - labelClasses
 - inputClasses
 #}
 {% set id = id|default(name) %}
 
-<div class="{{ partialClasses }}">
+<div class="{{ wrapperClasses }}">
     {% if labelText %}
         <label for="{{ id }}" class="text-xs text-gray-600 inline-block mb-1 {{ labelClasses }}">{{ labelText }}{% if required %} *{% endif %}
         </label>

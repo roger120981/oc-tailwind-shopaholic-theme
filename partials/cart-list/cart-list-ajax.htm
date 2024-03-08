@@ -27,7 +27,7 @@
         </div>
         {% if bButton != true %}
             {% partial 'form/button'
-                partialClasses = '_checkout-button px-16 mt-28 text-center text-lg lg:text-base lg:mt-px'
+                wrapperClasses = '_checkout-button px-16 mt-28 text-center text-lg lg:text-base lg:mt-px'
                 url = obUser ? 'checkout'|page : 'checkout-authentification'|page
                 body
             %}
@@ -40,7 +40,7 @@
     </div>
 {% else %}
     {% partial 'message/info-message'
-        partialClasses = 'mt-44 justify-center mb-8 text-center lg:mb-14 lg:mt-52'
+        wrapperClasses = 'mt-44 justify-center mb-8 text-center lg:mb-14 lg:mt-52'
         icon = 'basket.svg'
         message = 'purchase_cart_is_empty'|_
         buttonHref = 'catalog'|page

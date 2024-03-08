@@ -5,9 +5,9 @@ Params:
 #}
 
 {% if buttonType %}
-    {% set partialClasses = 'flex' %}
+    {% set wrapperClasses = 'flex' %}
 {% else %}
-    {% set partialClasses = 'flex justify-end' %}
+    {% set wrapperClasses = 'flex justify-end' %}
 {% endif %}
 
 {% if buttonHeadingHidden %}
@@ -33,7 +33,7 @@ Params:
                     {% partial 'form/button'
                         text = sButtonCloseText
                         buttonType = 'cancel'
-                        partialClasses = '_hide'
+                        wrapperClasses = '_hide'
                     %}
                     {% if sButtonConfirmText %}
                         {% partial 'form/button'

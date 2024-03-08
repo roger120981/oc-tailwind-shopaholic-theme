@@ -51,7 +51,7 @@
                             {% endif %}
                             {% partial 'form/input-checkbox'
                                 labelText = obValue.value
-                                partialClasses = 'flex items-center mb-4'
+                                wrapperClasses = 'flex items-center mb-4'
                                 inputClasses = 'rounded-sm disabled:opacity-20'
                                 disabled = bDisabled
                                 checked = bChecked
@@ -67,7 +67,7 @@
                         {% partial 'input-color-choose/input-color-choose'
                             obPropertyValueList = obPropertyValueList
                             obProperty = obProperty
-                            partialClasses = 'me-3'
+                            wrapperClasses = 'me-3'
                             sContainerClasses = 'w-full flex flex-wrap'
                         %}
                     </fieldset>

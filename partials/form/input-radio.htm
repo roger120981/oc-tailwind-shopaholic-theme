@@ -7,7 +7,7 @@ Params:
 - disabled
 - checked
 - dataAtributes
-- partialClasses
+- wrapperClasses
 - inputClasses
 - labelClasses
 - dataLabel
@@ -17,7 +17,7 @@ Params:
 #}
 {% set id = id|default(name) %}
 
-<div class="{{ partialClasses }}">
+<div class="{{ wrapperClasses }}">
     <input
         class="text-blue-800 border-gray-600 me-2.5 focus:outline-none focus-visible:border-blue-800 {{inputClasses}}"
         type="radio"

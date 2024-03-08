@@ -10,11 +10,11 @@ Params:
 - validationErrorSelector
 - customErrorMessage
 - validationErrorSelector
-- partialClasses
+- wrapperClasses
 - labelClasses
 - labelText
 #}
-<div class="{{ partialClasses }}">
+<div class="{{ wrapperClasses }}">
     {% if labelText %}
         <label for="{{ id }}" class="text-sm text-gray-600 inline-block mb-1 {{ labelClasses }}">{{ labelText }}</label>
     {% endif %}

@@ -12,7 +12,7 @@
     {% partial 'form/button'
         buttonType = 'link'
         text = 'account_order_history_delete'|_
-        partialClasses = '_delete_all_orders _show'
+        wrapperClasses = '_delete_all_orders _show'
         body
     %}
         <svg class="me-2" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +45,7 @@ TODO: Move this functionality to a separate Git branch #}
             isGhost = true
             text = 'account_order_more'|_
             dataAtribute = 'data-max-page=' ~ iMaxPage ~ ' data-page=1'
-            partialClasses = '_show-more-orders mt-8 lg:mt-10'
+            wrapperClasses = '_show-more-orders mt-8 lg:mt-10'
         %}
     </div>
 {% endif %}

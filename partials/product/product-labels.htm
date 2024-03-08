@@ -1,0 +1,48 @@
+{#
+Params:
+- obProduct
+#}
+
+{% if bHasLabelPlugin %}
+    {% set obLabelList = obProduct.label.active().sort() %}
+    {% if obLabelList.isNotEmpty() %}
+        {% if obLabelList.count() == 1 %}
+            <div class="absolute z-10 -top-px -start-px overflow-hidden rounded-ee rounded-ss flex">
+                {% for obLabel in obLabelList %}
+                    {% if obLabel.code == 'new' %}
+                        {% set colorState = 'bg-green-900' %}
+                    {% elseif obLabel.code == 'sale' %}
+                        {% set colorState = 'bg-red-700' %}
+                    {% else %}
+                        {% set colorState = 'bg-sky-700' %}
+                    {% endif %}
+                    <div class="{{colorState}} text-white px-4 py-2 whitespace-nowrap text-xs lg:text-sm">
+                        {{ obLabel.name }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <ul class="absolute z-10 -top-px -start-px rounded-ss rounded-ee flex w-2/3 scrollbar-x-none overflow-x-scroll rtl:space-x-reverse space-x-0.5 md:space-x-1 md:overflow-auto md:hover:w-auto">
+                {% for obLabel in obLabelList %}
+                    {% if obLabel.code == 'new' %}
+                        {% set colorState = 'bg-green-900' %}
+                    {% elseif obLabel.code == 'sale' %}
+                        {% set colorState = 'bg-red-700' %}
+                    {% else %}
+                        {% set colorState = 'bg-sky-700' %}
+                    {% endif %}
+                    {% if loop.index == 1 %}
+                        {% set roundedClasses = 'rounded-ss rounded-ee' %}
+                    {% else %}
+                        {% set roundedClasses = 'rounded-b' %}
+                    {% endif %}
+                    <li>
+                        <div class="{{roundedClasses}} {{colorState}} text-white whitespace-nowrap py-1 px-2 text-xs lg:text-sm md:px-4 md:py-2">
+                            {{ obLabel.name }}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endif %}
+{% endif %}

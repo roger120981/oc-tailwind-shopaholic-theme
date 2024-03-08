@@ -8,7 +8,7 @@ Params:
 - keyForLabel
 - disabled
 - dataAtributes
-- partialClasses
+- wrapperClasses
 - inputClasses
 - labelText
 #}
@@ -16,7 +16,7 @@ Params:
 {% set keyForValue = keyForValue|default('value') %}
 {% set keyForLabel = keyForLabel|default('label') %}
 
-<div class="{{ partialClasses }}">
+<div class="{{ wrapperClasses }}">
     {% if labelText %}
         <label for="{{ id }}" class="block text-sm font-medium leading-6 text-gray-900">{{ labelText }}</label>
     {% endif %}

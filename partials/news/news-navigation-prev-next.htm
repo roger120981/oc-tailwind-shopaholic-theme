@@ -6,10 +6,10 @@
 {% set obNextArticle = obArticleList.getNearestPrev(obArticle.id).first() %}
 {% set obPrevArticle = obArticleList.getNearestNext(obArticle.id).first() %}
 
-<div class="{{ partialClasses|default('flex my-10 flex-col justify-between md:flex-row') }}">
+<div class="{{ wrapperClasses|default('flex my-10 flex-col justify-between md:flex-row') }}">
     {% if obPrevArticle.isNotEmpty() %}
         {% partial 'form/button'
-            partialClasses = 'flex border-2 bg-transparent border-blue-800 text-blue-800 py-3 ps-7 pe-10 rounded mt-2 order-1 md:order-none md:mt-0'
+            wrapperClasses = 'flex border-2 bg-transparent border-blue-800 text-blue-800 py-3 ps-7 pe-10 rounded mt-2 order-1 md:order-none md:mt-0'
             text = 'blog_post_prev'|_
             url = obPrevArticle.getPageUrl('news-item')
             isGhost = true
@@ -22,7 +22,7 @@
     {% endif %}
     {% if obNextArticle.isNotEmpty() %}
         {% partial 'form/button'
-            partialClasses = 'flex border-2 bg-transparent border-blue-800 text-blue-800 py-3 ps-10 pe-7 rounded md:ms-auto'
+            wrapperClasses = 'flex border-2 bg-transparent border-blue-800 text-blue-800 py-3 ps-10 pe-7 rounded md:ms-auto'
             text = 'blog_post_next'|_
             url = obNextArticle.getPageUrl('news-item')
             isGhost = true

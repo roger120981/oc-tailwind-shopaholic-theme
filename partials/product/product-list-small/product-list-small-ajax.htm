@@ -30,9 +30,9 @@ Params:
 
 {% for obProduct in arProductList %}
     <li class="h-full">
-        {% partial 'product-card/product-card'
+        {% partial 'product/product-card/product-card'
             obProduct=obProduct
-            partialClasses = 'h-full'
+            wrapperClasses = 'h-full'
             loopIndex = loop.index
             showIndex = showIndex
         %}

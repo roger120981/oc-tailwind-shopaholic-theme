@@ -1,14 +1,14 @@
 {#
 Params:
 - sectionHeader
-- partialClasses
+- wrapperClasses
 - listClasses
 - itemClasses
 - arItemList
 - notFoundMessage
 #}
 
-<div class="mt-6 {{ partialClasses }}">
+<div class="mt-6 {{ wrapperClasses }}">
     <span class="sr-only">{{ sectionHeader }}</span>
     {% if arItemList is not empty %}
         <ul class="flex flex-wrap gap-4 {{ listClasses }}">

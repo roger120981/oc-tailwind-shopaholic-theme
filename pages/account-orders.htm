@@ -67,7 +67,7 @@ function onInit()
         {% partial 'order-list/order-list' %}
     {% else %}
         {% partial 'message/info-message'
-            partialClasses = 'mt-28 md:mt-14'
+            wrapperClasses = 'mt-28 md:mt-14'
             icon = 'empty.svg'
             message = 'account_no_orders'|_
             buttonHref = 'catalog'|page

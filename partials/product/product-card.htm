@@ -1,46 +1,17 @@
+{#
+Params:
+- obProduct
+- wrapperClasses
+- loopIndex
+#}
+
 {% set obOffer = obProduct.offer.first() %}
 
-<div class="_shopaholic-product-wrapper flex flex-col relative border border-gray-200 rounded pb-2 {{ partialClasses }}" data-product-id="{{ obProduct.id }}">
-    <a class="text-xs md:text-lg font-bold text-gray-900 active:text-blue-900 hover:text-blue-700 focus-visible:outline-blue line-clamp-3 mb-auto mx-2" href="{{ obProduct.getPageUrl('catalog') }}">{{ obProduct.name }}</a>
-    {% if SiteSettings.has_labels %}
-        {% set obLabelList = obProduct.label.active().sort() %}
-        {% if obLabelList.isNotEmpty() %}
-            {% if obLabelList.count() == 1 %}
-                <div class="absolute z-10 -top-px -start-px overflow-hidden rounded-ee rounded-ss flex">
-                    {% for obLabel in obLabelList %}
-                        {% if obLabel.code == 'new' %}
-                            {% set sColorState = 'bg-green-900' %}
-                        {% elseif obLabel.code == 'sale' %}
-                            {% set sColorState = 'bg-red-700' %}
-                        {% else %}
-                            {% set sColorState = 'bg-red-700' %}
-                        {% endif %}
-                        <div class="{{sColorState}} text-white px-4 py-2 whitespace-nowrap text-xs lg:text-sm">{{ obLabel.name }}</div>
-                    {% endfor %}
-                </div>
-            {% else %}
-                <ul class="absolute z-10 -top-px -start-px rounded-ss rounded-ee flex w-2/3 scrollbar-x-none overflow-x-scroll rtl:space-x-reverse space-x-0.5 md:space-x-1 md:overflow-auto md:hover:w-auto">
-                    {% for obLabel in obLabelList %}
-                        {% if obLabel.code == 'new' %}
-                            {% set sColorState = 'bg-green-900' %}
-                        {% elseif obLabel.code == 'sale' %}
-                            {% set sColorState = 'bg-red-700' %}
-                        {% else %}
-                            {% set sColorState = 'bg-red-700' %}
-                        {% endif %}
-                        {% if loop.index == 1 %}
-                            {% set sRounded = 'rounded-ss rounded-ee' %}
-                        {% else %}
-                            {% set sRounded = 'rounded-b' %}
-                        {% endif %}
-                        <li>
-                            <div class="{{sRounded}} {{sColorState}} text-white whitespace-nowrap py-1 px-2 text-xs lg:text-sm md:px-4 md:py-2">{{ obLabel.name }}</div>
-                        </li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endif %}
-    {% endif %}
+<div class="_shopaholic-product-wrapper flex flex-col relative border border-gray-200 rounded pb-2 {{ wrapperClasses }}" data-product-id="{{ obProduct.id }}">
+    <a class="text-xs md:text-lg font-bold text-gray-900 active:text-blue-900 hover:text-blue-700 focus-visible:outline-blue line-clamp-3 mb-auto mx-2" href="{{ obProduct.getPageUrl('catalog') }}">
+        {{ obProduct.name }}
+    </a>
+    {% partial 'product/product-labels' obProduct = obProduct %}
     <div class="order-first mb-2 rounded-ee rounded-se overflow-hidden aspect-w-16 aspect-h-12">
         {% if obProduct.preview_image is not empty %}
             <picture class="object-cover h-full w-full">
@@ -54,7 +25,7 @@
                     itemprop="image"
                     alt="{{ obProduct.preview_image.description }}"
                     title="{{ obProduct.preview_image.title }}"
-                    {{ iLoopIndex > iShowIndex ? 'loading="lazy"' }}
+                    {{ loopIndex > showIndex ? 'loading="lazy"' }}
                 >
             </picture>
         {% else %}
@@ -62,7 +33,7 @@
                 class="w-full h-full rounded object-cover"
                 src="{{ 'assets/images/no-photo.svg'|theme }}"
                 alt="{{ 'blog_image_no'|_ }}"
-                {{ iLoopIndex > iShowIndex ? 'loading="lazy"' }}
+                {{ loopIndex > showIndex ? 'loading="lazy"' }}
             >
         {% endif %}
     </div>
@@ -82,7 +53,7 @@
             </button>
         {% else %}
             {% partial 'product/button-wish-list/button-wish-list'
-                partialClasses = 'bg-opacity-40 absolute -top-px -end-px flex rounded-es rounded-se'
+                wrapperClasses = 'bg-opacity-40 absolute -top-px -end-px flex rounded-es rounded-se'
             %}
         {% endif %}
     {% endif %}

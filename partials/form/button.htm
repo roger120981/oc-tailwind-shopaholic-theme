@@ -1,6 +1,6 @@
 {#
 Params:
-- partialClasses
+- wrapperClasses
 - isGhost
 - buttonType
 - url
@@ -38,12 +38,12 @@ Params:
     {% if isBlank == true %}
         target="_blank" rel="noopener noreferrer"
     {% endif %}
-    class="{{ defaultClass }} inline-block {{ partialClasses }}">
+    class="{{ defaultClass }} inline-block {{ wrapperClasses }}">
         {{body|raw}}
         {{ text }}
     </a>
 {% else %}
-    <button class="{{ defaultClass }} {{ partialClasses }}"
+    <button class="{{ defaultClass }} {{ wrapperClasses }}"
         type="{{ type|default('button') }}"
         {{ dataAtribute }}
         {% if onClick %}

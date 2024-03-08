@@ -47,20 +47,20 @@ function onInit()
                 name='coupon'
                 value=obActiveCoupon.code
                 attribute='data-coupon'
-                partialClasses='flex flex-col w-full mb-2 md:w-80 md:mb-0'
+                wrapperClasses='flex flex-col w-full mb-2 md:w-80 md:mb-0'
                 labelClasses='font-medium text-gray-900 mb-2 text-sm md:text-base'
                 disabled=obActiveCoupon is not empty
             %}
             {% if obActiveCoupon is not empty %}
                 {% partial 'form/button'
                     text = 'purchase_coupon_remove'|_
-                    partialClasses = '_shopaholic-coupon-remove w-full ms-0 md:w-80 md:ms-2 ' ~ (obActiveCoupon is not empty ? '' : 'hidden')
+                    wrapperClasses = '_shopaholic-coupon-remove w-full ms-0 md:w-80 md:ms-2 ' ~ (obActiveCoupon is not empty ? '' : 'hidden')
                     isGhost= 'true'
                 %}
             {% else %}
                 {% partial 'form/button'
                     text = 'purchase_coupon_apply'|_
-                    partialClasses = '_shopaholic-coupon-add w-full ms-0 md:w-80 md:ms-2 ' ~ (obActiveCoupon is not empty ? 'hidden' : '')
+                    wrapperClasses = '_shopaholic-coupon-add w-full ms-0 md:w-80 md:ms-2 ' ~ (obActiveCoupon is not empty ? 'hidden' : '')
                     isGhost = 'true'
                 %}
             {% endif %}
@@ -87,7 +87,7 @@ function onInit()
                             name = 'shipping_type_id'
                             checked = sChecked
                             value = obShippingType.id
-                            partialClasses = 'flex items-center'
+                            wrapperClasses = 'flex items-center'
                             inputClasses = '_shopaholic-order-field peer'
                             dataAtributes = sDataSwitch~'data-group="order"'
                             labelClasses = 'peer-checked:text-gray-900 w-full ps-2 flex justify-between'
@@ -109,7 +109,7 @@ function onInit()
                 <h3>{{'purchase_pickup_point_choose'|_}}</h3>
                 <legend class="sr-only">{{'purchase_pickup_point_choose'|_}}</legend>
                 {% partial 'form/input-radio'
-                    partialClasses = 'flex items-center'
+                    wrapperClasses = 'flex items-center'
                     labelText = 'Port Mafaldaview, 3561 Hane Island Suite 810'
                     id = 'point-1'
                     labelClasses = 'peer-checked:text-gray-900'
@@ -117,7 +117,7 @@ function onInit()
                     name = 'point'
                 %}
                 {% partial 'form/input-radio'
-                    partialClasses = 'flex items-center'
+                    wrapperClasses = 'flex items-center'
                     labelText = 'Mayaville, 80354 Smitham Roads'
                     id = 'point-2'
                     labelClasses = 'peer-checked:text-gray-900'
@@ -202,7 +202,7 @@ function onInit()
                 {% endif %}
                 {% set checked = loop.index == 1 ? 'checked' : '' %}
                 {% partial 'form/input-radio'
-                    partialClasses = 'flex items-center mb-4'
+                    wrapperClasses = 'flex items-center mb-4'
                     labelText = obPaymentMethod.name
                     id = 'payment_method_'~obPaymentMethod.id
                     name = 'payment_method_id'
@@ -217,7 +217,7 @@ function onInit()
                 {% if this.theme.payment_methods_list_active %}
                     {% partial 'common/icon-list'
                         sectionHeader = "purchase_payment_methods"|_
-                        partialClasses = "lg:mt-2 lg:mb-2"
+                        wrapperClasses = "lg:mt-2 lg:mb-2"
                         listClasses = "gap-x-2"
                         arItemList = this.theme.payment_methods_list
                         itemClasses = "w-14 aspect-w-14 aspect-h-9"
@@ -230,7 +230,7 @@ function onInit()
             <h2 class="mb-4 text-gray-900 font-medium text-lg uppercase md:text-2xl">{{'purchase_summary'|_}}</h2>
             {% partial 'checkout-subtotal/checkout-subtotal' %}
             {% partial 'form/button'
-                partialClasses = 'w-full md:w-auto'
+                wrapperClasses = 'w-full md:w-auto'
                 text = 'purchase_order'|_
                 type = 'submit'
             %}

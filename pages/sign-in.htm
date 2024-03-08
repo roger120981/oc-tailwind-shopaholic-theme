@@ -42,13 +42,13 @@ function onInit()
                 name = 'password'
                 required = 'required'
                 type = 'password'
-                partialClasses = 'mt-4'
+                wrapperClasses = 'mt-4'
             %}
             <div class="mt-4 text-end">
                 <a href="{{ 'password-reset/password-reset'|page }}" class="text-blue-800 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue underline hover:no-underline text-sm md:text-base">{{ 'account_password_forgot'|_ }}</a>
             </div>
             {% partial 'form/input-checkbox'
-                partialClasses = 'mt-4 md:mt-3 flex items-center'
+                wrapperClasses = 'mt-4 md:mt-3 flex items-center'
                 id = 'remember_me'
                 name = 'remember_me'
                 labelText = 'form_user_keep_signed'|_
@@ -56,7 +56,7 @@ function onInit()
             {% partial 'form/button'
                 text = 'account_sign_in'|_
                 type = 'submit'
-                partialClasses = '_button-sign-in w-full mt-8 md:mt-6'
+                wrapperClasses = '_button-sign-in w-full mt-8 md:mt-6'
             %}
             {# TODO: Add inline ajax validation #}
         </form>

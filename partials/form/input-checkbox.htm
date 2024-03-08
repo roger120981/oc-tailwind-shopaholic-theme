@@ -9,13 +9,13 @@ Params:
 - disabled
 - dataAtributes
 - textSize
-- partialClasses
+- wrapperClasses
 - inputClasses
 - indentClasses
 #}
 {% set id = id|default(name) %}
 
-<div class="{{ partialClasses }}">
+<div class="{{ wrapperClasses }}">
     <input
         class="text-blue-800 focus:outline-none focus-visible:border-blue-800 {{inputClasses}} {{indentClasses|default('border-gray-600 me-2.5')}}"
         type="checkbox"

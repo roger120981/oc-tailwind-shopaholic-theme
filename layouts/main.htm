@@ -22,10 +22,13 @@ function onInit()
         && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.WishListShopaholic');
     $bHasPopularityPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.popularityshopaholic')
         && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.PopularityShopaholic');
+    $bHasLabelPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.labelsshopaholic')
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.LabelsShopaholic');
 
     $this['bHasUserPlugin'] = $bHasUserPlugin && !empty($this->UserData);
     $this['bHasWishListPlugin'] = $bHasWishListPlugin;
     $this['bHasPopularityPlugin'] = $bHasPopularityPlugin;
+    $this['bHasLabelPlugin'] = $bHasLabelPlugin;
 
     if ($bHasUserPlugin && !empty($this->UserData)) {
         $this['obUser'] = $this->UserData->get();

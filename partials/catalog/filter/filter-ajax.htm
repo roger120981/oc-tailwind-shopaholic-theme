@@ -62,7 +62,7 @@
                         <div class="_shopaholic-sale-filter-wrapper mb-4" data-filter-type="checkbox">
                             {% partial 'form/input-checkbox'
                                 labelText = 'product_filter_discounted_only'|_
-                                partialClasses = 'flex items-center pb-3 mx-4'
+                                wrapperClasses = 'flex items-center pb-3 mx-4'
                                 inputClasses = 'rounded-sm'
                                 checked = bSaleFilter
                                 id = 'sale'
@@ -78,11 +78,11 @@
                 <div class="ms-4 me-5">
                     {% partial 'form/button'
                         text = 'filter_see_all'|_
-                        partialClasses = '_hide _product-count w-full mt-8'
+                        wrapperClasses = '_hide _product-count w-full mt-8'
                     %}
                     {% partial 'form/button'
                         text = 'form_loading'|_
-                        partialClasses = '_show-more-hidden hidden mx-auto relative w-full ps-12 mt-8'
+                        wrapperClasses = '_show-more-hidden hidden mx-auto relative w-full ps-12 mt-8'
                         disabled = true
                         body
                     %}
@@ -139,7 +139,7 @@
                 <div class="_shopaholic-sale-filter-wrapper pb-4" data-filter-type="checkbox">
                     {% partial 'form/input-checkbox'
                         labelText = 'product_filter_discounted_only'|_
-                        partialClasses = 'flex items-center'
+                        wrapperClasses = 'flex items-center'
                         inputClasses = 'rounded-sm'
                         checked = bSaleFilter
                         id = 'sale'

@@ -1,12 +1,12 @@
 {#
 Params:
 - cardHeadingLevel
-- partialClasses
+- wrapperClasses
 - loopIndex
 - showIndex
 #}
 
-<article class="flex flex-col {{ partialClasses }}">
+<article class="flex flex-col {{ wrapperClasses }}">
     <h{{ cardHeadingLevel }} class="mt-2 order-1">
         <a class="hover:text-blue-800 focus-visible:outline-blue" href="{{ obArticle.getPageUrl('news-item') }}">
             {{ obArticle.title }}

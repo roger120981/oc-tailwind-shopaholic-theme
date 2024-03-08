@@ -3,7 +3,7 @@
 <div class="_write-review">
     {% partial 'form/button'
         text = 'reviews_review_write'|_
-        partialClasses = '_offCanvasOpen w-full md:w-72 mt-8 p-2'
+        wrapperClasses = '_offCanvasOpen w-full md:w-72 mt-8 p-2'
         isGhost = true
         dataAtribute = 'data-for="review_card_info"'
     %}
@@ -31,13 +31,13 @@
                         name = 'recommended'
                         id = 'recommended'
                         labelText = 'form_yes'|_
-                        partialClasses = 'flex items-center'
+                        wrapperClasses = 'flex items-center'
                     %}
                     {% partial 'form/input-radio'
                         name = 'recommended'
                         id = 'non-recommended'
                         labelText = 'form_no'|_
-                        partialClasses = 'flex items-center'
+                        wrapperClasses = 'flex items-center'
                     %}
                 </div>
             </fieldset>
@@ -48,7 +48,7 @@
             {% partial 'form/button'
                 type = 'submit'
                 text = 'reviews_review_submit'|_
-                partialClasses = '_send-review w-full md:w-72 mt-8 p-2'
+                wrapperClasses = '_send-review w-full md:w-72 mt-8 p-2'
             %}
         </form>
     {% endpartial %}

@@ -55,7 +55,7 @@
                 %}
                 {% partial 'form/button'
                     text = 'reviews_review_write'|_
-                    partialClasses = '_write-review w-full md:w-72 mt-10 p-2'
+                    wrapperClasses = '_write-review w-full md:w-72 mt-10 p-2'
                     isGhost = true
                 %}
                 <div class="mt-6 md:mt-10">
@@ -71,7 +71,7 @@
 
                 {% partial 'form/button'
                     text = 'reviews_read_mode'|_
-                    partialClasses = '_show-more-reviews w-full md:w-72 mt-3 p-2'
+                    wrapperClasses = '_show-more-reviews w-full md:w-72 mt-3 p-2'
                     isGhost = true
                     dataAtribute = 'data-max-page=' ~ iMaxPage ~ ' data-page=1'
                 %}

@@ -1,10 +1,10 @@
 {#
 Params:
-- partialClasses
+- wrapperClasses
 - arArticleList
 #}
 
-<div class="mt-10 mb-10 {{ partialClasses }}">
+<div class="mt-10 mb-10 {{ wrapperClasses }}">
     {% if arArticleList is not empty %}
         <ul class="grid grid-cols-2 md:grid-cols-4 gap-x-2 gap-y-4 md:gap-x-4 md:gap-y-12">
             {% for obArticle in arArticleList %}
