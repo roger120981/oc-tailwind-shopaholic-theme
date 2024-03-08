@@ -6,12 +6,12 @@
     </div>
     {% set arPaginationList = Pagination.get(iPage, obProductList.count()) %}
 
-    {% partial 'pagination/pagination'
+    {% partial 'common/pagination'
         partialClasses = '_pagination mb-14 mt-10'
         arPaginationList = arPaginationList
         iMaxPage = iMaxPage
         iPage = iPage
-        sLinkClass = '_shopaholic-pagination'
+        linkClasses = '_shopaholic-pagination'
     %}
 {% else %}
     <div class="flex flex-col items-center pb-20">
