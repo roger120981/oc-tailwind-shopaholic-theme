@@ -1,8 +1,12 @@
-{##}
+{#
+Params:
+- partialClasses
+- wrapperClasses
+#}
 
 {# TODO:Check if tabs work when there are more than their width #}
 
-<section class="w-full {{sPartialContainer}}">
+<section class="w-full {{wrapperClasses}}">
     <ul class="tabs {{partialClasses}}">
         {{body|raw}}
     </ul>

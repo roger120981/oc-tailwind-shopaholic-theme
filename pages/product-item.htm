@@ -118,9 +118,9 @@ function getBreadcrumbs(): array
         {% endif %}
 
         {% if this.theme.product_page is not empty %}
-            {% partial 'tabs/tabs'
+            {% partial 'common/tabs/tabs'
                 partialClasses = '_tabs-product'
-                sPartialContainer = 'mt-4 mb-7 lg:my-10'
+                wrapperClasses = 'mt-4 mb-7 lg:my-10'
                 body
             %}
                 {% for tab in this.theme.product_page %}
