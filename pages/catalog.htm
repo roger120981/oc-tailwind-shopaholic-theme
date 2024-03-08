@@ -179,6 +179,12 @@ function onStart()
 {% set arBreadcrumbs = [
     {'name': 'breadcrumbs_catalog'|_, 'url': 'category-list'|page}
 ]|merge(arBreadcrumbs) %}
+{% set arSEOParams = {'category': obActiveCategory, 'product': obProduct} %}
+{% set obSeoModel = obProduct ? obProduct : obActiveCategory %}
+
+{% put seo_tags %}
+    {% component 'SeoToolbox' model=obSeoModel params=arSEOParams %}
+{% endput %}
 
 {% partial 'common/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
 
@@ -186,6 +192,12 @@ function onStart()
 
 {% if obProduct.isNotEmpty() %}
 {% else %}
+    <h1 class="text-gray-900 text-xl md:text-2xl xl:text-3xl uppercase">{{ SeoToolbox.getPageTitle(obSeoModel, arSEOParams)|default(obActiveCategory.name) }}</h1>
+    {% if obActiveCategory.preview_text is not empty %}
+    <div>
+        {{ obActiveCategory.preview_text }}
+    </div>
+    {% endif %}
     {# Product list #}
     <div class="grid md:grid-cols-4 mb-14">
         {% if bHasFilterPlugin %}
@@ -197,4 +209,11 @@ function onStart()
             </div>
         </div>
     </div>
+
+    {% set description = SeoToolbox.getPageDescription(obSeoModel, arSEOParams)|default(obActiveCategory.description) %}
+    {% if description %}
+        <div>
+            {{ description|raw }}
+        </div>
+    {% endif %}
 {% endif %}
