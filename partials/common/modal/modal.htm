@@ -1,12 +1,16 @@
-{##}
+{#
+Params:
+- buttonType
+- buttonHeadingHidden
+#}
 
-{% if sButtonType %}
+{% if buttonType %}
     {% set partialClasses = 'flex' %}
 {% else %}
     {% set partialClasses = 'flex justify-end' %}
 {% endif %}
 
-{% if sButtonHeadingHidden %}
+{% if buttonHeadingHidden %}
     {% set sHeadingHidden = 'hidden lg:block' %}
 {% else %}
     {% set sHeadingHidden = 'flex' %}
