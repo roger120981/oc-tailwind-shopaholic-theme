@@ -14,6 +14,7 @@ class Sorting {
       searchEnabled: false,
       searchChoices: false,
       allowHTML: false,
+      shouldSort: false,
       itemSelectText: '',
       classNames: {
         containerOuter: 'choices w-full md:w-auto',
