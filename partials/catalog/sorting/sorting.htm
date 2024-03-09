@@ -1,5 +1,5 @@
 <div class="_sorting-filter flex items-center mb-4 md:justify-end">
-    <select class="js-choice _shopaholic-sorting bg-transparent w-full border-0 outline-none focus:outline-none focus:border-0 md:w-auto" id="sorting" name="sorting">
+    <select class="js-choice _shopaholic-sorting bg-transparent w-full border-0 outline-none focus:outline-none focus:border-0 md:w-auto" id="sorting" name="sorting" data-active-text="{{ 'reviews_sort_by'|_ }}">
         {% if bHasPopularityPlugin %}
             <option value="popularity|desc" {{ (sActiveSorting == 'popularity|desc' or sActiveSorting is empty) ? 'selected' : '' }}>{{'sorting_popular'|_}}</option>
         {% endif %}
