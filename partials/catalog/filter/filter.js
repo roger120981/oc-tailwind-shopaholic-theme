@@ -163,12 +163,14 @@ oc.pageReady().then(() => {
 
   oc.ajax('onInit', {
     update: {'catalog/filter/filter-ajax': '._filter'},
-    complete: () => {
+    complete: (response) => {
       obFilter.init();
 
       document.addEventListener(EVENT_OPEN, (event) => {
         obFilter.initAccordionState();
       });
+
+      document.dispatchEvent(new CustomEvent('product:list.updated'));
     }
   })
 });

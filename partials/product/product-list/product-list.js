@@ -17,6 +17,10 @@ export class ProductList {
         'catalog/filter/filters-desktop-ajax': '._filters-desktop',
         'catalog/filter/filters-mobile-ajax': '._filters-mobile',
       };
+      obRequestData.complete = () => {
+        document.dispatchEvent(new CustomEvent('product:list.updated'));
+      };
+
       return obRequestData;
     });
   }

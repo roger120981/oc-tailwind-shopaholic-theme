@@ -90,6 +90,7 @@ filter_price: 'Price'
 filter_result_no: 'No results match these filter criteria. Remove all filters or clear all filters to show results.'
 filter_see_all: 'See all'
 filter_to: 'to'
+filter_reset_all: 'Reset all'
 
 # Forms
 form_cancel: 'Cancel'

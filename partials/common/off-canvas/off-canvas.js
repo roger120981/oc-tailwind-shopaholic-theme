@@ -90,7 +90,7 @@ class OffCanvas {
 
     document.dispatchEvent(new CustomEvent('off-canvas:open', {
       detail: {id: this.id},
-    }))
+    }));
   }
 
   initOffCanvas() {
