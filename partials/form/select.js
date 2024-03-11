@@ -1,34 +1,37 @@
-import UrlGeneration from '@oc-shopaholic/url-generation'
+import UrlGeneration from "@oc-shopaholic/url-generation";
+
 export default class Select {
-  constructor() {}
-  initSummaryEvents() {
+  constructor () {}
+
+  initSummaryEvents () {
     this.clearOptions();
   }
-  clearOptions() {
-    document.addEventListener('click', (event) => {
+
+  clearOptions () {
+    document.addEventListener("click", (event) => {
       const eventNode = event.target;
-      const buttonNode = eventNode.closest('.js-clear-options');
+      const buttonNode = eventNode.closest(".js-clear-options");
       if (!buttonNode) {
         return;
       }
-      this.clearValueOptions(buttonNode)
-      buttonNode.classList.add('hidden')
+      this.clearValueOptions(buttonNode);
+      buttonNode.classList.add("hidden");
     });
   }
 
-  clearValueOptions(buttonNode) {
-    const select = buttonNode.parentNode.querySelector('select');
-    select.value = '';
+  clearValueOptions (buttonNode) {
+    const select = buttonNode.parentNode.querySelector("select");
+    select.value = "";
     select.dispatchEvent(
-      new InputEvent('change', {
+      new InputEvent("change", {
           bubbles: true,
-          cancelable: true,
+          cancelable: true
         }
       ));
   }
 }
 
 oc.pageReady().then(() => {
-   const select = new Select();
-   select.initSummaryEvents();
+  const select = new Select();
+  select.initSummaryEvents();
 });
