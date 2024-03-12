@@ -239,9 +239,8 @@
 }
 
 
-
 @import "./swiper.css";
-@import "../../../node_modules/swiper/swiper-bundle.min.css";
-@import "../../../node_modules/photoswipe/dist/photoswipe.css";
-@import "../../../node_modules/choices.js/public/assets/styles/choices.min.css";
-@import "../js/vanila-tabs/vanilla-tabs.min.css";
+@import "/node_modules/swiper/swiper-bundle.min.css";
+@import "/node_modules/photoswipe/dist/photoswipe.css";
+@import "/node_modules/choices.js/public/assets/styles/choices.min.css";
+@import "/js/vendor/vanila-tabs/vanilla-tabs.min.css";

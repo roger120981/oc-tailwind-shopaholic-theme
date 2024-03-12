@@ -1,4 +1,4 @@
-import VanillaTabs from '../../../assets/src/js/vanila-tabs/vanilla-tabs.js';
+import VanillaTabs from '/js/vendor/vanila-tabs/vanilla-tabs.js';
 
 oc.pageReady().then(() => {
   new VanillaTabs({
