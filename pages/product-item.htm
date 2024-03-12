@@ -113,7 +113,10 @@ function getBreadcrumbs(): array
         {% partial 'product-gallery/product-gallery' arImages = obProduct.images %}
         {% if obProduct.description is not empty %}
             <div class="w-full flex flex-col mt-7 md:mt-11">
-                {% partial 'product-description/product-description' sDescription=obProduct.description %}
+                {% partial 'common/expandable-text/expandable-text'
+                    numberVisibleRows=3
+                    description=obProduct.description
+                %}
             </div>
         {% endif %}
 

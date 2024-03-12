@@ -191,14 +191,20 @@ function onStart()
 
 {% if obProduct.isNotEmpty() %}
 {% else %}
-    <h1 class="text-gray-900 text-xl md:text-2xl xl:text-3xl uppercase">{{ SeoToolbox.getPageTitle(obSeoModel, arSEOParams)|default(obActiveCategory.name) }}</h1>
+    <h1 class="uppercase font-medium text-xl md:text-3xl">{{ SeoToolbox.getPageTitle(obSeoModel, arSEOParams)|default(obActiveCategory.name) }}</h1>
     {% if obActiveCategory.preview_text is not empty %}
-    <div>
-        {{ obActiveCategory.preview_text }}
-    </div>
+        <div class="w-full flex flex-col mt-4">
+            {% partial 'common/expandable-text/expandable-text'
+                description=obActiveCategory.preview_text
+                numberVisibleRows=3
+            %}
+        </div>
+    {% endif %}
+    {% if obProduct.isNotEmpty() %}
+
     {% endif %}
     {# Product list #}
-    <div class="grid md:grid-cols-4 mb-14">
+    <div class="grid md:grid-cols-4 mb-14 mt-6 md:mt-10">
         {% if bHasFilterPlugin %}
             <section class="_filter md:col-span-1"></section>
         {% endif %}
@@ -208,11 +214,13 @@ function onStart()
             </div>
         </div>
     </div>
-
     {% set description = SeoToolbox.getPageDescription(obSeoModel, arSEOParams)|default(obActiveCategory.description) %}
     {% if description %}
-        <div>
-            {{ description|raw }}
+        <div class="mt-6 md:mt-10 mb-14">
+            {% partial 'common/expandable-text/expandable-text'
+                description=description
+            %}
         </div>
+
     {% endif %}
 {% endif %}
