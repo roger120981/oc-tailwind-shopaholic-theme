@@ -82,9 +82,8 @@
                     id = 'property-' ~ obProperty.id
                     name = 'property-' ~ obProperty.id
                     wrapperClasses = 'w-full'
-                    place='Choose width'
-                    placeholder='Choose width'
-                    emptyOption='Empty'
+                    placeholder='filter_choose_value'|_
+                    emptyOption='filter_empty'|_
                     options = selectOptions
                     selectedValue = arFilterValue[obProperty.id]
                 %}
