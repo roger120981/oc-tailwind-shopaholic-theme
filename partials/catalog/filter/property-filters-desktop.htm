@@ -62,7 +62,7 @@
                         {% endfor %}
                     </fieldset>
                 {% else %}
-                    <fieldset class="flex flex-wrap">
+                    <fieldset class="space-y-2">
                         <legend class="sr-only">{{ obProperty.filter_name }}</legend>
                         {% partial 'input-color-choose/input-color-choose'
                             obPropertyValueList = obPropertyValueList
@@ -86,7 +86,7 @@
                     selectedValue = arFilterValue[obProperty.id]
                 %}
             {% elseif obProperty.filter_type == 'radio' %}
-                <fieldset class="flex flex-wrap">
+                <fieldset class="space-y-2">
                     {% set obPropertyValueList = obProperty.property_value.sort() %}
                     {% for obPropertyValue in obPropertyValueList %}
                         {% set bChecked = arFilterValue[obProperty.id] is not empty and obPropertyValue.slug == arFilterValue[obProperty.id] %}
