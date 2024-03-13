@@ -19,8 +19,8 @@
                         {% partial 'form/input'
                             labelText = 'filter_min'|_
                             inputClasses = '_min appearance-none quantity_input'
-                            name = 'property-min-'~obProperty.id
-                            id = 'property-min-'~obProperty.id
+                            name = 'property-min-' ~ obProperty.id
+                            id = 'property-min-' ~ obProperty.id
                             type = 'number'
                             value = arFilterValue[obProperty.id][0]
                         %}
@@ -30,8 +30,8 @@
                         {% partial 'form/input'
                             labelText = 'filter_max'|_
                             inputClasses = '_max appearance-none quantity_input'
-                            name = 'property-max-'~obProperty.id
-                            id = 'property-max-'~obProperty.id
+                            name = 'property-max-' ~ obProperty.id
+                            id = 'property-max-' ~ obProperty.id
                             type = 'number'
                             value = arFilterValue[obProperty.id][1]
                         %}
@@ -55,8 +55,8 @@
                                 inputClasses = 'rounded-sm disabled:opacity-20'
                                 disabled = bDisabled
                                 checked= bChecked
-                                id = 'property-'~obProperty.id
-                                name = 'property-'~obProperty.id
+                                id = 'property-' ~ obProperty.id ~ '-' ~ obValue.slug
+                                name = 'property-' ~ obProperty.id
                                 value = obValue.slug
                             %}
                         {% endfor %}
@@ -79,8 +79,8 @@
                     {% set selectOptions = selectOptions|merge([{value: obPropertyValue.slug, label: obPropertyValue.value}]) %}
                 {% endfor %}
                 {% partial 'form/select'
-                    id = 'property-'~obProperty.id
-                    name = 'property-'~obProperty.id
+                    id = 'property-' ~ obProperty.id
+                    name = 'property-' ~ obProperty.id
                     wrapperClasses = 'w-full'
                     options = selectOptions
                     selectedValue = arFilterValue[obProperty.id]
@@ -91,8 +91,8 @@
                     {% for obPropertyValue in obPropertyValueList %}
                         {% set bChecked = arFilterValue[obProperty.id] is not empty and obPropertyValue.slug == arFilterValue[obProperty.id] %}
                         {% partial 'form/input-radio'
-                            id = 'property-'~obPropertyValue.id
-                            name = 'property-'~obProperty.id
+                            id = 'property-' ~ obProperty.id ~ '-' ~ obPropertyValue.slug
+                            name = 'property-' ~ obProperty.id
                             wrapperClasses = 'w-full'
                             value = obPropertyValue.slug
                             checked = bChecked
