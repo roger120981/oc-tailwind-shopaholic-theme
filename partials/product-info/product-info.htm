@@ -1,30 +1,29 @@
-{##}
+{#
+Params:
+- wraperClasses
+#}
 
-{% set obReviewList = obProduct.review.active().sort() %}
-{% set iReviewCount = 0 %}
-{% set iRatingCount = 0 %}
-{% set iReviewCount = obProduct.review.active().count() %}
+{% set arSEOParams = {'category': obProduct.category, 'product': obProduct} %}
+{% set obSeoModel = obProduct %}
+
+{% set obReviewList = obProduct.review.active() %}
+{% set obReviewListWithComment = obReviewList.copy().withComment() %}
+{% set obReviewListWithRating = obReviewList.copy().withRating() %}
+
 {% set obOffer = obProduct.offer.first() %}
 {% set iTotalQuantity = obOfferList.getTotalQuantity() %}
-
-{% for obReview in obReviewList %}
-    {% if obReview.comment %}
-        {% set iReviewCount = iReviewCount + 1 %}
-    {% endif %}
-    {% if obReview.rating %}
-        {% set iRatingCount = iRatingCount + 1 %}
-    {% endif %}
-{% endfor %}
-<div class="w-full xl:ps-14 {{sPartialClass}}">
-    <h1 class="text-gray-900 text-xl md:text-2xl xl:text-3xl uppercase">{{ obProduct.name }}</h1>
+<div class="w-full xl:ps-14 {{ wraperClasses }}">
+    <h1 class="text-gray-900 text-xl md:text-2xl xl:text-3xl uppercase">
+        {{ SeoToolbox.getPageTitle(obSeoModel, arSEOParams)|default(obProduct.name) }}
+    </h1>
     <div class="_evaluation flex flex-wrap flex-row mt-4 md:mt-3 text-gray-600 text-sm md:text-base md:items-center">
         <div class="flex me-3 md:me-4">
             <div aria-hidden="true" class="flex flex-row items-center space-x-1 rtl:space-x-reverse me-4 mb-2 md:mb-0">
-                {% partial 'product-rating/product-rating-star' maxRating='5' rating=obProduct.rating unique_id='product' %}
+                {% partial 'common/rating-star' maxRating='5' rating=obProduct.rating prefix='product' %}
             </div>
             <span aria-label="{{ 'reviews_customers_rating'|_({
                 reviews_customers_rating_value: obProduct.rating,
-                reviews_customers_rating_value_max: iReviewCount,
+                reviews_customers_rating_value_max: obReviewListWithRating.count(),
             })}}">
                 ({{ obProduct.rating }})
             </span>
@@ -32,11 +31,11 @@
         <div>
             <a href="#ratings" class="underline cursor-pointer me-2 md:me-4">
                 {{ 'reviews_customers_votes_number'|_({
-                    reviews_customers_votes_number_value: iRatingCount,
+                    reviews_customers_votes_number_value: obReviewListWithRating.count(),
                 }) }}
             </a>
             <a href="#reviews" class="underline cursor-pointer">
-                {{ iReviewCount }} {{'reviews_reviews'|_}}
+                {{ obReviewListWithComment.count() }} {{'reviews_reviews'|_}}
             </a>
         </div>
     </div>

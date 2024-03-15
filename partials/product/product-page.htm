@@ -3,7 +3,7 @@
 <div class="_shopaholic-product-wrapper grid grid-cols-1 xl:grid-cols-2 xl:justify-items-center 2xl:justify-items-start" data-product-id="{{ obProduct.id }}">
     <div class="w-full">
         {% partial 'product-info/product-info'
-            sPartialClass = 'xl:w-auto xl:absolute xl:invisible'
+            wraperClasses = 'xl:w-auto xl:absolute xl:invisible'
         %}
         {% partial 'product-gallery/product-gallery' arImages = obProduct.images %}
         {% if obProduct.description is not empty %}
@@ -86,7 +86,7 @@
     </div>
     <div class="flex flex-col">
         {% partial 'product-info/product-info'
-            sPartialClass = 'absolute invisible w-auto xl:w-full xl:static xl:visible'
+            wraperClasses = 'absolute invisible w-auto xl:w-full xl:static xl:visible'
         %}
         <div class="flex mt-7 flex-col xl:mt-0 xl:flex-row xl:ps-14">
             {% set obPropertyList = obProduct.property %}
@@ -134,13 +134,13 @@
     <div id="reviews" class="w-full flex flex-col">
         <h2 class="text-gray-900 text-2xl font-medium uppercase mb-5">{{ 'reviews_customer_reviews'|_ }}</h2>
         {% partial 'review-list/review-list'
-            sPartialClass = '_review-list-container'
+            wraperClasses = '_review-list-container'
             sListClass = '_review-list-update'
         %}
         {% partial 'review-add/review-add' %}
     </div>
     {% partial 'product-rating/product-rating'
-        sPartialClass = 'mt-6 xl:mt-14 xl:ps-11 2xl:ps-14'
+        wraperClasses = 'mt-6 xl:mt-14 xl:ps-11 2xl:ps-14'
     %}
 </div>
 

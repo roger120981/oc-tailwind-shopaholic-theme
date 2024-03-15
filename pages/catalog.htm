@@ -178,8 +178,6 @@ function onStart()
 {% set arBreadcrumbs = [
     {'name': 'breadcrumbs_catalog'|_, 'url': 'category-list'|page}
 ]|merge(arBreadcrumbs) %}
-{% set arSEOParams = {'category': obActiveCategory, 'product': obProduct} %}
-{% set obSeoModel = obProduct ? obProduct : obActiveCategory %}
 
 {% put seo_tags %}
     {% component 'SeoToolbox' model=obSeoModel params=arSEOParams %}
