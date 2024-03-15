@@ -2,6 +2,7 @@ uuid: 7159eee2-43ad-4938-99d7-4d3e88035e59
 handle: Site\SiteContent
 type: global
 name: Site content
+multisite: true
 
 customMessages:
     titleUpdateForm: 'shopaholic.theme.site_content.title_update'
