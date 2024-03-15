@@ -72,6 +72,8 @@ function onInit() {
     if(!empty($obProductItem)) {
         //Product item data
         $this['obProduct'] = $obProductItem;
+
+        $this['path_page_js'] = mix('assets/dist/js/product-item.js', 'themes/lovata-tailwind-shopaholic');
     } else {
         // Set main category as active category
         if (!empty($obMainCategoryItem) && empty($obActiveCategoryItem)) {
@@ -141,6 +143,8 @@ function onInit() {
 
         $this['obActiveCategory'] = $obActiveCategoryItem;
         $this['obCategoryList'] = $this->CategoryList->make()->active();
+
+        $this['path_page_js'] = mix('assets/dist/js/catalog.js', 'themes/lovata-tailwind-shopaholic');
     }
 
     //Get breadcrumbs
@@ -171,7 +175,6 @@ function onInit() {
 
 function onStart()
 {
-    $this['path_page_js'] = mix('assets/dist/js/catalog.js', 'themes/lovata-tailwind-shopaholic');
 }
 ?>
 ==
