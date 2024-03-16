@@ -9,14 +9,12 @@ slug_required = 0
 mode = "ajax"
 flash_on = 0
 redirect_on = 0
-redirect_page = "account/account"
-login_page = "sign-in/sign-in"
+redirect_page = "account"
+login_page = "sign-in"
 ==
 <?php
 function onInit()
 {
-    $this['path_page_js'] = mix('assets/dist/js/account.js', 'themes/lovata-tailwind-shopaholic');
-
     $bHasPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.buddies')
         && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.Buddies');
 
