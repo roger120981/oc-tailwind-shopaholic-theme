@@ -4,7 +4,7 @@ layout = "main"
 is_hidden = 0
 
 [UserPage]
-slug = "{{ :slug }}"
+slug = ""
 slug_required = 0
 mode = "ajax"
 flash_on = 0
@@ -15,10 +15,9 @@ login_page = "sign-in"
 <?php
 function onInit()
 {
-    $bHasPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.buddies')
-        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.Buddies');
+    $bHasUserPlugin = $this['bHasUserPlugin'];
 
-    if (!$bHasPlugin) {
+    if (!$bHasUserPlugin) {
         return $this->controller->run('404');
     }
 }
@@ -30,17 +29,17 @@ function onInit()
 {% set arList = [
     {
         title: 'account_order_history'|_,
-        url: "account-orders/account-orders",
+        url: "account-orders",
         icon:  'assets/images/icon-orders.svg'|theme,
     },
     {
         title: 'account_personal_data'|_,
-        url: 'account-details/account-details',
+        url: 'account-details',
         icon:  'assets/images/icon-details.svg'|theme,
     },
     {
         title: 'account_password_change'|_,
-        url: "account-password/account-password",
+        url: "account-change-password",
         icon:  'assets/images/icon-password.svg'|theme,
     }
 ]%}

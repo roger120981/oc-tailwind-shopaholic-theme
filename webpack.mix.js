@@ -3,7 +3,7 @@ const jsFileList = [
   'assets/src/js/app',
   'pages/account-details',
   'pages/account-orders',
-  'pages/account-password',
+  'pages/account-change-password',
   'pages/sign-in-checkout',
   'pages/checkout',
   'pages/contact',
