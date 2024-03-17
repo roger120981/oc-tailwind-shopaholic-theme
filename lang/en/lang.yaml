@@ -141,7 +141,8 @@ product_description_hide: 'Hide full description'
 product_description_show: 'Read full description'
 product_materials: 'Materials'
 product_measurements: 'Product measurements'
-product_not_available: 'Not available.'
+product_not_available: 'Not available'
+product_no_offers: 'Not offers'
 
 # Products
 product_add_to_cart: 'Add to cart'

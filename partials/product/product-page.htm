@@ -2,7 +2,7 @@
 
 <div class="_shopaholic-product-wrapper grid grid-cols-1 xl:grid-cols-2 xl:justify-items-center 2xl:justify-items-start" data-product-id="{{ obProduct.id }}">
     <div class="w-full">
-        {% partial 'product-info/product-info'
+        {% partial 'product/product-info'
             wraperClasses = 'xl:w-auto xl:absolute xl:invisible'
         %}
         {% partial 'product-gallery/product-gallery' arImages = obProduct.images %}
@@ -85,7 +85,7 @@
         {% endif %}
     </div>
     <div class="flex flex-col">
-        {% partial 'product-info/product-info'
+        {% partial 'product/product-info'
             wraperClasses = 'absolute invisible w-auto xl:w-full xl:static xl:visible'
         %}
         <div class="flex mt-7 flex-col xl:mt-0 xl:flex-row xl:ps-14">
