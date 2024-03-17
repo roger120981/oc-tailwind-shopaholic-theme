@@ -11,6 +11,7 @@ const jsFileList = [
   'pages/index',
   'pages/news-list',
   'pages/password-reset',
+  'pages/password-restore',
   'pages/product-item',
   'pages/catalog',
   'pages/sign-in',

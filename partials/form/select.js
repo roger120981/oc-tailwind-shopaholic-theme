@@ -48,7 +48,7 @@ export default class Select {
   }
 }
 
-oc.pageReady().then(() => {
+document.addEventListener('DOMContentLoaded', () => {
   const select = new Select();
   select.initSummaryEvents();
 });
