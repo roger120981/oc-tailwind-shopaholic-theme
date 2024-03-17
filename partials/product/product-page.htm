@@ -1,9 +1,15 @@
 {# TODO: Add flash messages to the add to cart action. #}
 
+{% set obOfferList = obProduct.offer %}
+{% set obOffer = obOfferList.first() %}
+
 <div class="_shopaholic-product-wrapper grid grid-cols-1 xl:grid-cols-2 xl:justify-items-center 2xl:justify-items-start" data-product-id="{{ obProduct.id }}">
     <div class="w-full">
         {% partial 'product/product-info'
             wraperClasses = 'xl:w-auto xl:absolute xl:invisible'
+            obProduct = obProduct
+            obOfferList = obOfferList
+            obOffer = obOffer
         %}
         {% partial 'product/product-gallery/product-gallery' arImages = obProduct.images %}
         {% if obProduct.preview_text is not empty %}
@@ -19,7 +25,10 @@
             wrapperListClasses = '_tabs-product'
             body
         %}
-            {% partial 'product/product-tabs/product-tab-details' obProduct = obProduct %}
+            {% partial 'product/product-tabs/product-tab-details'
+                obProduct = obProduct
+                obOffer = obOffer
+            %}
             {% partial 'product/product-tabs/product-tab-description' obProduct = obProduct %}
             {% partial 'product/product-tabs/product-tab-content' obProduct = obProduct %}
         {% endpartial %}

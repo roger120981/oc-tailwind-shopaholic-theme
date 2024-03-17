@@ -10,7 +10,6 @@ Params:
 {% set obReviewListWithComment = obReviewList.copy().withComment() %}
 {% set obReviewListWithRating = obReviewList.copy().withRating() %}
 
-{% set obOffer = obProduct.offer.first() %}
 {% set iTotalQuantity = obOfferList.getTotalQuantity() %}
 <div class="w-full xl:ps-14 {{ wraperClasses }}">
     <h1 class="text-gray-900 text-xl md:text-2xl xl:text-3xl uppercase">
@@ -45,8 +44,7 @@ Params:
         {% endif %}
     </div>
 
-    {% set obOfferList = obProduct.offer %}
-    {% set obOffer = obOfferList.first() %}
+
     {% if obOffer.isNotEmpty() %}
         <input class="hidden" type="radio" id="offer_{{ obOffer.id }}" name="offer_id" value="{{ obOffer.id }}" checked>
         <div class="flex flex-row items-center mt-4 mb-7 space-x-2 md:space-x-4 rtl:space-x-reverse md:mt-7">

@@ -145,6 +145,11 @@ product_not_available: 'Not available'
 product_no_offers: 'Not offers'
 product_tab_description: 'Description'
 product_tab_details: 'Details'
+product_measure: 'Measure'
+product_weight: 'Weight'
+product_length: 'Length'
+product_width: 'Width'
+product_height: 'Height'
 
 # Products
 product_add_to_cart: 'Add to cart'
