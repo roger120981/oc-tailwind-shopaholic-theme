@@ -2,7 +2,7 @@ import '/partials/review-list/review-list';
 import '/partials/product/product-gallery/product-gallery';
 import '/partials/product-review-rating/product-review-rating';
 import '/partials/product/product-list-small/product-list-small';
-import '/partials/product-choose/product-choose';
+import '/partials/product/product-choose/product-choose';
 import InputQuantity from '/partials/input-quantity/input-quantity';
 import VanillaTabs from '../assets/src/js/vanila-tabs/vanilla-tabs.js';
 

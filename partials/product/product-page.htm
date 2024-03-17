@@ -36,15 +36,18 @@
     <div class="flex flex-col">
         {% partial 'product/product-info'
             wraperClasses = 'absolute invisible w-auto xl:w-full xl:static xl:visible'
+            obProduct = obProduct
+            obOfferList = obOfferList
+            obOffer = obOffer
         %}
-        <div class="flex mt-7 flex-col xl:mt-0 xl:flex-row xl:ps-14">
-            {% set obPropertyList = obProduct.property %}
-            {% set iTotalQuantity = obOfferList.getTotalQuantity() %}
-            <div class="flex flex-col mb-12">
-                {% if obPropertyList.getByCode('Color').property_value.first().value or obRelatedProductList|length > 0 %}
-                    {% partial 'product-choose/product-choose' %}
-                {% endif %}
-                {% if iTotalQuantity > 0 %}
+        {% if obOfferList.isNotEmpty() %}
+            <div class="flex mt-7 flex-col xl:mt-0 xl:flex-row xl:ps-14">
+                <div class="flex flex-col mb-12">
+                    {% partial 'product/product-choose/product-choose'
+                        obProduct = obProduct
+                        obOfferList = obOfferList
+                        obOffer = obOffer
+                    %}
                     <div class="flex flex-row items-center mt-7 md:mt-10">
                         {% partial 'input-quantity/input-quantity'
                             iMin = 1
@@ -74,9 +77,9 @@
                             %}
                         {% endif %}
                     </div>
-                {% endif %}
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>
 </div>
 <div class="grid grid-cols-1 xl:mt-10 xl:justify-items-center 2xl:justify-items-start xl:grid-cols-2{% if this.theme.has_viewed_products == false %} mb-10{% endif %}">

@@ -24,22 +24,19 @@ fields:
                     label: 'lovata.toolbox::lang.field.title'
                     type: text
                     span: left
-                    translatable: true
-                dropdown:
-                    label: 'lovata.toolbox::lang.field.type'
-                    type: dropdown
-                    span: right
-                    translatable: true
-                    showSearch: false
-                    default: product_detail
-                    options:
-                        richeditor: 'shopaholic.theme.product_page.type_richeditor'
                 content:
                     label: 'shopaholic.theme.field.content'
                     type: richeditor
                     span: right
-                    translatable: true
                     trigger:
                         action: show
                         field: dropdown
                         condition: value[richeditor]
+                dropdown:
+                    label: 'lovata.toolbox::lang.field.type'
+                    type: dropdown
+                    span: left
+                    showSearch: false
+                    default: product_detail
+                    options:
+                        richeditor: 'shopaholic.theme.product_page.type_richeditor'
