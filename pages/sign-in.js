@@ -33,7 +33,7 @@ class SignIn {
   }
 }
 
-oc.pageReady().then(() => {
+document.addEventListener('DOMContentLoaded', () => {
   const obSignIn = new SignIn();
   obSignIn.initHandler();
 });

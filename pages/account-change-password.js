@@ -33,7 +33,7 @@ class ChangePassword {
   }
 }
 
-oc.pageReady().then(() => {
+document.addEventListener('DOMContentLoaded', () => {
   const obChangePassword = new ChangePassword();
   obChangePassword.initHandler();
 });

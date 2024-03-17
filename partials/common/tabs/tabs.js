@@ -1,6 +1,6 @@
 import VanillaTabs from '../../../assets/src/js/vanila-tabs/vanilla-tabs.js';
 
-oc.pageReady().then(() => {
+document.addEventListener('DOMContentLoaded', () => {
   new VanillaTabs({
     'selector': '._tabs-product',
     'type': 'horizontal',
