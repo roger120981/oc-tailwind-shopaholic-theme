@@ -143,6 +143,8 @@ product_materials: 'Materials'
 product_measurements: 'Product measurements'
 product_not_available: 'Not available'
 product_no_offers: 'Not offers'
+product_tab_description: 'Description'
+product_tab_details: 'Details'
 
 # Products
 product_add_to_cart: 'Add to cart'

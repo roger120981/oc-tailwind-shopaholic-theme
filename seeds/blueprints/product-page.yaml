@@ -13,7 +13,7 @@ navigation:
     order: 300
 
 fields:
-    product_page:
+    content_tabs:
         tab: 'shopaholic.theme.tab.general'
         label: 'lovata.toolbox::lang.field.type'
         type: repeater
@@ -33,9 +33,8 @@ fields:
                     showSearch: false
                     default: product_detail
                     options:
-                        product_detail: 'shopaholic.theme.product_page.type_product_detail'
                         richeditor: 'shopaholic.theme.product_page.type_richeditor'
-                richeditor:
+                content:
                     label: 'shopaholic.theme.field.content'
                     type: richeditor
                     span: right
