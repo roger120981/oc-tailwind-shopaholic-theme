@@ -27,7 +27,7 @@ Params:
                 </span>
             {% endif %}
         </div>
-        {% if obReviewListWithRating.count() > 0 || obReviewListWithComment.count() > 0 %}
+        {% if obReviewListWithRating.count() > 0 or obReviewListWithComment.count() > 0 %}
             <div>
                 {% if obReviewListWithRating.count() > 0 %}
                     <a href="#ratings" class="underline cursor-pointer me-2 md:me-4">
