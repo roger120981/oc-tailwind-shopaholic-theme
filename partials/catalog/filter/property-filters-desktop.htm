@@ -9,7 +9,7 @@
         data-property = "property[{{obProperty.id}}]"
     >
         <summary class="js-accordion-summary text-base font-medium text-blue-800 cursor-pointer mb-3 hover:text-blue-700 focus-visible:text-blue-800 focus-visible:outline-2 focus-visible:outline-dotted focus-visible:outline-blue-800">
-            {{ obProperty.filter_name }}
+            {{ obProperty.filter_name }} {% if obProperty.measure.isNotEmpty() %}({{ obProperty.measure.name }}){% endif %}
         </summary>
         <div class="flex _shopaholic-filter-wrapper js-accordion-content {{obProperty.filter_type == 'between' ? 'mb-4' : ''}}" data-filter-type="{{ obProperty.filter_type }}" data-property-id="{{ obProperty.id }}">
             {% if obProperty.filter_type == 'between' %}
@@ -62,7 +62,7 @@
                         {% endfor %}
                     </fieldset>
                 {% else %}
-                    <fieldset class="flex flex-wrap">
+                    <fieldset class="space-y-2">
                         <legend class="sr-only">{{ obProperty.filter_name }}</legend>
                         {% partial 'input-color-choose/input-color-choose'
                             obPropertyValueList = obPropertyValueList
@@ -88,7 +88,7 @@
                     selectedValue = arFilterValue[obProperty.id]
                 %}
             {% elseif obProperty.filter_type == 'radio' %}
-                <fieldset class="flex flex-wrap">
+                <fieldset class="space-y-2">
                     {% set obPropertyValueList = obProperty.property_value.sort() %}
                     {% for obPropertyValue in obPropertyValueList %}
                         {% set bChecked = arFilterValue[obProperty.id] is not empty and obPropertyValue.slug == arFilterValue[obProperty.id] %}

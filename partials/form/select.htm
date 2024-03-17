@@ -41,6 +41,7 @@ Params:
                     {% if obOption['disabled'] == true %}
                         disabled="disabled"
                     {% endif %}
+                    {{ obOption['attributes']|raw }}
                     {% if optionValue == selectedValue %}selected{% endif %}
             >{{ obOption[keyForLabel] }}</option>
         {% endfor %}

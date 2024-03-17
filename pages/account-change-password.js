@@ -1,8 +1,8 @@
 import '../assets/src/js/validation';
 
-class SignUp {
+class ChangePassword {
   constructor() {
-    this.buttonNode = document.querySelector('._button-sign-up');
+    this.buttonNode = document.querySelector('._button-account-change-password');
     this.formNode = this.buttonNode ? this.buttonNode.closest('form') : null;
   }
 
@@ -25,7 +25,7 @@ class SignUp {
     this.buttonNode.setAttribute('disabled', 'disabled');
     const obThis = this;
 
-    oc.request('#sign-up', 'Registration::onAjax', {
+    oc.request('#change-password', 'ChangePassword::onAjax', {
       complete: (response) => {
         obThis.buttonNode.removeAttribute('disabled');
       },
@@ -34,6 +34,6 @@ class SignUp {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const obSignUp = new SignUp();
-  obSignUp.initHandler();
+  const obChangePassword = new ChangePassword();
+  obChangePassword.initHandler();
 });

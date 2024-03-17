@@ -51,6 +51,10 @@ class TagList {
   }
 
   createTags () {
+    if (!this.tagListNode) {
+      return;
+    }
+
     this.tagListNode.innerHTML = '';
     if (this.tagList.length === 0) {
       this.mainNode.classList.add('hidden');
