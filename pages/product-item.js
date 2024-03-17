@@ -1,6 +1,6 @@
 import '/partials/common/tabs/tabs';
 import '/partials/review-list/review-list';
-import '/partials/product/product-gallery';
+import '/partials/product/product-gallery/product-gallery';
 import '/partials/product-review-rating/product-review-rating';
 import '/partials/product/product-list-small/product-list-small';
 import '/partials/product-choose/product-choose';

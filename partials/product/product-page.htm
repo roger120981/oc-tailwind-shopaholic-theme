@@ -5,7 +5,7 @@
         {% partial 'product/product-info'
             wraperClasses = 'xl:w-auto xl:absolute xl:invisible'
         %}
-        {% partial 'product/product-gallery' arImages = obProduct.images %}
+        {% partial 'product/product-gallery/product-gallery' arImages = obProduct.images %}
         {% if obProduct.description is not empty %}
             <div class="w-full flex flex-col mt-7 md:mt-11">
                 {% partial 'common/expandable-text/expandable-text'
