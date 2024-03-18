@@ -12,7 +12,7 @@
             obOffer = obOffer
         %}
         {% partial 'product/product-gallery/product-gallery' arImages = obProduct.images %}
-        {% if obProduct.preview_text %}
+        {% if obProduct.preview_text is not empty %}
             <div class="w-full flex flex-col mt-7 md:mt-11">
                 {% partial 'common/expandable-text/expandable-text'
                     numberVisibleRows=3
