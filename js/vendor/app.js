@@ -8,4 +8,4 @@ import '/partials/site-picker/site-picker';
 import '/partials/product/button-wish-list/button-wish-list';
 import '/partials/message/flash-message';
 import '/partials/common/expandable-text/expandable-text';
-import '../../dist/js/node_modules_photoswipe_dist_photoswipe_esm_js';
+import '/assets/dist/js/node_modules_photoswipe_dist_photoswipe_esm_js';

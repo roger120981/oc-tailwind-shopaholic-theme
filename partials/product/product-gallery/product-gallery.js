@@ -1,6 +1,6 @@
 import Swiper from 'swiper/bundle';
 import PhotoSwipeLightbox from 'photoswipe/lightbox';
-import PhotoSwipeFullscreen from '../../../assets/src/js/fullscreen/photoswipe-fullscreen.esm.min.js';
+import PhotoSwipeFullscreen from '/js/vendor/fullscreen/photoswipe-fullscreen.esm.min.js';
 
 export default new class ProductGallery {
   constructor() {
