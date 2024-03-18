@@ -50,12 +50,15 @@
                 {% endfor %}
             </ul>
         {% else %}
+        <span class="w-full h-full flex items-center justify-center">
             <img
-                class="w-full h-full rounded object-cover"
+                class="w-1/2 rounded object-cover"
                 src="{{ 'assets/images/no-photo.svg'|theme }}"
                 alt="{{ 'blog_image_no'|_ }}"
                 {{ loopIndex > showIndex ? 'loading="lazy"' }}
             >
+            </span>
+
         {% endif %}
     </div>
     {% if arImages is not empty %}
