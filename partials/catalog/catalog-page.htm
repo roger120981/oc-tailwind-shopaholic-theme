@@ -1,17 +1,6 @@
 {% set arSEOParams = {'category': obActiveCategory} %}
 {% set obSeoModel = obActiveCategory %}
 
-<h1 class="uppercase font-medium text-xl md:text-3xl">
-    {{ SeoToolbox.getPageTitle(obSeoModel, arSEOParams)|default(obActiveCategory.name) }}
-</h1>
-{% if obActiveCategory.preview_text is not empty %}
-    <div class="w-full flex flex-col mt-4">
-        {% partial 'common/expandable-text/expandable-text'
-            description=obActiveCategory.preview_text
-            numberVisibleRows=3
-        %}
-    </div>
-{% endif %}
 <div class="grid md:grid-cols-4 mb-14 mt-6 md:mt-10">
     <section class="md:col-span-1">
         {% set obChildrenCategoryList = obActiveCategory.children().site() %}
@@ -25,6 +14,17 @@
         {% endif %}
     </section>
     <div class="_sorting-container w-full md:col-span-3">
+        <h1 class="uppercase font-medium text-xl md:text-3xl">
+            {{ SeoToolbox.getPageTitle(obSeoModel, arSEOParams)|default(obActiveCategory.name) }}
+        </h1>
+        {% if obActiveCategory.preview_text is not empty %}
+        <div class="w-full flex flex-col mt-4">
+            {% partial 'common/expandable-text/expandable-text'
+                description=obActiveCategory.preview_text
+                numberVisibleRows=3
+            %}
+        </div>
+        {% endif %}
         <div class="_sorting">
             {% partial 'product/product-list/product-list-wrapper' %}
         </div>
