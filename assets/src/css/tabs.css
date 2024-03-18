@@ -16,3 +16,6 @@
 .tabs.style__accordion .tabs__nav_link, .tabs.is__responsive .tabs__nav_link, .tabs.style__accordion .tabs__content .tabs__nav_link, .tabs.is__responsive .tabs__content .tabs__nav_link{
   @apply text-blue-800 bg-transparent text-base font-medium
 }
+.tabs .tabs__content_wrapper {
+  @apply md:flex md:items-start md:justify-between
+}
