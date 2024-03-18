@@ -5,18 +5,9 @@
     <section class="md:col-span-1">
         {% set obChildrenCategoryList = obActiveCategory.children().site() %}
         {% if obChildrenCategoryList.isNotEmpty() %}
-            <h3>{{ 'categories'|_ }}</h3>
-            <ul>
-                {% for obCategory in obChildrenCategoryList %}
-                    {% if obCategory.product_count > 0 %}
-                        <li>
-                            <a href="{{ obCategory.getPageUrl('catalog', ['slug']) }}">
-                                {{ obCategory.name }}
-                            </a>
-                        </li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
+            <div class="mb-4">
+                {% partial 'catalog/subcategory/subcategory' obChildrenCategoryList=obChildrenCategoryList %}
+            </div>
         {% endif %}
         {% if bHasFilterPlugin %}
             <div class="_filter"></div>
