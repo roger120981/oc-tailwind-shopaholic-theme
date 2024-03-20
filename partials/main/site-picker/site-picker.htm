@@ -10,7 +10,7 @@
 <form class="js-site-picker">
     <div class="space-y-6">
         {% if arGroupOptionList|length > 1 %}
-            {% partial 'site-picker/site-picker-select'
+            {% partial 'main/site-picker/site-picker-select'
                 inputClasses = 'js-country-picker'
                 labelText = 'multisite_country'|_
                 name = 'site_group_id'

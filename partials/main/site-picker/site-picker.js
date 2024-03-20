@@ -34,7 +34,7 @@ class SitePicker {
       oc.ajax('onAjax', {
         data: { site_group_id: selectNode.value },
         update: {
-          'site-picker/site-picker': `._site_picker`
+          'main/site-picker/site-picker': `._site_picker`
         },
       }).done(() => {
         if (buttonNode) {
