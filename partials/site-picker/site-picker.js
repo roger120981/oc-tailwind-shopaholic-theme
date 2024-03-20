@@ -1,74 +1,52 @@
-export default class Region {
-  constructor (app) {
-    this.obNav = app
-    this.languageForm = this.obNav.querySelector('.js-picker-submit');
-    this.submitButton = this.obNav.querySelector('[type=\'submit\']');
-    this.obShow = this.obNav.querySelector('._show')
+class SitePicker {
+  initHandler () {
+    document.addEventListener('submit', (event) => {
+      const eventNode = event.target;
+      const formNode = eventNode.closest('.js-site-picker');
+      if (!formNode) {
+        return;
+      }
+
+      event.preventDefault();
+      event.stopPropagation();
+
+      const langNode = formNode.querySelector('.js-language-picker');
+      if (langNode) {
+        window.location.href = langNode.value;
+      }
+    });
   }
 
-  initVariables () {
-    this.languageForm = this.obNav.querySelector('.js-picker-submit');
-    this.submitButton = this.obNav.querySelector('[type=\'submit\']');
-  }
+  initCountryPicker() {
+    document.addEventListener('change', (event) => {
+      const eventNode = event.target;
+      const selectNode = eventNode.closest('.js-country-picker');
+      if (!selectNode) {
+        return;
+      }
 
-  show () {
-    this.obShow.addEventListener('click', () => {
-      this.initVariables()
-      this.initEvents()
-    })
-  }
-
-  initEvents () {
-    this.setRegion()
-    this.setCountry()
-  }
-
-  setCountry () {
-    this.languageInput = this.obNav.querySelector('[name=\'site_group_id\']');
-    if (!this.languageInput) {
-      return false;
-    }
-
-    this.languageInput.addEventListener('change', (e) => {
-      e.preventDefault();
-      this.submitButton.setAttribute('disabled', 'disabled');
+      const formNode = selectNode.closest('.js-site-picker');
+      const buttonNode = formNode ? formNode.querySelector('button[type="submit"]') : null;
+      if (buttonNode) {
+        buttonNode.setAttribute('disabled', 'disabled');
+      }
 
       oc.ajax('onAjax', {
-        data: { site_group_id: e.target.value },
+        data: { site_group_id: selectNode.value },
         update: {
           'site-picker/site-picker': `._site_picker`
         },
       }).done(() => {
-        this.initVariables();
-        this.initEvents();
-        this.submitButton.removeAttribute('disabled');
+        if (buttonNode) {
+          buttonNode.removeAttribute('disabled', 'disabled');
+        }
       })
-    })
-  }
-
-  setRegion () {
-    if (!this.languageForm) {
-      return;
-    }
-
-    this.languageForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const languageInput = this.languageForm.querySelector('#site_id');
-      if (!languageInput) {
-        return;
-      }
-
-      window.location.href = languageInput.value;
     });
-  }
-
-  static make (container) {
-    const obContainer = document.getElementsByClassName(`${container}`)
-    Array.from(obContainer).forEach(function (e) {
-      const containerNav = new Region(e)
-      containerNav.show()
-    })
   }
 }
 
-Region.make('_off-canvas');
+document.addEventListener('DOMContentLoaded', () => {
+  const obSitePicker = new SitePicker();
+  obSitePicker.initHandler();
+  obSitePicker.initCountryPicker();
+});
