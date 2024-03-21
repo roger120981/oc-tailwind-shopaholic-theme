@@ -75,6 +75,21 @@ module.exports = {
       screens: {
         'ml': '840px',
       },
+      colors: {
+        outline: {
+          variant: "var(--outline-variant, #E5E7EB)", // g-200
+          DEFAULT: "var(--outline, #9CA3AF)", // g-400
+        },
+        "on-surface": {
+          DEFAULT: "var(--on-surface, #111827)", // g-900
+        },
+        primary: {
+          container: "var(--primary-container, #bfdbfe)", // b-200
+          hover: "var(--primary-hover, #1D4ED8)", // b-700
+          focus: "var(--primary-focus, #1e3a8a)", // b-900
+          DEFAULT: "var(--primary, #1E40AF)", // b-800
+        }
+      }
     }
   },
   variants: {
