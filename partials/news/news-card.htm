@@ -8,12 +8,12 @@ Params:
 
 <article class="flex flex-col {{ wrapperClasses }}">
     <h{{ cardHeadingLevel }} class="mt-2 order-1">
-        <a class="hover:text-blue-800 focus-visible:outline-blue" href="{{ obArticle.getPageUrl('news-item') }}">
+        <a class="link link-blue" href="{{ obArticle.getPageUrl('news-item') }}">
             {{ obArticle.title }}
         </a>
     </h{{ cardHeadingLevel }}>
     <div class="aspect-w-16 aspect-h-10 md:aspect-h-11">
-        <a href="{{ obArticle.getPageUrl('news-item') }}">
+        <a class="link" href="{{ obArticle.getPageUrl('news-item') }}">
             {% if obArticle.preview_image is not empty %}
             <picture>
                 <source srcset="

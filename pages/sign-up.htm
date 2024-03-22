@@ -35,7 +35,7 @@ function onStart() {
     <h1 class="font-medium uppercase text-xl md:text-3xl mb-4">{{ 'account_signing_up'|_ }}</h1>
     <div class="max-w-xs">
         {% partial 'account/sign-up-form' %}
-        {% set accountSignIn = '<a class="text-blue-800 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue underline hover:no-underline text-sm md:text-base" href="'~( 'sign-in'|page )~'">'~('account_sign_in'|_)~'</a>' %}
+        {% set accountSignIn = '<a class=" link link-blue underline hover:no-underline text-sm md:text-base" href="'~( 'sign-in'|page )~'">'~('account_sign_in'|_)~'</a>' %}
         <span class="block text-center text-gray-600 text-sm md:text-base mt-8 md:mt-7">
             {{ 'account_has_account_sign_in' | transRaw({account_sign_in: accountSignIn}) }}
         </span>

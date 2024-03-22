@@ -194,6 +194,7 @@
   @apply start-4
 }
 
+
 .pswp__button--arrow--prev .pswp__icn{
   @apply rtl:rotate-180 translate-y-0.5 left-3.5 rtl:left-1.5
 }
@@ -208,7 +209,7 @@
   @apply content-visibility-auto contain-intrinsic-size-[0_100px]
 }
 
-
+@import "./buttons.css";
 @import "./swiper.css";
 @import "/node_modules/swiper/swiper-bundle.min.css";
 @import "/node_modules/photoswipe/dist/photoswipe.css";

@@ -14,7 +14,7 @@ Params:
         </span>
         {% endif %}
         {% if obItem.id != obActiveCategory.id %}
-        <a class="group-active:underline hover:underline cursor-pointer first-letter:uppercase" href="{{ obItem.getPageUrl('catalog', ['slug']) }}">
+        <a class="link group-active:underline hover:underline cursor-pointer first-letter:uppercase" href="{{ obItem.getPageUrl('catalog', ['slug']) }}">
             {{ obItem.name }}
         </a>
         {% else %}
