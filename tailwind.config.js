@@ -77,17 +77,23 @@ module.exports = {
       },
       colors: {
         outline: {
-          variant: "var(--outline-variant, #E5E7EB)", // g-200
-          DEFAULT: "var(--outline, #9CA3AF)", // g-400
+          variant: "var(--outline-variant, #E5E7EB)", // gray-200
+          DEFAULT: "var(--outline, #9CA3AF)", // gray-400
         },
         "on-surface": {
-          DEFAULT: "var(--on-surface, #111827)", // g-900
+          variant: "var(--on-surface-variant, #4b5563)", // gray-600
+          DEFAULT: "var(--on-surface, #172554)", // gray-900
+        },
+        surface: {
+          container: "var(--on-surface, #f3f4f6)", // gray-100
+        },
+        "on-primary": {
+          container: "var(--on-primary-container, #1e3a8a)", // blue-900
         },
         primary: {
-          container: "var(--primary-container, #bfdbfe)", // b-200
-          hover: "var(--primary-hover, #1D4ED8)", // b-700
-          focus: "var(--primary-focus, #1e3a8a)", // b-900
-          DEFAULT: "var(--primary, #1E40AF)", // b-800
+          hover: "var(--primary-hover, #1D4ED8)", // blue-700
+          focus: "var(--primary-focus, #1e3a8a)", // blue-900
+          DEFAULT: "var(--primary, #1E40AF)", // blue-800
         }
       }
     }
