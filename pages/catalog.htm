@@ -49,7 +49,6 @@ last_button_number = 1
 [Pagination ReviewPagination]
 count_per_page = 3
 pagination_limit = 5
-active_class = ""
 button_list = "next"
 first_button_name = "First"
 first_button_limit = 3
@@ -77,6 +76,10 @@ sorting = "popularity|desc"
 
 [global ProductPageContent]
 handle = "Site\ProductPage"
+
+[MakeReview]
+mode = "ajax"
+flash_on = 1
 ==
 <?php
 function onInit() {
@@ -109,7 +112,7 @@ function onInit() {
         //Product item data
         $this['obProduct'] = $obProductItem;
 
-        $this['path_page_js'] = mix('assets/dist/js/product-item.js', 'themes/lovata-tailwind-shopaholic');
+        $this['path_page_js'] = mix('assets/dist/js/product-page.js', 'themes/lovata-tailwind-shopaholic');
     } else {
         // Set main category as active category
         if (!empty($obMainCategoryItem) && empty($obActiveCategoryItem)) {

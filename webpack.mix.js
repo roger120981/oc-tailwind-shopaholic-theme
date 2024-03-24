@@ -8,7 +8,7 @@ const jsFileList = [
   'js/pages/faq',
   'js/pages/index',
   'js/pages/password-reset',
-  'js/pages/product-item',
+  'js/pages/product-page',
   'js/pages/catalog',
   'js/pages/sign-in',
   'js/pages/sign-up'

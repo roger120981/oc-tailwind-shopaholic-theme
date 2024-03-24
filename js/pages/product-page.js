@@ -1,6 +1,7 @@
 import '/partials/review/review-list';
+import '/partials/review/review-add';
 import '/partials/product/product-gallery/product-gallery';
-import '/partials/product-review-rating/product-review-rating';
+import '/partials/review/review-set-rating';
 import '/partials/product/product-list-small/product-list-small';
 import '/partials/product/product-choose/product-choose';
 import InputQuantity from '/partials/input-quantity/input-quantity';
