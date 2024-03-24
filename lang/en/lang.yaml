@@ -153,6 +153,7 @@ product_weight: 'Weight'
 product_length: 'Length'
 product_width: 'Width'
 product_height: 'Height'
+product_accessories: 'Accessories'
 
 # Products
 product_add_to_cart: 'Add to cart'

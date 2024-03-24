@@ -72,6 +72,15 @@ function onInit() {
     $bHasFilterPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.filtershopaholic')
         && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.FilterShopaholic');
 
+    $bHasViewedPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.viewedproductsshopaholic')
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.ViewedProductsShopaholic');
+
+    $bHasRelatedPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.relatedproductsshopaholic')
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.RelatedProductsShopaholic');
+
+    $bHasAccessoriesPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.accessoriesshopaholic')
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.AccessoriesShopaholic');
+
     if(!empty($obProductItem)) {
         //Product item data
         $this['obProduct'] = $obProductItem;
@@ -174,6 +183,9 @@ function onInit() {
 
     $this['arBreadcrumbs'] = array_reverse($arBreadcrumbs);
     $this['bHasFilterPlugin'] = $bHasFilterPlugin;
+    $this['bHasViewedPlugin'] = $bHasViewedPlugin;
+    $this['bHasRelatedPlugin'] = $bHasRelatedPlugin;
+    $this['bHasAccessoriesPlugin'] = $bHasAccessoriesPlugin;
 }
 
 function onStart()
