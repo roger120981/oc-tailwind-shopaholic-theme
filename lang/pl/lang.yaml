@@ -140,6 +140,7 @@ product_description_show: 'Przeczytaj pełny opis'
 product_materials: 'Materiały'
 product_measurements: 'Pomiary produktu'
 product_not_available: 'Niedostępne.'
+product_code: 'Numer modelu'
 
 # Products
 product_add_to_cart: 'Dodaj do koszyka'
@@ -192,7 +193,6 @@ reviews_customers_rating_all: ':reviews_customers_rating_stars_number gwiazd, :r
 reviews_customers_rating_product: 'Ocena tej pozycji to :reviews_customers_rating_product z 5'
 reviews_customers_rating: 'Ocena :reviews_customers_rating_value od 5 na podstawie :reviews_customers_rating_value_max ocen'
 reviews_customers_votes_number: ':reviews_customers_votes_number_value opinii'
-reviews_product_model: 'Numer modelu'
 reviews_product_rate: 'Oceń ten produkt'
 reviews_read_mode: 'Czytaj więcej'
 reviews_read_more: 'Przeczytaj więcej opinii'

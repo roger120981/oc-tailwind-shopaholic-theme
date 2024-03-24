@@ -154,6 +154,7 @@ product_length: 'Length'
 product_width: 'Width'
 product_height: 'Height'
 product_accessories: 'Accessories'
+product_code: 'Model number'
 
 # Products
 product_add_to_cart: 'Add to cart'
@@ -207,25 +208,24 @@ reviews_customers_rating_all: ':reviews_customers_rating_stars_number stars, :re
 reviews_customers_rating_product: 'Rating of this item is :reviews_customers_rating_product out of 5' #TODO: Get number value from backend
 reviews_customers_rating: 'Rating :reviews_customers_rating_value from 5 based on :reviews_customers_rating_value_max reviews'
 reviews_customers_votes_number: ':reviews_customers_votes_number_value ratings' #TODO: Add support of word ending for different numbers
-reviews_product_model: 'Model number'
 reviews_product_rate: 'Rate this product'
 reviews_read_mode: 'Read more'
 reviews_read_more: 'Read more reviews'
 reviews_review_add: 'Review add'
 reviews_review_submit: 'Submit review'
 reviews_review_write: 'Write a review'
-reviews_reviews: 'reviews' #TODO: Add support of word ending for different numbers
+reviews_multi: 'review|reviews'
 reviews_share_experience_placeholder: 'What do you like or dislike? What should other shoppers know before buying?'
 reviews_share_experience: 'Share your experience'
 reviews_sort_by: 'Sort by'
 reviews_sorting_newest_first: 'Newest first'
-reviews_sorting_oldest_first: 'Oldest first'
 reviews_stars_rating_1: 'Terrible'
 reviews_stars_rating_2: 'Not good'
 reviews_stars_rating_3: 'Average'
 reviews_stars_rating_4: 'Very good'
 reviews_stars_rating_5: 'Amazing'
 reviews_would_recommend: 'Would you recommend this product?'
+reviews_today_at: 'Today at :time'
 
 # Search
 search_category: 'Category'

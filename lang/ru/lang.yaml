@@ -140,6 +140,7 @@ product_description_show: 'Читать полное описание'
 product_materials: 'Материалы'
 product_measurements: 'Размера товара'
 product_not_available: 'Не доступно'
+product_code: 'Номер модели'
 
 # Products
 product_add_to_cart: 'Добавить в корзину'
@@ -192,7 +193,6 @@ reviews_customers_rating_all: ':reviews_customers_rating_stars_number stars, :re
 reviews_customers_rating_product: 'Рейтинг этого товара — :reviews_customers_rating_product из 5'
 reviews_customers_rating: 'Рейтинг :reviews_customers_rating_value из 5, основанный :reviews_customers_rating_value_max отзывах'
 reviews_customers_votes_number: ':reviews_customers_votes_number_value рейтинг'
-reviews_product_model: 'Номер модели'
 reviews_product_rate: 'Оценить этот товар'
 reviews_read_mode: 'Читать больше'
 reviews_read_more: 'Читать больше отзывов'

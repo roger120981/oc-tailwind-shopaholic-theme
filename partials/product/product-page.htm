@@ -85,11 +85,10 @@
 <div class="grid grid-cols-1 xl:mt-10 xl:justify-items-center 2xl:justify-items-start xl:grid-cols-2{% if bHasViewedPlugin == false %} mb-10{% endif %}">
     <div id="reviews" class="w-full flex flex-col">
         <h2 class="text-gray-900 text-2xl font-medium uppercase mb-5">{{ 'reviews_customer_reviews'|_ }}</h2>
-        {% partial 'review-list/review-list'
-            wraperClasses = '_review-list-container'
-            sListClass = '_review-list-update'
+        {% partial 'review/review-list'
+            showReviewsCount = true
         %}
-        {% partial 'review-add/review-add' %}
+        {% partial 'review/review-add' %}
     </div>
     {% partial 'product/product-rating'
         wraperClasses = 'mt-6 xl:mt-14 xl:ps-11 2xl:ps-14'

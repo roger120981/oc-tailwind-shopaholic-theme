@@ -24,7 +24,7 @@ export default new class productReviewRating {
       const form = document.querySelector('._review-container');
       oc.ajax(form, 'MakeReview::onCreate', {
         update: {
-          'review-list/review-list-ajax': `.${this.obListWrapper}`
+          'review/review-list-ajax': `.${this.obListWrapper}`
         },
         complete: () => {
           location.reload(true);

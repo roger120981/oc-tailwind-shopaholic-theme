@@ -1,13 +1,15 @@
-{##}
+{#
+Params:
+- obReview
+#}
 
 <article>
     <div class="flex flex-row">
-        {% if obReview.image %}
+        {% if obReview.avatar %}
             <picture>
-                <source srcset="{{ obImage.getThumb(48, 48, {'quality': 80, 'extension': 'webp'}) }}" type="image/webp">
+                <source srcset="{{ obReview.avatar.getThumb(48, 48, {'quality': 80, 'extension': 'webp'}) }}" type="image/webp">
                 <img
-                    alt="{{ obReview.name }} {{ obReview.surname }}"
-                    src="{{ obImage.getThumb(48, 48, {'quality': 80}) }}"
+                    src="{{ obReview.avatar.getThumb(48, 48, {'quality': 80}) }}"
                     class="rounded-3xl me-4 w-12 h-12"
                     loading="lazy"
                     width="48"
@@ -24,13 +26,19 @@
         <div class="flex flex-col mb-3">
             <div class="flex flex-row mb-1.5">
                 {% if obReview.name %}
-                    <span class="me-4 font-bold">{{ obReview.name }} {{ obReview.surname }}</span>
+                    <span class="me-4 font-bold">{{ obReview.name }}</span>
                 {% endif %}
-                <time class="text-gray-600" datetime="{{ obReview.created_at }}">{{ obReview.created_at }}</time>
+                <time class="text-gray-600" datetime="{{ obReview.created_at }}">
+                    {% if date().format('Y-m-d') == obReview.created_at.toDateString() %}
+                        {{ 'reviews_today_at'|_({'time': obReview.created_at.format('H:m')}) }}
+                    {% else %}
+                        {{ obReview.created_at.format('F j, Y') }}
+                    {% endif %}
+                </time>
             </div>
             <div
                 aria-label="{{ 'reviews_customers_rating_product'|_({
-                    reviews_customers_rating_product:obReview.rating
+                    reviews_customers_rating_product : obReview.rating
                 }) }}"
                 class="flex flex-row space-x-1 rtl:space-x-reverse"> {#TODO: Think to transfet ARIA label to rating partial #}
                 {% partial 'common/rating-star' maxRating='5' rating=obReview.rating prefix='review-' ~ obReview.id %}

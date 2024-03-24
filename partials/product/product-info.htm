@@ -18,6 +18,7 @@ Params:
     <h1 class="text-gray-900 text-xl md:text-2xl xl:text-3xl uppercase">
         {{ SeoToolbox.getPageTitle(obSeoModel, arSEOParams)|default(obProduct.name) }}
     </h1>
+    <span class="text-gray-900 text-sm md:text-base">{{'product_code'|_}}: {{ obProduct.code }}</span>
     <div class="_evaluation flex flex-wrap flex-row mt-4 md:mt-3 text-gray-600 text-sm md:text-base md:items-center">
         <div class="flex me-3 md:me-4">
             <div aria-hidden="true" class="flex flex-row items-center space-x-1 rtl:space-x-reverse me-4 mb-2 md:mb-0">
