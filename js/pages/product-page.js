@@ -3,7 +3,7 @@ import '/partials/review/review-add';
 import '/partials/product/product-gallery/product-gallery';
 import '/partials/review/review-set-rating';
 import '/partials/product/product-list-small/product-list-small';
-import '/partials/product/product-choose/product-choose';
+import '/partials/product/offer-choose/offer-choose';
 import InputQuantity from '/partials/input-quantity/input-quantity';
 import VanillaTabs from '/partials/common/tabs/tabs';
 

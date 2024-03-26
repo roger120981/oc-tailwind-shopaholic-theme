@@ -1,11 +1,26 @@
 import ShopaholicCartAdd from '@oc-shopaholic/shopaholic-cart/shopaholic-cart-add';
 
-export default new class ProductChoose {
-  constructor() {
-    this.init();
+class OfferChoose {
+  initOfferSelectHandler() {
+    document.addEventListener('change', (event) => {
+      const eventNode = event.target;
+      const offerInput = eventNode.closest('[name="offer_id"]');
+      if (!offerInput) {
+        return;
+      }
+
+      oc.ajax('onAjax', {
+        data: {
+          offer_id: offerInput.value,
+        },
+        update: {
+          'product/product-tabs/product-tab-details-ajax': '._product_tab_details'
+        },
+      });
+    });
   }
 
-  init(){
+  initAddToCartHandler(){
 
     const shopaholicCartAdd = new ShopaholicCartAdd();
     shopaholicCartAdd.setAjaxRequestCallback((requestData, button) => {
@@ -27,4 +42,9 @@ export default new class ProductChoose {
       return requestData;
     }).init();
   }
-}();
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const obOfferChoose = new OfferChoose();
+  obOfferChoose.initOfferSelectHandler();
+});

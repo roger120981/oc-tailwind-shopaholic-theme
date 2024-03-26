@@ -26,8 +26,8 @@ Params:
         {% endif %}
     {% endfor %}
     {% partial 'form/select'
-        id = 'offer_' ~ obTempOffer.id
-        name = 'offer_' ~ obTempOffer.id
+        id = 'offer_id'
+        name = 'offer_id'
         labelText = obMainProperty.name
         options = options
         selectedValue = obOffer.id
@@ -40,8 +40,8 @@ Params:
         {% set options = options|merge([{'value': obTempOffer.id, 'label': obTempOffer.name }]) %}
     {% endfor %}
     {% partial 'form/select'
-        id = 'offer_' ~ obTempOffer.id
-        name = 'offer_' ~ obTempOffer.id
+        id = 'offer_id'
+        name = 'offer_id'
         labelText = obMainProperty.name
         options = options
         selectedValue = obOffer.id
@@ -68,5 +68,7 @@ Params:
     {% endfor %}
 {# Render hidden input, if product doesn't have main property and product has single offer #}
 {% elseif obOffer.isNotEmpty() %}
-    <input class="hidden" type="radio" id="offer_{{ obOffer.id }}" name="offer_id" value="{{ obOffer.id }}" checked>
+    <select class="hidden" id="offer_id" name="offer_id">
+        <option value="{{ obOffer.id }}" selected></option>
+    </select>
 {% endif %}

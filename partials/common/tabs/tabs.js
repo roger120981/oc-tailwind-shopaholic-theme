@@ -160,14 +160,12 @@ export default class Tabs {
             el.classList.remove('is__active');
           });
 
-          accordionNavLinks[activeTabIndex].classList.add('is__active');
-
+          if (accordionNavLinks[activeTabIndex]) {
+            accordionNavLinks[activeTabIndex].classList.add('is__active');
+          }
         }
-
       });
-
     });
-
   }
 
   // responsive: tabs to accordion
