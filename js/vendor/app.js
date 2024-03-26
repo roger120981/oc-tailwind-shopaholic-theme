@@ -1,4 +1,4 @@
-import '/partials/top-info-block/top-info-block';
+import '/partials/main/top-info-block/top-info-block';
 import '/partials/navigation/navigation-main-mobile';
 import '/partials/common/off-canvas/off-canvas';
 import '/partials/common/advanced-list/advanced-list';

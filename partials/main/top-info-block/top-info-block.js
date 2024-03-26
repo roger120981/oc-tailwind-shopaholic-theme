@@ -62,7 +62,7 @@ class TopInfoBlock {
     const obThis = this;
 
     oc.ajax('onInit', {
-      update: {'top-info-block/top-info-block-ajax': `.${this.sTopInfoBlockWrapperClass}`},
+      update: {'main/top-info-block/top-info-block-ajax': `.${this.sTopInfoBlockWrapperClass}`},
       complete: function () {
         obThis.hide();
 
