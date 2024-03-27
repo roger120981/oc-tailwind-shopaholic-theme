@@ -48,24 +48,16 @@ Params:
     %}
 {# Render choose section as list of selects, if product has main properies > 1 #}
 {% elseif obPropertyList.count() > 1 %}
-    {% for obProperty in obPropertyList %}
-        {% set options = [] %}
-        {% for obTempOffer in obOfferList %}
-            {% set obTempProperty = obTempOffer.property.find(obProperty.id) %}
-            {% set obPropertyValueList = obTempProperty.property_value %}
-            {% for obPropertyValue in obPropertyValueList %}
-                {% set options = options|merge({(obPropertyValue.value): {'value': obPropertyValue.slug, 'label': obPropertyValue.value ~ ' ' ~ obTempProperty.measure.name}}) %}
-            {% endfor %}
-        {% endfor %}
-        <div>
-            {% partial 'form/select'
-                id = 'property-' ~ obProperty.id
-                name = 'property-' ~ obProperty.id
-                labelText = obProperty.name
-                placeholder='filter_choose_value'|_
-            %}
-        </div>
-    {% endfor %}
+    <ul class="_tags-container flex flex-col space-y-2">
+    </ul>
+    <div class="_offer-choose-property-list">
+        {% partial 'product/offer-choose/offer-choose-proeprty-list'
+            obProduct = obProduct
+            obOffer = obOffer
+            obOfferList = obOfferList
+            obPropertyList = obPropertyList
+        %}
+    </div>
 {# Render hidden input, if product doesn't have main property and product has single offer #}
 {% elseif obOffer.isNotEmpty() %}
     <select class="hidden" id="offer_id" name="offer_id">

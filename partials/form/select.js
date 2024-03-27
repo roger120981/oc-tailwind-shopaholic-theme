@@ -6,6 +6,7 @@ export default class Select {
   initSummaryEvents () {
     this.initShowClearButton();
     this.clearOptions();
+    this.globalClearHandler();
   }
 
   clearOptions () {
@@ -15,6 +16,19 @@ export default class Select {
       if (!buttonNode) {
         return;
       }
+      this.clearValueOptions(buttonNode);
+      buttonNode.classList.add("hidden");
+    });
+  }
+
+  globalClearHandler() {
+    document.addEventListener('clear', (event) => {
+      const eventNode = event.target;
+      const buttonNode = eventNode.parentElement.querySelector('.js-clear-options');
+      if (!buttonNode) {
+        return;
+      }
+
       this.clearValueOptions(buttonNode);
       buttonNode.classList.add("hidden");
     });
