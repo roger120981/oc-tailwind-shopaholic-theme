@@ -48,10 +48,8 @@ Params:
     %}
 {# Render choose section as list of selects, if product has main properies > 1 #}
 {% elseif obPropertyList.count() > 1 %}
-    <ul class="_tags-container flex flex-col space-y-2">
-    </ul>
     <div class="_offer-choose-property-list">
-        {% partial 'product/offer-choose/offer-choose-proeprty-list'
+        {% partial 'product/offer-choose/offer-choose-property-list'
             obProduct = obProduct
             obOffer = obOffer
             obOfferList = obOfferList

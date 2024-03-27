@@ -1,6 +1,6 @@
 {# TODO: Add flash messages to the add to cart action. #}
 
-{% set obOfferList = obProduct.offer %}
+{% set obOfferList = obProduct.offer.site() %}
 {% set obOffer = obOfferList.first() %}
 
 <div class="_shopaholic-product-wrapper grid grid-cols-1 xl:grid-cols-2 xl:justify-items-center 2xl:justify-items-start" data-product-id="{{ obProduct.id }}">

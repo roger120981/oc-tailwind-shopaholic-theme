@@ -39,7 +39,7 @@ sorting = "popularity|desc"
 {% if obCategoryList.isNotEmpty() %}
 <ul class="_product-container -mx-4 ps-4 md:mx-0 md:ps-0">
     {% for obProduct in obProductList %}
-    {% set obOffer = obProduct.offer.first() %}
+    {% set obOffer = obProduct.offer.site().first() %}
     <li class="cursor-pointer hover:bg-inherit md:px-0 md:hover:bg-gray-100">
         <a class="_shopaholic-product-wrapper link flex my-2 py-2 relative md:my-0" href="{{ obProduct.getPageUrl('catalog') }}">
             {% if obProduct.preview_image is not empty %}

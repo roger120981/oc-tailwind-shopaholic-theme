@@ -5,7 +5,7 @@ Params:
 - loopIndex
 #}
 
-{% set obOffer = obProduct.offer.first() %}
+{% set obOffer = obProduct.offer.site().first() %}
 
 <div class="_shopaholic-product-wrapper flex flex-col relative border border-gray-200 rounded pb-2 {{ wrapperClasses }}" data-product-id="{{ obProduct.id }}">
     <a class="link link-gray text-xs md:text-lg font-bold  line-clamp-3 mb-auto mx-2" href="{{ obProduct.getPageUrl('catalog') }}">
