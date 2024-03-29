@@ -14,7 +14,8 @@ class OfferChoose {
           offer_id: offerInput.value,
         },
         update: {
-          'product/product-tabs/product-tab-details-ajax': '._product_tab_details'
+          'product/product-tabs/product-tab-details-ajax': '._product_tab_details',
+          'product/offer-choose/offer-price': '._offer-price-wrapper',
         },
       });
     });
@@ -38,6 +39,7 @@ class OfferChoose {
         valueList[inputNode.dataset.propertyId] = inputNode.value;
       });
 
+      const obThis = this;
       oc.ajax('onAjax', {
         data: {
           property: valueList,
@@ -45,8 +47,36 @@ class OfferChoose {
         update: {
           'product/offer-choose/offer-choose-property-list': '._offer-choose-property-list'
         },
+        complete: () => {
+          obThis.updateDisabledState();
+          const offerSelect = document.querySelector('#offer_id');
+          if (!offerSelect) {
+            return;
+          }
+
+          offerSelect.dispatchEvent(
+            new InputEvent("change", {
+                bubbles: true,
+                cancelable: true
+              }
+            ));
+        }
       });
     });
+  }
+
+  updateDisabledState() {
+    const offerSelect = document.querySelector('#offer_id');
+    const addButtonNode = document.querySelector('._shopaholic-cart-add');
+    if (!addButtonNode) {
+      return;
+    }
+
+    if (offerSelect) {
+      addButtonNode.removeAttribute('disabled');
+    } else {
+      addButtonNode.setAttribute('disabled', 'disabled');
+    }
   }
 
   initAddToCartHandler(){
@@ -77,4 +107,5 @@ document.addEventListener('DOMContentLoaded', () => {
   const obOfferChoose = new OfferChoose();
   obOfferChoose.initOfferSelectHandler();
   obOfferChoose.initPropertySelectHandler();
+  obOfferChoose.updateDisabledState();
 });
