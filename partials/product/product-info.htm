@@ -13,7 +13,6 @@ Params:
 {% set obReviewListWithComment = obReviewList.copy().withComment() %}
 {% set obReviewListWithRating = obReviewList.copy().withRating() %}
 
-{% set iTotalQuantity = obOfferList.getTotalQuantity() %}
 <div class="w-full xl:ps-14 {{ wraperClasses }}">
     <h1 class="text-gray-900 text-xl md:text-2xl xl:text-3xl uppercase">
         {{ SeoToolbox.getPageTitle(obSeoModel, arSEOParams)|default(obProduct.name) }}
@@ -34,14 +33,12 @@ Params:
             <div>
                 {% if obReviewListWithRating.count() > 0 %}
                     <a href="#ratings" class="text-gray-600 link link-gray underline hover:no-underline cursor-pointer me-2 md:me-4">
-                        {{ 'reviews_customers_votes_number'|_({
-                            reviews_customers_votes_number_value: obReviewListWithRating.count(),
-                        }) }}
+                        {{ obReviewListWithRating.count() }} {{ 'reviews_customers_votes_number'|__(obReviewListWithRating.count()) }}
                     </a>
                 {% endif %}
                 {% if obReviewListWithComment.count() > 0 %}
                     <a href="#reviews" class="text-gray-600 link link-gray underline hover:no-underline cursor-pointer">
-                        {{ obReviewListWithComment.count() }} {{'reviews_reviews'|_}}
+                        {{ obReviewListWithComment.count() }} {{'reviews_multi'|__(obReviewListWithComment.count()) }}
                     </a>
                 {% endif %}
             </div>

@@ -49,14 +49,12 @@
                         obOffer = obOffer
                     %}
                     <div class="flex flex-row items-center mt-7 md:mt-10">
-                        {% partial 'input-quantity/input-quantity'
-                            iMin = 1
-                            iMax = iTotalQuantity
-                            iValue = 1
-                            sPartialWidth = "w-9 h-9"
-                            sName = "quantity"
-                            inputClasses = "_shopaholic-cart-quantity"
-
+                        {% partial 'product/offer-quantity/offer-quantity'
+                            max = obOffer.quantity
+                            value = 1
+                            id = obOffer.id
+                            widthClasses = "w-9 h-9"
+                            blockRequest = true
                         %}
                     </div>
                     <div class="flex flex-row items-center space-x-2 rtl:space-x-reverse  mt-8 md:mt-10">

@@ -1,5 +1,4 @@
 import ShopaholicCartRemove from '@oc-shopaholic/shopaholic-cart/shopaholic-cart-remove';
-import InputQuantity from '../input-quantity/input-quantity'
 
 export default new class productCardCheckout{
     constructor(){
@@ -22,13 +21,11 @@ export default new class productCardCheckout{
         obShopaholicCartRemove.setAjaxRequestCallback((obRequestData, obButton) => {
             obRequestData.update = {
                 'main/header-ajax': '._header-purchases',
-                'cart-list/cart-list-ajax': `._cart-list`,
                 'checkout-list/checkout-list-ajax': `._checkout-list`,
                 'checkout-subtotal/checkout-subtotal-ajax': `._checkout-subtotal`,
             }
             obRequestData.complete = () =>{
                 this.changeStateBasket();
-                InputQuantity.make('_counter _counter-card');
             }
             return obRequestData;
         }).init();

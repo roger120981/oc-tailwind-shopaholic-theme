@@ -1,4 +1,5 @@
 import ShopaholicCartAdd from '@oc-shopaholic/shopaholic-cart/shopaholic-cart-add';
+import {FlashMessage} from "/partials/message/flash-message";
 
 class OfferChoose {
   initOfferSelectHandler() {
@@ -87,15 +88,9 @@ class OfferChoose {
       requestData.update = {'main/header-ajax': '._header-purchases'};
       requestData.complete = (data) => {
         shopaholicCartAdd.completeCallback(data, button);
-        // let content = document.querySelector(`.${this.cartPopupWrapper}`);
-        // if (content.classList.contains('hidden')) {
-        //   content.classList.remove('hidden')
-        //
-        //   document.body.classList.add('overflow-hidden')
-        // } else {
-        //   content.classList.add('hidden');
-        //   document.body.classList.remove('overflow-hidden')
-        // }
+
+        const obFlashMessage = new FlashMessage(window.messages.purchase_cart_add_success, 'success');
+        obFlashMessage.show();
       };
 
       return requestData;
@@ -108,4 +103,5 @@ document.addEventListener('DOMContentLoaded', () => {
   obOfferChoose.initOfferSelectHandler();
   obOfferChoose.initPropertySelectHandler();
   obOfferChoose.updateDisabledState();
+  obOfferChoose.initAddToCartHandler();
 });

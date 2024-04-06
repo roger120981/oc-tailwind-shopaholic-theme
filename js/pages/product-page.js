@@ -4,7 +4,7 @@ import '/partials/product/product-gallery/product-gallery';
 import '/partials/review/review-set-rating';
 import '/partials/product/product-list-small/product-list-small';
 import '/partials/product/offer-choose/offer-choose';
-import InputQuantity from '/partials/input-quantity/input-quantity';
+import '/partials/product/offer-quantity/offer-quantity';
 import VanillaTabs from '/partials/common/tabs/tabs';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -14,9 +14,5 @@ document.addEventListener('DOMContentLoaded', () => {
     'responsiveBreak': 840,
     'activeIndex' : 0
   });
-
-  if(document.getElementsByClassName('_counter')[0]){
-    InputQuantity.make('_counter');
-  }
 });
 

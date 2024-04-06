@@ -153,8 +153,6 @@ product_sorting_low_to_high: 'Цена: от низкой к высокой'
 
 # Purchase
 purchase_checkout: 'Оформить заказ'
-purchase_color: 'Цвет'
-purchase_colors: 'Цвета'
 purchase_continue_shopping: 'Продолжить покупки'
 purchase_coupon_apply: 'Применить купон'
 purchase_coupon_code: 'Код купона'
@@ -265,6 +263,6 @@ validation_wrong_length_under: 'Пожалуйста, удлините этот 
 # Wishlist
 wishlist_empty: 'Вы не добавили товары в избранное.'
 wishlist_start_shopping: 'Начать покупки'
-wishlist_wishlist_add: 'Добавить в избранное'
-wishlist_wishlist_remove: 'Удалить из избранного'
-wishlist_wishlist: 'Избранное'
+wishlist_add_label: 'Добавить в избранное'
+wishlist_remove_label: 'Удалить из избранного'
+wishlist_title: 'Избранное'

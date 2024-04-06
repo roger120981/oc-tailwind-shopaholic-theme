@@ -1,7 +1,7 @@
-import '/partials/input-quantity/input-quantity';
+import '/partials/product/offer-quantity/offer-quantity';
 
 /* * Product Card Checkout * */
-import '/partials/product-card-checkout/product-card-checkout';
+import '/partials/product/product-card-checkout/product-card-checkout';
 
 /* * Checkout * */
 import '/partials/checkout/checkout';
