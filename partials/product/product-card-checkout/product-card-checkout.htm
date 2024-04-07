@@ -85,10 +85,16 @@ Params:
                 %}
                 <div>
                     <div class="flex flex-wrap text-sm lg:text-base">
-                        <span class="break-line text-gray-900 font-medium me-2">{{ obCartPosition.currency }}<span class="_cost _shopaholic-cart" role="presentation" data-group="position" data-field="price">{{ obCartPosition.price }}</span></span>
-                        {% if obCartPosition.old_price_value > obCartPosition.price_value %}
-                            <span class="break-line line-through text-gray-600 font-medium">{{ obCartPosition.currency }}<span class="_shopaholic-old-price _shopaholic-cart" role="presentation" data-group="position" data-field="old-price">{{ obCartPosition.old_price }}</span></span>
-                        {% endif %}
+                        <span class="break-line text-gray-900 font-medium me-2">{{ obCartPosition.currency }}
+                            <span class="_cost _shopaholic-cart" role="presentation" data-field="position.id={{ obCartPosition.id }}.price">
+                                {{ obCartPosition.price }}
+                            </span>
+                        </span>
+                        <span class="_shopaholic-old-price break-line line-through text-gray-600 font-medium {{ obCartPosition.discount_price_value > 0 ? '' : 'hidden' }}">{{ obCartPosition.currency }}
+                            <span class="_shopaholic-cart" role="presentation" data-field="position.id={{ obCartPosition.id }}.old_price">
+                                {{ obCartPosition.old_price }}
+                            </span>
+                        </span>
                     </div>
                 </div>
             </div>
