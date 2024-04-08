@@ -4,7 +4,6 @@ import '/partials/product/product-gallery/product-gallery';
 import '/partials/review/review-set-rating';
 import '/partials/product/product-list-small/product-list-small';
 import '/partials/product/offer-choose/offer-choose';
-import '/partials/product/offer-quantity/offer-quantity';
 import VanillaTabs from '/partials/common/tabs/tabs';
 
 document.addEventListener('DOMContentLoaded', () => {
