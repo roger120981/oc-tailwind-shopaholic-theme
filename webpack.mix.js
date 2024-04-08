@@ -2,7 +2,6 @@ const mix = require('laravel-mix');
 const jsFileList = [
   'js/vendor/app',
   'js/pages/account-orders',
-  'js/pages/sign-in-checkout',
   'js/pages/checkout',
   'js/pages/contact',
   'js/pages/faq',

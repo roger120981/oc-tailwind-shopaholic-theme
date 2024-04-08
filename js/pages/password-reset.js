@@ -2,19 +2,22 @@ import '/js/vendor/validation';
 
 class ResetPassword {
   constructor() {
-    this.buttonNode = document.querySelector('._button-reset-password');
-    this.formNode = this.buttonNode ? this.buttonNode.closest('form') : null;
+    this.formNode = document.querySelector('#password-reset');
+    this.buttonNode = this.formNode ? this.formNode.querySelector('button[type="submit"]') : null;
   }
 
   initHandler() {
-    if (!this.buttonNode || !this.formNode) {
+    if (!this.formNode) {
       return;
     }
 
     const obThis = this;
-    this.buttonNode.addEventListener('click', (event) => {
+    this.formNode.addEventListener('submit', (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+
       obThis.sendRequest();
-    })
+    });
   }
 
   sendRequest() {

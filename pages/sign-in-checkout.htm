@@ -1,12 +1,32 @@
 title = "Checkout Authentification"
-url = "/sign-in-checkout"
+url = "/checkout/sign-in"
 layout = "main"
 is_hidden = 0
+
+[Login]
+mode = "ajax"
+flash_on = 1
+redirect_on = 1
+redirect_page = "checkout"
 ==
 <?php
 function onInit()
 {
-    $this['path_page_js'] = mix('assets/dist/js/sign-in-checkout.js', 'themes/lovata-tailwind-shopaholic');
+    $this['path_page_js'] = mix('assets/dist/js/sign-in.js', 'themes/lovata-tailwind-shopaholic');
+
+    $obUser = $this['obUser'];
+    $bHasUserPlugin = $this['bHasUserPlugin'];
+
+    if (!$bHasUserPlugin) {
+        return $this->controller->run('404');
+    }
+}
+
+function onStart() {
+    $obUser = $this['obUser'];
+    if (!empty($obUser)) {
+        return \Cms::redirect(\Cms::pageUrl('checkout'), [], 307);
+    }
 }
 ?>
 ==
@@ -24,6 +44,37 @@ function onInit()
     <span class="inline-block mt-2 md:mt-4 text-gray-600">{{ 'account_checkout_guest_message' | transRaw({account_create: account_create}) }}</span>
     <h1 class="font-medium uppercase text-xl md:text-3xl mt-8 mb-4">{{ 'account_signing_in'|_ }}</h1>
     <div class="max-w-xs">
-        {% partial 'account/sign-in-form' %}
+        <form id="sign-in" class="_required">
+            {% partial 'form/input'
+                id = 'email'
+                labelText = 'form_user_email'|_
+                name = 'email'
+                required = 'required'
+            %}
+            {% partial 'form/input'
+                id = 'password'
+                labelText = 'form_user_password'|_
+                name = 'password'
+                required = 'required'
+                type = 'password'
+                wrapperClasses = 'mt-4'
+            %}
+            <div class="mt-4 text-end">
+                <a href="{{ 'password-restore'|page }}" class="text-blue-800 hover:text-blue-700 active:text-blue-900 focus-visible:otline-blue underline hover:no-underline text-sm md:text-base">{{ 'account_password_forgot'|_ }}</a>
+            </div>
+            {% set accountPrivacyTermsConditions = '<a class="text-blue-800 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue underline hover:no-underline text-sm md:text-base" href="'~ this.theme.sign_up_terms_link|link ~'">'~('account_privacy_terms_conditions'|_)|raw ~'</a>' %}
+            {% set accountPrivacyCookiePolicy = '<a class="text-blue-800 hover:text-blue-700 active:text-blue-900 focus-visible:outline-blue underline hover:no-underline text-sm md:text-base" href="'~ this.theme.sign_up_policy_link|link ~'">'~('account_privacy_cookie_policy'|_)~'</a>' %}
+            {% partial 'form/input-checkbox'
+                wrapperClasses = 'mt-4 md:mt-3'
+                id = 'remember_me'
+                name = 'remember_me'
+                labelText = 'account_rules_acceptance'|transRaw({account_privacy_terms_conditions: accountPrivacyTermsConditions, account_privacy_cookie_policy: accountPrivacyCookiePolicy}) | raw
+            %}
+            {% partial 'form/button'
+                text = 'account_sign_in_checkout'|_
+                type = 'submit'
+                wrapperClasses = 'w-full mt-8 md:mt-6'
+            %}
+        </form>
     </div>
 </div>

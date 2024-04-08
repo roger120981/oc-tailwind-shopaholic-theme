@@ -2,19 +2,22 @@ import '/js/vendor/validation';
 
 class SignIn {
   constructor() {
-    this.buttonNode = document.querySelector('._button-sign-in');
-    this.formNode = this.buttonNode ? this.buttonNode.closest('form') : null;
+    this.formNode = document.querySelector('#sign-in');
+    this.buttonNode = this.formNode ? this.formNode.querySelector('button[type="submit"]') : null;
   }
 
   initHandler() {
-    if (!this.buttonNode || !this.formNode) {
+    if (!this.formNode) {
       return;
     }
 
     const obThis = this;
-    this.buttonNode.addEventListener('click', (event) => {
+    this.formNode.addEventListener('submit', (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+
       obThis.sendRequest();
-    })
+    });
   }
 
   sendRequest() {
