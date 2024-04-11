@@ -140,6 +140,7 @@ product_description_show: 'Przeczytaj pełny opis'
 product_materials: 'Materiały'
 product_measurements: 'Pomiary produktu'
 product_not_available: 'Niedostępne.'
+product_code: 'Numer modelu'
 
 # Products
 product_add_to_cart: 'Dodaj do koszyka'
@@ -152,8 +153,6 @@ product_sorting_low_to_high: 'Cena: od niskiej do wysokiej'
 
 # Purchase
 purchase_checkout: 'Zamówienie'
-purchase_color: 'Kolor'
-purchase_colors: 'Kolory'
 purchase_continue_shopping: 'Kontynuuj zakupy'
 purchase_coupon_apply: 'Zastosuj kupon'
 purchase_coupon_code: 'Kod kuponu'
@@ -192,7 +191,6 @@ reviews_customers_rating_all: ':reviews_customers_rating_stars_number gwiazd, :r
 reviews_customers_rating_product: 'Ocena tej pozycji to :reviews_customers_rating_product z 5'
 reviews_customers_rating: 'Ocena :reviews_customers_rating_value od 5 na podstawie :reviews_customers_rating_value_max ocen'
 reviews_customers_votes_number: ':reviews_customers_votes_number_value opinii'
-reviews_product_model: 'Numer modelu'
 reviews_product_rate: 'Oceń ten produkt'
 reviews_read_mode: 'Czytaj więcej'
 reviews_read_more: 'Przeczytaj więcej opinii'
@@ -265,6 +263,6 @@ validation_wrong_length_under: 'Proszę wydłużyć ten tekst do znaków {minLen
 # Wishlist
 wishlist_empty: 'Twoja lista ulubionych jest pusta.'
 wishlist_start_shopping: 'Zacznij zakupy'
-wishlist_wishlist_add: 'Dodaj do ulubionych'
-wishlist_wishlist_remove: 'Usuń z ulubionych'
-wishlist_wishlist: 'Ulubione'
+wishlist_add_label: 'Dodaj do ulubionych'
+wishlist_remove_label: 'Usuń z ulubionych'
+wishlist_title: 'Ulubione'

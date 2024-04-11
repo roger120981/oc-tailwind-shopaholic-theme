@@ -39,39 +39,27 @@
                 </div>
             {% elseif obProperty.filter_type == 'checkbox' %}
                 {% set obPropertyValueList = obProperty.property_value.sort() %}
-                {% if obProperty.code != 'color' %}
-                    <fieldset class="me-3 w-full">
-                        <legend class="sr-only">{{ obProperty.filter_name }}</legend>
-                        {% for obValue in obPropertyValueList %}
-                            {% set bChecked = arFilterValue[obProperty.id] is not empty and obValue.slug in arFilterValue[obProperty.id] %}
-                            {% set bDisabled = false %}
-                            {% if bChecked == false and arFilterValueWithoutProperty[obProperty.id] is not empty %}
-                                {% set obProductListTemp = obProductList.copy().filterByProperty(arFilterValueWithoutProperty[obProperty.id], obProductPropertyList).filterByProperty(arFilterValueWithoutProperty[obProperty.id], obOfferPropertyList) %}
-                                {% set bDisabled = obValue.isDisabled(obProductListTemp) %}
-                            {% endif %}
-                            {% partial 'form/input-checkbox'
-                                labelText = obValue.value
-                                wrapperClasses = 'flex items-center mb-4'
-                                inputClasses = 'rounded-sm disabled:opacity-20'
-                                disabled = bDisabled
-                                checked= bChecked
-                                id = 'property-' ~ obProperty.id ~ '-' ~ obValue.slug
-                                name = 'property-' ~ obProperty.id
-                                value = obValue.slug
-                            %}
-                        {% endfor %}
-                    </fieldset>
-                {% else %}
-                    <fieldset class="space-y-2">
-                        <legend class="sr-only">{{ obProperty.filter_name }}</legend>
-                        {% partial 'input-color-choose/input-color-choose'
-                            obPropertyValueList = obPropertyValueList
-                            obProperty = obProperty
-                            wrapperClasses = 'me-3'
-                            sContainerClasses = 'w-full flex flex-wrap'
+                <fieldset class="me-3 w-full">
+                    <legend class="sr-only">{{ obProperty.filter_name }}</legend>
+                    {% for obValue in obPropertyValueList %}
+                        {% set bChecked = arFilterValue[obProperty.id] is not empty and obValue.slug in arFilterValue[obProperty.id] %}
+                        {% set bDisabled = false %}
+                        {% if bChecked == false and arFilterValueWithoutProperty[obProperty.id] is not empty %}
+                            {% set obProductListTemp = obProductList.copy().filterByProperty(arFilterValueWithoutProperty[obProperty.id], obProductPropertyList).filterByProperty(arFilterValueWithoutProperty[obProperty.id], obOfferPropertyList) %}
+                            {% set bDisabled = obValue.isDisabled(obProductListTemp) %}
+                        {% endif %}
+                        {% partial 'form/input-checkbox'
+                            labelText = obValue.value
+                            wrapperClasses = 'flex items-center mb-4'
+                            inputClasses = 'rounded-sm disabled:opacity-20'
+                            disabled = bDisabled
+                            checked= bChecked
+                            id = 'property-' ~ obProperty.id ~ '-' ~ obValue.slug
+                            name = 'property-' ~ obProperty.id
+                            value = obValue.slug
                         %}
-                    </fieldset>
-                {% endif %}
+                    {% endfor %}
+                </fieldset>
             {% elseif obProperty.filter_type == 'select' %}
                 {% set obPropertyValueList = obProperty.property_value.sort() %}
                 {% set selectOptions = [] %}

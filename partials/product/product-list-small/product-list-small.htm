@@ -18,6 +18,8 @@ Params:
     {% set obProductList = ProductList.make().active().viewed() %}
 {% elseif type == 'related_products' %}
     {% set obProductList = obProduct.related().active() %}
+{% elseif type == 'accessories' %}
+    {% set obProductList = obProduct.accessory.active() %}
 {% endif %}
 
 {% set iPage = input('page')|default(1) %}

@@ -40,7 +40,7 @@
                     {% for obOrderItem in obOrder.order_position %}
                         {% set obOrderOffer = obOrderItem.offer %}
                         {% set obProduct = obOrderOffer.product %}
-                        {% set obOffer = obProduct.offer.first() %}
+                        {% set obOffer = obProduct.offer.site().first() %}
                         {% if obOrderOffer.isNotEmpty() and obProduct.isNotEmpty() %}
                             <li class="flex flex-row space-x-2 rtl:space-x-reverse ">
                                 <div class="relative flex items-center">

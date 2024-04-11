@@ -4,6 +4,10 @@ Params:
 - obOffer
 #}
 
+{% set activeOfferID = input('offer_id') %}
+{% if activeOfferID is not empty %}
+    {% set obOffer = obProduct.offer.site().find(activeOfferID) %}
+{% endif %}
 {% set showMaterials = obOffer.measure.isNotEmpty() or obOffer.weight > 0 or obOffer.height > 0 or obOffer.length > 0 or obOffer.width > 0 %}
 
 {% if showMaterials %}

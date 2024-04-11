@@ -7,7 +7,7 @@
         {% set obOffer = obCartPosition.offer %}
         {% set obProduct = obOffer.product %}
         <li class="_shopaholic-product-wrapper relative after:content-[''] after:absolute after:inset-0 after:border-b after:first:border-t after:border-gray-200 after:-start-4 after:-z-10 lg:after:start-0" data-position-id="{{ obCartPosition.id }}" data-product-id="{{ obProduct.id }}">
-            {% partial 'product-card-checkout/product-card-checkout'
+            {% partial 'product/product-card-checkout/product-card-checkout'
                 obCartPosition = obCartPosition
             %}
         </li>

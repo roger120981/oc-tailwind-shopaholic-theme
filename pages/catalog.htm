@@ -46,6 +46,29 @@ last_button_name = "Last"
 last_button_limit = 3
 last_button_number = 1
 
+[Pagination ReviewPagination]
+count_per_page = 3
+pagination_limit = 5
+button_list = "next"
+first_button_name = "First"
+first_button_limit = 3
+first_button_number = 1
+first-more_button_name = "..."
+first-more_button_limit = 4
+prev_button_name = "Prev"
+prev_button_limit = 1
+prev-more_button_name = "..."
+prev-more_button_limit = 1
+next-more_button_name = "..."
+next-more_button_limit = 1
+next_button_name = "Next"
+next_button_limit = 1
+last-more_button_name = "..."
+last-more_button_limit = 4
+last_button_name = "Last"
+last_button_limit = 3
+last_button_number = 1
+
 [ProductList]
 sorting = "popularity|desc"
 
@@ -53,6 +76,10 @@ sorting = "popularity|desc"
 
 [global ProductPageContent]
 handle = "Site\ProductPage"
+
+[MakeReview]
+mode = "ajax"
+flash_on = 1
 ==
 <?php
 function onInit() {
@@ -72,11 +99,20 @@ function onInit() {
     $bHasFilterPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.filtershopaholic')
         && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.FilterShopaholic');
 
+    $bHasViewedPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.viewedproductsshopaholic')
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.ViewedProductsShopaholic');
+
+    $bHasRelatedPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.relatedproductsshopaholic')
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.RelatedProductsShopaholic');
+
+    $bHasAccessoriesPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.accessoriesshopaholic')
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.AccessoriesShopaholic');
+
     if(!empty($obProductItem)) {
         //Product item data
         $this['obProduct'] = $obProductItem;
 
-        $this['path_page_js'] = mix('assets/dist/js/product-item.js', 'themes/lovata-tailwind-shopaholic');
+        $this['path_page_js'] = mix('assets/dist/js/product-page.js', 'themes/lovata-tailwind-shopaholic');
     } else {
         // Set main category as active category
         if (!empty($obMainCategoryItem) && empty($obActiveCategoryItem)) {
@@ -174,6 +210,9 @@ function onInit() {
 
     $this['arBreadcrumbs'] = array_reverse($arBreadcrumbs);
     $this['bHasFilterPlugin'] = $bHasFilterPlugin;
+    $this['bHasViewedPlugin'] = $bHasViewedPlugin;
+    $this['bHasRelatedPlugin'] = $bHasRelatedPlugin;
+    $this['bHasAccessoriesPlugin'] = $bHasAccessoriesPlugin;
 }
 
 function onStart()

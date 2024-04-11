@@ -1,6 +1,7 @@
 import ShopaholicAddWishList from '@oc-shopaholic/shopaholic-wish-list/shopaholic-add-wish-list';
 import ShopaholicRemoveWishList from '@oc-shopaholic/shopaholic-wish-list/shopaholic-remove-wish-list';
 import {FlashMessage} from '/partials/message/flash-message';
+import {OffCanvasContainer} from '/partials/common/off-canvas/off-canvas';
 
 export default new class ButtonWishList {
   constructor() {
@@ -27,6 +28,11 @@ export default new class ButtonWishList {
     const obThis = this;
     this.obAddHelper.setAjaxRequestCallback((obRequestData, buttonNode) => {
       obThis.buttonNode = buttonNode;
+
+      if (!OffCanvasContainer.instance().find('header_cart')) {
+        obRequestData.update = {'main/header-ajax': '._header-purchases'};
+      }
+
       obThis.buttonNode.setAttribute('disabled', 'disabled');
       this.changeButtonView(obThis.buttonNode, obThis.typeRemove);
       obRequestData.complete = () => {
@@ -35,7 +41,7 @@ export default new class ButtonWishList {
 
         obThis.buttonNode.removeAttribute('disabled');
 
-        const obFlashMessage = new FlashMessage(window.messages.wishlist_wishlist_add_success, 'success');
+        const obFlashMessage = new FlashMessage(window.messages.wishlist_add_success, 'success');
         obFlashMessage.show();
       };
 
@@ -50,6 +56,11 @@ export default new class ButtonWishList {
     const obThis = this;
     this.obRemoveHelper.setAjaxRequestCallback((obRequestData, buttonNode) => {
       obThis.buttonNode = buttonNode;
+
+      if (!OffCanvasContainer.instance().find('header_cart')) {
+        obRequestData.update = {'main/header-ajax': '._header-purchases'};
+      }
+
       obThis.buttonNode.setAttribute('disabled', 'disabled');
       this.changeButtonView(obThis.buttonNode, obThis.typeAdd);
       obRequestData.complete = () => {
@@ -58,7 +69,7 @@ export default new class ButtonWishList {
 
         obThis.buttonNode.removeAttribute('disabled');
 
-        const obFlashMessage = new FlashMessage(window.messages.wishlist_wishlist_remove_success, 'success');
+        const obFlashMessage = new FlashMessage(window.messages.wishlist_remove_success, 'success');
         obFlashMessage.show();
       };
 
