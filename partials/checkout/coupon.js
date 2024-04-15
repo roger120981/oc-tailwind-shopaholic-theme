@@ -9,7 +9,7 @@ export default new class Coupon {
   init() {
     const obAdd = new ShopaholicCouponAdd();
     obAdd.setAjaxRequestCallback(function (obRequestData, obInput, obButton) {
-      obRequestData.update = {'checkout-list/checkout-list-ajax': '._checkout-list'};
+      obRequestData.update = {'checkout/checkout-list-ajax': '._checkout-list'};
       obRequestData.complete = (obResponse) => {
         obAdd.completeCallback(obResponse, obInput, obButton);
         obInput.setAttribute('disabled', 'disabled');
@@ -27,7 +27,7 @@ export default new class Coupon {
     const obRemove = new ShopaholicCouponRemove();
     obRemove.setAjaxRequestCallback(function (obRequestData, obInput, obButton) {
       obRequestData.complete = (obResponse) => {
-        obRequestData.update = {'checkout-list/checkout-list-ajax': '._checkout-list'};
+        obRequestData.update = {'checkout/checkout-list-ajax': '._checkout-list'};
         obAdd.completeCallback(obResponse, obInput, obButton);
         obInput.removeAttribute('disabled', 'disabled');
         obButton.classList.add('hidden');
