@@ -12,9 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // If current page is "checkout", then update checkout partials
-    const checkoutNode = document.querySelector('._checkout-list');
+    const checkoutNode = document.querySelector('._checkout-list-wrapper');
     if (checkoutNode) {
-      obRequestData.update['checkout/checkout-list-ajax'] = '._checkout-list';
+      obRequestData.update['checkout/checkout-list-total-price'] = '._checkout-list-total-price';
+      obRequestData.update['checkout/shipping-type-list'] = '._shipping_type_wrapper';
     }
 
     return obRequestData;
