@@ -52,6 +52,24 @@ function onStart()
             {% component 'SeoToolbox' %}
         {% endplaceholder %}
         {{ SeoToolbox.getHeadEnd()|raw }}
+        <style>
+            :root {
+                --primary: #d97706;
+                --primary-hover: #f59e0b;
+                --primary-focus: #854d0e;
+
+                --on-primary-container: #78350f;
+
+                --surface-dim: #cbd5e1;
+                --surface-container: #f1f5f9;
+
+                --on-surface: #0f172a;
+                --on-surface-variant: #475569;
+
+                --outline: #94a3b8;
+                --outline-variant: #e2e8f0;
+            }
+        </style>
     </head>
     <body class="bg-gray-50" itemscope itemtype="http://schema.org/WebPage">
         {{ SeoToolbox.getBodyBegin()|raw }}

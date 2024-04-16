@@ -53,24 +53,6 @@ function onInit()
 {% set arCategoryList = obCategoryList.all() %}
 
 {% if arCategoryList is not empty %}
-<style>
-  :root {
-    --primary: #d97706;
-    --primary-hover: #f59e0b;
-    --primary-focus: #854d0e;
-
-    --on-primary-container: #78350f;
-
-    --surface-dim: #cbd5e1;
-    --surface-container: #f1f5f9;
-
-    --on-surface: #0f172a;
-    --on-surface-variant: #475569;
-
-    --outline: #94a3b8;
-    --outline-variant: #e2e8f0;
-  }
-</style>
 <section class="content-visibility p-0.5">
     <h2 class="font-medium text-3xl text-on-surface mb-10 uppercase">{{'catalog_categories'|_}}</h2>
     <div class="flex flex-col mb-10">
