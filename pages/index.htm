@@ -68,10 +68,10 @@ function onInit()
             {% endfor %}
         {% endpartial %}
         {% if obCategoryList.count() > iTake %}
-            <div class="flex justify-center mt-10">
+            <div class="flex justify-center mt-4 md:mt-10">
                 {% partial 'form/button'
                     text = 'catalog_categories_show'|_
-                    wrapperClasses = '_advanced-list-button-show-all'
+                    wrapperClasses = '_advanced-list-button-show-all w-full md:w-max'
                 %}
                 {% partial 'form/button'
                     text = 'form_loading'|_

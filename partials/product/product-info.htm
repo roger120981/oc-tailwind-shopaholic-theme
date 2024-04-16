@@ -13,7 +13,7 @@ Params:
 {% set obReviewListWithComment = obReviewList.copy().withComment() %}
 {% set obReviewListWithRating = obReviewList.copy().withRating() %}
 
-<div class="w-full xl:ps-14 {{ wraperClasses }}">
+<div class="xl:ps-14 {{ wraperClasses }}">
     <h1 class="text-gray-900 text-xl md:text-2xl xl:text-3xl uppercase">
         {{ SeoToolbox.getPageTitle(obSeoModel, arSEOParams)|default(obProduct.name) }}
     </h1>

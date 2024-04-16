@@ -16,7 +16,16 @@ Params:
 {% set aspect = "4/3" %}
 
 
-<div class="_shopaholic-product-wrapper flex flex-col relative border border-gray-200 rounded pb-2 {{ wrapperClasses }}" data-product-id="{{ obProduct.id }}">
+{% set classesAspect = {
+    "1/1": 'aspect-square',
+    "4/3": 'aspect-4/3',
+    "3/4": 'aspect-3/4',
+}
+%}
+{% set aspect = "4/3" %}
+
+
+<div class="_shopaholic-product-wrapper bg-white flex flex-col relative border border-gray-200 rounded pb-2 {{ wrapperClasses }}" data-product-id="{{ obProduct.id }}">
     <a class="link link-gray text-xs md:text-lg font-bold  line-clamp-3 mb-auto mx-2" href="{{ obProduct.getPageUrl('catalog') }}">
         {{ obProduct.name }}
     </a>
