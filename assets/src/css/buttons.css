@@ -7,19 +7,20 @@ button.button-primary,
   @apply bg-primary hover:bg-primary-hover hover:border-primary-hover rounded text-white py-3 px-8 text-lg md:text-base
 }
 
+
 button.button-outline,
 [type='button'].button-outline,
 [type='reset'].button-outline,
 [type='submit'].button-outline,
 .button-outline {
-  @apply rounded text-primary border border-primary border-solid py-3 px-8 text-lg md:text-base hover:bg-primary-hover hover:border-primary-hover hover:text-white
+  @apply rounded font-medium text-primary border border-primary border-solid py-3 px-8 text-lg md:text-base hover:bg-primary-hover hover:border-primary-hover hover:text-white
 }
 
 button.button-state,
 [type='button'].button-state,
 [type='reset'].button-state,
 [type='submit'].button-state,
-.button-state{
+.button-state {
   @apply
   focus:outline focus:outline-offset-1 focus:outline-primary-hover focus:outline-1 focus:bg-primary focus:text-white
   focus-visible:outline focus-visible:outline-offset-1 focus-visible:outline-primary-hover focus-visible:outline-1 focus-visible:bg-primary focus-visible:text-white
@@ -63,4 +64,6 @@ button.link[disabled]:active,
 .link-dark {
   @apply text-on-surface hover:text-primary-hover [&:not(.underline)]:hover:underline
 }
-
+.button-icon {
+  @apply inline-flex items-center justify-center
+}

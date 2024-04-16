@@ -21,6 +21,7 @@ export default new class ProductGallery {
       closeSVG: "<svg viewBox=\"0 0 32 32\" class=\"pswp__icn\" width=\"32\" height=\"32\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path d=\"M8 8L24 24M8 24L24 8L8 24Z\" stroke=\"#111827\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg>",
       bgOpacity: 0.3,
       gallery: ".js-photo-swipe",
+      showHideAnimationType: 'fade',
       children: "a",
       pswpModule: () => import("photoswipe")
     });
