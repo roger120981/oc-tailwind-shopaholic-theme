@@ -17,14 +17,29 @@ tabs:
             label: Primary Focus
             type: colorpicker
             tab: 'Colors'
+
+        color_section_on_primary:
+            label: 'On primary'
+            type: section
+            span: full
+            tab: 'Colors'
+        color_on_primary:
+            label: On Primary Container
+            type: colorpicker
+            tab: 'Colors'
         color_on_primary_container:
             label: On Primary Container
             type: colorpicker
             tab: 'Colors'
+
         color_section_surface:
             label: 'Surface'
             type: section
             span: full
+            tab: 'Colors'
+        color_surface:
+            label: Surface
+            type: colorpicker
             tab: 'Colors'
         color_surface_dim:
             label: Surface Dim
@@ -34,6 +49,12 @@ tabs:
             label: Surface Container
             type: colorpicker
             tab: 'Colors'
+
+        color_section_on_surface:
+            label: 'On Surface'
+            type: section
+            span: full
+            tab: 'Colors'
         color_on_surface:
             label: On Surface
             type: colorpicker
@@ -42,6 +63,7 @@ tabs:
             label: On Surface Variant
             type: colorpicker
             tab: 'Colors'
+
         color_section_outline:
             label: 'Outline'
             type: section
