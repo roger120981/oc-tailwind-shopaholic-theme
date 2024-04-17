@@ -61,6 +61,9 @@ Params:
         {% if maxLength is not same as(null) %}
             maxlength="{{ maxLength }}"
         {% endif %}
+        {% if inputmode is not same as(null) %}
+            inputmode="{{ inputmode }}"
+        {% endif %}
         {% if minLength is not same as(null) %}
             minlength="{{ minLength }}"
         {% endif %}

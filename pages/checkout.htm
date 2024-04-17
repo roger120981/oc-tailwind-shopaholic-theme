@@ -115,7 +115,8 @@ function onInit()
                     {% partial 'form/input'
                         labelClasses = 'text-sm mb-1 text-gray-600'
                         labelText = 'form_user_zip_code'|_
-                        type = 'number'
+                        type = 'text'
+                        inputmode="numeric"
                         name = 'zipCode'
                         inputClasses = '_shopaholic-order-field'
                         dataAtributes = 'data-field="shipping_address.poscode"'
@@ -133,7 +134,7 @@ function onInit()
                 {% partial 'form/input'
                     labelClasses = 'text-sm mb-1 text-gray-600'
                     labelText = 'form_user_phone'|_
-                    type = 'text'
+                    type = 'tel'
                     name = 'phone'
                     inputClasses = '_shopaholic-order-field'
                     dataAtributes = 'data-field="user.phone"'
