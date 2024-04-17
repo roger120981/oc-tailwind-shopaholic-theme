@@ -1,11 +1,12 @@
 {##}
-{% set sLat    = this.theme.map_lat %}
-{% set sLng    = this.theme.map_lng %}
+{% set sLat    = ContactPage.map_lat %}
+{% set sLng    = ContactPage.map_lng %}
 
 <div class="w-screen border lg:w-full max-w-screen lg:max-w-screen-sm xl:max-w-850 -ms-screen-1/2 lg:ms-auto -mr-screen-1/2 lg:mr-0 aspect-14/16 md:aspect-16/8 lg:aspect-16/5 mt-7 lg:mt-0 relative left-1/2 lg:left-0 right-1/2 lg:right-0">
     <div class="map"
         data-api-key="{{ sApiKey ? sApiKey : 'null' }}"
-        data-coordinates="{{ sLat }},{{ sLng }}"
+        data-lat="{{ sLat }}"
+        data-lng="{{ sLng }}"
         data-marker-path="{{ 'assets/images/ballon.svg'|theme }}">
         {% partial 'common/map/popup' %}
     </div>
