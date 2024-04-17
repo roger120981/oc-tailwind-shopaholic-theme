@@ -12,7 +12,8 @@
         name = 'name'
         required = 'required'
         type = 'text'
-        wrapperClasses = 'relative'
+        wrapperClasses = 'mb-6 relative'
+        labelClasses = '!text-sm'
     %}
     {% partial 'form/input'
         id = 'form-email'
@@ -20,18 +21,20 @@
         name = 'email'
         required = 'required'
         type = 'email'
-        wrapperClasses = 'mt-7 md:mt-8 relative'
+        wrapperClasses = 'mb-6 relative'
+        labelClasses = '!text-sm'
     %}
     {% partial 'form/textarea'
         id = 'message'
         labelText = 'form_user_message'|_
         name = 'message'
-        wrapperClasses = 'mt-7 md:mt-8 relative'
-        rows = '4'
+        wrapperClasses = 'relative'
+        rows = '3'
+        labelClasses = '!text-sm'
     %}
     {% partial 'form/button'
         text = 'form_send'|_
         type = 'submit'
-        wrapperClasses = 'w-full md:w-auto mt-12 md:mt-10'
+        wrapperClasses = 'w-full md:w-auto mt-12 md:mt-8'
     %}
 </form>

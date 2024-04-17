@@ -5,10 +5,8 @@ Params:
 
 {% if obProduct.description is not empty %}
     <li data-title="{{ 'product_tab_description'|_ }}">
-        <article class="prose prose-a:visited:text-purple-800 md:prose-lg" >
-            <div class="flex flex-col space-y-2 prose max-w-none text-sm md:text-base">
+        <article class="prose text-sm md:text-base prose-p:mt-0 prose-a:visited:text-purple-800 md:prose-lg">
                 {{ obProduct.description|raw }}
-            </div>
         </article>
     </li>
 {% endif %}

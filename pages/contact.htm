@@ -33,8 +33,9 @@ function onInit()
 
 {% partial 'common/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
 <h1 class="text-lg md:text-3xl text-gray-900 font-medium uppercase mb-4 md:mb-6">{{'heading_contact'|_}}</h1>
-<div class="flex flex-col lg:flex-row mb-7 md:mb-10">
-    <div class="flex flex-col sm:flex-row lg:flex-col gap-y-5 sm:gap-x-20">
+
+<div class="md:grid md:grid-cols-3 md:gap-x-7 md:gap-y-10 {% if this.theme.map_api_key is not empty %} md:bg-feedback md:bg-no-repeat md:bg-[calc(50%-387px)_78%] xl:bg-[calc(50%-487px)_78%]{% endif %} pb-12">
+    <div class="">
         <div>
             {% if this.theme.business_card_address is not empty %}
                 <span class="text-gray-600 text-sm md:text-base font-normal mb-2 md:mb-1 inline-block">{{'text_address'|_}}</span>
@@ -59,31 +60,30 @@ function onInit()
                 <span class="text-gray-600 text-sm md:text-base font-normal mb-2 inline-block">{{'text_pickup_points'|_}}</span>
                 <ul class="list-disc list-inside pl-2.5">
                     {% for obItem in arPickupPointsList %}
-                    <li>{{ obItem.point }}</li>
+                        <li>{{ obItem.point }}</li>
                     {% endfor %}
                 </ul>
             </div>
         {% endif %}
     </div>
-    {% set sApiKey = this.theme.map_api_key %}
-    {% set sActive = this.theme.map_section_active %}
-    {% partial 'common/map/map' sApiKey = sApiKey %}
-    {% if sActive %}
-
-    {% else %}
-        <div class="lg:ml-auto w-full lg:max-w-screen-sm xl:max-w-[850px] mt-7 md:mt-0">
-            <h2 class="text-lg md:text-2xl text-gray-900 font-medium mb-4 md:mb-6 uppercase">{{'heading_waiting_for_your_feedback'|_}}</h2>
-            {% partial 'feedback-form/feedback-form' %}
-        </div>
+    {% if this.theme.map_api_key is not empty %}
+    <div class="md:col-span-2 mt-7 -mx-4 md:m-0">
+        {% set sApiKey = this.theme.map_api_key %}
+        {% set sActive = this.theme.map_section_active %}
+       <div class="h-[380px]">
+           {% partial 'common/map/map' sApiKey = sApiKey %}
+       </div>
+    </div>
+    <div class=""></div>
     {% endif %}
-</div>
-{% if sActive is not empty %}
-    <div class="full-width lg:bg-feedback lg:bg-no-repeat lg:bg-left lg:bg-[length:300px] xl:bg-auto">
-        <div class="flex sm:container sm:mx-auto px-4">
-            <div class="md:ml-auto w-full lg:max-w-screen-sm xl:max-w-[850px] mb-8 md:mb-12">
-                <h2 class="text-lg md:text-2xl text-gray-900 font-medium mb-4 md:mb-6 uppercase">{{'heading_waiting_for_your_feedback'|_}}</h2>
+    <div class="col-span-2">
+        {% if sActive %}
+
+        {% else %}
+            <div class="lg:ml-auto w-full lg:max-w-screen-sm xl:max-w-[850px] mt-7 md:mt-0">
+                <h2 class="text-lg md:text-2xl text-gray-900 font-medium mb-4 md:mb-5 uppercase">{{'heading_waiting_for_your_feedback'|_}}</h2>
                 {% partial 'feedback-form/feedback-form' %}
             </div>
-        </div>
+        {% endif %}
     </div>
-{% endif %}
+</div>
