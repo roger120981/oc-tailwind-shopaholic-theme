@@ -142,40 +142,8 @@ function onInit()
             </div>
         </div>
         {% if obPaymentMethodList.isNotEmpty() and obActivePaymentMethod.isNotEmpty() %}
-            <fieldset class="_payment-method">
-                <h2 class="mb-4 text-gray-900 text-lg font-medium uppercase md:text-2xl">{{'purchase_payment_method'|_}}</h2>
-                <legend class="sr-only">{{'purchase_payment_method_choose'|_}}</legend>
-                {% for obPaymentMethod in obPaymentMethodList %}
-                    {% set sStyle = '' %}
-                    {% if obPaymentMethod.code == 'cash' %}
-                        {% set sStyle = '_cash' %}
-                    {% elseif obPaymentMethod.code == 'card' %}
-                        {% set sStyle = '_card' %}
-                    {% endif %}
-                    {% partial 'form/input-radio'
-                        wrapperClasses = 'flex items-center mb-4'
-                        text = obPaymentMethod.name
-                        id = 'payment_method_' ~ obPaymentMethod.id
-                        name = 'payment_method_id'
-                        checked = obPaymentMethod.id == obActivePaymentMethod.id
-                        inputClasses = sStyle ~ ' _shopaholic-order-field peer'
-                        value = obActivePaymentMethod.id
-                        dataAtributes = 'data-field="order.payment_method_id"'
-                        labelClasses = 'peer-checked:text-gray-900'
-                    %}
-                {% endfor %}
-                <div class="_payment-card hidden flex flex-col">
-                    {% if SiteContent.payment_methods_list_active %}
-                        {% partial 'common/icon-list'
-                            sectionHeader = "purchase_payment_methods"|_
-                            wrapperClasses = "lg:mt-2 lg:mb-2"
-                            listClasses = "gap-x-2"
-                            arItemList = this.theme.payment_methods_list
-                            itemClasses = "w-14 aspect-w-14 aspect-h-9"
-                            notFoundMessage = "text_icon_list_payment_methods_not_found"|_
-                        %}
-                    {% endif %}
-                </div>
+            <fieldset class="_payment-method-wrapper">
+                {% partial 'checkout/payment-method-list' %}
             </fieldset>
         {% endif %}
         <div class="_subtotal-container _cart-checkout-list w-full md:w-1/2 mt-7 mb-12">
