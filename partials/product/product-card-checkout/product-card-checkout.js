@@ -24,6 +24,13 @@ class ProductCardCheckout {
         obRequestData.update = {'main/header-ajax': '._header-purchases'};
       }
 
+      const checkoutNode = document.querySelector('._checkout-list-wrapper');
+      if (checkoutNode) {
+        obRequestData.update['checkout/checkout-list-total-price'] = '._checkout-list-total-price';
+        obRequestData.update['checkout/shipping-type-list'] = '._shipping_type_wrapper';
+        obRequestData.update['checkout/checkout-subtotal'] = '._checkout-subtotal';
+      }
+
       obRequestData.complete = (data) => {
         obShopaholicCartRemove.completeCallback(data, buttonNode);
 

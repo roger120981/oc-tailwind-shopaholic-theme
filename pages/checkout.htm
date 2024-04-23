@@ -76,71 +76,14 @@ function onInit()
 
 {% partial 'common/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
 <section class="grid lg:grid-cols-2">
-    <form class="_required _shopaholic-order-form lg:col-span-1">
+    <form id="make-order" class="_required _shopaholic-order-form lg:col-span-1">
         <h1 class="mb-6 text-gray-900 font-medium text-xl uppercase md:text-3xl">{{'purchase_checkout'|_}}</h1>
         {% partial 'checkout/checkout-list' %}
         {% partial 'checkout/coupon/coupon' %}
         <div class="_shipping_type_wrapper">
             {% partial 'checkout/shipping-type-list' %}
         </div>
-        <div class="w-full md:w-1/2">
-            <h2 class="mb-4 text-gray-900 text-lg font-medium uppercase md:text-2xl lg:mb-3">{{ 'purchase_customer_data'|_ }}</h2>
-            <span class="text-sm font-light text-gray-600 md:text-base">* — {{ 'form_required_fields'|_ }}</span>
-            <div class="flex flex-col space-y-4 mt-4 mb-7 lg:mt-3">
-                {% partial 'form/input'
-                    labelClasses = 'text-sm mb-1 text-gray-600'
-                    labelText = 'form_user_name'|_
-                    inputClasses = '_shopaholic-order-field'
-                    type = 'text'
-                    name = 'first_name'
-                    required = 'required'
-                    dataAtributes = 'data-field="user.name"'
-                %}
-                <div class="flex flex-col space-y-4" aria-hidden="true">
-                    {% partial 'form/input'
-                        labelClasses = 'text-sm mb-1 text-gray-600'
-                        labelText='form_user_address_postal'|_
-                        name = 'address'
-                        inputClasses = '_shopaholic-order-field'
-                        dataAtributes = 'data-field="shipping_address.address1"'
-                    %}
-                    {% partial 'form/input'
-                        labelClasses = 'text-sm mb-1 text-gray-600'
-                        labelText='form_user_country'|_
-                        type = 'text'
-                        name = 'country'
-                        inputClasses = '_shopaholic-order-field'
-                        dataAtributes = 'data-field="shipping_address.country"'
-                    %}
-                    {% partial 'form/input'
-                        labelClasses = 'text-sm mb-1 text-gray-600'
-                        labelText = 'form_user_zip_code'|_
-                        type = 'text'
-                        inputmode="numeric"
-                        name = 'zipCode'
-                        inputClasses = '_shopaholic-order-field'
-                        dataAtributes = 'data-field="shipping_address.poscode"'
-                    %}
-                </div>
-                {% partial 'form/input'
-                    labelClasses = 'text-sm mb-1 text-gray-600'
-                    labelText = 'form_user_email'|_ ~ '*'
-                    type = 'email'
-                    name = 'email'
-                    required = 'required'
-                    inputClasses = '_shopaholic-order-field'
-                    dataAtributes = 'data-field="user.email"'
-                %}
-                {% partial 'form/input'
-                    labelClasses = 'text-sm mb-1 text-gray-600'
-                    labelText = 'form_user_phone'|_
-                    type = 'tel'
-                    name = 'phone'
-                    inputClasses = '_shopaholic-order-field'
-                    dataAtributes = 'data-field="user.phone"'
-                %}
-            </div>
-        </div>
+        {% partial 'checkout/user-form' %}
         {% if obPaymentMethodList.isNotEmpty() and obActivePaymentMethod.isNotEmpty() %}
             <fieldset class="_payment-method-wrapper">
                 {% partial 'checkout/payment-method-list' %}
@@ -148,7 +91,9 @@ function onInit()
         {% endif %}
         <div class="_subtotal-container _cart-checkout-list w-full md:w-1/2 mt-7 mb-12">
             <h2 class="mb-4 text-gray-900 font-medium text-lg uppercase md:text-2xl">{{'purchase_summary'|_}}</h2>
-            {% partial 'checkout-subtotal/checkout-subtotal' %}
+            <table class="w-full mb-8 _checkout-subtotal">
+                {% partial 'checkout/checkout-subtotal' %}
+            </table>
             {% partial 'form/button'
                 wrapperClasses = 'w-full md:w-auto'
                 text = 'purchase_order'|_
