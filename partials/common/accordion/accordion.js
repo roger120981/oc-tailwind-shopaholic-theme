@@ -1,27 +1,16 @@
-export default class Accordion {
-  constructor (detailNode) {
-    this.detailNode = detailNode;
-    this.summary = detailNode.querySelector(".js-accordion-summary");
-    this.content = detailNode.querySelector(".js-accordion-content");
+class Accordion {
+  constructor(summaryNode) {
+    this.summaryNode = summaryNode;
+    this.detailNode = this.summaryNode.closest('.js-details');
+    this.contentNode = this.detailNode.querySelector('.js-accordion-content');
+
     this.animation = null;
     this.isClosing = false;
     this.isExpanding = false;
   }
 
-  init () {
-    if (!this.summary) {
-      return;
-    }
-    const obThis = this;
-    this.summary.addEventListener("click", (event) => {
-      obThis.onClick(event);
-    });
-  }
-
-  onClick (event) {
-    event.preventDefault();
-
-    this.detailNode.style.overflow = "hidden";
+  onClick() {
+    this.detailNode.style.overflow = 'hidden';
     if (this.isClosing || !this.detailNode.open) {
       this.open();
     } else if (this.isExpanding || this.detailNode.open) {
@@ -29,10 +18,10 @@ export default class Accordion {
     }
   }
 
-  shrink () {
+  shrink() {
     this.isClosing = true;
     const startHeight = `${this.detailNode.offsetHeight}px`;
-    const endHeight = `${this.summary.offsetHeight}px`;
+    const endHeight = `${this.summaryNode.offsetHeight}px`;
     if (this.animation) {
       this.animation.cancel();
     }
@@ -41,23 +30,35 @@ export default class Accordion {
       height: [startHeight, endHeight]
     }, {
       duration: 400,
-      easing: "linear"
+      easing: 'linear',
     });
 
-    this.animation.onfinish = () => this.onAnimationFinish(false);
-    this.animation.oncancel = () => this.isClosing = false;
+    document.dispatchEvent(new CustomEvent('accordion:close', {
+      detail: {
+        detail: this.detailNode,
+        summary: this.summaryNode,
+        content: this.contentNode,
+      }
+    }));
+
+    this.animation.onfinish = () => {
+      this.onAnimationFinish(false);
+    };
+    this.animation.oncancel = () => {
+      this.isClosing = false;
+    };
   }
 
-  open () {
+  open() {
     this.detailNode.style.height = `${this.detailNode.offsetHeight}px`;
     this.detailNode.open = true;
     window.requestAnimationFrame(() => this.expand());
   }
 
-  expand () {
+  expand() {
     this.isExpanding = true;
     const startHeight = `${this.detailNode.offsetHeight}px`;
-    const endHeight = `${this.summary.offsetHeight + this.content.offsetHeight}px`;
+    const endHeight = `${this.summaryNode.offsetHeight + this.contentNode.offsetHeight}px`;
 
     if (this.animation) {
       this.animation.cancel();
@@ -67,29 +68,53 @@ export default class Accordion {
       height: [startHeight, endHeight]
     }, {
       duration: 400,
-      easing: "linear"
+      easing: 'linear',
     });
 
-    this.animation.onfinish = () => this.onAnimationFinish(true);
-    this.animation.oncancel = () => this.isExpanding = false;
+    document.dispatchEvent(new CustomEvent('accordion:open', {
+      detail: {
+        detail: this.detailNode,
+        summary: this.summaryNode,
+        content: this.contentNode,
+      }
+    }));
+
+    this.animation.onfinish = () => {
+      this.onAnimationFinish(true);
+    };
+    this.animation.oncancel = () => {
+      this.isExpanding = false;
+    };
   }
 
-  onAnimationFinish (open) {
+  onAnimationFinish(open) {
     this.detailNode.open = open;
     this.animation = null;
     this.isClosing = false;
     this.isExpanding = false;
     this.detailNode.style.height = this.detailNode.style.overflow = "";
-  }
 
-  static make () {
-    const detailNodeList = document.querySelectorAll(".js-details");
-    if (!detailNodeList || detailNodeList.length === 0) {
-      return;
-    }
-    detailNodeList.forEach((detailNode) => {
-      const accordion = new Accordion(detailNode);
-      accordion.init();
-    });
+    document.dispatchEvent(new CustomEvent(`accordion:${open ? 'opened' : 'closed'}`, {
+      detail: {
+        detail: this.detailNode,
+        summary: this.summaryNode,
+        content: this.contentNode,
+      }
+    }));
   }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('click', (event) => {
+    const eventNode = event.target;
+    const summaryNode = eventNode.closest('.js-accordion-summary');
+    if (!summaryNode) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const obAccordion = new Accordion(summaryNode);
+    obAccordion.onClick();
+  });
+});

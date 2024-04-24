@@ -27,12 +27,3 @@
         buttonClasses = 'mt-36 w-full lg:mt-24 md:w-auto'
     %}
 {% endif %}
-{% put scripts %}
-    <script>
-        window.subtotal = {
-            'item': "{{ 'purchase_items'|_ }}",
-            'currency': "{{ obOffer.currency|_ }}",
-            'checkout': "{{ 'purchase_checkout'|_ }}"
-        };
-    </script>
-{% endput %}
