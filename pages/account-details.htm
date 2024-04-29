@@ -1,20 +1,23 @@
-title = "Account Details"
 url = "/account/details"
 layout = "main"
+title = "Account Details"
 is_hidden = 0
 
 [UserPage]
-slug = "{{ :slug }}"
 slug_required = 0
 mode = "ajax"
 flash_on = 0
 redirect_on = 0
 redirect_page = "account"
 login_page = "sign-in"
+
+[UserAddress]
 ==
 <?php
 function onInit()
 {
+    $this['path_page_js'] = mix('assets/dist/js/account-details.js', 'themes/lovata-tailwind-shopaholic');
+
     $bHasPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.buddies')
         && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.Buddies');
 
@@ -34,7 +37,7 @@ function onInit()
 <h1 class="font-medium uppercase text-xl md:text-3xl mb-4">{{'account_personal_data'|_}}</h1>
 <div class="sm:max-w-xs mt-7 mb-8 md:mb-16">
     <span class="text-gray-600 text-sm md:text-base mb-4 inline-block">*{{'form_required_fields'|_}}</span>
-    <form class="_required">
+    <form id="account-details" class="_required">
         {% partial 'form/input'
             labelText = 'form_user_name'|_
             type = 'text'
@@ -62,13 +65,16 @@ function onInit()
             value = obUser.phone
             wrapperClasses = 'mt-4'
         %}
+
+        {% set obUserAddress = obUser.address.first() %}
+        <input type="hidden" name="address_id" value="{{ obUserAddress.id }}"/>
         {# TODO: Add inline ajax validation for Phone number format #}
         {% partial 'form/input'
             labelText = 'form_user_country'|_
             type = 'text'
             id = 'country'
             name = 'country'
-            value = obUser.address.country
+            value = obUserAddress ? obUserAddress.country : ''
             wrapperClasses = 'mt-4'
         %}
         {% partial 'form/input'
@@ -76,15 +82,15 @@ function onInit()
             type = 'text'
             id = 'city'
             name = 'city'
-            value = obUser.address.city
+            value = obUserAddress ? obUserAddress.city : ''
             wrapperClasses = 'mt-4'
         %}
         {% partial 'form/input'
             labelText = 'form_user_zip_code'|_
             type = 'text'
-            id = 'zip'
-            name = 'zip'
-            value = obUser.address.zip
+            id = 'postcode'
+            name = 'postcode'
+            value = obUserAddress ? obUserAddress.postcode : ''
             wrapperClasses = 'mt-4'
         %}
         {% partial 'form/input'
@@ -92,7 +98,7 @@ function onInit()
             type = 'text'
             id = 'address'
             name = 'address'
-            value = obUser.address.address
+            value = obUserAddress ? obUserAddress.address1 : ''
             wrapperClasses = 'mt-4'
         %}
         {% partial 'form/button'
