@@ -12,7 +12,8 @@ function onInit()
     $this['path_page_js'] = mix('assets/dist/js/faq.js', 'themes/lovata-tailwind-shopaholic');
 
     $bHasFAQPlugin = \System\Classes\PluginManager::instance()->hasPlugin('andreishilov.faq')
-        && !\System\Classes\PluginManager::instance()->isDisabled('AndreiShilov.FAQ');
+        && !\System\Classes\PluginManager::instance()->isDisabled('AndreiShilov.FAQ')
+        && $this->theme->has_faq;
 
     if (!$bHasFAQPlugin) {
         return $this->controller->run('404');

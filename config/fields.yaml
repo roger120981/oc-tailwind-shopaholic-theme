@@ -64,6 +64,11 @@ tabs:
             type: colorpicker
             span: full
             tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
+        shopaholic_bar_active:
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.shopaholic_bar_section'
+            type: switch
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.functionality'
         has_wish_list:
             label: 'theme.lovata-tailwind-shopaholic::lang.field.plugin_wish_list_for_shopaholic'
             type: switch
@@ -98,6 +103,13 @@ tabs:
             span: full
             tab: 'theme.lovata-tailwind-shopaholic::lang.tab.plugins'
             comment: 'theme.lovata-tailwind-shopaholic::lang.comment.plugin_related_products_shopaholic'
+            commentHtml: true
+        has_accessories:
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.plugin_accessories_shopaholic'
+            type: switch
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.plugins'
+            comment: 'theme.lovata-tailwind-shopaholic::lang.comment.plugin_accessories_shopaholic'
             commentHtml: true
         has_buddies:
             label: 'theme.lovata-tailwind-shopaholic::lang.field.plugin_buddies'

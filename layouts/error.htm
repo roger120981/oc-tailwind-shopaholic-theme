@@ -21,11 +21,17 @@ function onInit()
     $this['path_manifest_js'] = mix('assets/dist/js/manifest.js', 'themes/lovata-tailwind-shopaholic');
 
     $bHasUserPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.buddies')
-        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.Buddies');
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.Buddies')
+        && $this->theme->has_buddies;
     $bHasWishListPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.wishlistshopaholic')
-        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.WishListShopaholic');
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.WishListShopaholic')
+        && $this->theme->has_wish_list;
+    $bHasLabelPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.labelsshopaholic')
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.LabelsShopaholic')
+        && $this->theme->has_labels;
 
     $this['bHasUserPlugin'] = $bHasUserPlugin && !empty($this->UserData);
+    $this['bHasWishListPlugin'] = $bHasWishListPlugin;
     $this['bHasWishListPlugin'] = $bHasWishListPlugin;
 
     if ($bHasUserPlugin && !empty($this->UserData)) {
@@ -48,24 +54,7 @@ function onStart()
             {% component 'SeoToolbox' %}
         {% endplaceholder %}
         {{ SeoToolbox.getHeadEnd()|raw }}
-        <style>
-            :root {
-                --primary: #d97706;
-                --primary-hover: #f59e0b;
-                --primary-focus: #854d0e;
-
-                --on-primary-container: #78350f;
-
-                --surface-dim: #cbd5e1;
-                --surface-container: #f1f5f9;
-
-                --on-surface: #0f172a;
-                --on-surface-variant: #475569;
-
-                --outline: #94a3b8;
-                --outline-variant: #e2e8f0;
-            }
-        </style>
+        {% partial 'main/theme-colors' %}
     </head>
     <body class="bg-gray-50" itemscope itemtype="http://schema.org/WebPage">
         {{ SeoToolbox.getBodyBegin()|raw }}

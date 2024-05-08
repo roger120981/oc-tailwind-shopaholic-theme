@@ -18,10 +18,9 @@ function onInit()
 {
     $this['path_page_js'] = mix('assets/dist/js/account-details.js', 'themes/lovata-tailwind-shopaholic');
 
-    $bHasPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.buddies')
-        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.Buddies');
+    $bHasUserPlugin = $this['bHasUserPlugin'];
 
-    if (!$bHasPlugin) {
+    if (!$bHasUserPlugin) {
         return $this->controller->run('404');
     }
 }
