@@ -43,18 +43,10 @@ function onInit()
 {
     $this['path_page_js'] = mix('assets/dist/js/account-orders.js', 'themes/lovata-tailwind-shopaholic');
 
-    $obUser = $this['obUser'];
     $bHasUserPlugin = $this['bHasUserPlugin'];
 
     if (!$bHasUserPlugin) {
         return $this->controller->run('404');
-    }
-}
-
-function onStart() {
-    $obUser = $this['obUser'];
-    if (empty($obUser)) {
-        return \Cms::redirect(\Cms::pageUrl('sign-in'), [], 307);
     }
 }
 ?>

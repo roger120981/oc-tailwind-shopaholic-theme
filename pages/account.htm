@@ -47,7 +47,7 @@ function onInit()
 {% partial 'common/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
 
 <div class="flex flex-col mb-10">
-    <h1 class="font-medium uppercase text-xl md:text-3xl mb-4">{{'account_my_account'|_}}</h1>
+    <h1 class="font-medium uppercase text-xl md:text-3xl mb-4">{{ 'account_my_account'|_ }}</h1>
     {% partial 'common/advanced-list/advanced-list' body %}
         {% for obItem in arList %}
             {% partial 'common/advanced-list/advanced-list-item'
@@ -64,7 +64,7 @@ function onInit()
                 <span class="w-12 relative md:w-auto h-12 md:h-auto bg-gray-200 group-hover:bg-primary group-focus:bg-primary-focus md:aspect-square">
                     <span class="advanced-list-icon h-6 w-6 bg-6 md:w-32 md:h-32 md:bg-auto after:bg-primary after:focus-visible:bg-white after:focus-within:bg-white after:group-focus:bg-white after:group-hover:bg-white transform scale-50" style="--advanced-list-icon-src: url('{{ 'assets/images/exit.svg'|theme }}')"></span>
                 </span>
-                <span class="w-full flex flex-1 items-center ps-4 pe-2 md:py-4 md:px-2 xl:p-4 md:justify-center border border-l-0 md:border-l md:border-t-0 border-solid border-gray-200 rounded-ss-sm md:rounded-es-sm rounded-tr-sm md:rounded-t-none md:text-center group-active:underline">{{'account_sign_out'|_}}</span>
+                <span class="w-full flex flex-1 items-center ps-4 pe-2 md:py-4 md:px-2 xl:p-4 md:justify-center border border-l-0 md:border-l md:border-t-0 border-solid border-gray-200 rounded-ss-sm md:rounded-es-sm rounded-tr-sm md:rounded-t-none md:text-center group-active:underline">{{ 'account_sign_out'|_ }}</span>
             </a>
         </li>
     {% endpartial %}
