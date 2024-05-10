@@ -91,9 +91,11 @@ module.exports = {
           DEFAULT: "var(--primary, #1E40AF)", // blue-800
         },
         "on-primary": {
+          DEFAULT: "var(--on-primary, #ffffff)", // white
           container: "var(--on-primary-container, #1e3a8a)", // blue-900
         },
         surface: {
+          DEFAULT: "var(--surface, #f9fafb)", // gray-50
           dim: "var(--surface-dim, #d1d5db)", // gray-300
           container: "var(--surface-container, #f3f4f6)", // gray-100
         },
