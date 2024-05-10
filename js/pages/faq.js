@@ -1,3 +1,1 @@
-import Accordion from '/partials/common/accordion/accordion'
-
-Accordion.make();
+import '/partials/common/accordion/accordion'

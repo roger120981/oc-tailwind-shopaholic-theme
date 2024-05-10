@@ -100,13 +100,16 @@ function onInit() {
         && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.FilterShopaholic');
 
     $bHasViewedPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.viewedproductsshopaholic')
-        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.ViewedProductsShopaholic');
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.ViewedProductsShopaholic')
+        && $this->theme->has_viewed_products;
 
     $bHasRelatedPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.relatedproductsshopaholic')
-        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.RelatedProductsShopaholic');
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.RelatedProductsShopaholic')
+        && $this->theme->has_related_products;
 
     $bHasAccessoriesPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.accessoriesshopaholic')
-        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.AccessoriesShopaholic');
+        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.AccessoriesShopaholic')
+        && $this->theme->has_accessories;
 
     if(!empty($obProductItem)) {
         //Product item data

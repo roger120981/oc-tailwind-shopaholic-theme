@@ -1,79 +1,147 @@
 tabs:
     fields:
         color_section_primary:
-            label: 'Primary'
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_primary'
             type: section
             span: full
-            tab: 'Colors'
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_primary:
-            label: Primary
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_primary'
             type: colorpicker
-            tab: 'Colors'
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_primary_hover:
-            label: Primary Hover
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_primary_hover'
             type: colorpicker
-            tab: 'Colors'
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_primary_focus:
-            label: Primary Focus
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_primary_focus'
             type: colorpicker
-            tab: 'Colors'
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
 
         color_section_on_primary:
             label: 'On primary'
             type: section
             span: full
-            tab: 'Colors'
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_on_primary:
             label: On Primary Container
             type: colorpicker
-            tab: 'Colors'
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_on_primary_container:
-            label: On Primary Container
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_primary_container'
             type: colorpicker
-            tab: 'Colors'
-
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_section_surface:
-            label: 'Surface'
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_surface'
             type: section
             span: full
-            tab: 'Colors'
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_surface:
             label: Surface
             type: colorpicker
-            tab: 'Colors'
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_surface_dim:
-            label: Surface Dim
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_surface_dim'
             type: colorpicker
-            tab: 'Colors'
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_surface_container:
-            label: Surface Container
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_surface_container'
             type: colorpicker
-            tab: 'Colors'
-
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_section_on_surface:
             label: 'On Surface'
             type: section
             span: full
-            tab: 'Colors'
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_on_surface:
-            label: On Surface
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_surface_on'
             type: colorpicker
-            tab: 'Colors'
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_on_surface_variant:
-            label: On Surface Variant
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_surface_variant'
             type: colorpicker
-            tab: 'Colors'
-
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_section_outline:
-            label: 'Outline'
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_outline'
             type: section
             span: full
-            tab: 'Colors'
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_outline:
-            label: Outline
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_outline'
             type: colorpicker
-            tab: 'Colors'
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_outline_variant:
-            label: Outline Variant
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_outline_variant'
             type: colorpicker
-            tab: 'Colors'
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
+        shopaholic_bar_active:
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.shopaholic_bar_section'
+            type: switch
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.functionality'
+        has_wish_list:
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.plugin_wish_list_for_shopaholic'
+            type: switch
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.plugins'
+            comment: 'theme.lovata-tailwind-shopaholic::lang.comment.plugin_wish_list_for_shopaholic'
+            commentHtml: true
+        has_labels:
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.plugin_labels_shopaholic'
+            type: switch
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.plugins'
+            comment: 'theme.lovata-tailwind-shopaholic::lang.comment.plugin_labels_shopaholic'
+            commentHtml: true
+        has_popularity:
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.plugin_popularity_shopaholic'
+            type: switch
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.plugins'
+            comment: 'theme.lovata-tailwind-shopaholic::lang.comment.plugin_popularity_shopaholic'
+            commentHtml: true
+        has_viewed_products:
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.plugin_viewed_products_shopaholic'
+            type: switch
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.plugins'
+            comment: 'theme.lovata-tailwind-shopaholic::lang.comment.plugin_viewed_products_shopaholic'
+            commentHtml: true
+        has_related_products:
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.plugin_related_products_shopaholic'
+            type: switch
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.plugins'
+            comment: 'theme.lovata-tailwind-shopaholic::lang.comment.plugin_related_products_shopaholic'
+            commentHtml: true
+        has_accessories:
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.plugin_accessories_shopaholic'
+            type: switch
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.plugins'
+            comment: 'theme.lovata-tailwind-shopaholic::lang.comment.plugin_accessories_shopaholic'
+            commentHtml: true
+        has_buddies:
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.plugin_buddies'
+            type: switch
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.plugins'
+            comment: 'theme.lovata-tailwind-shopaholic::lang.comment.plugin_buddies'
+            commentHtml: true
+        has_faq:
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.plugin_faq'
+            type: switch
+            span: full
+            tab: 'theme.lovata-tailwind-shopaholic::lang.tab.plugins'
+            comment: 'theme.lovata-tailwind-shopaholic::lang.comment.plugin_faq'
+            commentHtml: true
+

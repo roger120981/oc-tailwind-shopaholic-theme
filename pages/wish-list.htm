@@ -10,15 +10,15 @@ sorting = "no"
     {'name': 'wishlist_title'|_, 'url': null}
 ] %}
 
-{% set arProductList = ProductList.make().active().wishList() %}
+{% set obProductList = ProductList.make().active().site().wishList() %}
 
 {% partial 'common/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
 <section class="pb-10 md:pb-16">
     <h1 class="uppercase font-medium text-xl md:text-3xl">{{ 'wishlist_title'|_ }}</h1>
     {# TODO: Add check for theme settings #}
-    {% if arProductList is not empty %}
+    {% if obProductList.isNotEmpty() %}
         <div class="grid grid-cols-2 gap-x-4 gap-y-6 mt-4 md:grid-cols-4">
-            {% for obProduct in arProductList %}
+            {% for obProduct in obProductList %}
                 {% partial 'product/product-card'
                     obProduct = obProduct
                     loopIndex = loop.indexproduct-card

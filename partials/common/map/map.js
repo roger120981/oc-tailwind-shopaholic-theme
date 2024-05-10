@@ -4,7 +4,6 @@ export default new class ContactMap {
   constructor() {
     this.mapSelector = 'map';
     this.idSelector = 'data-api-key';
-    this.coordinatesSelector = 'data-coordinates';
 
     this.markerPath = 'data-marker-path';
     this.maxWidth = 280;
@@ -29,8 +28,7 @@ export default new class ContactMap {
       throw new Error(errorText.gmapKeyNotFound);
     }
 
-    const coordinates = map.getAttribute(this.coordinatesSelector).split(',');
-
+    const coordinates = [parseFloat(map.dataset.lat), parseFloat(map.dataset.lng)];
     if (!coordinates.length) {
       throw new Error(errorText.gmapCoordinatesNotFound);
     }
@@ -53,7 +51,7 @@ export default new class ContactMap {
       });
       const marker = new googleMaps.Marker({ position: coordinates, map, icon: markerPath });
 
-      $.request('onAjax', {
+      oc.ajax('onAjax', {
         update: { 'common/map/popup': `.${this.mapSelector}` },
         success: (res) => {
           const content = res['contact/popup'];
@@ -65,9 +63,9 @@ export default new class ContactMap {
           });
         },
       });
-      $.getJSON("/map-style.json", function (data) {
-        map.setOptions({ styles: data });
-      });
+      // $.getJSON("/map-style.json", function (data) {
+      //   map.setOptions({ styles: data });
+      // });
     }).catch((error) => { throw new Error(error); });
   }
 }();

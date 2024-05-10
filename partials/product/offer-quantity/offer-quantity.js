@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (checkoutNode) {
       obRequestData.update['checkout/checkout-list-total-price'] = '._checkout-list-total-price';
       obRequestData.update['checkout/shipping-type-list'] = '._shipping_type_wrapper';
+      obRequestData.update['checkout/checkout-subtotal'] = '._checkout-subtotal';
     }
 
     return obRequestData;

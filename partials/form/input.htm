@@ -38,7 +38,7 @@ Params:
             focus:outline-none focus:border-blue-800 focus:ring-transparent
             focus-visible:outline-none focus-visible:border-blue-800 focus-visible:ring-transparent
             focus-within:outline-none focus-within:border-blue-800 focus-within:ring-transparent
-            {{ inputClass }}
+            {{ inputClasses }}
         "
         data-was-change="false"
         {{ required }}
@@ -60,6 +60,9 @@ Params:
         {% endif %}
         {% if maxLength is not same as(null) %}
             maxlength="{{ maxLength }}"
+        {% endif %}
+        {% if inputmode is not same as(null) %}
+            inputmode="{{ inputmode }}"
         {% endif %}
         {% if minLength is not same as(null) %}
             minlength="{{ minLength }}"

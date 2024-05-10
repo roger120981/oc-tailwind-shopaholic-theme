@@ -1,4 +1,4 @@
-export default class ExpandableText {
+class ExpandableText {
   constructor () {
     this.duration = 500;
   }
@@ -8,6 +8,7 @@ export default class ExpandableText {
     if (!buttons) {
       return;
     }
+
     this.initButtonVisible(buttons);
   }
 
@@ -25,6 +26,7 @@ export default class ExpandableText {
       this.initEventsButtons(button, text);
     });
   }
+
   initEventsButtons (button, text) {
     button.addEventListener("click", () => {
       const rows = button.dataset.rows;
@@ -35,6 +37,7 @@ export default class ExpandableText {
       }
     });
   }
+
   showText (button, text, rows) {
     text.classList.remove(`line-clamp-${rows}`, "hide");
     button.classList.remove("hide");

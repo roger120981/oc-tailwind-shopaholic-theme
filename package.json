@@ -14,7 +14,7 @@
   "author": "Lovata",
   "devDependencies": {
     "@babel/core": "^7.16.0",
-    "@oc-shopaholic/shopaholic-cart": "^0.0.6",
+    "@oc-shopaholic/shopaholic-cart": "^0.0.8",
     "@oc-shopaholic/shopaholic-coupon": "^0.0.5",
     "@oc-shopaholic/shopaholic-filter-panel": "^0.0.6",
     "@oc-shopaholic/shopaholic-product-list": "^0.0.5",

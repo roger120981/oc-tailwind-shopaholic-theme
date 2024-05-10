@@ -1,4 +1,3 @@
-{##}
 {% set obCartPositionList = Cart.get() %}
 
 <div class="_checkout-list-wrapper">
@@ -21,13 +20,3 @@
         {% partial 'checkout/checkout-list-total-price' %}
     </div>
 </div>
-
-{% put scripts %}
-    <script>
-        window.subtotal = {
-            'item': "{{ 'purchase_items'|_ }}",
-            'currency': "{{ 'purchase_currency'|_ }}",
-            'checkout': "{{ 'purchase_checkout'|_ }}"
-        };
-    </script>
-{% endput %}

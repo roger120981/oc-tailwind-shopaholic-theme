@@ -4,7 +4,7 @@ layout = "main"
 is_hidden = 0
 
 [UserPage]
-slug = "{{ :slug }}"
+slug = ""
 slug_required = 0
 mode = "ajax"
 flash_on = 0
@@ -43,28 +43,26 @@ function onInit()
 {
     $this['path_page_js'] = mix('assets/dist/js/account-orders.js', 'themes/lovata-tailwind-shopaholic');
 
-    $bHasPlugin = \System\Classes\PluginManager::instance()->hasPlugin('lovata.buddies')
-        && !\System\Classes\PluginManager::instance()->isDisabled('Lovata.Buddies');
+    $bHasUserPlugin = $this['bHasUserPlugin'];
 
-    if (!$bHasPlugin) {
+    if (!$bHasUserPlugin) {
         return $this->controller->run('404');
     }
 }
 ?>
 ==
 {% set arBreadcrumbs = [
-    {'name': 'account_my_account'|_, 'url': 'account'|page},
-    {'name': 'account_order_history'|_, 'url': null}
+    { 'name': 'account_my_account'|_, 'url': 'account'|page },
+    { 'name': 'account_order_history'|_ }
 ] %}
-{% set obUser = UserData.get() %}
-{% set obOrderList = obUser.order %}
 
 {% partial 'common/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
 
+{% set obOrderList = obUser.order %}
 <div class="mb-8 mt-1 lg:mb-16">
     <h1 class="uppercase text-xl mb-4 font-medium lg:text-3xl">{{'account_order_history'|_}}</h1>
     {% if obOrderList.isNotEmpty() %}
-        {% partial 'order-list/order-list' %}
+        {% partial 'account/order-list/order-list' obOrderList = obOrderList %}
     {% else %}
         {% partial 'message/info-message'
             wrapperClasses = 'mt-28 md:mt-14'

@@ -2,7 +2,7 @@ class ReviewSetRating {
   constructor() {
     this.wrapperNode = document.querySelector('._container-star-review');
 
-    this.activeRating = 5;
+    this.activeRating = 0;
 
     this.activeStarColor = '#F59E0B';
     this.defaultStarColor = '#D1D5DB';
@@ -16,7 +16,6 @@ class ReviewSetRating {
       return;
     }
 
-    this.activeRating = this.wrapperNode.querySelectorAll('path').length;
     this.setStarsState(this.activeRating);
     this.clickHandler();
     this.mouseLeaveHandler();

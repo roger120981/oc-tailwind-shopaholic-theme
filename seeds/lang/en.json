@@ -1,6 +1,5 @@
 {
     "shopaholic.theme.tab.general": "General",
-    "shopaholic.theme.tab.functionality": "Functionality",
 
     "shopaholic.theme.field.content": "Content",
     "shopaholic.theme.field.image_alt": "Alternative text",
@@ -24,25 +23,6 @@
     "shopaholic.theme.business_card.field.copyright_placeholder": "© 2024 Atmosphere. All rights reserved.",
 
     "shopaholic.theme.top_info_block.tab": "Top Info Block",
-
-    "shopaholic.theme.site_settings.title": "Site settings",
-    "shopaholic.theme.site_settings.title_update": "Update site content",
-    "shopaholic.theme.site_settings.tab.plugins": "Plugins and extensions",
-    "shopaholic.theme.site_settings.field.shopaholic_bar_section": "Powered by Shopaholic bar",
-    "shopaholic.theme.site_settings.field.plugin_wish_list_for_shopaholic": "Wish List for Shopaholic",
-    "shopaholic.theme.site_settings.field.plugin_wish_list_for_shopaholic_comment": "Requires to install <strong><a href=\"https://octobercms.com/plugin/lovata-wishlistshopaholic\">Wish List for Shopaholic</a></strong>",
-    "shopaholic.theme.site_settings.field.plugin_labels_shopaholic": "Labels for Shopaholic",
-    "shopaholic.theme.site_settings.field.plugin_labels_shopaholic_comment": "Requires to install <strong><a href=\"https://octobercms.com/plugin/lovata-labelsshopaholic\">Labels for Shopaholic</a></strong>",
-    "shopaholic.theme.site_settings.field.plugin_popularity_shopaholic": "Popularity for Shopaholic",
-    "shopaholic.theme.site_settings.field.plugin_popularity_shopaholic_comment": "Requires to install <strong><a href=\"https://octobercms.com/plugin/lovata-popularityshopaholic\">Popularity for Shopaholic</a></strong>",
-    "shopaholic.theme.site_settings.field.plugin_viewed_products_shopaholic": "Viewed Products for Shopaholic",
-    "shopaholic.theme.site_settings.field.plugin_viewed_products_shopaholic_comment": "Requires to install <strong><a href=\"https://octobercms.com/plugin/lovata-viewedproductsshopaholic\">Viewed Products for Shopaholic</a></strong>",
-    "shopaholic.theme.site_settings.field.plugin_related_products_shopaholic": "Related product for Shopaholic",
-    "shopaholic.theme.site_settings.field.plugin_related_products_shopaholic_comment": "Requires to install <strong><a href=\"https://octobercms.com/plugin/lovata-relatedproductsshopaholic\">Related product for Shopaholic</a></strong>",
-    "shopaholic.theme.site_settings.field.plugin_buddies": "Buddies",
-    "shopaholic.theme.site_settings.field.plugin_buddies_comment": "Requires to install <strong><a href=\"https://octobercms.com/plugin/lovata-buddies\">Buddies</a></strong>",
-    "shopaholic.theme.site_settings.field.plugin_faq": "FAQ",
-    "shopaholic.theme.site_settings.field.plugin_faq_comment": "Requires to install <strong><a href=\"https://octobercms.com/plugin/andreishilov-faq\">FAQ</a></strong>",
 
     "shopaholic.theme.index_page.title": "Index page",
     "shopaholic.theme.index_page.title_update": "Update index page content",

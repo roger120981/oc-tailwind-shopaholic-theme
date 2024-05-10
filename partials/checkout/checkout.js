@@ -1,15 +1,18 @@
 import ShopaholicCartShippingType from '@oc-shopaholic/shopaholic-cart/shopaholic-cart-shipping-type';
+import ShopaholicCartPaymentMethod from '@oc-shopaholic/shopaholic-cart/shopaholic-cart-payment-method';
+import ShopaholicOrder from '@oc-shopaholic/shopaholic-cart/shopaholic-order';
 
 class Checkout {
   constructor() {
-    this.sCash = "._cash";
-    this.sCard = "._card";
-    this.sPaymentCard = "._payment-card";
+    this.formNode = document.querySelector('#make-order');
+    this.buttonNode = this.formNode ? this.formNode.querySelector('button[type="submit"]') : null;
   }
 
   init() {
     this.initShippingTypeHandler();
-    this.deliveryTermsHandler();
+    this.initPaymentMethodHandler();
+    this.shippingTypeTermsHandler();
+    this.initMakeOrderHandler();
   }
 
   initShippingTypeHandler() {
@@ -17,6 +20,8 @@ class Checkout {
     obShopaholicCartShippingType.setAjaxRequestCallback((obRequestData, inputNode) => {
       obRequestData.update = {
         'checkout/shipping-type-list': '._shipping_type_wrapper',
+        'checkout/payment-method-list': '._payment-method-wrapper',
+        'checkout/checkout-subtotal': '._checkout-subtotal',
       }
 
       return obRequestData;
@@ -25,7 +30,22 @@ class Checkout {
     obShopaholicCartShippingType.init();
   }
 
-  deliveryTermsHandler() {
+  initPaymentMethodHandler() {
+    const obShopaholicCartPaymentMethod = new ShopaholicCartPaymentMethod();
+    obShopaholicCartPaymentMethod.setAjaxRequestCallback((obRequestData, inputNode) => {
+      obRequestData.update = {
+        'checkout/shipping-type-list': '._shipping_type_wrapper',
+        'checkout/payment-method-list': '._payment-method-wrapper',
+        'checkout/checkout-subtotal': '._checkout-subtotal',
+      }
+
+      return obRequestData;
+    });
+
+    obShopaholicCartPaymentMethod.init();
+  }
+
+  shippingTypeTermsHandler() {
     document.addEventListener('click', (event) => {
       const eventNode = event.target;
       const buttonNode = eventNode.closest('._delivery-terms');
@@ -51,19 +71,38 @@ class Checkout {
     });
   }
 
-  paymentMethod() {
-    document.querySelector('._payment-method').addEventListener('click', (event) => {
-      if (event.target.tagName === 'INPUT') {
-        if (document.querySelector(this.sCash).checked) {
-          document.querySelector(this.sPaymentCard).classList.add('hidden');
-          document.querySelector(this.sPaymentCard).setAttribute('aria-hidden', true);
-        }
-        if (document.querySelector(this.sCard).checked) {
-          document.querySelector(this.sPaymentCard).classList.remove('hidden');
-          document.querySelector(this.sPaymentCard).removeAttribute('aria-hidden');
-        }
-      }
-    })
+  initMakeOrderHandler() {
+    if (!this.formNode) {
+      return;
+    }
+
+    const obThis = this;
+    this.formNode.addEventListener('submit', (event) => {
+      event.stopPropagation();
+      event.preventDefault();
+
+      obThis.sendRequest();
+    });
+  }
+
+  sendRequest() {
+    if (this.formNode.classList.contains('_invalid')) {
+      return;
+    }
+
+    this.buttonNode.setAttribute('disabled', 'disabled');
+    const obThis = this;
+
+    const obShopaholicOrder = new ShopaholicOrder();
+    obShopaholicOrder.setAjaxRequestCallback((obRequestData) => {
+      obRequestData.complete = () => {
+        this.buttonNode.removeAttribute('disabled');
+      };
+
+      return obRequestData;
+    });
+
+    obShopaholicOrder.create();
   }
 }
 

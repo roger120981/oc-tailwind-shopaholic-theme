@@ -1,5 +1,3 @@
-{##}
-
 {% for obProperty in obPropertyList %}
     {% if obProperty.hasValue() %}
     <details
@@ -8,14 +6,14 @@
         id = "{{obProperty.id}}"
         data-property = "property[{{obProperty.id}}]"
     >
-        <summary class="js-accordion-summary text-base font-medium cursor-pointer mb-3 link link-blue w-full">
+        <summary class="js-accordion-summary hover:!no-underline text-base font-medium cursor-pointer mb-3 link link-blue w-full">
             {{ obProperty.filter_name }} {% if obProperty.measure.isNotEmpty() %}({{ obProperty.measure.name }}){% endif %}
         </summary>
         <div class="flex _shopaholic-filter-wrapper js-accordion-content {{obProperty.filter_type == 'between' ? 'mb-4' : ''}}" data-filter-type="{{ obProperty.filter_type }}" data-property-id="{{ obProperty.id }}">
             {% if obProperty.filter_type == 'between' %}
                 <div class="_filter-range flex" data-filter-id="{{ obProperty.id }}">
                     <fieldset class="me-3">
-                        <legend class="sr-only">{{ obProperty.filter_name }}&nbsp;{{'filter_min'|_}}</legend>
+                        <legend class="sr-only">{{ obProperty.filter_name }}&nbsp;{{ 'filter_min'|_ }}</legend>
                         {% partial 'form/input'
                             labelText = 'filter_min'|_
                             inputClasses = '_min appearance-none quantity_input'
@@ -26,7 +24,7 @@
                         %}
                     </fieldset>
                     <fieldset>
-                        <legend class="sr-only">{{ obProperty.filter_name }}&nbsp;{{'filter_max'|_}}</legend>
+                        <legend class="sr-only">{{ obProperty.filter_name }}&nbsp;{{ 'filter_max'|_ }}</legend>
                         {% partial 'form/input'
                             labelText = 'filter_max'|_
                             inputClasses = '_max appearance-none quantity_input'
@@ -70,7 +68,7 @@
                     id = 'property-' ~ obProperty.id
                     name = 'property-' ~ obProperty.id
                     wrapperClasses = 'w-full'
-                    placeholder='filter_choose_value'|_
+                    placeholder='filter_value_choose'|_
                     options = selectOptions
                     selectedValue = arFilterValue[obProperty.id]
                 %}

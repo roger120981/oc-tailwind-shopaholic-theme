@@ -1,6 +1,6 @@
 {% set markup = obType == 'markup' %}
 
-<section class="mx-auto mt-4 mb-10 {{wrapperClasses}}">
+<section class="mx-auto mt-4 mb-10 {{ wrapperClasses }}">
     <div class="max-w-[1064px] mx-auto">
         {% for obItem in obContent %}
             <details class="js-details border-t border-gray-200 last:border-b">
@@ -12,7 +12,7 @@
                     {% endif %}
                 </summary>
                 {% set prose = obItem.dropdown != 'product_detail' ?  'prose max-w-none' : 'w-max' %}
-                <div class="pb-5 md:pt-5 px-3 text-sm md:text-base text-gray-600 js-accordion-content {{prose}}">
+                <div class="pb-5 md:pt-5 px-3 text-sm md:text-base text-gray-600 js-accordion-content {{ prose }}">
                     {% if markup %}
                         {{ obItem.answer|raw }}
                     {% endif %}
