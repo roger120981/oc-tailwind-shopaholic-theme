@@ -1,5 +1,5 @@
-<h2 class="mb-4 text-gray-900 text-lg font-medium uppercase md:text-2xl">{{'purchase_payment_method'|_}}</h2>
-<legend class="sr-only">{{'purchase_payment_method_choose'|_}}</legend>
+<h2 class="mb-4 text-gray-900 text-lg font-medium uppercase md:text-2xl">{{ 'purchase_payment_method'|_ }}</h2>
+<legend class="sr-only">{{ 'purchase_payment_method_choose'|_ }}</legend>
 {% for obPaymentMethod in obPaymentMethodList %}
     {% partial 'form/input-radio'
         wrapperClasses = 'flex items-center mb-4'

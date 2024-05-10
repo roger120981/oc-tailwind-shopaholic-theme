@@ -1,4 +1,3 @@
-{##}
 {% for obProperty in obPropertyList %}
     {% if obProperty.hasValue() %}
     <details
@@ -13,7 +12,7 @@
             <div class="flex mb-7 ms-4 me-5 mt-3 _shopaholic-filter-wrapper" data-filter-type="{{ obProperty.filter_type }}" data-property-id="{{ obProperty.id }}">
                 <div class="_filter-range flex" data-filter-id="{{ obProperty.id }}">
                     <fieldset class="me-3 w-full">
-                        <legend class="sr-only">{{ obProperty.filter_name }}&nbsp;{{'filter_min'|_}}</legend>
+                        <legend class="sr-only">{{ obProperty.filter_name }}&nbsp;{{ 'filter_min'|_ }}</legend>
                         {% partial 'form/input'
                             labelText = 'filter_min'|_
                             inputClasses = '_min appearance-none quantity_input'
@@ -24,7 +23,7 @@
                         %}
                     </fieldset>
                     <fieldset class="w-full">
-                        <legend class="sr-only">{{ obProperty.filter_name }}&nbsp;{{'filter_min'|_}}</legend>
+                        <legend class="sr-only">{{ obProperty.filter_name }}&nbsp;{{ 'filter_min'|_ }}</legend>
                         {% partial 'form/input'
                             labelText = 'filter_max'|_
                             inputClasses = '_max appearance-none quantity_input'

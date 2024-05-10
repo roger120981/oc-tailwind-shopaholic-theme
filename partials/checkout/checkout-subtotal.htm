@@ -4,7 +4,7 @@
 <tbody>
     <tr>
         <th colspan="2" class="font-normal pb-4 text-start text-gray-900 text-sm md:text-base">{{ 'purchase_subtotal'|_ }}&nbsp;
-            <span class="_item">({{ obCartList.getTotalQuantity() }} {{'purchase_items'|__(obCartList.getTotalQuantity()) }})</span>
+            <span class="_item">({{ obCartList.getTotalQuantity() }} {{ 'purchase_items'|__(obCartList.getTotalQuantity()) }})</span>
         </th>
         <td class="font-normal text-end text-gray-900 pb-4 text-sm md:text-base">
             <span class="font-medium text-base ps-4">{{ obCartList.currency }}<span>{{ obCartList.getTotalPrice() }}</span></span>
@@ -14,7 +14,7 @@
         <th colspan="2" class="font-normal pb-4 text-gray-900 text-sm text-start md:text-base">{{ 'purchase_delivery'|_ }}</th>
         <td class="font-normal text-end text-gray-900 pb-4 text-sm md:text-base">
             {% if obActiveShippingType.price == 0 %}
-                {{'purchase_for_free'|_}}
+                {{ 'purchase_for_free'|_ }}
             {% else %}
                 {{ obActiveShippingType.currency }}{{ obActiveShippingType.price }}
             {% endif %}

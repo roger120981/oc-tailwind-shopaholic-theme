@@ -1,5 +1,3 @@
-{##}
-
 {% for obProperty in obPropertyList %}
     {% if obProperty.hasValue() %}
     <details
@@ -15,7 +13,7 @@
             {% if obProperty.filter_type == 'between' %}
                 <div class="_filter-range flex" data-filter-id="{{ obProperty.id }}">
                     <fieldset class="me-3">
-                        <legend class="sr-only">{{ obProperty.filter_name }}&nbsp;{{'filter_min'|_}}</legend>
+                        <legend class="sr-only">{{ obProperty.filter_name }}&nbsp;{{ 'filter_min'|_ }}</legend>
                         {% partial 'form/input'
                             labelText = 'filter_min'|_
                             inputClasses = '_min appearance-none quantity_input'
@@ -26,7 +24,7 @@
                         %}
                     </fieldset>
                     <fieldset>
-                        <legend class="sr-only">{{ obProperty.filter_name }}&nbsp;{{'filter_max'|_}}</legend>
+                        <legend class="sr-only">{{ obProperty.filter_name }}&nbsp;{{ 'filter_max'|_ }}</legend>
                         {% partial 'form/input'
                             labelText = 'filter_max'|_
                             inputClasses = '_max appearance-none quantity_input'
