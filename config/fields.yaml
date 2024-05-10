@@ -22,12 +22,12 @@ tabs:
             tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
 
         color_section_on_primary:
-            label: 'On primary'
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_section_on_primary'
             type: section
             span: full
             tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_on_primary:
-            label: On Primary Container
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_on_primary'
             type: colorpicker
             tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_on_primary_container:
@@ -41,7 +41,7 @@ tabs:
             span: full
             tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_surface:
-            label: Surface
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_surface'
             type: colorpicker
             tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_surface_dim:
@@ -54,7 +54,7 @@ tabs:
             span: full
             tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'
         color_section_on_surface:
-            label: 'On Surface'
+            label: 'theme.lovata-tailwind-shopaholic::lang.field.color_section_on_surface'
             type: section
             span: full
             tab: 'theme.lovata-tailwind-shopaholic::lang.tab.colors'

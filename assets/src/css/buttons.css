@@ -7,7 +7,6 @@ button.button-primary,
   @apply bg-primary hover:bg-primary-hover hover:border-primary-hover rounded text-white py-3 px-8 text-lg md:text-base
 }
 
-
 button.button-outline,
 [type='button'].button-outline,
 [type='reset'].button-outline,

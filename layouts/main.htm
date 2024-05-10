@@ -54,7 +54,7 @@ function onStart()
             {% component 'SeoToolbox' %}
         {% endplaceholder %}
         {{ SeoToolbox.getHeadEnd()|raw }}
-        {% partial 'color-palette/color-palette' %}
+        {% partial 'main/color-palette' %}
     </head>
     <body class="bg-surface lg:overflow-x-hidden" itemscope itemtype="http://schema.org/WebPage">
         {{ SeoToolbox.getBodyBegin()|raw }}
