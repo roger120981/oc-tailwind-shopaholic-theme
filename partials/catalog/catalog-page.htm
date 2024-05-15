@@ -23,12 +23,12 @@
             {{ SeoToolbox.getPageTitle(obSeoModel, arSEOParams)|default(obActiveCategory.name) }}
         </h1>
         {% if obActiveCategory.preview_text is not empty %}
-        <div class="w-full flex flex-col mt-4">
-            {% partial 'common/expandable-text/expandable-text'
-                description=obActiveCategory.preview_text
-                numberVisibleRows=3
-            %}
-        </div>
+            <div class="w-full flex flex-col mt-4">
+                {% partial 'common/expandable-text/expandable-text'
+                    description=obActiveCategory.preview_text
+                    numberVisibleRows=3
+                %}
+            </div>
         {% endif %}
         <div class="_sorting">
             {% partial 'product/product-list/product-list-wrapper' %}

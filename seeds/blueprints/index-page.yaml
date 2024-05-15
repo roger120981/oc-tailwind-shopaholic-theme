@@ -49,6 +49,13 @@ fields:
                     _mixin:
                         type: mixin
                         source: Blocks\CategoryList
+            brand_list:
+                name: 'lovata.shopaholic::lang.brand.list_title'
+                icon: icon-bolt
+                fields:
+                    _mixin:
+                        type: mixin
+                        source: Blocks\BrandList
             product_list:
                 name: 'lovata.shopaholic::lang.product.list_title'
                 icon: icon-beer

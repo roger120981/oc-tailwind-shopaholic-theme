@@ -1,0 +1,37 @@
+url = "/brands/:slug"
+layout = "main"
+title = "Brand page"
+
+[BrandPage]
+slug = "{{ :slug }}"
+slug_required = 1
+smart_url_check = 0
+skip_error = 0
+==
+{% set obBrand = BrandPage.get() %}
+{% set arBreadcrumbs = [
+    {'name': 'catalog_product_brands'|_, 'url': 'brand-list'|page},
+    {'name': obBrand.name, 'url': null},
+] %}
+{% set arSEOParams = {'brand': obBrand} %}
+
+{% partial 'common/breadcrumbs' arBreadcrumbs=arBreadcrumbs %}
+
+<h1 class="text-gray-900 text-xl md:text-2xl xl:text-3xl uppercase">{{ SeoToolbox.getPageTitle(obBrand, arSEOParams)|default(obBrand.name) }}</h1>
+{% if obBrand.preview_text is not empty %}
+    <div class="w-full flex flex-col mt-4">
+        {% partial 'common/expandable-text/expandable-text'
+            description=obBrand.preview_text
+            numberVisibleRows=3
+        %}
+    </div>
+{% endif %}
+
+{% set description = SeoToolbox.getPageDescription(obBrand, arSEOParams)|default(obBrand.description) %}
+{% if description %}
+    <div class="mt-6 md:mt-10 mb-14">
+        {% partial 'common/expandable-text/expandable-text'
+            description=description
+        %}
+    </div>
+{% endif %}

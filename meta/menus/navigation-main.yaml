@@ -1,9 +1,22 @@
 items:
     -
         title: Catalog
+        nesting: null
         type: cms-page
+        url: null
         code: ''
         reference: category-list
+        cmsPage: null
+        replace: null
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Brand list'
+        type: cms-page
+        code: ''
+        reference: brand-list
         viewBag:
             isHidden: '0'
             cssClass: ''

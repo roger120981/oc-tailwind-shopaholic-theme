@@ -1,33 +1,40 @@
 class AdvancedList {
   constructor() {
-    this.wrapperNode = document.querySelector("._advanced-list");
-    this.buttonShowMoreNode = document.querySelector("._advanced-list-button-show-all");
-    this.buttonShowMoreHiddenNode = document.querySelector("._advanced-list-button-show-all-hidden");
   }
 
   init() {
-    if (!this.wrapperNode || !this.buttonShowMoreNode) {
+    const buttonShowMoreNodeList = document.querySelectorAll('._advanced-list-button-show-all');
+    if (!buttonShowMoreNodeList || buttonShowMoreNodeList.length === 0) {
       return;
     }
 
-    this.buttonShowMoreNode.addEventListener("click", () => {
-      this.buttonShowMoreNode.classList.add("hidden");
-      this.buttonShowMoreHiddenNode.classList.remove("hidden");
+    buttonShowMoreNodeList.forEach((buttonShowMoreNode) => {
+      buttonShowMoreNode.addEventListener('click', () => {
+        buttonShowMoreNode.classList.add('hidden');
+        const mainWrapperNode = buttonShowMoreNode.closest('section');
+        const wrapperNode = mainWrapperNode ? mainWrapperNode.querySelector('._advanced-list') : null;
+        const buttonShowMoreHiddenNode = mainWrapperNode ? mainWrapperNode.querySelector('._advanced-list-button-show-all-hidden') : null;
+        if (!wrapperNode) {
+          return;
+        }
 
-      setTimeout(() => {
-        const advancedNodeList = this.wrapperNode.querySelectorAll('li.hidden')
-        advancedNodeList.forEach(advancedNode => {
-          advancedNode.removeAttribute("aria-hidden");
-          advancedNode.classList.remove("hidden");
-        })
+        buttonShowMoreHiddenNode.classList.remove('hidden');
 
-        this.buttonShowMoreHiddenNode.classList.add("hidden");
-      }, 300);
+        setTimeout(() => {
+          const advancedNodeList = wrapperNode.querySelectorAll('li.hidden')
+          advancedNodeList.forEach(advancedNode => {
+            advancedNode.removeAttribute('aria-hidden');
+            advancedNode.classList.remove('hidden');
+          })
+
+          buttonShowMoreHiddenNode.classList.add('hidden');
+        }, 300);
+      });
     });
   }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   const obAdvancedList = new AdvancedList();
   obAdvancedList.init();
 });
