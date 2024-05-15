@@ -1,0 +1,39 @@
+{#
+Params:
+- contentBlock
+#}
+
+<div class="content-visibility my-7 md:my-12 sm:flex rtl:space-x-reverse space-y-2 sm:space-y-0 sm:space-x-4">
+    {% if contentBlock.image is not empty %}
+    <picture class="w-1/2 shrink-0 max-w-full lg:max-w-screen-sm">
+        <source
+                srcset="
+                {{ contentBlock.image|media|resize(624, 'auto', {'quality': 80, 'extension': 'webp'})}} 624w,
+                {{ contentBlock.image|media|resize(496, 'auto', {'quality': 80, 'extension': 'webp'})}} 496w,
+                {{ contentBlock.image|media|resize(400, 'auto', {'quality': 80, 'extension': 'webp'})}} 400w,
+                {{ contentBlock.image|media|resize(304, 'auto', {'quality': 80, 'extension': 'webp'})}} 304w
+            "
+                sizes="(min-width: 1280px) 624w, (max-width: 1279px) 496w, (max-width: 1024px) 400w, (max-width: 768px) 304w"
+                type="image/webp">
+        <img
+                srcset="
+                {{ contentBlock.image|media|resize(624, 'auto', {'quality': 80}) }} 624w,
+                {{ contentBlock.image|media|resize(496, 'auto', {'quality': 80}) }} 496w,
+                {{ contentBlock.image|media|resize(400, 'auto', {'quality': 80}) }} 400w,
+                {{ contentBlock.image|media|resize(304, 'auto', {'quality': 80}) }} 304w
+            "
+                sizes="(min-width: 1280px) 624w, (max-width: 1279px) 496w, (max-width: 1024px) 400w, (max-width: 768px) 304w"
+                src="{{ contentBlock.image|media|resize(10, 'auto')}}"
+                alt="{{ contentBlock.image_alt }}"
+                loading="lazy"
+                width="624"
+                height="416"
+                title="{{ contentBlock.image_title }}"
+        > </picture>
+    {% endif %}
+    {% if contentBlock.content is not empty %}
+        <div class="prose max-w-none prose-p:text-on-surface-variant text-sm lg:text-xl">
+            {{ contentBlock.content|raw }}
+        </div>
+    {% endif %}
+</div>

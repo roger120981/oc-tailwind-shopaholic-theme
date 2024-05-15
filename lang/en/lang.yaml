@@ -256,7 +256,6 @@ theme_payment_methods: 'Available payment methods'
 theme_powered_by_plugin: 'Shopaholic'
 theme_powered_by_theme: 'Tailwind'
 theme_powered_by: 'Powered by :theme_powered_by_plugin and the :theme_powered_by_theme theme.'
-theme_seo_content_not_added: 'No page SEO content has been added.'
 theme_social_media_list_not_added: 'No social medias has been added.'
 theme_social_media_list: 'Our social medias'
 
