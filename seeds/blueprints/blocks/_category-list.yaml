@@ -1,0 +1,9 @@
+uuid: e7ead132-6bdb-44d8-a6a0-89738141136e
+name: Category list
+type: mixin
+handle: Blocks\CategoryList
+
+fields:
+    empty:
+        label: 'shopaholic.theme.block.empty_settings'
+        type: section

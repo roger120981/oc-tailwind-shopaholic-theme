@@ -1,7 +1,5 @@
 class ProductListSmall {
   constructor() {
-    this.wrapperClass = '_product-list-small';
-    this.buttonWrapperClass = '_product-list-small-button';
     this.buttonNode = document.querySelector('._product-list-small-button-more');
   }
 
@@ -14,26 +12,26 @@ class ProductListSmall {
     this.buttonNode.addEventListener('click', (event) => {
       obThis.buttonNode.setAttribute('disabled', 'disabled');
 
-      const type = obThis.buttonNode.dataset.type;
-      const iPage = obThis.buttonNode.dataset.page;
-      const iTake = obThis.buttonNode.dataset.take;
-      const iProductID = obThis.buttonNode.dataset.productId;
-      const buttonName = obThis.buttonNode.outerText;
+      const filter = JSON.parse(obThis.buttonNode.dataset.filter);
+      const iPage = parseInt(obThis.buttonNode.dataset.page);
+      const iMaxPage = parseInt(obThis.buttonNode.dataset.maxPage);
+      const partial = obThis.buttonNode.dataset.partial;
+      const updateConfig = {};
+      updateConfig[`product/product-list-small/${partial}`] = '@._product-list-small';
+
       oc.ajax('onInit', {
         data: {
-          'type': type,
-          'page': iPage,
-          'take': iTake,
-          'product_id': iProductID,
-          'button_name': buttonName
+          ...filter,
+          'page': iPage + 1,
         },
-        update: {
-          'product/product-list-small/product-list-small-ajax': `@.${this.wrapperClass}`,
-          'product/product-list-small/product-list-small-button-ajax': `.${this.buttonWrapperClass}`
-        },
+        update: updateConfig,
         complete: function () {
-          obThis.buttonNode = document.querySelector('._product-list-small-button-more');
-          obThis.init();
+          if (iPage + 1 >= iMaxPage) {
+            obThis.buttonNode.remove();
+          } else {
+            obThis.buttonNode.removeAttribute('disabled');
+            obThis.buttonNode.dataset.page = iPage + 1;
+          }
         }
       });
     });

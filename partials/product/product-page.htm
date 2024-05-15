@@ -80,47 +80,68 @@
         {% endif %}
     </div>
 </div>
-<div class="grid grid-cols-1 xl:mt-10 xl:justify-items-center 2xl:justify-items-start xl:grid-cols-2{% if bHasViewedPlugin == false %} mb-10{% endif %}">
-    <div id="reviews" class="w-full flex flex-col">
-        <h2 class="text-gray-900 text-2xl font-medium uppercase mb-5">{{ 'reviews_customer_reviews'|_ }}</h2>
-        {% partial 'review/review-list'
-            showReviewsCount = true
-        %}
-        {% partial 'review/review-add' %}
-    </div>
-    {% partial 'product/product-rating'
-        wraperClasses = 'mt-6 xl:mt-14 xl:ps-11 2xl:ps-14'
-    %}
-</div>
 
-{% if bHasRelatedPlugin %}
-    {% partial 'product/product-list-small/product-list-small'
-        type = 'related_products'
-        obProduct = obProduct
-        sectionHeading = 'catalog_products_also_like'|_
-        sectionHeadingLevel = 2
-        iTake = 4
-        showIndex = 0
-    %}
-{% endif %}
-
-{% if bHasAccessoriesPlugin %}
-    {% partial 'product/product-list-small/product-list-small'
-        type = 'accessories'
-        obProduct = obProduct
-        sectionHeading = 'product_accessories'|_
-        sectionHeadingLevel = 2
-        iTake = 4
-        showIndex = 0
-    %}
-{% endif %}
-
-{% if bHasViewedPlugin %}
-    {% partial 'product/product-list-small/product-list-small'
-        type = 'viewed_products'
-        sectionHeading = 'catalog_products_viewed'|_
-        sectionHeadingLevel = 2
-        iTake = 4
-        showIndex = 0
-    %}
-{% endif %}
+{% for contentBlock in ProductPageContent.content_blocks %}
+    {% if contentBlock.type == 'review_list' %}
+        <div class="grid grid-cols-1 xl:mt-10 xl:justify-items-center 2xl:justify-items-start xl:grid-cols-2{% if bHasViewedPlugin == false %} mb-10{% endif %}">
+            <div id="reviews" class="w-full flex flex-col">
+                <h2 class="text-gray-900 text-2xl font-medium uppercase mb-5">{{ contentBlock.heading ? contentBlock.heading : 'reviews_customer_reviews'|_ }}</h2>
+                {% partial 'review/review-list'
+                    showReviewsCount = true
+                %}
+                {% partial 'review/review-add' %}
+            </div>
+            {% partial 'product/product-rating'
+                wraperClasses = 'mt-6 xl:mt-14 xl:ps-11 2xl:ps-14'
+            %}
+        </div>
+    {% endif %}
+    {% if contentBlock.type == 'accessory_product_list' %}
+        {% if bHasAccessoriesPlugin %}
+            {% partial 'product/product-list-small/product-list-small'
+                sectionHeading = contentBlock.heading ? contentBlock.heading : 'product_accessories'|_
+                sectionHeadingLevel = 2
+                body
+            %}
+            {% partial 'product/product-list-small/product-list-accessory'
+                iTake = 4
+                showIndex = 0
+                buttonName = 'catalog_products_show_more'|_
+                obProduct = obProduct
+            %}
+            {% endpartial %}
+        {% endif %}
+    {% endif %}
+    {% if contentBlock.type == 'related_product_list' %}
+        {% if bHasRelatedPlugin %}
+            {% partial 'product/product-list-small/product-list-small'
+                sectionHeading = contentBlock.heading ? contentBlock.heading : 'catalog_products_also_like'|_
+                sectionHeadingLevel = 2
+                body
+            %}
+            {% partial 'product/product-list-small/product-list-related'
+                iTake = 4
+                showIndex = 0
+                buttonName = 'catalog_products_show_more'|_
+                obProduct = obProduct
+            %}
+            {% endpartial %}
+        {% endif %}
+    {% endif %}
+    {% if contentBlock.type == 'viewed_product_list' %}
+        {% if bHasViewedPlugin %}
+            {% partial 'product/product-list-small/product-list-small'
+                sectionHeading = contentBlock.heading ? contentBlock.heading : 'catalog_products_viewed'|_
+                sectionHeadingLevel = 2
+                body
+            %}
+            {% partial 'product/product-list-small/product-list-viewed'
+                iTake = 4
+                showIndex = 0
+                buttonName = 'catalog_products_show_more'|_
+                obProduct = obProduct
+            %}
+            {% endpartial %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
