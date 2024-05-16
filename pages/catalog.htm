@@ -126,7 +126,7 @@ function onInit() {
         $iPage = $this->Pagination->getPageFromRequest();
 
         //Get product list
-        $obProductList = $this->ProductList->make()->active()->sort($sActiveSorting);
+        $obProductList = $this->ProductList->make()->active()->site()->sort($sActiveSorting);
 
         //Get category product list
         if (!empty($obActiveCategoryItem)) {
@@ -152,8 +152,7 @@ function onInit() {
                 }
             }
 
-            $obProductList = $obProductList->copy()
-                ->filterByProperty($arFilterValue, $obProductPropertyList)
+            $obProductList->filterByProperty($arFilterValue, $obProductPropertyList)
                 ->filterByProperty($arFilterValue, $obOfferPropertyList)
                 ->filterByPrice($fMinPriceFilterValue, $fMaxPriceFilterValue);
 

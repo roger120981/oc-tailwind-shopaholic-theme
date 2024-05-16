@@ -3,6 +3,7 @@ const jsFileList = [
   'js/vendor/app',
   'js/pages/account-details',
   'js/pages/account-orders',
+  'js/pages/brand-page',
   'js/pages/checkout',
   'js/pages/contact',
   'js/pages/faq',
